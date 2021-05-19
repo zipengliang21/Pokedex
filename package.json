@@ -1,5 +1,7 @@
 {
-  "name": "pokemon",
+  "name": "pokemon-website",
+  "author": "Zipeng Liang",
+  "homepage": "https://zipengliang21.github.io/Pokemon",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
