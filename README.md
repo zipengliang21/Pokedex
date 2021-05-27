@@ -31,7 +31,7 @@ Must be completed with your group before workshop 2
       **3. Users: Add the pokemons they collect to their user account**<br>
    * What is some additional functionality you can add/remove based on time constraints?<br>
      **1. Admin can add or delete pokemons**<br> 
-     **2. Users can add comments to pokemons ** <br>
+     **2. Users can add comments to pokemons**<br>
      **3. Website can recognize pokemon pictures by ML.**<br> 
 
 *  Project task requirements:<br>
