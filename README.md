@@ -16,15 +16,15 @@ Must be completed with your group before workshop 2
    * In order to create a repo, you will need to decide on a project name
   project name: Pokemon Website
 *  Project Description: Write 3-5 sentences on your project topic. (try to address all points below)
-   * Who is it for?
-       *Pokemon lovers
-   * What will it do? (What "human activity" will it support?)
-     1.Search for different pokemons
+   * Who is it for? <br>
+       Pokemon lovers
+   * What will it do? (What "human activity" will it support?)<br>
+     1. Search for different pokemons
      2. User can collect pokemons
      3. User can Filter pokemons by their types
    * What type of data will it store?
-     Pokemon:Image, number, char
-     User/Admin Account: number, char
+     1. Pokemon:Image, number, char
+     2. User/Admin Account: number, char
    * What will users be able to do with this data?
       1. Users: Search for pokemons
       2. Users: Filter pokemons based on their types
