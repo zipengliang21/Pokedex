@@ -35,24 +35,24 @@ Must be completed with your group before workshop 2
      **3. Website can recognize pokemon pictures by ML.**<br> 
 
 *  Project task requirements:<br>
-   * 3-5 minimal requirements (will definitely complete)
+   * 3-5 minimal requirements (will definitely complete)<br> 
       **1. Users can Search for different pokemons**<br>
       **2. Users can collect pokemons**<br> 
       **3. Users can Filter pokemon according to their types**<br>
       **4. Users can sign up or login to their accounts**<br>   
    
-   * 3-7 "standard" requirements (will most likely complete)
+   * 3-7 "standard" requirements (will most likely complete)<br> 
 
       **1. Admin can login an Admin account**<br> 
       **2. Add pokemons to database by Admin** <br>
       **3. Delete pokemons from database by Admin** <br>
 
-   * 2-3 stretch requirements (plan to complete at least 1)
+   * 2-3 stretch requirements (plan to complete at least 1)<br> 
       **1. The website can recognize pokemon pictures by ML.** <br>
       **2. Users can make comments for different pokemons.** <br> 
       **3. Support different languages for users (e.g English and Chinese)**<br> 
 
-*  Pick 2 of your minimal requirements and break each of them down into ~2-5 smaller tasks!
+*  Pick 2 of your minimal requirements and break each of them down into ~2-5 smaller tasks!<br> 
    *  This will help you divide up work among your teammates<br>
      **A. Users can search pokemon**<br>
        **1. Create Database for Pokemon**<br>
