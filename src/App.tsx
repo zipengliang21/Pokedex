@@ -1,10 +1,16 @@
 import React from 'react';
+import {Switch, Route} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      Pokemon - CPSC455 Project
-    </div>
+      <Switch>
+         <Route exact path="/">
+            <div className="App">
+               Pokemon - CPSC455 Project
+            </div>
+         </Route>
+      </Switch>
+
   );
 }
 
