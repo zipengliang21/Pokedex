@@ -49,7 +49,7 @@ Must be completed with your group before workshop 2
 
    * 2-3 stretch requirements (plan to complete at least 1)
       **1. The website can recognize pokemon pictures by ML.** <br>
-      **2. Users can make comments for different pokemons**<br> 
+      **2. Users can make comments for different pokemons.** <br> 
       **3. Support different languages for users (e.g English and Chinese)**<br> 
 
 *  Pick 2 of your minimal requirements and break each of them down into ~2-5 smaller tasks!
