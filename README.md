@@ -17,55 +17,55 @@ Must be completed with your group before workshop 2
   project name: Pokemon Website
 *  Project Description: Write 3-5 sentences on your project topic. (try to address all points below)
    * Who is it for? <br>
-       Pokemon lovers
+      **Pokemon lovers**<br>
    * What will it do? (What "human activity" will it support?)<br>
-     1. Search for different pokemons
-     2. User can collect pokemons
-     3. User can Filter pokemons by their types
-   * What type of data will it store?
-     1. Pokemon:Image, number, char
-     2. User/Admin Account: number, char
-   * What will users be able to do with this data?
-      1. Users: Search for pokemons
-      2. Users: Filter pokemons based on their types
-      3. Users: Add the pokemons they collect to their user account
-   * What is some additional functionality you can add/remove based on time constraints?
-     1. Admin can add or delete pokemons
-     2. Users can add comments to pokemons 
-     3. Website can recognize pokemon pictures by ML.
+     **1. Search for different pokemons**<br> 
+     **2. User can collect pokemons**<br>
+     **3. User can Filter pokemons by their types**<br>
+   * What type of data will it store?<br>
+     **1. Pokemon:Image, number, char**<br> 
+     **2. User/Admin Account: number, char**<br>
+   * What will users be able to do with this data?<br>
+      **1. Users: Search for pokemons**<br> 
+      **2. Users: Filter pokemons based on their types**<br>
+      **3. Users: Add the pokemons they collect to their user account**<br>
+   * What is some additional functionality you can add/remove based on time constraints?<br>
+     **1. Admin can add or delete pokemons**<br> 
+     **2. Users can add comments to pokemons ** <br>
+     **3. Website can recognize pokemon pictures by ML.**<br> 
 
-*  Project task requirements:
+*  Project task requirements:<br>
    * 3-5 minimal requirements (will definitely complete)
-      1. Users can Search for different pokemons
-      2. Users can collect pokemons
-      3. Users can Filter pokemon according to their types
-      4. Users can sign up or login to their accounts    
+      **1. Users can Search for different pokemons**<br>
+      **2. Users can collect pokemons**<br> 
+      **3. Users can Filter pokemon according to their types**<br>
+      **4. Users can sign up or login to their accounts**<br>   
    
    * 3-7 "standard" requirements (will most likely complete)
 
-      1. Admin can login an Admin account
-      2. Add pokemons to database by Admin
-      3. Delete pokemons from database by Admin
+      **1. Admin can login an Admin account**<br> 
+      **2. Add pokemons to database by Admin** <br>
+      **3. Delete pokemons from database by Admin** <br>
 
    * 2-3 stretch requirements (plan to complete at least 1)
-      1. The website can recognize pokemon pictures by ML.
-      2. Users can make comments for different pokemons
-      3. Support different languages for users (e.g English and Chinese)
+      **1. The website can recognize pokemon pictures by ML.** <br>
+      **2. Users can make comments for different pokemons**<br> 
+      **3. Support different languages for users (e.g English and Chinese)**<br> 
 
 *  Pick 2 of your minimal requirements and break each of them down into ~2-5 smaller tasks!
-   *  This will help you divide up work among your teammates
-      A. Users can search pokemon
-       1. Create Database for Pokemon
-       2. Search function based on the Pokemon name
-       3. Search page which displays pokemon info and user can collect pokemon from here
+   *  This will help you divide up work among your teammates<br>
+     **A. Users can search pokemon**<br>
+       **1. Create Database for Pokemon**<br>
+       **2. Search function based on the Pokemon name**<br>
+       **3. Search page which displays pokemon info and user can collect pokemon from here** <br>
 
-      B. Users can Collect Pokemons 
-        1. Create Database for User, every user has a list of collected pokemons. Have different function Apis to manipulate this list (Add/Remove/Update)
-        2.   Login page for user to do authentication
-        3.   After a user clicks on the collect button on Search page, that pokemon will be added   to that user's collection list
-        4.   Collection page shows collected pokemons by a user.
-*  Finally, draw 2-3 rough sketch prototypes of some key tasks of your app. Sketch these physically on paper and then scan and add to your repo.
- 
+     **B. Users can Collect Pokemons**<br>
+        **1. Create Database for User, every user has a list of collected pokemons. Have different function Apis to manipulate this list (Add/Remove/Update)**<br>
+        **2.   Login page for user to do authentication**<br>
+        **3.   After a user clicks on the collect button on Search page, that pokemon will be added   to that user's collection list**<br>
+        **4.   Collection page shows collected pokemons by a user.**<br> 
+*  Finally, draw 2-3 rough sketch prototypes of some key tasks of your app. Sketch these physically on paper and then scan and add to your repo.<br>
+        **Other doc**
 
 
 
