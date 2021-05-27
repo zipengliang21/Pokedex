@@ -17,35 +17,35 @@ Must be completed with your group before workshop 2
   project name: Pokemon Website
 *  Project Description: Write 3-5 sentences on your project topic. (try to address all points below)
    * Who is it for?
-      Pokemon lovers
+       *Pokemon lovers
    * What will it do? (What "human activity" will it support?)
      1.Search for different pokemons
      2. User can collect pokemons
      3. User can Filter pokemons by their types
    * What type of data will it store?
      Pokemon:Image, number, char
-    User/Admin Account: number, char
+     User/Admin Account: number, char
    * What will users be able to do with this data?
-   Users: Search for pokemons
-   Users: Filter pokemons
-   Users: Add the pokemons they pick to their user account
+      1. Users: Search for pokemons
+      2. Users: Filter pokemons based on their types
+      3. Users: Add the pokemons they collect to their user account
    * What is some additional functionality you can add/remove based on time constraints?
-     Admin can add or delete pokemons
-     Users can add comments to pokemons 
-     Website can recognize pokemon pictures by ML.
+     1. Admin can add or delete pokemons
+     2. Users can add comments to pokemons 
+     3. Website can recognize pokemon pictures by ML.
 
 *  Project task requirements:
    * 3-5 minimal requirements (will definitely complete)
-Users can Search for different pokemons
-Users can collect pokemons
-Users can Filter pokemon according to their types
-Users can sign up or login to their accounts    
+      1. Users can Search for different pokemons
+      2. Users can collect pokemons
+      3. Users can Filter pokemon according to their types
+      4. Users can sign up or login to their accounts    
    
    * 3-7 "standard" requirements (will most likely complete)
 
-Admin can login an Admin account
-Add pokemons to database by Admin
-Delete pokemons from database by Admin
+      1. Admin can login an Admin account
+      2. Add pokemons to database by Admin
+      3. Delete pokemons from database by Admin
 
    * 2-3 stretch requirements (plan to complete at least 1)
       1. The website can recognize pokemon pictures by ML.
@@ -54,10 +54,10 @@ Delete pokemons from database by Admin
 
 *  Pick 2 of your minimal requirements and break each of them down into ~2-5 smaller tasks!
    *  This will help you divide up work among your teammates
-Users can search pokemon
-Create Database for Pokemon
-Search function based on the Pokemon name
-Search page which displays pokemon info and user can collect pokemon from here
+      A. Users can search pokemon
+       1. Create Database for Pokemon
+       2. Search function based on the Pokemon name
+       3. Search page which displays pokemon info and user can collect pokemon from here
 
       B. Users can Collect Pokemons 
 Create Database for User, every user has a list of collected pokemons. Have different function Apis to manipulate this list (Add/Remove/Update)
