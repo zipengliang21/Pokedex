@@ -70,7 +70,7 @@ Must be completed with your group before workshop 2
 *  Finally, draw 2-3 rough sketch prototypes of some key tasks of your app. Sketch these physically on paper and then scan and add to your repo.<br>
        
 ![alt text](https://github.com/zipengliang21/pokemon-website/blob/Jenna/pokemon_login.JPG?raw=true)
-![alt text](https://github.com/zipengliang21/pokemon-website/blob/Jenna/pokemon_search.JPG?raw=true)
+![alt text](https://github.com/zipengliang21/pokemon-website/blob/Jenna/pokemon_searchfilter.JPG?raw=true)
 ![alt text](https://github.com/zipengliang21/pokemon-website/blob/Jenna/pokemon_collection.JPG?raw=true)
 
 
