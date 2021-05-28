@@ -14,7 +14,9 @@ Must be completed with your group before workshop 2
 *  Let TAs know who your group members are (we will do some icebreaker exercises today)
 *  Must have a repo in github which all group members can access and send us the link on slack. (See instructions “How to hand in” below.)
    * In order to create a repo, you will need to decide on a project name
-  project name: Pokemon Website
+     **project name: Pokemon Website**<br>
+     **Team name: Team Racket**<br>
+
 *  Project Description: Write 3-5 sentences on your project topic. (try to address all points below)
    * Who is it for? <br>
       **Pokemon lovers**<br>
@@ -65,9 +67,10 @@ Must be completed with your group before workshop 2
         **3.   After a user clicks on the collect button on Search page, that pokemon will be added   to that user's collection list**<br>
         **4.   Collection page shows collected pokemons by a user.**<br> 
 *  Finally, draw 2-3 rough sketch prototypes of some key tasks of your app. Sketch these physically on paper and then scan and add to your repo.<br>
-        **Other doc**
-
-
+       
+![alt text](https://github.com/zipengliang21/pokemon-website/blob/Jenna/pokemon_login.JPG?raw=true)
+![alt text](https://github.com/zipengliang21/pokemon-website/blob/Jenna/pokemon_search.JPG?raw=true)
+![alt text](https://github.com/zipengliang21/pokemon-website/blob/Jenna/pokemon_collection.JPG?raw=true)
 
 
 How to hand in:
