@@ -13,7 +13,7 @@ Must be completed with your group before workshop 2
 
 *  Let TAs know who your group members are (we will do some icebreaker exercises today)
 *  Must have a repo in github which all group members can access and send us the link on slack. (See instructions “How to hand in” below.)
-   * In order to create a repo, you will need to decide on a project name
+   * In order to create a repo, you will need to decide on a project name<br>
      **project name: Pokemon Website**<br>
      **Team name: Team Racket**<br>
 
