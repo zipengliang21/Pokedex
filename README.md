@@ -1,4 +1,4 @@
-# Pokemon Website
+# Pokedex
 
 This is a CPSC 455 project.
 Project Progress after Workshop 1
@@ -14,7 +14,7 @@ Must be completed with your group before workshop 2
 *  Let TAs know who your group members are (we will do some icebreaker exercises today)
 *  Must have a repo in github which all group members can access and send us the link on slack. (See instructions “How to hand in” below.)
    * In order to create a repo, you will need to decide on a project name<br>
-     **project name: Pokemon Website**<br>
+     **project name: Pokedex**<br>
      **Team name: Team Racket**<br>
 
 *  Project Description: Write 3-5 sentences on your project topic. (try to address all points below)
@@ -48,6 +48,7 @@ Must be completed with your group before workshop 2
       **1. Admin can login an Admin account**<br> 
       **2. Add pokemons to database by Admin** <br>
       **3. Delete pokemons from database by Admin** <br>
+      **4.  Users can login via their google accounts or github accounts.**<br>
 
    * 2-3 stretch requirements (plan to complete at least 1)<br> 
       **1. The website can recognize pokemon pictures by ML.** <br>
