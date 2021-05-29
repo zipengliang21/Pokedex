@@ -1,7 +1,0 @@
-Describe (for the project): <br>
-(1) what you’ve worked on in the previous two weeks<br>
-I organize the meeting twice a week for our group. Create the google doc for progress 1. Wrote our ideas in this progress. And I also sketch the UI for our project.<br> 
- (2) what you’ll be working on in the next two weeks, and<br>
-I will work on the construction of database next two weeks. <br>
-(3) where you might have gotten stuck during the last two weeks.<br>
-It is my first time to use MangoDB, I might get stuck in the setting up part. <br>
