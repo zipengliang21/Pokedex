@@ -15,7 +15,7 @@ Must be completed with your group before workshop 2
 *  Must have a repo in github which all group members can access and send us the link on slack. (See instructions “How to hand in” below.)
    * In order to create a repo, you will need to decide on a project name<br>
      **project name: Pokedex**<br>
-     **Team name: Team Racket**<br>
+     **Team name: Team Rocket**<br>
 
 *  Project Description: Write 3-5 sentences on your project topic. (try to address all points below)
    * Who is it for? <br>
