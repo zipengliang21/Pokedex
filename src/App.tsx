@@ -1,6 +1,8 @@
 import React from 'react';
 import {Switch, Route} from "react-router-dom";
 import NavBar from "./components/NavBar";
+import SearchBar from "./components/SearchBar";
+import FilterBar from "./components/FilterBar";
 import styled from "styled-components";
 
 const Test = styled.span`
@@ -22,7 +24,9 @@ function App() {
          </Route>
          <Route exact path="/filterSearch">
             <NavBar />
-            <Test>Filter Search</Test>
+            {/*<Test>Filter Search</Test>*/}
+             <SearchBar/>
+             {/*<FilterBar/>*/}
          </Route>
          <Route exact path="/pokemonComments">
             <NavBar />
