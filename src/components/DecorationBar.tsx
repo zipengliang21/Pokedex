@@ -23,3 +23,4 @@ const DecorationBar = () => {
 };
 
 export default DecorationBar;
+
