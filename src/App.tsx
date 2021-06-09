@@ -15,22 +15,22 @@ const Test = styled.span`
 function App() {
   return (
       <Switch>
-         <Route exact path="/">
+         <Route exact path="/Pokemon">
             <NavBar />
             <Test>Home</Test>
          </Route>
-         <Route exact path="/profile">
+         <Route exact path="/Pokemon/profile">
             <NavBar />
             <Test>Profile</Test>
          </Route>
-         <Route exact path="/filterSearch">
+         <Route exact path="/Pokemon/filterSearch">
             <NavBar />
             {/*<Test>Filter Search</Test>*/}
              <SearchBar/>
              <FilterBar/>
              <DecorationBar/>
          </Route>
-         <Route exact path="/pokemonComments">
+         <Route exact path="/Pokemon/pokemonComments">
             <NavBar />
             <Test>Pokemon Comments</Test>
          </Route>
