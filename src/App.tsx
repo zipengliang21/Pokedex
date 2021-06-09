@@ -25,7 +25,6 @@ function App() {
          </Route>
          <Route exact path="/Pokemon/filterSearch">
             <NavBar />
-            {/*<Test>Filter Search</Test>*/}
              <SearchBar/>
              <FilterBar/>
              <DecorationBar/>
