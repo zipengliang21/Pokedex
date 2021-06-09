@@ -1,9 +1,6 @@
 import * as React from "react";
-
 import styled from "styled-components";
-import * as ReactDOM from "react-dom";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-// const pokemonDec = require('./image/poke2.jpg');
+
 const DecorBarDiv = styled.div`
   position: fixed;
   width: 90%;
@@ -23,3 +20,4 @@ const DecorationBar = () => {
 };
 
 export default DecorationBar;
+
