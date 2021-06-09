@@ -55,31 +55,31 @@ const NavBar = (props: any) => (
        <NavBarMenu>
           <HideSidebarButton id='hideButton' onClick={props.HideSideBarButton}><span>☰</span></HideSidebarButton>
           <div className="account">
-             <NavLink exact to="/">Account</NavLink>
+             <NavLink exact to="/Pokemon">Account</NavLink>
           </div>
           <MenuText>
-             <NavLink exact activeClassName="selected" to="/">
+             <NavLink exact activeClassName="selected" to="/Pokemon">
                 <FontAwesomeIcon icon="home"/>
                 <span>home</span>
                 <FontAwesomeIcon icon="angle-up" className="arrow"/>
              </NavLink >
           </MenuText>
           <MenuText>
-             <NavLink exact activeClassName="selected" to="/profile">
+             <NavLink exact activeClassName="selected" to="/Pokemon/profile">
                 <FontAwesomeIcon icon="address-card"  />
                 <span>Profile</span>
                 <FontAwesomeIcon icon="angle-up" className="arrow"/>
              </NavLink >
           </MenuText>
           <MenuText>
-             <NavLink exact activeClassName="selected" to="/filterSearch">
+             <NavLink exact activeClassName="selected" to="/Pokemon/filterSearch">
                 <FontAwesomeIcon icon="search"  />
                 <span>Filter Search</span>
                 <FontAwesomeIcon icon="angle-up" className="arrow"/>
              </NavLink >
           </MenuText>
           <MenuText>
-             <NavLink exact activeClassName="selected" to="/pokemonComments">
+             <NavLink exact activeClassName="selected" to="/Pokemon/pokemonComments">
                 <FontAwesomeIcon icon="comment"/>
                 <span>
                    <span>Pokemon</span>
