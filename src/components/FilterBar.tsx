@@ -1,69 +1,74 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import {
-    DropDownList,
-    // DropDownListFilterChangeEvent,
-} from "@progress/kendo-react-dropdowns";
 import styled from "styled-components";
-// import {
-//     CompositeFilterDescriptor,
-//     filterBy,
-//     FilterDescriptor,
-// } from "@progress/kendo-data-query";
+import {useEffect, useState} from "react";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-const FilterBarDiv = styled.form`
+const FilterBarDiv = styled.div`
   color: blue;
   position: fixed;
-  left: 400px;
-  top: 0;
+  left: 80%;
+  top: 25px;
 
 `
+// enspired from https://stackoverflow.com/questions/59890203/filtering-select-drop-down-menu-to-filter-in-react
 
-const allData = [
-    { id: 1, text: "Normal" },
-    { id: 2, text: "Fire" },
-    { id: 3, text: "Water" },
-    { id: 4, text: "Grass" },
-    { id: 5, text: "Flying" },
-    { id: 6, text: "Fighting" },
-    { id: 7, text: "Poison" },
-    { id: 8, text: "Electric" },
-    { id: 9, text: "Ground" },
-    { id: 10, text: "Rock" },
-    { id: 11, text: "Psychic" },
-    { id: 12, text: "Ice" },
-    { id: 13, text: "Bug" },
-    { id: 14, text: "Ghost" },
-    { id: 15, text: "Steel" },
-    { id: 16, text: "Dragon" },
-    { id: 17, text: "Dark" },
-    { id: 18, text: "Fairy" },
-];
 
 const FilterBar = () => {
-    const [data, setData] = React.useState(allData.slice());
+    const [Type, setType] = useState([]);
 
-    // const filterData = (filter: FilterDescriptor | CompositeFilterDescriptor) => {
-    //     const data = allData.slice();
-    //     return filterBy(data, filter);
+    // useEffect(() => {
+    //     console.log('effect');
+    //     // axios.get(`https://restcountries.eu/rest/v2/all`).then((response) => {
+    //     //     console.log(response);
+    //     //     setCountries(response.data);
+    //     // });
+    // }, []);
+
+    const handleSelect = (event:any) => {
+        setType(event.target.value);
+    };
+    // const handleSelect = (event:any) => {
+    //     setRegion(event.target.value);
     // };
 
-    // const filterChange = (event: DropDownListFilterChangeEvent) => {
-    //     const newData =
-    //         event.filter.value.length > 3
-    //             ? filterData(event.filter)
-    //             : allData.slice();
-    //     setData(newData);
-    // };
+    // Filter function
 
+    // const filteredRegion = countries.filter((country) =>
+    //     country.region.toLowerCase().includes(region.toLocaleLowerCase())
+    // );
+    //
     return (
         <FilterBarDiv>
-        <DropDownList
-            data={data}
-            textField="text"
-            filterable={true}
-            // onFilterChange={filterChange}
-        />
+            {/*FontAwesomeIcon doesn't work*/}
+            <FontAwesomeIcon icon = "filter" className="fas fa-filter"/>
+            <select value={Type} onChange={handleSelect}>
+                <option value='All'>All Types</option>
+                <option value='Normal'>Normal</option>
+                <option value='Fire'>Fire</option>
+                <option value='Water'>Water</option>
+                <option value='Grass'>Grass</option>
+                <option value='Flying'>Flying</option>
+                <option value='Fighting'>Fighting</option>
+                <option value='Poison'>Poison</option>
+                <option value='Electric'>Electric</option>
+                <option value='Ground'>Ground</option>
+                <option value='Rock'>Rock</option>
+                <option value='Psychic'>Psychic</option>
+                <option value='Ice'>Ice</option>
+                <option value='Bug'>Bug</option>
+                <option value='Ghost'>Ghost</option>
+                <option value='Steel'>Steel</option>
+                <option value='Dragon'>Dragon</option>
+                <option value='Steel'>Steel</option>
+                <option value='Dark'>Dark</option>
+                <option value='Fairy'>Fairy</option>
+
+            </select>
+            {/*<CountryList*/}
+            {/*    filteredCountries={filteredCountries}*/}
+            {/*    filteredRegion={filteredRegion}*/}
+            {/*/>*/}
         </FilterBarDiv>
     );
 };

@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar";
 import SearchBar from "./components/SearchBar";
 import FilterBar from "./components/FilterBar";
 import styled from "styled-components";
+import DecorationBar from "./components/DecorationBar";
 
 const Test = styled.span`
   position: fixed;
@@ -26,7 +27,8 @@ function App() {
             <NavBar />
             {/*<Test>Filter Search</Test>*/}
              <SearchBar/>
-             {/*<FilterBar/>*/}
+             <FilterBar/>
+             <DecorationBar/>
          </Route>
          <Route exact path="/pokemonComments">
             <NavBar />
