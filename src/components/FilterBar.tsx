@@ -63,7 +63,7 @@ const FilterBar = () => {
                 <option value='Fairy'>Fairy</option>
 
             </select>
-            
+
         </FilterBarDiv>
     );
 };
