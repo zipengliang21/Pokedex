@@ -8,7 +8,7 @@ const DecorBarDiv = styled.div`
   position: fixed;
   width: 90%;
   height: 150px;
-  left: 233px;
+  left: 236px;
   top: 50px;
   background-image: url("https://p.favim.com/orig/2018/08/14/cute-pokemon-beautiful-Favim.com-6162832.jpg")
  
