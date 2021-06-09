@@ -5,16 +5,10 @@ import styled from "styled-components";
 
 const NavBarWrapper = styled.header`
     width: 236px;
-    //position: fixed;
-    //left: 0;
     height: 100vh;
     background: #212D3B;
     border: solid 1px #212D3B;
     top: var(--ytd-masthead-height, 0px);
-    //bottom: 0;
-    -webkit-animation: slideIn 1s forwards;
-    -moz-animation: slideIn 1s forwards;
-    animation: slideIn 1s forwards;
 `;
 
 const NavBarMenu = styled.ul`
@@ -38,7 +32,6 @@ const HideSidebarButton = styled.button`
 `;
 
 const MenuText = styled.li`
-    //font-weight: 600;
     font-size: 17px;
     color: #80B2EC;
     padding-top: 18px;
@@ -60,7 +53,7 @@ const MenuText = styled.li`
 const NavBar = (props: any) => (
     <NavBarWrapper>
        <NavBarMenu>
-          <HideSidebarButton id='hidebutton' onClick={props.HideSideBarButton}><span>☰</span></HideSidebarButton>
+          <HideSidebarButton id='hideButton' onClick={props.HideSideBarButton}><span>☰</span></HideSidebarButton>
           <div className="account">
              <NavLink exact to="/">Account</NavLink>
           </div>
