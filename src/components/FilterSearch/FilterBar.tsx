@@ -5,10 +5,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const FilterBarDiv = styled.div`
   color: blue;
-  position: fixed;
-  left: 80%;
-  top: 25px;
-
+  margin-left: 80px;
 `
 // inspired from https://stackoverflow.com/questions/59890203/filtering-select-drop-down-menu-to-filter-in-react
 
