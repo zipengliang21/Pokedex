@@ -59,138 +59,138 @@ const DecorationBar = styled.div`
 `;
 
 const formStyle = {
-    marginTop: "5vh",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
+  marginTop: "5vh",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
 };
 
 const labelStyle = {
-    width: "100%",
-    display: "flex",
-    justifyContent: "center",
-    fontSize: "20px",
-    fontWeight: "bold",
-    marginBottom: "2vh",
+  width: "100%",
+  display: "flex",
+  justifyContent: "center",
+  fontSize: "20px",
+  fontWeight: "bold",
+  marginBottom: "2vh",
 };
 
 const inputStyle = {
-    marginLeft: "50px",
+  marginLeft: "50px",
 };
 
 const inputStyleP = {
-    marginLeft: "60px",
+  marginLeft: "60px",
 };
 
 const submitButtonStyle = {
-    marginTop: "3vh",
-    background: "#0066ff",
-    border: "none",
-    width: "20%",
-    padding: "8px",
-    borderRadius: "8px",
-    color: "#FFFF",
-    fontWeight: "bold",
-    fontSize: "18px",
+  marginTop: "3vh",
+  background: "#0066ff",
+  border: "none",
+  width: "20%",
+  padding: "8px",
+  borderRadius: "8px",
+  color: "#FFFF",
+  fontWeight: "bold",
+  fontSize: "18px",
 };
 
 const adminButtonStyle = {
-    background: "#edb77e",
-    border: "none",
-    width: "20%",
-    padding: "8px",
-    borderRadius: "8px",
-    color: "#000",
-    fontWeight: "bold",
-    fontSize: "18px",
-    marginBottom: "0px",
-    marginLeft: "16px"
+  background: "#edb77e",
+  border: "none",
+  width: "20%",
+  padding: "8px",
+  borderRadius: "8px",
+  color: "#000",
+  fontWeight: "bold",
+  fontSize: "18px",
+	marginBottom: "0px",
+	marginLeft: "16px"
 };
 
 function Login(props: any) {
-    const [flag, setFlag] = React.useState(1);
+  const [flag, setFlag] = React.useState(1);
 
-    const handleChangeFlag = (event: any) => {
-        const temp = event.target.id;
-        if (temp === "login") {
-            setFlag(1)
-        } else {
-            setFlag(2)
-        }
+  const handleChangeFlag = (event: any) => {
+		const temp = event.target.id;
+		if (temp === "login") {
+			setFlag(1)
+		} else {
+			setFlag(2)
+		}
 
-    };
+	};
 
-    return (
-        <Wrapper>
-            <DecorationBar />
-            <InputContainer>
-                <Title>Welcome</Title>
-                <SwitchContainer>
-                    <div>
-                        <Switch id="login" onClick={handleChangeFlag}>Login</Switch>
-                        <Indicator hidden={flag !== 1}/>
-                    </div>
-                    <div>
-                        <Switch id="register" onClick={handleChangeFlag}>Register</Switch>
-                        <Indicator hidden={flag !== 2}/>
-                    </div>
-                </SwitchContainer>
-                <div hidden={flag !== 1}>
-                    <form style={formStyle as React.CSSProperties}>
-                        <label style={labelStyle as React.CSSProperties}>
-                            User Name
-                            <input
-                                placeholder="Your email address"
-                                style={inputStyle as React.CSSProperties}
-                                type="text"
-                            />
-                        </label>
-                        <label style={labelStyle as React.CSSProperties}>
-                            Password
-                            <input
-                                placeholder="Password"
-                                style={inputStyleP as React.CSSProperties}
-                                type="text"
-                            />
-                        </label>
-                        <button
-                            type="submit"
-                            style={submitButtonStyle as React.CSSProperties}
-                        >
-                            Login
-                        </button>
-                    </form>
-                </div>
-                <div hidden={flag !== 2}>
-                    <form style={formStyle as React.CSSProperties}>
-                        <label style={labelStyle as React.CSSProperties}>
-                            New Name
-                            <input
-                                placeholder="Your email address"
-                                style={inputStyle as React.CSSProperties}
-                                type="text"
-                            />
-                        </label>
-                        <label style={labelStyle as React.CSSProperties}>
-                            Password
-                            <input
-                                placeholder="Password"
-                                style={inputStyleP as React.CSSProperties}
-                                type="text"
-                            />
-                        </label>
-                        <button
-                            type="submit"
-                            style={submitButtonStyle as React.CSSProperties}
-                        >
-                            Sign Up
-                        </button>
-                    </form>
-                </div>
-                <button style={adminButtonStyle as React.CSSProperties}>Admin</button>
-            </InputContainer>
-        </Wrapper>
-    );
+  return (
+    <Wrapper>
+      <DecorationBar />
+      <InputContainer>
+        <Title>Welcome</Title>
+        <SwitchContainer>
+          <div>
+            <Switch id="login" onClick={handleChangeFlag}>Login</Switch>
+            <Indicator hidden={flag !== 1}/>
+          </div>
+          <div>
+            <Switch id="register" onClick={handleChangeFlag}>Register</Switch>
+            <Indicator hidden={flag !== 2}/>
+          </div>
+        </SwitchContainer>
+        <div hidden={flag !== 1}>
+          <form style={formStyle as React.CSSProperties}>
+            <label style={labelStyle as React.CSSProperties}>
+              User Name
+              <input
+                placeholder="Your email address"
+                style={inputStyle as React.CSSProperties}
+                type="text"
+              />
+            </label>
+            <label style={labelStyle as React.CSSProperties}>
+              Password
+              <input
+                placeholder="Password"
+                style={inputStyleP as React.CSSProperties}
+                type="text"
+              />
+            </label>
+            <button
+              type="submit"
+              style={submitButtonStyle as React.CSSProperties}
+            >
+              Login
+            </button>
+          </form>
+        </div>
+        <div hidden={flag !== 2}>
+          <form style={formStyle as React.CSSProperties}>
+            <label style={labelStyle as React.CSSProperties}>
+              New Name
+              <input
+                placeholder="Your email address"
+                style={inputStyle as React.CSSProperties}
+                type="text"
+              />
+            </label>
+            <label style={labelStyle as React.CSSProperties}>
+              Password
+              <input
+                placeholder="Password"
+                style={inputStyleP as React.CSSProperties}
+                type="text"
+              />
+            </label>
+            <button
+              type="submit"
+              style={submitButtonStyle as React.CSSProperties}
+            >
+              Sign Up
+            </button>
+          </form>
+        </div>
+				<button style={adminButtonStyle as React.CSSProperties}>Admin</button>
+      </InputContainer>
+    </Wrapper>
+  );
 }
 
 export default Login;

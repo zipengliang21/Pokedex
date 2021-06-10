@@ -5,6 +5,7 @@ import SearchBar from "./components/SearchBar";
 import FilterBar from "./components/FilterBar";
 import styled from "styled-components";
 import DecorationBar from "./components/DecorationBar";
+
 import WelcomeLoginButton from "./components/WelcomeLoginButton";
 import Login from "./components/Login";
 
@@ -41,6 +42,7 @@ function App() {
             <Test>Pokemon Comments</Test>
          </Route>
       </Switch>
+
 
   );
 }
