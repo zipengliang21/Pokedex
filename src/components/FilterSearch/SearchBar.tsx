@@ -2,9 +2,8 @@ import React from 'react';
 import styled from "styled-components";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-const SearchBarDiv = styled.form`
+const SearchBarDiv = styled.div`
   color: blue;
-  position: fixed;
   left: 300px;
   top: 25px;
 
@@ -31,3 +30,4 @@ const SearchBar = () => {
 };
 
 export default SearchBar;
+
