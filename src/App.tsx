@@ -1,5 +1,5 @@
 import React from "react";
-import {Switch, Route} from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import styled from "styled-components";
 import WelcomeLoginButton from "./components/WelcomeLoginButton";
 import Login from "./components/Login";
@@ -14,25 +14,25 @@ const Test = styled.span`
 
 function App() {
    return (
-       <Switch>
-          <Route exact path="/Login">
-             <Login/>
-          </Route>
-          <Route exact path="/Pokemon">
-             <WelcomeLoginButton/>
-          </Route>
-          <Route exact path="/Pokemon/profile">
-             <SideBar/>
-             <Test>Profile</Test>
-          </Route>
-          <Route exact path="/Pokemon/filterSearch">
-            <FilterSearchPage/>
-          </Route>
-          <Route exact path="/Pokemon/pokemonComments">
-             <SideBar/>
-             <Test>Pokemon Comments</Test>
-          </Route>
-       </Switch>
+      <Switch>
+         <Route exact path="/Login">
+            <Login />
+         </Route>
+         <Route exact path="/Pokemon">
+            <WelcomeLoginButton />
+         </Route>
+         <Route exact path="/Pokemon/profile">
+            <SideBar />
+            <Test>Profile</Test>
+         </Route>
+         <Route exact path="/Pokemon/filterSearch">
+            <FilterSearchPage />
+         </Route>
+         <Route exact path="/Pokemon/pokemonComments">
+            <SideBar />
+            <Test>Pokemon Comments</Test>
+         </Route>
+      </Switch>
    );
 }
 
