@@ -21,8 +21,7 @@ function App() {
               <Login/>
           </Route>
          <Route exact path="/Pokemon">
-            {/*<NavBar />*/}
-            {/*<DecorationBar/>*/}
+
             <WelcomeLoginButton/>
          </Route>
          <Route exact path="/Pokemon/profile">
