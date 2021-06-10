@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  //background: #FBFAF6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*::before {
+  box-sizing: border-box;
+}
+
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1.8;
+  font-family: 'Poppins', sans-serif;
+  //word-break: break-word;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit
+}
+
+body, button, input, select, textarea {
+  font:12px/1.5tahoma, arial, \5b8b\4f53;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-size:100%;
+  color:rgb(51, 51, 51);
+}
+
+address, cite, dfn, em, var {
+  font-style:normal;
+}
+
+code, kbd, pre, samp {
+  font-family: 'Poppins', sans-serif;
+}
+
+small{
+  font-size:12px;
+}
+
+sup {
+  vertical-align:text-top;
+}
+
+sub{
+  vertical-align:text-bottom;
+}
+
+legend {
+  color:#000;
+}
+
+fieldset, img {
+  border:0;
+}
+
+button, input, select, textarea {
+  font-size:100%;
+}
+
+table {
+  border-collapse:collapse; border-spacing:0;
+}
+
+html,body,#root{
+  width: 100%;
+  height: 100%;
+}
+
+
