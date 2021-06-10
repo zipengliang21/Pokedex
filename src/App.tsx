@@ -5,10 +5,12 @@ import WelcomeLoginButton from "./components/WelcomeLoginButton";
 import Login from "./components/Login";
 import SideBar from "./components/FilterSearch/SideBar";
 import FilterSearchPage from "./views/FilterSearchPage";
+import HomeCardNode from "./components/HomeCardNode";
+import HomeListPokemon from "./components/HomeListPokemon";
 
 const Test = styled.span`
   position: fixed;
-  left: 300px;
+ << left: 300px;
   top: 0;
 `;
 
