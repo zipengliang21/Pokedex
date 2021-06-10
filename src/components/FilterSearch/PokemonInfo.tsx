@@ -44,7 +44,7 @@ const CollectionButtonStyle = styled.button`
   top: 0px;
   padding: 16px;
   border: none;
-   background-image: linear-gradient(
+  background-image: linear-gradient(
     rgba(245, 211, 124, 1),
     rgba(135, 211, 124, 0.1)
   );
