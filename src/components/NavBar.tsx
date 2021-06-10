@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled from "styled-components";
+import ProfileDropdown from './ProfileDropdown';
 
 const NavBarWrapper = styled.header`
     width: 236px;
@@ -66,8 +67,8 @@ const NavBar = (props: any) => (
           </MenuText>
           <MenuText>
              <NavLink exact activeClassName="selected" to="/Pokemon/profile">
-                <FontAwesomeIcon icon="address-card"  />
-                <span>Profile</span>
+               <FontAwesomeIcon icon="address-card"/>
+               <ProfileDropdown/>
                 <FontAwesomeIcon icon="angle-up" className="arrow"/>
              </NavLink >
           </MenuText>
