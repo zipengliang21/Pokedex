@@ -37,7 +37,7 @@ const WelcomeLoginButton = () => {
 
             {/*<button onClick={onSubmit}>Login</button>*/}
             <LoginDiv className = "login">
-            <NavLink exact activeClassName="selected" to="/Login">
+            <NavLink exact activeClassName="selected" to="/login">
                 <FontAwesomeIcon icon="home"/>
                 <span className = "span">Login</span>
                 {/*<FontAwesomeIcon icon="angle-up" className="arrow"/>*/}

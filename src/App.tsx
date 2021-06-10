@@ -10,27 +10,27 @@ import HomeListPokemon from "./components/HomeListPokemon";
 
 const Test = styled.span`
   position: fixed;
- << left: 300px;
+  left: 300px;
   top: 0;
 `;
 
 function App() {
    return (
       <Switch>
-         <Route exact path="/Pokemon/Login">
+         <Route exact path="/login">
             <Login />
          </Route>
-         <Route exact path="/Pokemon">
+         <Route exact path="/">
             <WelcomeLoginButton />
          </Route>
-         <Route exact path="/Pokemon/profile">
+         <Route exact path="/profile">
             <SideBar />
             <Test>Profile</Test>
          </Route>
-         <Route exact path="/Pokemon/filterSearch">
+         <Route exact path="/filterSearch">
             <FilterSearchPage />
          </Route>
-         <Route exact path="/Pokemon/pokemonComments">
+         <Route exact path="/pokemonComments">
             <SideBar />
             <Test>Pokemon Comments</Test>
          </Route>
