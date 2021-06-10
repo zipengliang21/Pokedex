@@ -37,14 +37,14 @@ const DataWrapper = styled.div`
       }
     }
 `;
-// cannot make the button style effect
+
 const CollectionButtonStyle = styled.button`
   font-size: 30px;
   font-weight: bold;
   top: 0px;
   padding: 16px;
   border: none;
-  background: -webkit-linear-gradient(
+   background-image: linear-gradient(
     rgba(245, 211, 124, 1),
     rgba(135, 211, 124, 0.1)
   );
