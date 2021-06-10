@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useState, useEffect } from 'react';
 
 const InfoWrapper = styled.div`
   display: flex;
@@ -35,6 +36,18 @@ const DataWrapper = styled.div`
         margin-right: 10px;
       }
     }
+`;
+// cannot make the button style effect
+const CollectionButtonStyle = styled.button`
+  font-size: 30px;
+  font-weight: bold;
+  top: 0px;
+  padding: 16px;
+  border: none;
+  background: -webkit-linear-gradient(
+    rgba(245, 211, 124, 1),
+    rgba(135, 211, 124, 0.1)
+  );
 `;
 
 const data = `
@@ -127,9 +140,11 @@ const data = `
 `;
 
 const PokemonInfo = () => {
+   const [collect, setCollect] = useState("");
    const dummyData = JSON.parse(data);
    return (
        <InfoWrapper>
+          <CollectionButtonStyle onClick={() => setCollect(dummyData[0]["Pokemon"])}>Collect!</CollectionButtonStyle>
           <img src={"https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png"}
                alt={`pikachu`}
                width={285}
