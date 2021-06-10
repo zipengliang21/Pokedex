@@ -7,8 +7,8 @@ const Wrapper = styled.div`
 
 const InputContainer = styled.div`
   margin: auto;
-  width: 20%;
-  height: 60vh;
+  width: 50%;
+  height: 90vh;
   border: 1px solid gray;
   border-radius: 15px;
   box-shadow: 2px 2px 2px 2px gray;
