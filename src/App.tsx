@@ -15,7 +15,7 @@ const Test = styled.span`
 function App() {
    return (
       <Switch>
-         <Route exact path="/Login">
+         <Route exact path="/Pokemon/Login">
             <Login />
          </Route>
          <Route exact path="/Pokemon">
