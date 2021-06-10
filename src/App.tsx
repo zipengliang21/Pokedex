@@ -5,6 +5,8 @@ import SearchBar from "./components/SearchBar";
 import FilterBar from "./components/FilterBar";
 import styled from "styled-components";
 import DecorationBar from "./components/DecorationBar";
+import WelcomeLoginButton from "./components/WelcomeLoginButton";
+import Login from "./components/Login";
 
 const Test = styled.span`
   position: fixed;
@@ -15,9 +17,13 @@ const Test = styled.span`
 function App() {
   return (
       <Switch>
+          <Route exact path="/Login">
+              <Login/>
+          </Route>
          <Route exact path="/Pokemon">
-            <NavBar />
-            <Test>Home</Test>
+            {/*<NavBar />*/}
+            {/*<DecorationBar/>*/}
+            <WelcomeLoginButton/>
          </Route>
          <Route exact path="/Pokemon/profile">
             <NavBar />
