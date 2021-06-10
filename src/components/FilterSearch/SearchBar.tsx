@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-const SearchBarDiv = styled.form`
+
+const SearchBarDiv = styled.div`
   color: blue;
-  position: fixed;
   left: 300px;
   top: 25px;
 
 `
 
+
 const SearchBar = () => {
+    const [Key, setKey] = useState("");
     return (
         <SearchBarDiv>
             {/*action="/" method="get"*/}
@@ -23,6 +25,7 @@ const SearchBar = () => {
                     id="header-search"
                     placeholder="Search Pokemon names"
                     name="s"
+                    onChange={(e) => setKey(e.target.value)}
                 />
                 <button type="submit">Search</button>
             </form>
@@ -30,4 +33,7 @@ const SearchBar = () => {
     )
 };
 
+
+
 export default SearchBar;
+

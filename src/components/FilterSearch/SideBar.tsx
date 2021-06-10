@@ -4,11 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled from "styled-components";
 
 const NavBarWrapper = styled.header`
-    width: 236px;
-    height: 100vh;
+    width: 256px;
+    min-width: 256px;
+    max-width: 256px;
+    // height: 100vh;
     background: #212D3B;
     border: solid 1px #212D3B;
-    top: var(--ytd-masthead-height, 0px);
 `;
 
 const NavBarMenu = styled.ul`
@@ -50,7 +51,7 @@ const MenuText = styled.li`
     
 `;
 
-const NavBar = (props: any) => (
+const SideBar = (props: any) => (
     <NavBarWrapper>
        <NavBarMenu>
           <HideSidebarButton id='hideButton' onClick={props.HideSideBarButton}><span>☰</span></HideSidebarButton>
@@ -82,8 +83,7 @@ const NavBar = (props: any) => (
              <NavLink exact activeClassName="selected" to="/Pokemon/pokemonComments">
                 <FontAwesomeIcon icon="comment"/>
                 <span>
-                   <span>Pokemon</span>
-                   <div>Comments <FontAwesomeIcon icon="angle-up" className="arrow"/></div>
+                   <span>Forum</span><FontAwesomeIcon icon="angle-up" className="arrow"/>
                 </span>
              </NavLink >
           </MenuText>
@@ -91,4 +91,5 @@ const NavBar = (props: any) => (
     </NavBarWrapper>
 );
 
-export default NavBar;
+export default SideBar;
+

@@ -1,42 +1,41 @@
-import React from 'react';
-import {Switch, Route} from "react-router-dom";
-import NavBar from "./components/NavBar";
-import SearchBar from "./components/SearchBar";
-import FilterBar from "./components/FilterBar";
+import React from "react";
+import { Switch, Route } from "react-router-dom";
 import styled from "styled-components";
-import DecorationBar from "./components/DecorationBar";
+import WelcomeLoginButton from "./components/WelcomeLoginButton";
+import Login from "./components/Login";
+import SideBar from "./components/FilterSearch/SideBar";
+import FilterSearchPage from "./views/FilterSearchPage";
+import HomeCardNode from "./components/HomeCardNode";
+import HomeListPokemon from "./components/HomeListPokemon";
 
 const Test = styled.span`
   position: fixed;
-  left: 300px;
+ << left: 300px;
   top: 0;
 `;
 
 function App() {
-  return (
+   return (
       <Switch>
+         <Route exact path="/Login">
+            <Login />
+         </Route>
          <Route exact path="/Pokemon">
-            <NavBar />
-            <Test>Home</Test>
+            <WelcomeLoginButton />
          </Route>
          <Route exact path="/Pokemon/profile">
-            <NavBar />
+            <SideBar />
             <Test>Profile</Test>
          </Route>
          <Route exact path="/Pokemon/filterSearch">
-            <NavBar />
-            {/*<Test>Filter Search</Test>*/}
-             <SearchBar/>
-             <FilterBar/>
-             <DecorationBar/>
+            <FilterSearchPage />
          </Route>
          <Route exact path="/Pokemon/pokemonComments">
-            <NavBar />
+            <SideBar />
             <Test>Pokemon Comments</Test>
          </Route>
       </Switch>
-
-  );
+   );
 }
 
 export default App;

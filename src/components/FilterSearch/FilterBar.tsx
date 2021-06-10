@@ -1,21 +1,18 @@
 import * as React from "react";
-import * as ReactDOM from "react-dom";
 import styled from "styled-components";
 import {useEffect, useState} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const FilterBarDiv = styled.div`
   color: blue;
-  position: fixed;
-  left: 80%;
-  top: 25px;
-
+  margin-left: 80px;
+  top: 300px;
 `
-// enspired from https://stackoverflow.com/questions/59890203/filtering-select-drop-down-menu-to-filter-in-react
+// inspired from https://stackoverflow.com/questions/59890203/filtering-select-drop-down-menu-to-filter-in-react
 
 
 const FilterBar = () => {
-    const [Type, setType] = useState([]);
+    const [Type, setType] = useState("");
 
     // useEffect(() => {
     //     console.log('effect');
@@ -40,7 +37,6 @@ const FilterBar = () => {
     //
     return (
         <FilterBarDiv>
-            {/*FontAwesomeIcon doesn't work*/}
             <FontAwesomeIcon icon = "filter" className="fas fa-filter"/>
             <select value={Type} onChange={handleSelect}>
                 <option value='All'>All Types</option>
@@ -60,18 +56,15 @@ const FilterBar = () => {
                 <option value='Ghost'>Ghost</option>
                 <option value='Steel'>Steel</option>
                 <option value='Dragon'>Dragon</option>
-                <option value='Steel'>Steel</option>
                 <option value='Dark'>Dark</option>
                 <option value='Fairy'>Fairy</option>
 
             </select>
-            {/*<CountryList*/}
-            {/*    filteredCountries={filteredCountries}*/}
-            {/*    filteredRegion={filteredRegion}*/}
-            {/*/>*/}
+
         </FilterBarDiv>
     );
 };
 
 
 export default FilterBar;
+
