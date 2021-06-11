@@ -1,39 +1,44 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import styled from "styled-components";
-import WelcomeLoginButton from "./components/WelcomeLoginButton";
-import Login from "./components/Login";
 import SideBar from "./components/FilterSearch/SideBar";
 import FilterSearchPage from "./views/FilterSearchPage";
-import HomeCardNode from "./components/HomeCardNode";
-import HomeListPokemon from "./components/HomeListPokemon";
+import WelcomePage from "./views/WelcomePage";
+import PokemonDetailsPage from "./views/PokemonDetailsPage";
+import PokemonData from "./pokedexData.json";
+import LoginPage from "views/LoginPage";
 
 const Test = styled.span`
   position: fixed;
- << left: 300px;
+  left: 300px;
   top: 0;
 `;
 
 function App() {
    return (
       <Switch>
-         <Route exact path="/Login">
-            <Login />
+         <Route exact path="/login">
+            <LoginPage />
          </Route>
-         <Route exact path="/Pokemon">
-            <WelcomeLoginButton />
+         <Route exact path="/">
+            <WelcomePage/>
          </Route>
-         <Route exact path="/Pokemon/profile">
+         <Route exact path="/profile">
             <SideBar />
             <Test>Profile</Test>
          </Route>
-         <Route exact path="/Pokemon/filterSearch">
+         <Route exact path="/filterSearch">
             <FilterSearchPage />
          </Route>
-         <Route exact path="/Pokemon/pokemonComments">
+         <Route exact path="/pokemonComments">
             <SideBar />
             <Test>Pokemon Comments</Test>
          </Route>
+         <Route exact path="/Pokemon/:id"
+                render={(props) => {
+                   const index: number = parseInt(props.match.params.id);
+                   return <PokemonDetailsPage pokemon={PokemonData[index-1]}/>;
+                }}/>
       </Switch>
    );
 }

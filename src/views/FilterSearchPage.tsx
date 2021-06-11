@@ -21,8 +21,7 @@ const FilterSearchContentWrapper = styled.section`
     flex: auto;
     flex-direction: column;
     min-height: 0;
-    background: #f0f2f5;
-    background-image: url("https://www.teahub.io/photos/full/206-2063227_free-christmas-background-christmas-background-light-blue.jpg");
+    background: #f0f2f5 url("https://www.teahub.io/photos/full/206-2063227_free-christmas-background-christmas-background-light-blue.jpg");
     background-size: cover;
 `
 
@@ -44,7 +43,7 @@ const FilterSearchPage = () => {
                   <CheckBoxGrowth/>
                   <CheckBoxType/>
               </SearchWrapper>
-             <PokemonInfo/>
+             {/*<PokemonInfo/>*/}
           </FilterSearchContentWrapper>
 
        </FilterSearchWrapper>

@@ -1,13 +1,13 @@
-import React from 'react';
+import React from 'react'
 import ReactDOM from 'react-dom';
-import {BrowserRouter as Router} from "react-router-dom";
+import {HashRouter as Router} from "react-router-dom";
 import './index.scss';
 import App from './App';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faHome, faAddressCard, faSearch, faComment, faAngleUp, faFilter} from '@fortawesome/free-solid-svg-icons'
+import { faHome, faAddressCard, faSearch, faComment, faAngleUp, faFilter, faUser} from '@fortawesome/free-solid-svg-icons'
 
-library.add(faHome, faAddressCard, faSearch, faComment, faAngleUp, faFilter)
+library.add(faHome, faAddressCard, faSearch, faComment, faAngleUp, faFilter, faUser)
 
 ReactDOM.render(
     <Router>
