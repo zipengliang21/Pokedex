@@ -7,7 +7,7 @@ const NavBarWrapper = styled.header`
     width: 256px;
     min-width: 256px;
     max-width: 256px;
-    // height: 100vh;
+     height: 100vh;
     background: #212D3B;
     border: solid 1px #212D3B;
 `;
