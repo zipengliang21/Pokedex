@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { useState, useEffect } from 'react';
 
 const InfoWrapper = styled.div`
   width: 850px;
@@ -140,8 +139,7 @@ const data = `
 `;
 
 const PokemonInfo = ({pokemon}: any) => {
-   console.log(pokemon)
-   const [collect, setCollect] = useState("");
+   // const [collect, setCollect] = useState("");
    const dummyData = JSON.parse(data);
    return (
        <InfoWrapper>
@@ -164,7 +162,7 @@ const PokemonInfo = ({pokemon}: any) => {
                 <div>
                    {/*Base Stats: <br/>*/}
                    <ul className={"InfoColumn2"}>
-                      <li>
+                      <div>
                          <li className={"BaseStat"}>
                             <span>HP:</span>
                             <ul>
@@ -189,8 +187,8 @@ const PokemonInfo = ({pokemon}: any) => {
                                <li>Max:{dummyData[0]["Base Stats"]["Defense"]["Max"]} <br/></li>
                             </ul>
                          </li>
-                      </li>
-                      <li>
+                      </div>
+                      <div>
                          <li className={"BaseStat"}>
                             <span>Attack:</span>
                             <ul>
@@ -215,7 +213,7 @@ const PokemonInfo = ({pokemon}: any) => {
                                <li>Max:{dummyData[0]["Base Stats"]["Speed"]["Max"]}<br/></li>
                             </ul>
                          </li>
-                      </li>
+                      </div>
                    </ul>
                 </div>
              </DataWrapper>

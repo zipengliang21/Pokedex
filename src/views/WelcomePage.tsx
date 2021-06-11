@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import {NavLink} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import SearchBar from "../components/FilterSearch/SearchBar";
+import SearchBar from "../components/Common/SearchBar";
 import PokemonData from "../pokedexData.json";
-import Pokemon from "../components/Pokemon";
+import Pokemon from "../components/DetailedView/Pokemon";
 import {Button} from "../components/Button";
 import Fade from "react-reveal/Fade";
 
@@ -90,22 +90,22 @@ const WelcomePage = () => {
              <PokemonWrapper>
                 <GroupWrapper>
                    {PokemonData.slice(0, 4).map((pokemon, index) => {
-                      return <Fade left><Pokemon pokemon={pokemon} id={index}/></Fade>;
+                      return <Fade left key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon.name}/></Fade>;
                    })}
                 </GroupWrapper>
                 <GroupWrapper>
                    {PokemonData.slice(4, 8).map((pokemon, index) => {
-                      return <Fade right><Pokemon pokemon={pokemon} id={index}/></Fade>;
+                      return <Fade right key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon.name}/></Fade>;
                    })}
                 </GroupWrapper>
                 <GroupWrapper>
                    {PokemonData.slice(8, 12).map((pokemon, index) => {
-                      return <Fade left><Pokemon pokemon={pokemon} id={index}/></Fade>;
+                      return <Fade left key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon.name}/></Fade>;
                    })}
                 </GroupWrapper>
                 <GroupWrapper>
                    {PokemonData.slice(12, 16).map((pokemon, index) => {
-                      return <Fade right><Pokemon pokemon={pokemon} id={index}/></Fade>;
+                      return <Fade right key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon.name}/></Fade>;
                    })}
                 </GroupWrapper>
              </PokemonWrapper>

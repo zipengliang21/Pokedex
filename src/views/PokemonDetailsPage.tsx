@@ -3,7 +3,7 @@ import styled from "styled-components";
 import PokemonInfo from "../components/FilterSearch/PokemonInfo";
 import {NavLink} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import SearchBar from "../components/FilterSearch/SearchBar";
+import SearchBar from "../components/Common/SearchBar";
 import PokemonData from "../pokedexData.json";
 
 const Wrapper = styled.div`
@@ -11,9 +11,6 @@ const Wrapper = styled.div`
       margin: 0 auto;
       background: #FFFFFF;
       text-align: center;
-`;
-const Background = styled.div`
-      background: #FBFAF6;
 `;
 
 const Header = styled.div`

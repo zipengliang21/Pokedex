@@ -1,10 +1,8 @@
 import React from 'react';
 import styled from "styled-components";
 import SideBar from "../components/FilterSearch/SideBar";
-import SearchBar from "../components/FilterSearch/SearchBar";
-import FilterBar from "../components/FilterSearch/FilterBar";
+import SearchBar from "../components/Common/SearchBar";
 import DecorationBar from "../components/FilterSearch/DecorationBar";
-import PokemonInfo from "../components/FilterSearch/PokemonInfo";
 import CheckBoxGrowth from "../components/FilterSearch/CheckBoxGrowth";
 import CheckBoxType from "../components/FilterSearch/CheckBoxType";
 
@@ -28,7 +26,6 @@ const FilterSearchContentWrapper = styled.section`
 const SearchWrapper = styled.div`
     display: flex;
     flex-direction: row;
-    // top: 1000px;
 `
 
 const FilterSearchPage = () => {
