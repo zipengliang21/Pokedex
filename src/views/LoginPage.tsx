@@ -4,8 +4,13 @@ import {NavLink} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const Wrapper = styled.div`
-  width: 100%;
   height: 100vh;
+  background-size: contain;
+  background-image: url("https://tw.portal-pokemon.com/special/award_asia_2021_result/img/banner-img.png");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
   background: #FBFAF6
 `;
 const Header = styled.div`
@@ -28,21 +33,23 @@ const Header = styled.div`
    }
 `;
 const InputContainer = styled.div`
-  margin: auto;
-  width: 20%;
-  height: 60vh;
+  width: 60%;
+  height: 70vh;
+  background: white;
   border: 1px solid gray;
   border-radius: 15px;
   box-shadow: 2px 2px 2px 2px gray;
 	display: flex;
 	flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
 `;
 
 const Title = styled.div`
-  font-family: "Spicy Rice", cursive;
-  font-size: 90px;
+  font-family: "Gill Sans", sans-serif;
+  font-size: 8vh;
   text-align: center;
-  background: -webkit-linear-gradient(rgba(0, 0, 255, 1), rgba(0, 0, 255, 0.4));
+  background: black;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `;
@@ -54,29 +61,26 @@ const SwitchContainer = styled.div`
 `;
 
 const Switch = styled.button`
-  font-size: 30px;
+  font-size: 5vh;
   font-weight: bold;
-  padding: 16px;
+  padding: 1vh;
   border: none;
-  background: -webkit-linear-gradient(
-    rgba(135, 211, 124, 1),
-    rgba(135, 211, 124, 0.1)
-  );
+  background: #8dc86d;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `;
 
 const Indicator = styled.div`
-  background: rgba(135, 211, 124, 0.5);
-  height: 5px;
+  background: #8dc86d;
+  height: 5%;
   width: 100%;
 `;
 
 const DecorationBar = styled.div`
+  height: 100%;
+  background-image: url("https://tw.portal-pokemon.com/special/award_asia_2021_result/img/banner-img.png");
   margin: 0 auto;
   width: 700px;
-  height: 25vh;
-  background-image: url("https://www.nintendo.com.au/web_images/pages/1939/attachments/attach1473204999.png");
   margin-bottom: 40px;
 `;
 
@@ -91,42 +95,43 @@ const labelStyle = {
   width: "100%",
   display: "flex",
   justifyContent: "center",
-  fontSize: "20px",
+  fontSize: "3vh",
   fontWeight: "bold",
   marginBottom: "2vh",
 };
 
 const inputStyle = {
-  marginLeft: "50px",
+  marginLeft: "1vw",
+  fontSize: "3vh",
 };
 
 const inputStyleP = {
-  marginLeft: "60px",
+  marginLeft: "2vw",
+  fontSize: "3vh",
 };
 
 const submitButtonStyle = {
   marginTop: "3vh",
-  background: "#0066ff",
+  background: "#8dc86d",
   border: "none",
-  width: "20%",
-  padding: "8px",
+  width: "10vw",
+  padding: "15px",
   borderRadius: "8px",
   color: "#FFFF",
   fontWeight: "bold",
-  fontSize: "18px",
+  fontSize: "2vh",
 };
 
 const adminButtonStyle = {
-  background: "#edb77e",
+  background: "#81cfed",
+  marginTop: '1vh',
   border: "none",
-  width: "20%",
-  padding: "8px",
+  width: "10vw",
+  padding: "15px",
   borderRadius: "8px",
-  color: "#000",
+  color: "#FFFF",
   fontWeight: "bold",
-  fontSize: "18px",
-	marginBottom: "0px",
-	marginLeft: "16px"
+  fontSize: "2vh",
 };
 
 function LoginPage(props: any) {
