@@ -20,28 +20,6 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-// const SubmitButton = styled.button`
-//   font-size: 20px;
-//   font-weight: bold;
-//   height: 30px;
-//   width: 100px;
-//   top: 50px;
-//   padding: 16px;
-//   background-image: linear-gradient(
-//     rgba(245, 211, 124, 1),
-//     rgba(135, 211, 124, 0.1)
-//   );
-// `;
-
-// const SubmitButtonDiv = styled.div`
-//   font-size: 30px;
-//   height: 130px;
-//   width: 100px;
-//   top: 250px;
-//   padding: 16px;
-// `;
-
-
 
 function CheckBoxType(props:any) {
     const classes = useStyles();

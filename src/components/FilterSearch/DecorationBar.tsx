@@ -9,7 +9,7 @@ const DecorBarDiv = styled.div`
 const DecorationBar = () => {
     return (
         <DecorBarDiv>
-            {/*action="/" method="get"*/}
+
         </DecorBarDiv>
     )
 };

@@ -37,7 +37,7 @@ function SearchBar (props:any){
             </form>
         </SearchBarDiv>
     )
-};
+}
 
 
 
