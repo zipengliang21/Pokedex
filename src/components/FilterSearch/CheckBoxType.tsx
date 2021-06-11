@@ -5,8 +5,8 @@ import FormLabel from '@material-ui/core/FormLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import Checkbox from '@material-ui/core/Checkbox';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -15,9 +15,11 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         formControl: {
             margin: theme.spacing(6),
+            size: 'medium',
         },
     }),
 );
+
 
 function CheckBoxType(props:any) {
     const classes = useStyles();
@@ -41,6 +43,21 @@ function CheckBoxType(props:any) {
         dragon: false,
         dark: false,
         fairy: false,
+        HeightAll:true,
+        HeightLittle: false,
+        HeightMedium: false,
+        HeightTall:false,
+        WeightAll: true,
+        WeightLight: false,
+        WeightMedium: false,
+        WeightHeavy: false,
+        allGR: true,
+        fast: false,
+        medium_fast: false,
+        medium_slow: false,
+        slow: false,
+        fluctuating: false,
+        erratic: false,
 
     });
 
@@ -49,7 +66,10 @@ function CheckBoxType(props:any) {
     };
 
     const { all, normal, fire, water, grass, flying, fighting, poison, electric,
-        ground, rock, psychic, ice, bug, ghost, steel, dragon, dark, fairy} = state;
+        ground, rock, psychic, ice, bug, ghost, steel, dragon, dark, fairy,
+        HeightAll, HeightLittle, HeightMedium, HeightTall,
+        WeightAll, WeightLight, WeightMedium, WeightHeavy,
+        allGR, fast, medium_fast, medium_slow, slow, fluctuating, erratic} = state;
 
     const handleSubmit = () =>{
         // props.tyfilter(state.all,state.normal,state.fire, state.water, state.grass, state.flying, state.fighting,
@@ -139,8 +159,90 @@ function CheckBoxType(props:any) {
                         label="Fairy"
                     />
                 </FormGroup>
-                <button type="button" onClick={handleSubmit}>Submit Type Filter</button>
             </FormControl>
+
+            <FormControl component="fieldset" className={classes.formControl}>
+                <h2>Select Height!</h2>
+                <FormGroup>
+                    <FormControlLabel
+                        control={<Checkbox checked={HeightAll} onChange={handleChange} name="HeightAll" />}
+                        label="All"
+                    />
+                    <FormControlLabel
+                        control={<Checkbox checked={HeightLittle} onChange={handleChange} name="HeightLittle" />}
+                        label="Little"
+                    />
+                    <FormControlLabel
+                        control={<Checkbox checked={HeightMedium} onChange={handleChange} name="HeightMedium" />}
+                        label="Medium"
+                    />
+                    <FormControlLabel
+                        control={<Checkbox checked={HeightTall} onChange={handleChange} name="HeightTall" />}
+                        label="Tall"
+                    />
+                </FormGroup>
+            </FormControl>
+
+            <FormControl component="fieldset" className={classes.formControl}>
+                <h2>Select Weight!</h2>
+                <FormGroup>
+                    <FormControlLabel
+                        control={<Checkbox checked={WeightAll} onChange={handleChange} name="WeightAll" />}
+                        label="All"
+                    />
+                    <FormControlLabel
+                        control={<Checkbox checked={WeightLight} onChange={handleChange} name="WeightLight" />}
+                        label="Light"
+                    />
+                    <FormControlLabel
+                        control={<Checkbox checked={WeightMedium} onChange={handleChange} name="WeightMedium" />}
+                        label="Medium"
+                    />
+                    <FormControlLabel
+                        control={<Checkbox checked={WeightHeavy} onChange={handleChange} name="WeightHeavy" />}
+                        label="Heavy"
+                    />
+                </FormGroup>
+                {/*<SubmitButton type="button" onClick={handleSubmit}>Submit Filter</SubmitButton>*/}
+            </FormControl>
+
+            <FormControl component="fieldset" className={classes.formControl}>
+                <h2>Select Growth Rate!</h2>
+                <FormGroup>
+                    <FormControlLabel
+                        control={<Checkbox checked={allGR} onChange={handleChange} name="allGR" />}
+                        label="All"
+                    />
+                    <FormControlLabel
+                        control={<Checkbox checked={fast} onChange={handleChange} name="fast" />}
+                        label="Fast"
+                    />
+                    <FormControlLabel
+                        control={<Checkbox checked={medium_fast} onChange={handleChange} name="medium_fast" />}
+                        label="Medium Fast"
+                    />
+                    <FormControlLabel
+                        control={<Checkbox checked={medium_slow} onChange={handleChange} name="medium_slow" />}
+                        label="Medium Slow"
+                    />
+                    <FormControlLabel
+                        control={<Checkbox checked={slow} onChange={handleChange} name="slow" />}
+                        label="Slow"
+                    />
+                    <FormControlLabel
+                        control={<Checkbox checked={fluctuating} onChange={handleChange} name="fluctuating" />}
+                        label="Fluctuating"
+                    />
+                    <FormControlLabel
+                        control={<Checkbox checked={erratic} onChange={handleChange} name="erratic" />}
+                        label="Erratic"
+                    />
+                </FormGroup>
+                <Button variant="contained" color="secondary" onClick={handleSubmit}>
+                    Submit
+                </Button>
+            </FormControl>
+
         </div>
     );
 }

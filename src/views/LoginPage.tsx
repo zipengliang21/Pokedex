@@ -1,36 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import {NavLink} from "react-router-dom";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 100vh;
-  background: #FBFAF6
 `;
-const Header = styled.div`
-   margin: 0 auto;
-   width: 800px;
-   display: flex;
-   justify-content: space-between;
-   font-size: 18px;
-   color: #212D3B;
-   background: linear-gradient(112.93deg, #DCDECE 9.22%, rgba(53, 57, 30, 0.58) 70.36%);
-   .home{
-       margin-left: 40px;
-       margin-right: 5px;
-   }
-   .login{
-       margin-right: 50px;
-   }
-   .user{
-      margin-right: 5px;
-   }
-`;
+
 const InputContainer = styled.div`
   margin: auto;
-  width: 20%;
-  height: 60vh;
+  width: 50%;
+  height: 90vh;
   border: 1px solid gray;
   border-radius: 15px;
   box-shadow: 2px 2px 2px 2px gray;
@@ -73,9 +51,9 @@ const Indicator = styled.div`
 `;
 
 const DecorationBar = styled.div`
-  margin: 0 auto;
-  width: 700px;
+  width: 100%;
   height: 25vh;
+  background-size: contain;
   background-image: url("https://www.nintendo.com.au/web_images/pages/1939/attachments/attach1473204999.png");
   margin-bottom: 40px;
 `;
@@ -125,103 +103,93 @@ const adminButtonStyle = {
   color: "#000",
   fontWeight: "bold",
   fontSize: "18px",
-	marginBottom: "0px",
-	marginLeft: "16px"
+  marginBottom: "0px",
+  marginLeft: "16px"
 };
 
 function LoginPage(props: any) {
   const [flag, setFlag] = React.useState(1);
 
   const handleChangeFlag = (event: any) => {
-		const temp = event.target.id;
-		if (temp === "login") {
-			setFlag(1)
-		} else {
-			setFlag(2)
-		}
+    const temp = event.target.id;
+    if (temp === "login") {
+      setFlag(1)
+    } else {
+      setFlag(2)
+    }
 
-	};
+  };
 
   return (
-    <Wrapper>
-      <Header>
-        <NavLink exact activeClassName="selected" to="/" className="home">
-          <FontAwesomeIcon icon="home" className="home"/>
-          <span className="span">Home</span>
-        </NavLink>
-        <NavLink exact activeClassName="selected" to="/login" className="login">
-          <FontAwesomeIcon icon="user" className="user"/>
-          <span className="span">Login</span>
-        </NavLink>
-      </Header>
-      <DecorationBar />
-      <InputContainer>
-        <Title>Welcome</Title>
-        <SwitchContainer>
-          <div>
-            <Switch id="login" onClick={handleChangeFlag}>Login</Switch>
-            <Indicator hidden={flag !== 1}/>
+      <Wrapper>
+        <DecorationBar />
+        <InputContainer>
+          <Title>Welcome</Title>
+          <SwitchContainer>
+            <div>
+              <Switch id="login" onClick={handleChangeFlag}>Login</Switch>
+              <Indicator hidden={flag !== 1}/>
+            </div>
+            <div>
+              <Switch id="register" onClick={handleChangeFlag}>Register</Switch>
+              <Indicator hidden={flag !== 2}/>
+            </div>
+          </SwitchContainer>
+          <div hidden={flag !== 1}>
+            <form style={formStyle as React.CSSProperties}>
+              <label style={labelStyle as React.CSSProperties}>
+                User Name
+                <input
+                    placeholder="Your email address"
+                    style={inputStyle as React.CSSProperties}
+                    type="text"
+                />
+              </label>
+              <label style={labelStyle as React.CSSProperties}>
+                Password
+                <input
+                    placeholder="Password"
+                    style={inputStyleP as React.CSSProperties}
+                    type="text"
+                />
+              </label>
+              <button
+                  type="submit"
+                  style={submitButtonStyle as React.CSSProperties}
+              >
+                Login
+              </button>
+            </form>
           </div>
-          <div>
-            <Switch id="register" onClick={handleChangeFlag}>Register</Switch>
-            <Indicator hidden={flag !== 2}/>
+          <div hidden={flag !== 2}>
+            <form style={formStyle as React.CSSProperties}>
+              <label style={labelStyle as React.CSSProperties}>
+                New Name
+                <input
+                    placeholder="Your email address"
+                    style={inputStyle as React.CSSProperties}
+                    type="text"
+                />
+              </label>
+              <label style={labelStyle as React.CSSProperties}>
+                Password
+                <input
+                    placeholder="Password"
+                    style={inputStyleP as React.CSSProperties}
+                    type="text"
+                />
+              </label>
+              <button
+                  type="submit"
+                  style={submitButtonStyle as React.CSSProperties}
+              >
+                Sign Up
+              </button>
+            </form>
           </div>
-        </SwitchContainer>
-        <div hidden={flag !== 1}>
-          <form style={formStyle as React.CSSProperties}>
-            <label style={labelStyle as React.CSSProperties}>
-              User Name
-              <input
-                placeholder="Your email address"
-                style={inputStyle as React.CSSProperties}
-                type="text"
-              />
-            </label>
-            <label style={labelStyle as React.CSSProperties}>
-              Password
-              <input
-                placeholder="Password"
-                style={inputStyleP as React.CSSProperties}
-                type="text"
-              />
-            </label>
-            <button
-              type="submit"
-              style={submitButtonStyle as React.CSSProperties}
-            >
-              Login
-            </button>
-          </form>
-        </div>
-        <div hidden={flag !== 2}>
-          <form style={formStyle as React.CSSProperties}>
-            <label style={labelStyle as React.CSSProperties}>
-              New Name
-              <input
-                placeholder="Your email address"
-                style={inputStyle as React.CSSProperties}
-                type="text"
-              />
-            </label>
-            <label style={labelStyle as React.CSSProperties}>
-              Password
-              <input
-                placeholder="Password"
-                style={inputStyleP as React.CSSProperties}
-                type="text"
-              />
-            </label>
-            <button
-              type="submit"
-              style={submitButtonStyle as React.CSSProperties}
-            >
-              Sign Up
-            </button>
-          </form>
-        </div>
-				<button style={adminButtonStyle as React.CSSProperties}>Admin</button>
-      </InputContainer>
-    </Wrapper>
+          <button style={adminButtonStyle as React.CSSProperties}>Admin</button>
+        </InputContainer>
+      </Wrapper>
   );
 }
 
