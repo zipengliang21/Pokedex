@@ -32,7 +32,7 @@ function SearchBar (props:any){
                     onChange={(e) => setKey(e.target.value)}
                 />
                 <Button variant="contained" color="primary" onClick={handleSubmit}>
-                    Submit
+                    Search
                 </Button>
             </form>
         </SearchBarDiv>
