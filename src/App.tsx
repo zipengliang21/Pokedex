@@ -1,11 +1,12 @@
-import React from 'react';
-import {Switch, Route} from "react-router-dom";
-import NavBar from "./components/NavBar";
-import SearchBar from "./components/SearchBar";
-import FilterBar from "./components/FilterBar";
+import React from "react";
+import { Switch, Route } from "react-router-dom";
 import styled from "styled-components";
-import DecorationBar from "./components/DecorationBar";
-import Login from "./components/Login"
+import SideBar from "./components/FilterSearch/SideBar";
+import FilterSearchPage from "./views/FilterSearchPage";
+import WelcomePage from "./views/WelcomePage";
+import PokemonDetailsPage from "./views/PokemonDetailsPage";
+import PokemonData from "./pokedexData.json";
+import LoginPage from "views/LoginPage";
 
 const Test = styled.span`
   position: fixed;
@@ -14,31 +15,32 @@ const Test = styled.span`
 `;
 
 function App() {
-  return (
-      // <Switch>
-      //    <Route exact path="/Pokemon">
-      //       <NavBar />
-      //       <Test>Home</Test>
-      //    </Route>
-      //    <Route exact path="/Pokemon/profile">
-      //       <NavBar />
-      //       <Test>Profile</Test>
-      //    </Route>
-      //    <Route exact path="/Pokemon/filterSearch">
-      //       <NavBar />
-      //       {/*<Test>Filter Search</Test>*/}
-      //        <SearchBar/>
-      //        <FilterBar/>
-      //        <DecorationBar/>
-      //    </Route>
-      //    <Route exact path="/Pokemon/pokemonComments">
-      //       <NavBar />
-      //       <Test>Pokemon Comments</Test>
-      //    </Route>
-      // </Switch>
-   <Login/>
-
-  );
+   return (
+      <Switch>
+         <Route exact path="/login">
+            <LoginPage />
+         </Route>
+         <Route exact path="/">
+            <WelcomePage/>
+         </Route>
+         <Route exact path="/profile">
+            <SideBar />
+            <Test>Profile</Test>
+         </Route>
+         <Route exact path="/filterSearch">
+            <FilterSearchPage />
+         </Route>
+         <Route exact path="/pokemonComments">
+            <SideBar />
+            <Test>Pokemon Comments</Test>
+         </Route>
+         <Route exact path="/Pokemon/:id"
+                render={(props) => {
+                   const index: number = parseInt(props.match.params.id);
+                   return <PokemonDetailsPage pokemon={PokemonData[index-1]}/>;
+                }}/>
+      </Switch>
+   );
 }
 
 export default App;

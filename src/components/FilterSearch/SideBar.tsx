@@ -4,11 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled from "styled-components";
 
 const NavBarWrapper = styled.header`
-    width: 236px;
-    height: 100vh;
+    width: 256px;
+    min-width: 256px;
+    max-width: 256px;
+     height: 100vh;
     background: #212D3B;
     border: solid 1px #212D3B;
-    top: var(--ytd-masthead-height, 0px);
 `;
 
 const NavBarMenu = styled.ul`
@@ -50,40 +51,39 @@ const MenuText = styled.li`
     
 `;
 
-const NavBar = (props: any) => (
+const SideBar = (props: any) => (
     <NavBarWrapper>
        <NavBarMenu>
           <HideSidebarButton id='hideButton' onClick={props.HideSideBarButton}><span>☰</span></HideSidebarButton>
           <div className="account">
-             <NavLink exact to="/Pokemon">Account</NavLink>
+             <NavLink exact to="/">Account</NavLink>
           </div>
           <MenuText>
-             <NavLink exact activeClassName="selected" to="/Pokemon">
+             <NavLink exact activeClassName="selected" to="/">
                 <FontAwesomeIcon icon="home"/>
                 <span>home</span>
                 <FontAwesomeIcon icon="angle-up" className="arrow"/>
              </NavLink >
           </MenuText>
           <MenuText>
-             <NavLink exact activeClassName="selected" to="/Pokemon/profile">
+             <NavLink exact activeClassName="selected" to="/profile">
                 <FontAwesomeIcon icon="address-card"  />
                 <span>Profile</span>
                 <FontAwesomeIcon icon="angle-up" className="arrow"/>
              </NavLink >
           </MenuText>
           <MenuText>
-             <NavLink exact activeClassName="selected" to="/Pokemon/filterSearch">
+             <NavLink exact activeClassName="selected" to="/filterSearch">
                 <FontAwesomeIcon icon="search"  />
                 <span>Filter Search</span>
                 <FontAwesomeIcon icon="angle-up" className="arrow"/>
              </NavLink >
           </MenuText>
           <MenuText>
-             <NavLink exact activeClassName="selected" to="/Pokemon/pokemonComments">
+             <NavLink exact activeClassName="selected" to="/pokemonComments">
                 <FontAwesomeIcon icon="comment"/>
                 <span>
-                   <span>Pokemon</span>
-                   <div>Comments <FontAwesomeIcon icon="angle-up" className="arrow"/></div>
+                   <span>Forum</span><FontAwesomeIcon icon="angle-up" className="arrow"/>
                 </span>
              </NavLink >
           </MenuText>
@@ -91,5 +91,5 @@ const NavBar = (props: any) => (
     </NavBarWrapper>
 );
 
-export default NavBar;
+export default SideBar;
 
