@@ -3,24 +3,34 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-image: url("https://tw.portal-pokemon.com/special/award_asia_2021_result/img/banner-img.png");
 `;
 
 const InputContainer = styled.div`
   margin: auto;
-  width: 50%;
-  height: 90vh;
+  width: 58%;
+  height: 80%;
+  background: white;
   border: 1px solid gray;
   border-radius: 15px;
   box-shadow: 2px 2px 2px 2px gray;
 	display: flex;
 	flex-direction: column;
+
+  position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
 `;
 
 const Title = styled.div`
-  font-family: "Spicy Rice", cursive;
-  font-size: 90px;
+  font-family: "Gill Sans", sans-serif;
+  font-size: 70px;
   text-align: center;
-  background: -webkit-linear-gradient(rgba(0, 0, 255, 1), rgba(0, 0, 255, 0.4));
+  background: black;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `;
@@ -36,25 +46,22 @@ const Switch = styled.button`
   font-weight: bold;
   padding: 16px;
   border: none;
-  background: -webkit-linear-gradient(
-    rgba(135, 211, 124, 1),
-    rgba(135, 211, 124, 0.1)
-  );
+  background: #8dc86d;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `;
 
 const Indicator = styled.div`
-  background: rgba(135, 211, 124, 0.5);
-  height: 5px;
+  background: #8dc86d;
+  height: 5%;
   width: 100%;
 `;
 
 const DecorationBar = styled.div`
   width: 100%;
-  height: 25vh;
+  height: 100%;
   background-size: contain;
-  background-image: url("https://www.nintendo.com.au/web_images/pages/1939/attachments/attach1473204999.png");
+  background-image: url("https://tw.portal-pokemon.com/special/award_asia_2021_result/img/banner-img.png");
   margin-bottom: 40px;
 `;
 
@@ -71,7 +78,7 @@ const labelStyle = {
   justifyContent: "center",
   fontSize: "20px",
   fontWeight: "bold",
-  marginBottom: "2vh",
+  marginBottom: "2%",
 };
 
 const inputStyle = {
@@ -83,11 +90,11 @@ const inputStyleP = {
 };
 
 const submitButtonStyle = {
-  marginTop: "3vh",
-  background: "#0066ff",
+  marginTop: "3%",
+  background: "#8dc86d",
   border: "none",
   width: "20%",
-  padding: "8px",
+  padding: "15px",
   borderRadius: "8px",
   color: "#FFFF",
   fontWeight: "bold",
@@ -95,16 +102,16 @@ const submitButtonStyle = {
 };
 
 const adminButtonStyle = {
-  background: "#edb77e",
+  background: "#81cfed",
   border: "none",
-  width: "20%",
-  padding: "8px",
+  width: "15%",
+  padding: "15px",
   borderRadius: "8px",
-  color: "#000",
+  color: "#FFFF",
   fontWeight: "bold",
   fontSize: "18px",
-	marginBottom: "0px",
-	marginLeft: "16px"
+	marginBottom: "0",
+	marginLeft: "16%"
 };
 
 function Login(props: any) {
@@ -122,7 +129,6 @@ function Login(props: any) {
 
   return (
     <Wrapper>
-      <DecorationBar />
       <InputContainer>
         <Title>Welcome</Title>
         <SwitchContainer>
@@ -194,3 +200,4 @@ function Login(props: any) {
 }
 
 export default Login;
+
