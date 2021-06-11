@@ -34,14 +34,13 @@ const LoginDiv = styled.div`
 const WelcomeLoginButton = () => {
     return (
         <WelcomeLoginButtonDiv>
-            {/*<button onClick={onSubmit}>LoginPage</button>*/}
             <LoginDiv className = "login">
             <NavLink exact activeClassName="selected" to="/login">
                 <FontAwesomeIcon icon="home"/>
                 <span className = "span">Login</span>
-                {/*<FontAwesomeIcon icon="angle-up" className="arrow"/>*/}
                
             </NavLink >
+
             </LoginDiv>
             <DecorationBar/>
 

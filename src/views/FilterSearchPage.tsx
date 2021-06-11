@@ -25,7 +25,6 @@ const FilterSearchContentWrapper = styled.section`
 const SearchWrapper = styled.div`
     display: flex;
     flex-direction: row;
-    // top: 1000px;
 `
 
 const FilterSearchPage = () => {
@@ -40,9 +39,8 @@ const FilterSearchPage = () => {
               </SearchWrapper>
              {/*<PokemonInfo/>*/}
           </FilterSearchContentWrapper>
-
-       </FilterSearchWrapper>
-   )
+        </FilterSearchWrapper>
+    )
 };
 
 export default FilterSearchPage;

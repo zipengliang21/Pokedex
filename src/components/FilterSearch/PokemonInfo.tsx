@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useState, useEffect } from 'react';
+import Button from '@material-ui/core/Button';
 
 const InfoWrapper = styled.div`
   width: 850px;
@@ -38,13 +39,13 @@ const DataWrapper = styled.div`
       }
     }
 `;
-// cannot make the button style effect
+
 const CollectionButtonStyle = styled.button`
   font-size: 30px;
   font-weight: bold;
   padding: 16px;
   border: none;
-  background: -webkit-linear-gradient(
+  background-image: linear-gradient(
     rgba(245, 211, 124, 1),
     rgba(135, 211, 124, 0.1)
   );
@@ -145,8 +146,8 @@ const PokemonInfo = ({pokemon}: any) => {
    const dummyData = JSON.parse(data);
    return (
        <InfoWrapper>
-          {/*<CollectionButtonStyle onClick={() => setCollect(dummyData[0]["Pokemon"])}>Collect!</CollectionButtonStyle>*/}
           <img src={pokemon.img}
+
                alt={`pikachu`}
                width={285}
                height={285}/>
@@ -226,4 +227,3 @@ const PokemonInfo = ({pokemon}: any) => {
 };
 
 export default PokemonInfo;
-
