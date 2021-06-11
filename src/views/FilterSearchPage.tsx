@@ -5,7 +5,6 @@ import SearchBar from "../components/FilterSearch/SearchBar";
 import FilterBar from "../components/FilterSearch/FilterBar";
 import DecorationBar from "../components/FilterSearch/DecorationBar";
 import PokemonInfo from "../components/FilterSearch/PokemonInfo";
-import CheckBoxGrowth from "../components/FilterSearch/CheckBoxGrowth";
 import CheckBoxType from "../components/FilterSearch/CheckBoxType";
 
 const FilterSearchWrapper = styled.div`
