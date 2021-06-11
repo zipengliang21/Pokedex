@@ -40,8 +40,6 @@ const FilterSearchPage = () => {
              <DecorationBar/>
               <SearchWrapper>
                   <SearchBar/>
-                  {/*<FilterBar/>*/}
-                  {/*<CheckBoxGrowth/>*/}
                   <CheckBoxType/>
               </SearchWrapper>
              <PokemonInfo/>
