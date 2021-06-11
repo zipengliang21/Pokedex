@@ -64,7 +64,7 @@ Must be completed with your group before workshop 2
 
      **B. Users can Collect Pokemons**<br>
         **1. Create Database for User, every user has a list of collected pokemons. Have different function Apis to manipulate this list (Add/Remove/Update)**<br>
-        **2.   Login page for user to do authentication**<br>
+        **2.   LoginPage page for user to do authentication**<br>
         **3.   After a user clicks on the collect button on Search page, that pokemon will be added   to that user's collection list**<br>
         **4.   Collection page shows collected pokemons by a user**<br> 
 *  Finally, draw 2-3 rough sketch prototypes of some key tasks of your app. Sketch these physically on paper and then scan and add to your repo.<br>
