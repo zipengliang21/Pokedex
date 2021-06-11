@@ -2,33 +2,31 @@ import React from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  width: 100%;
-  height: 100%;
+  height: 100vh;
   background-size: contain;
   background-image: url("https://tw.portal-pokemon.com/special/award_asia_2021_result/img/banner-img.png");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
 `;
 
 const InputContainer = styled.div`
-  margin: auto;
-  width: 58%;
-  height: 80%;
+  width: 60%;
+  height: 70vh;
   background: white;
   border: 1px solid gray;
   border-radius: 15px;
   box-shadow: 2px 2px 2px 2px gray;
 	display: flex;
 	flex-direction: column;
-
-  position: absolute;
-	top:0;
-	bottom: 0;
-	left: 0;
-	right: 0;
+  align-items: center;
+  overflow-y: auto;
 `;
 
 const Title = styled.div`
   font-family: "Gill Sans", sans-serif;
-  font-size: 70px;
+  font-size: 8vh;
   text-align: center;
   background: black;
   -webkit-background-clip: text;
@@ -42,9 +40,9 @@ const SwitchContainer = styled.div`
 `;
 
 const Switch = styled.button`
-  font-size: 30px;
+  font-size: 5vh;
   font-weight: bold;
-  padding: 16px;
+  padding: 1vh;
   border: none;
   background: #8dc86d;
   -webkit-background-clip: text;
@@ -76,42 +74,43 @@ const labelStyle = {
   width: "100%",
   display: "flex",
   justifyContent: "center",
-  fontSize: "20px",
+  fontSize: "3vh",
   fontWeight: "bold",
-  marginBottom: "2%",
+  marginBottom: "2vh",
 };
 
 const inputStyle = {
-  marginLeft: "50px",
+  marginLeft: "1vw",
+  fontSize: "3vh",
 };
 
 const inputStyleP = {
-  marginLeft: "60px",
+  marginLeft: "2vw",
+  fontSize: "3vh",
 };
 
 const submitButtonStyle = {
-  marginTop: "3%",
+  marginTop: "3vh",
   background: "#8dc86d",
   border: "none",
-  width: "20%",
+  width: "10vw",
   padding: "15px",
   borderRadius: "8px",
   color: "#FFFF",
   fontWeight: "bold",
-  fontSize: "18px",
+  fontSize: "2vh",
 };
 
 const adminButtonStyle = {
   background: "#81cfed",
+  marginTop: '1vh',
   border: "none",
-  width: "15%",
+  width: "10vw",
   padding: "15px",
   borderRadius: "8px",
   color: "#FFFF",
   fontWeight: "bold",
-  fontSize: "18px",
-	marginBottom: "0",
-	marginLeft: "16%"
+  fontSize: "2vh",
 };
 
 function Login(props: any) {
