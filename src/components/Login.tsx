@@ -7,8 +7,8 @@ const Wrapper = styled.div`
 
 const InputContainer = styled.div`
   margin: auto;
-  width: 20%;
-  height: 60vh;
+  width: 50%;
+  height: 90vh;
   border: 1px solid gray;
   border-radius: 15px;
   box-shadow: 2px 2px 2px 2px gray;
@@ -103,93 +103,93 @@ const adminButtonStyle = {
   color: "#000",
   fontWeight: "bold",
   fontSize: "18px",
-	marginBottom: "0px",
-	marginLeft: "16px"
+  marginBottom: "0px",
+  marginLeft: "16px"
 };
 
 function Login(props: any) {
   const [flag, setFlag] = React.useState(1);
 
   const handleChangeFlag = (event: any) => {
-		const temp = event.target.id;
-		if (temp === "login") {
-			setFlag(1)
-		} else {
-			setFlag(2)
-		}
+    const temp = event.target.id;
+    if (temp === "login") {
+      setFlag(1)
+    } else {
+      setFlag(2)
+    }
 
-	};
+  };
 
   return (
-    <Wrapper>
-      <DecorationBar />
-      <InputContainer>
-        <Title>Welcome</Title>
-        <SwitchContainer>
-          <div>
-            <Switch id="login" onClick={handleChangeFlag}>Login</Switch>
-            <Indicator hidden={flag !== 1}/>
+      <Wrapper>
+        <DecorationBar />
+        <InputContainer>
+          <Title>Welcome</Title>
+          <SwitchContainer>
+            <div>
+              <Switch id="login" onClick={handleChangeFlag}>Login</Switch>
+              <Indicator hidden={flag !== 1}/>
+            </div>
+            <div>
+              <Switch id="register" onClick={handleChangeFlag}>Register</Switch>
+              <Indicator hidden={flag !== 2}/>
+            </div>
+          </SwitchContainer>
+          <div hidden={flag !== 1}>
+            <form style={formStyle as React.CSSProperties}>
+              <label style={labelStyle as React.CSSProperties}>
+                User Name
+                <input
+                    placeholder="Your email address"
+                    style={inputStyle as React.CSSProperties}
+                    type="text"
+                />
+              </label>
+              <label style={labelStyle as React.CSSProperties}>
+                Password
+                <input
+                    placeholder="Password"
+                    style={inputStyleP as React.CSSProperties}
+                    type="text"
+                />
+              </label>
+              <button
+                  type="submit"
+                  style={submitButtonStyle as React.CSSProperties}
+              >
+                Login
+              </button>
+            </form>
           </div>
-          <div>
-            <Switch id="register" onClick={handleChangeFlag}>Register</Switch>
-            <Indicator hidden={flag !== 2}/>
+          <div hidden={flag !== 2}>
+            <form style={formStyle as React.CSSProperties}>
+              <label style={labelStyle as React.CSSProperties}>
+                New Name
+                <input
+                    placeholder="Your email address"
+                    style={inputStyle as React.CSSProperties}
+                    type="text"
+                />
+              </label>
+              <label style={labelStyle as React.CSSProperties}>
+                Password
+                <input
+                    placeholder="Password"
+                    style={inputStyleP as React.CSSProperties}
+                    type="text"
+                />
+              </label>
+              <button
+                  type="submit"
+                  style={submitButtonStyle as React.CSSProperties}
+              >
+                Sign Up
+              </button>
+            </form>
           </div>
-        </SwitchContainer>
-        <div hidden={flag !== 1}>
-          <form style={formStyle as React.CSSProperties}>
-            <label style={labelStyle as React.CSSProperties}>
-              User Name
-              <input
-                placeholder="Your email address"
-                style={inputStyle as React.CSSProperties}
-                type="text"
-              />
-            </label>
-            <label style={labelStyle as React.CSSProperties}>
-              Password
-              <input
-                placeholder="Password"
-                style={inputStyleP as React.CSSProperties}
-                type="text"
-              />
-            </label>
-            <button
-              type="submit"
-              style={submitButtonStyle as React.CSSProperties}
-            >
-              Login
-            </button>
-          </form>
-        </div>
-        <div hidden={flag !== 2}>
-          <form style={formStyle as React.CSSProperties}>
-            <label style={labelStyle as React.CSSProperties}>
-              New Name
-              <input
-                placeholder="Your email address"
-                style={inputStyle as React.CSSProperties}
-                type="text"
-              />
-            </label>
-            <label style={labelStyle as React.CSSProperties}>
-              Password
-              <input
-                placeholder="Password"
-                style={inputStyleP as React.CSSProperties}
-                type="text"
-              />
-            </label>
-            <button
-              type="submit"
-              style={submitButtonStyle as React.CSSProperties}
-            >
-              Sign Up
-            </button>
-          </form>
-        </div>
-				<button style={adminButtonStyle as React.CSSProperties}>Admin</button>
-      </InputContainer>
-    </Wrapper>
+          <button style={adminButtonStyle as React.CSSProperties}>Admin</button>
+        </InputContainer>
+      </Wrapper>
   );
 }
 
