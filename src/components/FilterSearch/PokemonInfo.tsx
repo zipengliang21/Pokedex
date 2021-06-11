@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useState, useEffect } from 'react';
+import Button from '@material-ui/core/Button';
 
 const InfoWrapper = styled.div`
   display: flex;
@@ -144,7 +145,9 @@ const PokemonInfo = () => {
    const dummyData = JSON.parse(data);
    return (
        <InfoWrapper>
-          <CollectionButtonStyle onClick={() => setCollect(dummyData[0]["Pokemon"])}>Collect!</CollectionButtonStyle>
+          <Button variant="contained" color="secondary" onClick={() => setCollect(dummyData[0]["Pokemon"])}>
+             Collect!
+          </Button>
           <img src={"https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png"}
                alt={`pikachu`}
                width={285}
