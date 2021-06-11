@@ -34,7 +34,6 @@ const LoginDiv = styled.div`
 const WelcomeLoginButton = () => {
     return (
         <WelcomeLoginButtonDiv>
-
             {/*<button onClick={onSubmit}>Login</button>*/}
             <LoginDiv className = "login">
             <NavLink exact activeClassName="selected" to="/login">

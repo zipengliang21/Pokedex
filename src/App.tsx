@@ -1,12 +1,10 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import styled from "styled-components";
-import WelcomeLoginButton from "./components/WelcomeLoginButton";
 import Login from "./components/Login";
 import SideBar from "./components/FilterSearch/SideBar";
 import FilterSearchPage from "./views/FilterSearchPage";
-import HomeCardNode from "./components/HomeCardNode";
-import HomeListPokemon from "./components/HomeListPokemon";
+import WelcomePage from "./views/WelcomePage";
 
 const Test = styled.span`
   position: fixed;
@@ -21,7 +19,7 @@ function App() {
             <Login />
          </Route>
          <Route exact path="/">
-            <WelcomeLoginButton />
+            <WelcomePage/>
          </Route>
          <Route exact path="/profile">
             <SideBar />

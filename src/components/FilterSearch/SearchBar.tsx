@@ -5,9 +5,9 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const SearchBarDiv = styled.div`
   color: blue;
-  left: 300px;
-  top: 25px;
-
+  label, input, button{
+    margin-right: 10px;
+  }
 `
 
 
