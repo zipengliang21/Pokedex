@@ -11,8 +11,7 @@ library.add(faHome, faAddressCard, faSearch, faComment, faAngleUp, faFilter)
 
 ReactDOM.render(
     <Router>
-       <App />
+        <App />
     </Router>,
-  document.getElementById('root')
+    document.getElementById('root')
 );
-

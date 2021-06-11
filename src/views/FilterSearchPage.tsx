@@ -27,24 +27,23 @@ const FilterSearchContentWrapper = styled.section`
 const SearchWrapper = styled.div`
     display: flex;
     flex-direction: row;
-    // top: 1000px;
 `
 
 const FilterSearchPage = () => {
-   return (
-       <FilterSearchWrapper>
-          <SideBar/>
-          <FilterSearchContentWrapper>
-             <DecorationBar/>
-              <SearchWrapper>
-                  <SearchBar/>
-                  <CheckBoxType/>
-              </SearchWrapper>
-             <PokemonInfo/>
-          </FilterSearchContentWrapper>
+    return (
+        <FilterSearchWrapper>
+            <SideBar/>
+            <FilterSearchContentWrapper>
+                <DecorationBar/>
+                <SearchWrapper>
+                    <SearchBar/>
+                    <CheckBoxType/>
+                </SearchWrapper>
+                <PokemonInfo/>
+            </FilterSearchContentWrapper>
 
-       </FilterSearchWrapper>
-   )
+        </FilterSearchWrapper>
+    )
 };
 
 export default FilterSearchPage;

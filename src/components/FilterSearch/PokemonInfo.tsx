@@ -228,4 +228,3 @@ const PokemonInfo = () => {
 };
 
 export default PokemonInfo;
-

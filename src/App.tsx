@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import styled from "styled-components";
 import WelcomeLoginButton from "./components/WelcomeLoginButton";
-import Login from "./components/Login";
+import Login from "./components/FilterSearch/Login";
 import SideBar from "./components/FilterSearch/SideBar";
 import FilterSearchPage from "./views/FilterSearchPage";
 import HomeCardNode from "./components/HomeCardNode";
