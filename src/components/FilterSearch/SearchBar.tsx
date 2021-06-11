@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import Button from '@material-ui/core/Button';
 
 
 const SearchBarDiv = styled.div`
@@ -10,9 +11,12 @@ const SearchBarDiv = styled.div`
 
 `
 
-
-const SearchBar = () => {
+function SearchBar (props:any){
     const [Key, setKey] = useState("");
+
+    const handleSubmit = (event:any) => {
+        setKey(event.target.value);
+    };
     return (
         <SearchBarDiv>
             {/*action="/" method="get"*/}
@@ -27,7 +31,9 @@ const SearchBar = () => {
                     name="s"
                     onChange={(e) => setKey(e.target.value)}
                 />
-                <button type="submit">Search</button>
+                <Button variant="contained" color="primary" onClick={handleSubmit}>
+                    Submit
+                </Button>
             </form>
         </SearchBarDiv>
     )
