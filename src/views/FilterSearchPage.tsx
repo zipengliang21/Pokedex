@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import SideBar from "../components/FilterSearch/SideBar";
+import SideBar from "../components/Common/SideBar";
 import SearchBar from "../components/Common/SearchBar";
 import DecorationBar from "../components/FilterSearch/DecorationBar";
 import CheckBoxType from "../components/FilterSearch/CheckBoxType";
