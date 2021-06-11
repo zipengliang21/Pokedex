@@ -1,10 +1,32 @@
 import React from "react";
 import styled from "styled-components";
+import {NavLink} from "react-router-dom";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const Wrapper = styled.div`
   width: 100%;
+  height: 100vh;
+  background: #FBFAF6
 `;
-
+const Header = styled.div`
+   margin: 0 auto;
+   width: 800px;
+   display: flex;
+   justify-content: space-between;
+   font-size: 18px;
+   color: #212D3B;
+   background: linear-gradient(112.93deg, #DCDECE 9.22%, rgba(53, 57, 30, 0.58) 70.36%);
+   .home{
+       margin-left: 40px;
+       margin-right: 5px;
+   }
+   .login{
+       margin-right: 50px;
+   }
+   .user{
+      margin-right: 5px;
+   }
+`;
 const InputContainer = styled.div`
   margin: auto;
   width: 20%;
@@ -51,9 +73,9 @@ const Indicator = styled.div`
 `;
 
 const DecorationBar = styled.div`
-  width: 100%;
+  margin: 0 auto;
+  width: 700px;
   height: 25vh;
-  background-size: contain;
   background-image: url("https://www.nintendo.com.au/web_images/pages/1939/attachments/attach1473204999.png");
   margin-bottom: 40px;
 `;
@@ -107,7 +129,7 @@ const adminButtonStyle = {
 	marginLeft: "16px"
 };
 
-function Login(props: any) {
+function LoginPage(props: any) {
   const [flag, setFlag] = React.useState(1);
 
   const handleChangeFlag = (event: any) => {
@@ -122,6 +144,16 @@ function Login(props: any) {
 
   return (
     <Wrapper>
+      <Header>
+        <NavLink exact activeClassName="selected" to="/" className="home">
+          <FontAwesomeIcon icon="home" className="home"/>
+          <span className="span">Home</span>
+        </NavLink>
+        <NavLink exact activeClassName="selected" to="/login" className="login">
+          <FontAwesomeIcon icon="user" className="user"/>
+          <span className="span">Login</span>
+        </NavLink>
+      </Header>
       <DecorationBar />
       <InputContainer>
         <Title>Welcome</Title>
@@ -193,4 +225,4 @@ function Login(props: any) {
   );
 }
 
-export default Login;
+export default LoginPage;

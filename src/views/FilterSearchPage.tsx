@@ -43,7 +43,7 @@ const FilterSearchPage = () => {
                   <CheckBoxGrowth/>
                   <CheckBoxType/>
               </SearchWrapper>
-             <PokemonInfo/>
+             {/*<PokemonInfo/>*/}
           </FilterSearchContentWrapper>
 
        </FilterSearchWrapper>
