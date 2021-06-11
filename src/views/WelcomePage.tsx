@@ -23,6 +23,9 @@ const Wrapper = styled.div`
       .home{
         margin-right: 5px;
       }
+      .user{
+        margin-right: 5px;
+      }
       .loadMore{
         margin-bottom: 50px;
       }
@@ -36,12 +39,18 @@ const DecorationBar = styled.div`
   margin-bottom: 40px;
 `;
 
-const LoginDiv = styled.div`
-    font-size: 18px;
-    color: #212D3B;
-    background: linear-gradient(112.93deg, #DCDECE 9.22%, rgba(53, 57, 30, 0.58) 70.36%);
-    text-align: right;
-    padding-right: 10px;
+const Header = styled.div`
+   display: flex;
+   justify-content: space-between;
+   font-size: 18px;
+   color: #212D3B;
+   background: linear-gradient(112.93deg, #DCDECE 9.22%, rgba(53, 57, 30, 0.58) 70.36%);
+   .home{
+       margin-left: 40px;
+   }
+   .login{
+       margin-right: 50px;
+   }
 `;
 
 const PokemonWrapper = styled.div`
@@ -64,12 +73,16 @@ const WelcomePage = () => {
    return (
        <Background>
           <Wrapper>
-             <LoginDiv className="login">
-                <NavLink exact activeClassName="selected" to="/login">
+             <Header>
+                <NavLink exact activeClassName="selected" to="/" className="home">
                    <FontAwesomeIcon icon="home" className="home"/>
+                   <span className="span">Home</span>
+                </NavLink>
+                <NavLink exact activeClassName="selected" to="/login" className="login">
+                   <FontAwesomeIcon icon="user" className="user"/>
                    <span className="span">Login</span>
                 </NavLink>
-             </LoginDiv>
+             </Header>
              <DecorationBar/>
              <div className="search">
                 <SearchBar/>

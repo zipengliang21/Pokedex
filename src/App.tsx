@@ -5,6 +5,8 @@ import Login from "./components/Login";
 import SideBar from "./components/FilterSearch/SideBar";
 import FilterSearchPage from "./views/FilterSearchPage";
 import WelcomePage from "./views/WelcomePage";
+import PokemonDetailsPage from "./views/PokemonDetailsPage";
+import PokemonData from "./pokedexData.json";
 
 const Test = styled.span`
   position: fixed;
@@ -32,6 +34,11 @@ function App() {
             <SideBar />
             <Test>Pokemon Comments</Test>
          </Route>
+         <Route exact path="/Pokemon/:id"
+                render={(props) => {
+                   const index: number = parseInt(props.match.params.id);
+                   return <PokemonDetailsPage pokemon={PokemonData[index-1]}/>;
+                }}/>
       </Switch>
    );
 }

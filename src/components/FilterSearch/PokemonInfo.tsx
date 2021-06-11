@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useState, useEffect } from 'react';
 
 const InfoWrapper = styled.div`
+  width: 850px;
   display: flex;
   flex-direction: row;
   margin: 100px auto 0 auto;
@@ -41,7 +42,6 @@ const DataWrapper = styled.div`
 const CollectionButtonStyle = styled.button`
   font-size: 30px;
   font-weight: bold;
-  top: 0px;
   padding: 16px;
   border: none;
   background: -webkit-linear-gradient(
@@ -139,21 +139,22 @@ const data = `
    ]
 `;
 
-const PokemonInfo = () => {
+const PokemonInfo = ({pokemon}: any) => {
+   console.log(pokemon)
    const [collect, setCollect] = useState("");
    const dummyData = JSON.parse(data);
    return (
        <InfoWrapper>
-          <CollectionButtonStyle onClick={() => setCollect(dummyData[0]["Pokemon"])}>Collect!</CollectionButtonStyle>
-          <img src={"https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png"}
+          {/*<CollectionButtonStyle onClick={() => setCollect(dummyData[0]["Pokemon"])}>Collect!</CollectionButtonStyle>*/}
+          <img src={pokemon.img}
                alt={`pikachu`}
                width={285}
                height={285}/>
           <div>
-             <header>Pikachu</header>
+             <header>{pokemon.name}</header>
              <DataWrapper>
                 <div className={"InfoColumn1"}>
-                   National No: {dummyData[0]["Pokedex Data"]["National No"]} <br/>
+                   National No: {pokemon.id} <br/>
                    Type: {dummyData[0]["Pokedex Data"].Type} <br/>
                    Species: {dummyData[0]["Pokedex Data"].Species} <br/>
                    Height: {dummyData[0]["Pokedex Data"].Height} <br/>
