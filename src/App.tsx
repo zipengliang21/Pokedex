@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import styled from "styled-components";
-import SideBar from "./components/FilterSearch/SideBar";
+import SideBar from "./components/Common/SideBar";
 import FilterSearchPage from "./views/FilterSearchPage";
 import WelcomePage from "./views/WelcomePage";
 import PokemonDetailsPage from "./views/PokemonDetailsPage";
@@ -26,6 +26,14 @@ function App() {
          <Route exact path="/profile">
             <SideBar />
             <Test>Profile</Test>
+         </Route>
+         <Route exact path="/collections">
+            <SideBar />
+            <Test>collections</Test>
+         </Route>
+         <Route exact path="/myPosts">
+            <SideBar />
+            <Test>myPosts</Test>
          </Route>
          <Route exact path="/filterSearch">
             <FilterSearchPage />

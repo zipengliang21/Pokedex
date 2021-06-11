@@ -6,9 +6,9 @@ import Button from '@material-ui/core/Button';
 
 const SearchBarDiv = styled.div`
   color: blue;
-  left: 300px;
-  top: 25px;
-
+  form, input, button{
+    margin-left: 10px;
+  }
 `
 
 function SearchBar (props:any){
