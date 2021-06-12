@@ -66,7 +66,7 @@ const NavBar = (props: any) => (
              </NavLink >
           </MenuText>
           <MenuText>
-             <NavLink exact activeClassName="selected" to="/Pokemon/profile">
+             <NavLink exact activeClassName="selected" to="/Pokemon/profile/Overview">
                <FontAwesomeIcon icon="address-card"/>
                <ProfileDropdown/>
                 <FontAwesomeIcon icon="angle-up" className="arrow"/>

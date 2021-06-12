@@ -38,6 +38,10 @@ const Value = styled.p`
     color: black;
 `;
 
+const CollectionPreviewContainer = styled.div`
+
+`;
+
 class Overview extends React.Component{
     render(){
         return(
@@ -51,6 +55,9 @@ class Overview extends React.Component{
                 <Value>TEST TEST1</Value>
                 <Value>TEST TEST2</Value>
             </ValueDiv>
+            <CollectionPreviewContainer>
+            Sample card goes here:
+            </CollectionPreviewContainer>
             </OverviewContainer >
         );
         
