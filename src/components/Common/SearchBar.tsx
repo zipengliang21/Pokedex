@@ -9,6 +9,12 @@ const SearchBarDiv = styled.div`
   form, input, button{
     margin-left: 10px;
   }
+  @media(max-width: 576px){
+    form, input, button{
+      margin-top: 15px;
+      margin-left: 0;
+    }
+  }
 `
 
 function SearchBar (props:any){

@@ -20,23 +20,33 @@ const Wrapper = styled.div`
       .search{
         text-align: center;
       }
-      .home{
-        margin-right: 5px;
-      }
-      .user{
-        margin-right: 5px;
-      }
       .loadMore{
         margin-bottom: 50px;
+      }
+      @media(max-width: 875px){
+        width: 418px;
+        .search{
+          margin-top: 75px;
+        }
+      }
+      @media(max-width: 576px){
+        width: 230px;
+        .search{
+          margin-top: 25px;
+        }
       }
 `;
 
 const DecorationBar = styled.div`
   width: 750px;
-  height: 25vh;
+  height: 320px;
   margin: 0 auto;
   background-image: url("https://www.nintendo.com.au/web_images/pages/1939/attachments/attach1473204999.png");
   margin-bottom: 40px;
+  @media(max-width: 875px){
+   width: 418px;
+   display: none;
+  }
 `;
 
 const Header = styled.div`
@@ -46,10 +56,22 @@ const Header = styled.div`
    color: #212D3B;
    background: linear-gradient(112.93deg, #DCDECE 9.22%, rgba(53, 57, 30, 0.58) 70.36%);
    .home{
-       margin-left: 40px;
+       margin: 0 5px 0 40px
    }
    .login{
        margin-right: 50px;
+   }
+   .user{
+      margin-right: 5px;
+   }
+   @media(max-width: 576px){
+      justify-content: center;
+      .home{
+        margin: 0 5px 0 0;
+      }
+      .login{
+       margin: 0 0 0 5px;
+      }
    }
 `;
 
@@ -58,6 +80,10 @@ const PokemonWrapper = styled.div`
     width: 700px;
     max-width: 100%;
     margin: 0 auto;
+    @media(max-width: 875px){
+      width: 418px;
+      padding: 0 30px;
+    }
 `;
 
 const GroupWrapper = styled.div`
@@ -67,6 +93,9 @@ const GroupWrapper = styled.div`
     max-width: 100%;
     margin: 100px auto;
     text-align: center;
+    @media(max-width: 875px){
+      margin: 50px auto;
+    }
 `;
 
 const WelcomePage = () => {

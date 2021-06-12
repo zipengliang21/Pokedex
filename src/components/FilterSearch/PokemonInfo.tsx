@@ -16,6 +16,12 @@ const InfoWrapper = styled.div`
     font-weight: 600;
     font-size: 36px;
   }
+  @media(max-width: 875px){
+    flex-direction: column;
+    text-align: center;
+    margin: 0;
+    align-items: flex-start;
+  }
 `;
 
 const DataWrapper = styled.div`
@@ -35,6 +41,12 @@ const DataWrapper = styled.div`
       span{
         margin-right: 10px;
       }
+    }
+    @media(max-width: 875px){
+       flex-direction: column;
+       text-align: center;
+       margin: 0;
+       align-items: flex-start;
     }
 `;
 // cannot make the button style effect
