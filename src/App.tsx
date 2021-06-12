@@ -7,6 +7,8 @@ import WelcomePage from "./views/WelcomePage";
 import PokemonDetailsPage from "./views/PokemonDetailsPage";
 import PokemonData from "./pokedexData.json";
 import LoginPage from "views/LoginPage";
+import Overview from "./components/Overview";
+import Collection from "./components/Collection";
 
 const Test = styled.span`
   position: fixed;
@@ -25,22 +27,22 @@ function App() {
          </Route>
          <Route exact path="/profile">
             <SideBar />
-            <Test>Profile</Test>
+            <Overview/>
          </Route>
          <Route exact path="/collections">
             <SideBar />
-            <Test>collections</Test>
+            <Collection/>
          </Route>
-         <Route exact path="/myPosts">
-            <SideBar />
-            <Test>myPosts</Test>
-         </Route>
-         <Route exact path="/filterSearch">
+         {/*<Route exact path="/myPosts">*/}
+         {/*   <SideBar />*/}
+         {/*   <Test>myPosts</Test>*/}
+         {/*</Route>*/}
+         <Route exact path="/advancedSearch">
             <FilterSearchPage />
          </Route>
-         <Route exact path="/pokemonComments">
+         <Route exact path="/forum">
             <SideBar />
-            <Test>Pokemon Comments</Test>
+            <Test>Forum</Test>
          </Route>
          <Route exact path="/Pokemon/:id"
                 render={(props) => {

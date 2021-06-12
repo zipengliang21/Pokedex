@@ -103,21 +103,21 @@ const SideBar = (props: any) => (
                 <span>Collections</span>
              </NavLink >
           </MenuSubText>
-          <MenuSubText>
-             <NavLink exact activeClassName="selected" to="/myPosts">
-                <FontAwesomeIcon icon="sim-card" className="subIcon"/>
-                <span>My Posts</span>
-             </NavLink >
-          </MenuSubText>
+          {/*<MenuSubText>*/}
+          {/*   <NavLink exact activeClassName="selected" to="/myPosts">*/}
+          {/*      <FontAwesomeIcon icon="sim-card" className="subIcon"/>*/}
+          {/*      <span>My Posts</span>*/}
+          {/*   </NavLink >*/}
+          {/*</MenuSubText>*/}
           <MenuText>
-             <NavLink exact activeClassName="selected" to="/filterSearch">
+             <NavLink exact activeClassName="selected" to="/advancedSearch">
                 <FontAwesomeIcon icon="search"  />
                 <span>Advanced Search</span>
                 <FontAwesomeIcon icon="angle-up" className="arrow"/>
              </NavLink >
           </MenuText>
           <MenuText>
-             <NavLink exact activeClassName="selected" to="/pokemonComments">
+             <NavLink exact activeClassName="selected" to="/forum">
                 <FontAwesomeIcon icon="comment"/>
                 <span>
                    <span>Forum</span><FontAwesomeIcon icon="angle-up" className="arrow"/>
