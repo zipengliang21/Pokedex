@@ -33,16 +33,16 @@ function App() {
             <SideBar />
             <Collection/>
          </Route>
-         <Route exact path="/myPosts">
-            <SideBar />
-            <Test>myPosts</Test>
-         </Route>
-         <Route exact path="/filterSearch">
+         {/*<Route exact path="/myPosts">*/}
+         {/*   <SideBar />*/}
+         {/*   <Test>myPosts</Test>*/}
+         {/*</Route>*/}
+         <Route exact path="/advancedSearch">
             <FilterSearchPage />
          </Route>
-         <Route exact path="/pokemonComments">
+         <Route exact path="/forum">
             <SideBar />
-            <Test>Pokemon Comments</Test>
+            <Test>Forum</Test>
          </Route>
          <Route exact path="/Pokemon/:id"
                 render={(props) => {
