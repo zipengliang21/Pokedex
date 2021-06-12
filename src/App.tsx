@@ -10,6 +10,7 @@ import LoginPage from "views/LoginPage";
 import Overview from "./components/Overview";
 import Collection from "./components/Collection";
 import UserHomePage from "./views/UserHomePage";
+import RoughForum from "./components/Forum/RoughForum";
 
 const Test = styled.span`
   position: fixed;
@@ -45,8 +46,7 @@ function App() {
             <FilterSearchPage />
          </Route>
          <Route exact path="/forum">
-            <SideBar />
-            <Test>Forum</Test>
+            <RoughForum/>
          </Route>
          <Route exact path="/Pokemon/:id"
                 render={(props) => {
