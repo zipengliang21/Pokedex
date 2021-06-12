@@ -42,9 +42,8 @@ class ProfileDropdown extends React.Component<{}, { entry: string }> {
             <StyledHtmlSelect
               defaultValue={this.state.entry}
               onChange={event => this.handleSelect(event)}
-            //   onClick={event => this.routeTaker(event)}
             >
-              <option className="selected" value="/Pokemon/profile" >Profile</option>
+              <option className="selected" value="/Pokemon/profile/Overview" >Profile</option>
               <option className="selected" value="/Pokemon/profile/Overview">Overview</option>
               <option className="selected" value="/Pokemon/profile/Collection">Collection</option>
               <option className="selected" value="Comments">Comments</option>

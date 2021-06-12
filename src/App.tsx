@@ -6,6 +6,7 @@ import FilterBar from "./components/FilterBar";
 import styled from "styled-components";
 import DecorationBar from "./components/DecorationBar";
 import Overview from "./components/Overview";
+import Collection from "./components/Collection";
 
 const Test = styled.span`
   position: fixed;
@@ -20,7 +21,7 @@ function App() {
             <NavBar />
             <Test>Home</Test>
          </Route>
-         <Route exact path="/Pokemon/profile">
+         <Route exact path="/Pokemon/profile/Overview">
             <NavBar />
             <Overview />
          </Route>
@@ -30,6 +31,7 @@ function App() {
          </Route>
          <Route exact path="/Pokemon/profile/Collection">
             <NavBar />
+            <Collection/>
          </Route>
          <Route exact path="/Pokemon/filterSearch">
             <NavBar />
