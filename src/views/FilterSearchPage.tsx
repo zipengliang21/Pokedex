@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from "styled-components";
-import SideBar from "../components/FilterSearch/SideBar";
-import SearchBar from "../components/FilterSearch/SearchBar";
-import FilterBar from "../components/FilterSearch/FilterBar";
+import SideBar from "../components/Common/SideBar";
+import SearchBar from "../components/Common/SearchBar";
 import DecorationBar from "../components/FilterSearch/DecorationBar";
-import PokemonInfo from "../components/FilterSearch/PokemonInfo";
+import CheckBoxType from "../components/FilterSearch/CheckBoxType";
 
 const FilterSearchWrapper = styled.div`
     display: flex;
@@ -19,7 +18,8 @@ const FilterSearchContentWrapper = styled.section`
     flex: auto;
     flex-direction: column;
     min-height: 0;
-    background: #f0f2f5;
+    background: #f0f2f5 url("https://www.teahub.io/photos/full/206-2063227_free-christmas-background-christmas-background-light-blue.jpg");
+    background-size: cover;
 `
 
 const SearchWrapper = styled.div`
@@ -32,13 +32,14 @@ const FilterSearchPage = () => {
        <FilterSearchWrapper>
           <SideBar/>
           <FilterSearchContentWrapper>
-             <SearchWrapper>
-                <SearchBar/>
-                <FilterBar/>
-             </SearchWrapper>
              <DecorationBar/>
-             <PokemonInfo/>
+              <SearchWrapper>
+                  <SearchBar/>
+                  <CheckBoxType/>
+              </SearchWrapper>
+             {/*<PokemonInfo/>*/}
           </FilterSearchContentWrapper>
+
        </FilterSearchWrapper>
    )
 };
