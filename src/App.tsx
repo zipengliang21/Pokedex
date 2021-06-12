@@ -27,11 +27,11 @@ function App() {
          </Route>
          <Route exact path="/profile">
             <SideBar />
-            <Test>Profile</Test>
+            <Overview/>
          </Route>
          <Route exact path="/collections">
             <SideBar />
-            <Test>collections</Test>
+            <Collection/>
          </Route>
          <Route exact path="/myPosts">
             <SideBar />
