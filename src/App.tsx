@@ -9,6 +9,7 @@ import PokemonData from "./pokedexData.json";
 import LoginPage from "views/LoginPage";
 import Overview from "./components/Overview";
 import Collection from "./components/Collection";
+import UserHomePage from "./views/UserHomePage";
 
 const Test = styled.span`
   position: fixed;
@@ -24,6 +25,9 @@ function App() {
          </Route>
          <Route exact path="/">
             <WelcomePage/>
+         </Route>
+         <Route exact path="/user/home">
+            <UserHomePage />
          </Route>
          <Route exact path="/profile">
             <SideBar />
