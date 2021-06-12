@@ -2,7 +2,7 @@ import React from 'react';
 import { Avatar } from '@material-ui/core';
 import styled from "styled-components";
 import CardColumns from 'react-bootstrap/CardColumns'
-import PokemonCard from "./PokemonCard";
+import PokemonCard from "../components/PokemonCard";
 
 const CollectionContainer = styled.div`
     position: absolute;
@@ -44,7 +44,7 @@ const addPokemonCard = (card:PokemonCard)=>{
 
 };
 
-class Collection extends React.Component{
+class CollectionPage extends React.Component{
     render(){
         return(
             <CollectionContainer>
@@ -78,4 +78,4 @@ class Collection extends React.Component{
     }
 }
 
-export default Collection;
+export default CollectionPage;
