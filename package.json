@@ -1,5 +1,5 @@
 {
-  "name": "pokemon-website",
+  "name": "Pokedex",
   "author": "Zipeng Liang",
   "homepage": "https://zipengliang21.github.io/Pokemon",
   "version": "0.1.0",
@@ -25,6 +25,7 @@
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",
     "react-dom": "^17.0.2",
+    "react-reveal": "^1.2.2",
     "react-dropdown-select": "^4.7.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
