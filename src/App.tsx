@@ -35,7 +35,6 @@ function App() {
             <Overview/>
          </Route>
          <Route exact path="/collections">
-            <SideBar />
             <Collection/>
          </Route>
          {/*<Route exact path="/myPosts">*/}
