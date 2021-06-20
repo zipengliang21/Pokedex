@@ -16,9 +16,9 @@ const Wrapper = styled.div`
       width: 850px;
       margin: 0 auto;
       background: #FFFFFF;
-      text-align: center;
+      // text-align: center;
       .search{
-        text-align: center;
+        // text-align: center;
       }
       .loadMore{
         margin-bottom: 50px;

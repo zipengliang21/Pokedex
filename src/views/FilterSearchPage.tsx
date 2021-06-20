@@ -7,40 +7,51 @@ import CheckBoxType from "../components/FilterSearch/CheckBoxType";
 
 const FilterSearchWrapper = styled.div`
     display: flex;
+    width: 850px;
     flex-direction: row;
     flex: auto;
     width: 100%;
     min-height: 100%;
+    
 `;
 
 const FilterSearchContentWrapper = styled.section`
     display: flex;
+    width: 850px;
     flex: auto;
     flex-direction: column;
     min-height: 0;
-    background: #f0f2f5 url("https://www.teahub.io/photos/full/206-2063227_free-christmas-background-christmas-background-light-blue.jpg");
-    background-size: cover;
+    margin-left: 30%;
+    
+`
+const Background = styled.div`
+   background: #f0f2f5 url("https://www.teahub.io/photos/full/206-2063227_free-christmas-background-christmas-background-light-blue.jpg");
+   background-size: cover;
 `
 
-const SearchWrapper = styled.div`
+
+const FilterWrapper = styled.div`
     display: flex;
     flex-direction: row;
 `
 
 const FilterSearchPage = () => {
    return (
+       <Background>
        <FilterSearchWrapper>
-          <SideBar/>
+          {/*<SideBar/>*/}
           <FilterSearchContentWrapper>
              <DecorationBar/>
-              <SearchWrapper>
-                  <SearchBar/>
+              <SearchBar/>
+              <FilterWrapper>
+                  {/*<SearchBar/>*/}
                   <CheckBoxType/>
-              </SearchWrapper>
+              </FilterWrapper>
              {/*<PokemonInfo/>*/}
           </FilterSearchContentWrapper>
 
        </FilterSearchWrapper>
+       </Background>
    )
 };
 
