@@ -1,8 +1,6 @@
 import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import Button from "@material-ui/core/Button";
-
 
 const SearchBarWrapper = styled.div`
   display: flex;
@@ -49,13 +47,35 @@ const SearchBarWrapper = styled.div`
     height: 28px;
     border: 3px solid #04266D;
   }
- 
-  @media(max-width: 576px){
-    form, input, button{
-      margin-top: 15px;
+   @media(max-width: 875px){
+      display: block;
+   }
+   @media(max-width: 576px){
+     display: block;
+     .left{
       margin-left: 0;
-    }
-  }
+      text-align: center;
+       .note{
+         width: 230px;
+       }
+       div, form{
+          margin: 5px auto;
+       }
+       button{
+          display: flex;
+          margin: 10px auto;
+       }
+     }
+     .right{
+       display: flex;
+       width: 230px;
+       padding: 0;
+       background: #59B937;
+       color: white;
+       border-radius: 0;
+       text-align: center;
+     }
+   }
 `;
 
 function SearchBar(props: any) {

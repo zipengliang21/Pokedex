@@ -12,7 +12,6 @@ const NavBarWrapper = styled.div`
    justify-content: center;
    align-items: center;
    color: rgba(71, 32, 121, 0.9);
-   //height: 50px;
    background: linear-gradient(90deg, #7F91A5 20.07%, #7FAEE1 75.24%);
    height: inherit;
    div{
@@ -26,12 +25,18 @@ const NavBarWrapper = styled.div`
       mix-blend-mode: multiply;
    }
    @media(max-width: 875px){
-    height: 100%;
+      height: 70px;
+      .selected{
+         height: 100%;
+         padding-top: 10px;
+      }
    }
    @media(max-width: 576px){
      width: 230px;
-     .search{
-       margin-top: 25px;
+     display: block;
+     height: inherit;
+     .selected{
+         color:#C986D5;
      }
    }
 `;
