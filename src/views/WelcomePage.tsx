@@ -9,13 +9,17 @@ import {Button} from "../components/Button";
 import Fade from "react-reveal/Fade";
 
 const Background = styled.div`
-      background: #FBFAF6;
+      //background: #A1BDC6;
+  background: url("https://onlyvectorbackgrounds.com/wp-content/uploads/2019/03/Subtle-Lines-Abstract-Gradient-Background-Cool.jpg")
+  no-repeat center center fixed rgba(161, 189, 198, 0.75);
+  background-size: cover;
+  background-blend-mode: multiply;
 `;
 
 const Wrapper = styled.div`
       width: 850px;
       margin: 0 auto;
-      background: #FFFFFF;
+      background: inherit;
       text-align: center;
       .search{
         text-align: center;
@@ -52,9 +56,12 @@ const DecorationBar = styled.div`
 const Header = styled.div`
    display: flex;
    justify-content: space-between;
-   font-size: 18px;
-   color: #212D3B;
-   background: linear-gradient(112.93deg, #DCDECE 9.22%, rgba(53, 57, 30, 0.58) 70.36%);
+   font-size: 16px;
+   font-weight: 600;
+   color: rgba(71, 32, 121, 0.9);
+   height: 40px;
+   align-items: center;
+   background: linear-gradient(90deg, rgba(177, 209, 202, 0.83) 20.21%, rgba(178, 223, 217, 0.79) 60.83%, #B2E6DF 78.85%);
    .home{
        margin: 0 5px 0 40px
    }
@@ -76,13 +83,14 @@ const Header = styled.div`
 `;
 
 const PokemonWrapper = styled.div`
-    flex: 1;
-    width: 700px;
+    background: white;
+    width: 750px;
     max-width: 100%;
     margin: 0 auto;
+    padding: 15px;
     @media(max-width: 875px){
       width: 418px;
-      padding: 0 30px;
+      padding: 0 40px;
     }
 `;
 
@@ -91,7 +99,7 @@ const GroupWrapper = styled.div`
     flex-wrap: wrap;
     justify-content: space-between;
     max-width: 100%;
-    margin: 100px auto;
+    margin: 75px auto;
     text-align: center;
     @media(max-width: 875px){
       margin: 50px auto;
