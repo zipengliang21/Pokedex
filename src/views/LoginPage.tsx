@@ -15,6 +15,8 @@ import Container from "@material-ui/core/Container";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Github from "../components/LoginIcon/Github";
+import Google from "../components/LoginIcon/Google";
 
 const Background = styled.div`
   background: url("https://onlyvectorbackgrounds.com/wp-content/uploads/2019/03/Subtle-Lines-Abstract-Gradient-Background-Cool.jpg")
@@ -54,7 +56,24 @@ const Indicator = styled.div`
   background:#3d5afe;
   height: 5%;
   width: 100%;
+  .adminButtonStyle{
+   margin-top: 20px;
+   background: #81cfed;
+   border: none;
+   padding: 10px;
+   border-radius: 8px;
+   color: #FFFF;
+   font-weight: bold;
+   font-size: 24px;
+ }
 `;
+
+const Center = styled.div`
+   .google {
+   margin: 0 auto;
+ }
+`;
+
 
 function Copyright() {
   return (
@@ -225,7 +244,24 @@ export default function SignIn() {
             </Button>
           </form>
         </div>
-        <Box mt={8}>
+        <Button
+              type="submit"
+      
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+            >
+              Admin
+            </Button>
+        <Center>
+             <div className="icon">
+                <div className="google"><a href="https://github.com/zipengliang21" target="_blank"
+                                           rel="noreferrer"><Google/></a></div>
+                <div className="github"><a href="https://github.com/zipengliang21" target="_blank"
+                                           rel="noreferrer"><Github/></a></div>
+             </div>
+         </Center>
+             <Box mt={8}>
           <Copyright />
         </Box>
       </Container>
