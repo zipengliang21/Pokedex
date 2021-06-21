@@ -21,11 +21,13 @@ const HeaderWrapper = styled.div`
       margin-right: 5px;
    }
    @media(max-width: 875px){
+      width: 418px;
       .login{
           margin-right: 20px;
       }
    }
    @media(max-width: 576px){
+      width: 100%;
       justify-content: center;
       .login{
        margin: 0 0 0 5px;

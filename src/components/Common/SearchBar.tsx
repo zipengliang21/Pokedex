@@ -8,6 +8,7 @@ const SearchBarWrapper = styled.div`
   mix-blend-mode: normal;
   color: blue;
   padding: 20px 0;
+  text-align: center;
   .left{
     text-align: left;
     margin-left: 80px;
@@ -48,15 +49,23 @@ const SearchBarWrapper = styled.div`
     border: 3px solid #04266D;
   }
    @media(max-width: 875px){
+      width: 418px;
       display: block;
+      .search{
+       margin-top: 75px;
+     }
    }
    @media(max-width: 576px){
+     width: 100%;
      display: block;
+     .search{
+       margin-top: 25px;
+     }
      .left{
       margin-left: 0;
       text-align: center;
-       .note{
-         width: 230px;
+       #search, .note{
+         width: 100%;
        }
        div, form{
           margin: 5px auto;
@@ -68,7 +77,7 @@ const SearchBarWrapper = styled.div`
      }
      .right{
        display: flex;
-       width: 230px;
+       width: 100%;
        padding: 0;
        background: #59B937;
        color: white;

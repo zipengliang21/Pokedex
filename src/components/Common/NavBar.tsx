@@ -11,6 +11,7 @@ const NavBarWrapper = styled.div`
    display: flex;
    justify-content: center;
    align-items: center;
+   text-align: center;
    color: rgba(71, 32, 121, 0.9);
    background: linear-gradient(90deg, #7F91A5 20.07%, #7FAEE1 75.24%);
    height: inherit;
@@ -25,6 +26,7 @@ const NavBarWrapper = styled.div`
       mix-blend-mode: multiply;
    }
    @media(max-width: 875px){
+      width: 418px;
       height: 70px;
       .selected{
          height: 100%;
@@ -32,7 +34,7 @@ const NavBarWrapper = styled.div`
       }
    }
    @media(max-width: 576px){
-     width: 230px;
+     width: 100%;
      display: block;
      height: inherit;
      .selected{
