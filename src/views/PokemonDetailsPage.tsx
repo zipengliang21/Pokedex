@@ -1,77 +1,42 @@
 import React from "react";
 import styled from "styled-components";
 import PokemonInfo from "../components/FilterSearch/PokemonInfo";
-import {NavLink} from "react-router-dom";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import Header from "../components/Common/Header";
+import NavBar from "../components/Common/NavBar";
 import SearchBar from "../components/Common/SearchBar";
-import PokemonData from "../pokedexData.json";
+
+const Background = styled.div`
+  background: url("https://onlyvectorbackgrounds.com/wp-content/uploads/2019/03/Subtle-Lines-Abstract-Gradient-Background-Cool.jpg")
+  no-repeat center center fixed rgba(161, 189, 198, 0.75);
+  min-height: 100vh;
+  background-size: cover;
+  background-blend-mode: multiply;
+`;
 
 const Wrapper = styled.div`
    width: 850px;
    margin: 0 auto;
-   background: #FFFFFF;
-   text-align: center;
+   background: inherit;
+   padding-bottom: 100px;
    @media(max-width: 875px){
-      width: 418px;
-      .search{
-       margin-top: 75px;
-      }
-  }
-`;
-
-const Header = styled.div`
-   display: flex;
-   justify-content: space-between;
-   font-size: 18px;
-   color: #212D3B;
-   background: linear-gradient(112.93deg, #DCDECE 9.22%, rgba(53, 57, 30, 0.58) 70.36%);
-   .home{
-       margin-left: 40px;
+     width: 418px;
    }
-   .login{
-       margin-right: 50px;
+   @media(max-width: 576px){
+     width: 100%;
    }
-   .home{
-     margin-right: 5px;
-   }
-   .user{
-     margin-right: 5px;
-   }
-`;
-
-const DecorationBar = styled.div`
-  width: 750px;
-  height: 25vh;
-  margin: 0 auto;
-  background-image: url("https://www.nintendo.com.au/web_images/pages/1939/attachments/attach1473204999.png");
-  margin-bottom: 40px;
-  @media(max-width: 875px){
-   display: none;
-  }
 `;
 
 function PokemonDetailsPage({pokemon}: any) {
    const index = pokemon.id;
    return (
-       <Wrapper>
-          <Header>
-             <NavLink exact activeClassName="selected" to="/" className="home">
-                <FontAwesomeIcon icon="home" className="home"/>
-                <span className="span">Home</span>
-             </NavLink>
-             <NavLink exact activeClassName="selected" to="/login" className="login">
-                <FontAwesomeIcon icon="user" className="user"/>
-                <span className="span">Login</span>
-             </NavLink>
-          </Header>
-          <DecorationBar/>
-          <div className="search">
+       <Background>
+          <Wrapper>
+             <Header/>
+             <NavBar/>
              <SearchBar/>
-          </div>
-          <div>
-            <PokemonInfo pokemon={pokemon}/>
-          </div>
-       </Wrapper>
+             <PokemonInfo pokemon={pokemon}/>
+          </Wrapper>
+       </Background>
    );
 }
 

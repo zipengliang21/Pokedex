@@ -20,23 +20,14 @@ const Wrapper = styled.div`
       margin: 0 auto;
       background: inherit;
       text-align: center;
-      .search{
-        text-align: center;
-      }
       .loadMore{
         margin: 50px auto;
       }
       @media(max-width: 875px){
         width: 418px;
-        .search{
-          margin-top: 75px;
-        }
       }
       @media(max-width: 576px){
         width: 230px;
-        .search{
-          margin-top: 25px;
-        }
       }
 `;
 
@@ -70,7 +61,7 @@ const WelcomePage = () => {
           <Wrapper>
              <Header/>
              <NavBar/>
-             <SearchBar className="search"/>
+             <SearchBar/>
              <PokemonWrapper>
                 <GroupWrapper>
                    {PokemonData.slice(0, 4).map((pokemon, index) => {
