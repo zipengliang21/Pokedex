@@ -16,6 +16,15 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+const Background = styled.div`
+  background: url("https://onlyvectorbackgrounds.com/wp-content/uploads/2019/03/Subtle-Lines-Abstract-Gradient-Background-Cool.jpg")
+  no-repeat center center fixed rgba(161, 189, 198, 0.75);
+  background-size: cover;
+  background-blend-mode: multiply;
+`;
+
+
+
 const Header = styled.div`
   margin: 0 auto;
   width: 100%;
@@ -103,6 +112,7 @@ export default function SignIn() {
 
   return (
     <div>
+      <Background>
       <Header>
         <NavLink exact activeClassName="selected" to="/" className="home">
           <FontAwesomeIcon icon="home" className="home" />
@@ -219,6 +229,7 @@ export default function SignIn() {
           <Copyright />
         </Box>
       </Container>
+      </Background>
     </div>
   );
 }
