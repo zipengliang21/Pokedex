@@ -4,14 +4,20 @@ import SideBar from "../components/Common/SideBar";
 import SearchBar from "../components/Common/SearchBar";
 import DecorationBar from "../components/FilterSearch/DecorationBar";
 import CheckBoxType from "../components/FilterSearch/CheckBoxType";
+import NavBar from "../components/Common/NavBar";
+import Header from "../components/Common/Header";
+const Background = styled.div`
+  background: url("https://onlyvectorbackgrounds.com/wp-content/uploads/2019/03/Subtle-Lines-Abstract-Gradient-Background-Cool.jpg")
+  no-repeat center center fixed rgba(161, 189, 198, 0.75);
+  background-size: cover;
+  background-blend-mode: multiply;
+`;
 
 const FilterSearchWrapper = styled.div`
-    display: flex;
-    width: 850px;
-    flex-direction: row;
-    flex: auto;
-    width: 100%;
-    min-height: 100%;
+      width: 850px;
+      margin: 0 auto;
+      background: inherit;
+      text-align: center;
     
 `;
 
@@ -20,31 +26,53 @@ const FilterSearchContentWrapper = styled.section`
     width: 850px;
     flex: auto;
     flex-direction: column;
-    min-height: 0;
-    margin-left: 30%;
+    // min-height: 0;
+    // width: 850px;
+     margin: 0 auto;
+     background: inherit;
+     text-align: center;
+     .search{
+        width: 850px;
+        text-align: center;
+     }
+    
+     @media(max-width: 875px){
+       width: 418px;
+       .search{
+         margin-top: 75px;
+       }
+     }
+     @media(max-width: 576px){
+       width: 230px;
+       .search{
+         margin-top: 25px;
+       }
+     }
     
 `
-const Background = styled.div`
-   background: #f0f2f5 url("https://www.teahub.io/photos/full/206-2063227_free-christmas-background-christmas-background-light-blue.jpg");
-   background-size: cover;
-`
+// const Background = styled.div`
+//    background: #f0f2f5 url("https://www.teahub.io/photos/full/206-2063227_free-christmas-background-christmas-background-light-blue.jpg");
+//    background-size: cover;
+// `
 
 
 const FilterWrapper = styled.div`
     display: flex;
     flex-direction: row;
+    background: rgba(140,140,140,0.8)
+    // text-align: center;
 `
 
 const FilterSearchPage = () => {
    return (
        <Background>
        <FilterSearchWrapper>
-          {/*<SideBar/>*/}
           <FilterSearchContentWrapper>
-             <DecorationBar/>
-              <SearchBar/>
+             {/*<DecorationBar/>*/}
+             <Header/>
+             <NavBar/>
+              <SearchBar className="search"/>
               <FilterWrapper>
-                  {/*<SearchBar/>*/}
                   <CheckBoxType/>
               </FilterWrapper>
              {/*<PokemonInfo/>*/}
