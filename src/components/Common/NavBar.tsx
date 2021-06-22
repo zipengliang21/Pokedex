@@ -18,11 +18,10 @@ const NavBarWrapper = styled.div`
    text-align: center;
    color: rgba(71, 32, 121, 0.9);
    background: linear-gradient(90deg, #7F91A5 20.07%, #7FAEE1 75.24%);
-   height: inherit;
-   min-height: 57px;
+   //min-height: 57px;
    box-sizing: border-box;
    div{
-      padding: 1px 15px;
+      padding: 0 15px;
    }
    svg{
       margin-bottom: -5px;
