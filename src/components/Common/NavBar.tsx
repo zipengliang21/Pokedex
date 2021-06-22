@@ -1,13 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from "styled-components";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import Button from '@material-ui/core/Button';
 import {NavLink} from "react-router-dom";
 
 
 const NavBarWrapper = styled.div`
+   width: 850px;
+   margin: 0 auto;
+   letter-spacing: 0;
    font-size: 15px;
-   line-height: normal;
+   font-weight: 500;
+   line-height: 1.8;
+   font-family: 'Poppins', sans-serif;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -15,6 +19,8 @@ const NavBarWrapper = styled.div`
    color: rgba(71, 32, 121, 0.9);
    background: linear-gradient(90deg, #7F91A5 20.07%, #7FAEE1 75.24%);
    height: inherit;
+   min-height: 57px;
+   box-sizing: border-box;
    div{
       padding: 1px 15px;
    }

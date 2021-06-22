@@ -11,6 +11,7 @@ import Header from "../components/Common/Header";
 const Background = styled.div`
   background: url("https://onlyvectorbackgrounds.com/wp-content/uploads/2019/03/Subtle-Lines-Abstract-Gradient-Background-Cool.jpg")
   no-repeat center center fixed rgba(161, 189, 198, 0.75);
+  min-height: 100vh;
   background-size: cover;
   background-blend-mode: multiply;
 `;

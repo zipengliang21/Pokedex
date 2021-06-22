@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
@@ -6,7 +6,6 @@ const SearchBarWrapper = styled.div`
   display: flex;
   background: #616161;
   mix-blend-mode: normal;
-  color: blue;
   padding: 20px 0;
   text-align: center;
   .left{
@@ -87,7 +86,7 @@ const SearchBarWrapper = styled.div`
    }
 `;
 
-function SearchBar(props: any) {
+function SearchBar() {
    const [Key, setKey] = useState("");
 
    const handleSubmit = (event: any) => {

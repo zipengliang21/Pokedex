@@ -13,43 +13,17 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Github from "../components/LoginIcon/Github";
 import Google from "../components/LoginIcon/Google";
+import Header from "../components/Common/Header";
+import NavBar from "../components/Common/NavBar";
 
 const Background = styled.div`
   background: url("https://onlyvectorbackgrounds.com/wp-content/uploads/2019/03/Subtle-Lines-Abstract-Gradient-Background-Cool.jpg")
   no-repeat center center fixed rgba(161, 189, 198, 0.75);
+  min-height: 100vh;
   background-size: cover;
   background-blend-mode: multiply;
-`;
-
-
-
-const Header = styled.div`
-  margin: 0 auto;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  font-size: 18px;
-  padding: 8px;
-  color: #212d3b;
-  background: linear-gradient(
-    112.93deg,
-    #dcdece 9.22%,
-    rgba(53, 57, 30, 0.58) 70.36%
-  );
-  .home {
-    margin-left: 40px;
-    margin-right: 5px;
-  }
-  .login {
-    margin-right: 50px;
-  }
-  .user {
-    margin-right: 5px;
-  }
 `;
 
 const Indicator = styled.div`
@@ -68,10 +42,22 @@ const Indicator = styled.div`
  }
 `;
 
+const Wrapper = styled.div`
+      width: 850px;
+      margin: 0 auto;
+      background: inherit;
+      @media(max-width: 875px){
+        width: 418px;
+      }
+      @media(max-width: 576px){
+        width: 100%;
+      }
+`;
+
 const Center = styled.div`
    .google {
-   margin: 0 auto;
- }
+      margin: 0 auto;
+   }
 `;
 
 
@@ -130,142 +116,134 @@ export default function SignIn() {
   };
 
   return (
-    <div>
       <Background>
-      <Header>
-        <NavLink exact activeClassName="selected" to="/" className="home">
-          <FontAwesomeIcon icon="home" className="home" />
-          <span className="span">Home</span>
-        </NavLink>
-        <NavLink exact activeClassName="selected" to="/login" className="login">
-          <FontAwesomeIcon icon="user" className="user" />
-          <span className="span">Login</span>
-        </NavLink>
-      </Header>
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <div className={classes.switchContainer}>
-            <div>
-              <Button id="login" className={classes.button} onClick={handleChangeFlag}>
+      <Header/>
+      <NavBar/>
+      <Wrapper>
+        <Container component="main" maxWidth="xs">
+          <CssBaseline />
+          <div className={classes.paper}>
+            <Avatar className={classes.avatar}>
+              <LockOutlinedIcon />
+            </Avatar>
+            <div className={classes.switchContainer}>
+              <div>
+                <Button id="login" className={classes.button} onClick={handleChangeFlag}>
+                  Sign In
+                </Button>
+                <Indicator hidden={flag !== 1}/>
+              </div>
+              <div>
+                <Button id="register" className={classes.button} onClick={handleChangeFlag}>
+                  Register
+                </Button>
+                <Indicator hidden={flag !== 2}/>
+              </div>
+            </div>
+            <form className={classes.form} noValidate hidden={flag !== 1}>
+              <TextField
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="email"
+                  label="Email Address"
+                  name="email"
+                  autoComplete="email"
+                  autoFocus
+              />
+              <TextField
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  fullWidth
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  autoComplete="current-password"
+              />
+              <FormControlLabel
+                  control={<Checkbox value="remember" color="primary" />}
+                  label="Remember me"
+              />
+              <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  color="primary"
+                  className={classes.submit}
+              >
                 Sign In
               </Button>
-              <Indicator hidden={flag !== 1}/>
-            </div>
-            <div>
-              <Button id="register" className={classes.button} onClick={handleChangeFlag}>
+              <Grid container>
+                <Grid item xs>
+                  <Link href="#" variant="body2">
+                    Forgot password?
+                  </Link>
+                </Grid>
+              </Grid>
+            </form>
+            <form className={classes.form} noValidate hidden={flag !== 2}>
+              <TextField
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="email"
+                  label="Enter Your Valid Email Address"
+                  name="email"
+                  autoComplete="email"
+                  autoFocus
+              />
+              <TextField
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  fullWidth
+                  name="password"
+                  label="Set your Password"
+                  type="password"
+                  id="password"
+                  autoComplete="current-password"
+              />
+              <FormControlLabel
+                  control={<Checkbox value="remember" color="primary" />}
+                  label="Remember me"
+              />
+              <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  color="primary"
+                  className={classes.submit}
+              >
                 Register
               </Button>
-              <Indicator hidden={flag !== 2}/>
-            </div>
+            </form>
           </div>
-          <form className={classes.form} noValidate hidden={flag !== 1}>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-            />
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
-            <Button
+          <Button
               type="submit"
-              fullWidth
+
               variant="contained"
               color="primary"
               className={classes.submit}
-            >
-              Sign In
-            </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-            </Grid>
-          </form>
-          <form className={classes.form} noValidate hidden={flag !== 2}>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Enter Your Valid Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-            />
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Set your Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
-              Register
-            </Button>
-          </form>
-        </div>
-        <Button
-              type="submit"
-      
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
-              Admin
-            </Button>
-        <Center>
-             <div className="icon">
-                <div className="google"><a href="https://github.com/zipengliang21" target="_blank"
-                                           rel="noreferrer"><Google/></a></div>
-                <div className="github"><a href="https://github.com/zipengliang21" target="_blank"
-                                           rel="noreferrer"><Github/></a></div>
-             </div>
-         </Center>
-             <Box mt={8}>
-          <Copyright />
-        </Box>
-      </Container>
+          >
+            Admin
+          </Button>
+          <Center>
+            <div className="icon">
+              <div className="google"><a href="https://github.com/zipengliang21" target="_blank"
+                                         rel="noreferrer"><Google/></a></div>
+              <div className="github"><a href="https://github.com/zipengliang21" target="_blank"
+                                         rel="noreferrer"><Github/></a></div>
+            </div>
+          </Center>
+          <Box mt={8}>
+            <Copyright />
+          </Box>
+        </Container>
+      </Wrapper>
       </Background>
-    </div>
   );
 }
