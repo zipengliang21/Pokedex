@@ -7,9 +7,10 @@ import WelcomePage from "./views/WelcomePage";
 import PokemonDetailsPage from "./views/PokemonDetailsPage";
 import PokemonData from "./pokedexData.json";
 import LoginPage from "views/LoginPage";
-import Overview from "./components/Overview";
-import Collection from "./components/Collection";
 import UserHomePage from "./views/UserHomePage";
+import RoughForum from "./components/Forum/RoughForum";
+import OverviewPage from "./views/OverviewPage";
+import CollectionPage from "views/CollectionPage";
 
 const Test = styled.span`
   position: fixed;
@@ -31,11 +32,11 @@ function App() {
          </Route>
          <Route exact path="/profile">
             <SideBar />
-            <Overview/>
+            <OverviewPage/>
          </Route>
          <Route exact path="/collections">
             <SideBar />
-            <Collection/>
+            <CollectionPage/>
          </Route>
          {/*<Route exact path="/myPosts">*/}
          {/*   <SideBar />*/}
@@ -45,8 +46,7 @@ function App() {
             <FilterSearchPage />
          </Route>
          <Route exact path="/forum">
-            <SideBar />
-            <Test>Forum</Test>
+            <RoughForum/>
          </Route>
          <Route exact path="/Pokemon/:id"
                 render={(props) => {

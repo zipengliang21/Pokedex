@@ -27,7 +27,7 @@ const Wrapper = styled.div`
 `;
 
 function PokemonDetailsPage({pokemon}: any) {
-   const index = pokemon.id;
+   // const index = pokemon.id;
    return (
        <Background>
           <Wrapper>
