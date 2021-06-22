@@ -72,6 +72,7 @@ function RoughForum(props:any) {
                 <span>Threads</span>
                 <span>Posts</span>
                 </ForumHeaderWrapper>
+                <table>
                 <ForumTr>
 
                     <ForumTdName ><ForumA href="https://veekun.com/forums/1/threads/102">Considering a split</ForumA></ForumTdName>
@@ -126,6 +127,7 @@ function RoughForum(props:any) {
                     <ForumTdName>9 posts</ForumTdName>
 
                 </ForumTr>
+                </table>
 
             </ForumContentWrapper>
         </ForumWrapper>

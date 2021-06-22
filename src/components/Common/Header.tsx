@@ -1,3 +1,4 @@
+
 import React from 'react';
 import styled from "styled-components";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -40,6 +41,7 @@ const HeaderWrapper = styled.div`
 `;
 
 function Header (){
+
    return (
        <HeaderWrapper>
           <NavLink exact activeClassName="selected" to="/login" className="login">
@@ -49,6 +51,7 @@ function Header (){
        </HeaderWrapper>
    )
 }
+
 
 
 

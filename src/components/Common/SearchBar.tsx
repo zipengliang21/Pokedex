@@ -8,6 +8,7 @@ const SearchBarWrapper = styled.div`
   mix-blend-mode: normal;
   padding: 20px 0;
   text-align: center;
+
   .left{
     text-align: left;
     margin-left: 80px;

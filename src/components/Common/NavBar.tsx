@@ -72,7 +72,9 @@ function NavBar (){
           </NavLink>
        </NavBarWrapper>
    )
+
 }
+
 
 
 
