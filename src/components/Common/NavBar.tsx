@@ -43,6 +43,7 @@ const NavBarWrapper = styled.div`
      display: block;
      height: inherit;
      .selected{
+         background: none;
          color:#C986D5;
      }
    }

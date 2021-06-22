@@ -8,9 +8,9 @@ import PokemonDetailsPage from "./views/PokemonDetailsPage";
 import PokemonData from "./pokedexData.json";
 import LoginPage from "views/LoginPage";
 import UserHomePage from "./views/UserHomePage";
-import RoughForum from "./components/Forum/RoughForum";
+import ForumHomePage from "./views/ForumHomePage";
+import CollectionPage from "./views/CollectionPage";
 import OverviewPage from "./views/OverviewPage";
-import CollectionPage from "views/CollectionPage";
 
 const Test = styled.span`
   position: fixed;
@@ -46,7 +46,7 @@ function App() {
             <FilterSearchPage />
          </Route>
          <Route exact path="/forum">
-            <RoughForum/>
+            <ForumHomePage/>
          </Route>
          <Route exact path="/Pokemon/:id"
                 render={(props) => {
