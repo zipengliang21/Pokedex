@@ -35,12 +35,22 @@ import Fade from "react-reveal/Fade";
 import Pokemon from "../DetailedView/Pokemon";
 import styled from "styled-components";
 
-const PokemonWrapper = styled.div`
-    flex: 1;
-    width: 700px;
-    max-width: 100%;
-    margin: 0 auto;
-    @media(max-width: 875px){
+// const PokemonWrapper = styled.div`
+//     flex: 1;
+//     width: 700px;
+//     max-width: 100%;
+//     margin: 0 auto;
+//     @media(max-width: 875px){
+//       width: 418px;
+//       padding: 0 30px;
+//     }
+// `;
+
+const Base = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 850px;
+    @media(max-width: 850px){
       width: 418px;
       padding: 0 30px;
     }
@@ -55,6 +65,9 @@ const useStyles = makeStyles((theme: Theme) =>
             margin: theme.spacing(5),
             size: 'medium',
         },
+        submitButton:{
+            marginLeft:"30px",
+        }
 
     }),
 );
@@ -62,12 +75,12 @@ const useStyles = makeStyles((theme: Theme) =>
 
 function CheckBoxType(props:any) {
     const classes = useStyles();
-    const [filteredPokes, setFilteredPokes] = useState([{id: "",
-        name: "",
-        img: "",
-        type: [
-            ""
-        ]}]);
+    // const [filteredPokes, setFilteredPokes] = useState([{id: "",
+    //     name: "",
+    //     img: "",
+    //     type: [
+    //         ""
+    //     ]}]);
     const [types, setTypes] = useState({
         normal: false,
         fire: false,
@@ -109,21 +122,16 @@ function CheckBoxType(props:any) {
     // const [{}] = filteredPokes;
 
     const handleSubmit = () =>{
-        console.log("start Submit");
-        console.log(types.normal, types.fire, types.water, types.grass, types.flying,
-            types.fighting, types.poison, types.electric, types.ground, types.rock,
-            types.psychic, types.ice, types.bug, types.ghost, types.steel,
-            types.dragon, types.dark, types.fairy);
         props.handleTypes (types.normal, types.fire, types.water, types.grass, types.flying,
             types.fighting, types.poison, types.electric, types.ground, types.rock,
             types.psychic, types.ice, types.bug, types.ghost, types.steel,
             types.dragon, types.dark, types.fairy,
             types.HeightLittle, types.HeightMedium, types.HeightTall,
             types.WeightLight, types.WeightMedium, types.WeightHeavy);
-        console.log("finishSubmit");
     }
 
     return (
+        <Base>
         <div className={classes.root}>
             <FormControl component="fieldset" className={classes.formControl}>
                 <h2>Select Type!</h2>
@@ -194,31 +202,31 @@ function CheckBoxType(props:any) {
                     <FormControlLabel
                         control={<Checkbox checked={rock} onChange={handleChange} name="rock" />}
                         label={
-                            <img src={RockType} className="profile-img" width="90px" height="auto" style={{ marginRight: "5px" }} />
+                            <img src={RockType} className="profile-img" width="90px" height="auto" alt = "no" style={{ marginRight: "5px" }} />
                         }
                     />
                     <FormControlLabel
                         control={<Checkbox checked={psychic} onChange={handleChange} name="psychic" />}
                         label={
-                            <img src={PhyType} className="profile-img" width="90px" height="auto" style={{ marginRight: "5px" }} />
+                            <img src={PhyType} className="profile-img" width="90px" height="auto" alt = "no" style={{ marginRight: "5px" }} />
                         }
                     />
                     <FormControlLabel
                         control={<Checkbox checked={ice} onChange={handleChange} name="ice" />}
                         label={
-                            <img src={IceType} className="profile-img" width="90px" height="auto" style={{ marginRight: "5px" }} />
+                            <img src={IceType} className="profile-img" width="90px" height="auto" alt = "no" style={{ marginRight: "5px" }} />
                         }
                     />
                     <FormControlLabel
                         control={<Checkbox checked={bug} onChange={handleChange} name="bug" />}
                         label={
-                            <img src={BugType} className="profile-img" width="90px" height="auto" style={{ marginRight: "5px" }} />
+                            <img src={BugType} className="profile-img" width="90px" height="auto" alt = "no" style={{ marginRight: "5px" }} />
                         }
                     />
                     <FormControlLabel
                         control={<Checkbox checked={ghost} onChange={handleChange} name="ghost" />}
                         label={
-                            <img src={Ghost} className="profile-img" width="90px" height="auto" style={{ marginRight: "5px" }} />
+                            <img src={Ghost} className="profile-img" width="90px" height="auto" alt = "no" style={{ marginRight: "5px" }} />
                         }
                     />
                     <FormControlLabel
@@ -259,19 +267,19 @@ function CheckBoxType(props:any) {
                     <FormControlLabel
                         control={<Checkbox checked={HeightLittle} onChange={handleChange} name="HeightLittle" />}
                         label={
-                            <img src={Hei1} className="profile-img" width="90px" height="auto" style={{ marginRight: "5px" }} />
+                            <img src={Hei1} className="profile-img" width="90px" height="auto" alt = "no" style={{ marginRight: "5px" }} />
                         }
                     />
                     <FormControlLabel
                         control={<Checkbox checked={HeightMedium} onChange={handleChange} name="HeightMedium" />}
                         label={
-                            <img src={Hei2} className="profile-img" width="90px" height="auto" style={{ marginRight: "5px" }} />
+                            <img src={Hei2} className="profile-img" width="90px" height="auto" alt = "no" style={{ marginRight: "5px" }} />
                         }
                     />
                     <FormControlLabel
                         control={<Checkbox checked={HeightTall} onChange={handleChange} name="HeightTall" />}
                         label={
-                            <img src={Hei3} className="profile-img" width="90px" height="auto" style={{ marginRight: "5px" }} />
+                            <img src={Hei3} className="profile-img" width="90px" height="auto" alt = "no" style={{ marginRight: "5px" }} />
                         }
                     />
                 </FormGroup>
@@ -285,189 +293,39 @@ function CheckBoxType(props:any) {
                     {/*    label="All"*/}
                     {/*/>*/}
                     <FormControlLabel
-                        control={<Checkbox checked={WeightLight} onChange={handleChange} name="WeightLight" />}
+                        control={<Checkbox checked={WeightLight} onChange={handleChange}  name="WeightLight" />}
                         label={
-                            <img src={Weight1} className="profile-img" width="90px" height="auto" style={{ marginRight: "5px" }} />
+                            <img src={Weight1} className="profile-img" width="90px" height="auto" alt = "no" style={{ marginRight: "5px" }} />
                         }
                     />
                     <FormControlLabel
                         control={<Checkbox checked={WeightMedium} onChange={handleChange} name="WeightMedium" />}
                         label={
-                            <img src={Weight2} className="profile-img" width="90px" height="auto" style={{ marginRight: "5px" }} />
+                            <img src={Weight2} className="profile-img" width="90px" height="auto" alt = "no" style={{ marginRight: "5px" }} />
                         }
                     />
                     <FormControlLabel
                         control={<Checkbox checked={WeightHeavy} onChange={handleChange} name="WeightHeavy" />}
                         label={
-                            <img src={Weight3} className="profile-img" width="90px" height="auto" style={{ marginRight: "5px" }} />
+                            <img src={Weight3} className="profile-img" width="90px" height="auto" alt = "no" style={{ marginRight: "5px" }} />
                         }
                     />
                 </FormGroup>
-                <Button variant="contained" color="secondary" onClick={handleSubmit}>
-                    Submit
-                </Button>
+
             </FormControl>
 
+
         </div>
+            <Button variant="contained" color="secondary" onClick={handleSubmit}>
+                Submit
+            </Button>
+        </Base>
     // <PokemonWrapper>
     //     {filteredPokes.map((pokemon, index) => {
     //         return  <Fade left key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon.name}/></Fade>;
     //     })}
     // </PokemonWrapper>
     );
-//     function typeFilter (normal:boolean, fire:boolean, water:boolean, grass:boolean, flying:boolean,
-//                          fighting:boolean, poison:boolean, electric:boolean, ground:boolean, rock:boolean,
-//                          psychic: boolean, ice: boolean, bug: boolean, ghost: boolean, steel: boolean,
-//                          dragon: boolean, dark: boolean, fairy: boolean) {
-//         let result = [];
-//         if (normal){
-//             for (let poke of pokeData) {
-//                 if("Normal" in poke.type && result.indexOf(poke) === -1){
-//                     result.push(poke);
-//                     // setFilteredPokes([ ...filteredPokes, poke]);
-//                 }
-//             }
-//         }
-//         if (fire){
-//             for (let poke of pokeData) {
-//                 if("Fire" in poke.type && result.indexOf(poke) === -1){
-//                     // setFilteredPokes([ ...filteredPokes, poke]);
-//                     result.push(poke);
-//                 }
-//             }
-//         }
-//         if (water){
-//             for (let poke of pokeData) {
-//                 if(poke.type.includes("Water") && result.indexOf(poke) === -1){
-//                     result.push(poke);
-//                     // setFilteredPokes([ ...filteredPokes, poke]);
-//                 }
-//             }
-//         }
-//         if (grass){
-//             for (let poke of pokeData) {
-//                 if(poke.type.includes("Grass") && result.indexOf(poke) === -1){
-//                     result.push(poke);
-//                     // setFilteredPokes([ ...filteredPokes, poke]);
-//                 }
-//             }
-//         }
-//         if (flying){
-//             for (let poke of pokeData) {
-//                 if("Flying" in poke.type && result.indexOf(poke) === -1){
-//                     result.push(poke);
-//                     // setFilteredPokes([ ...filteredPokes, poke]);
-//                 }
-//             }
-//         }
-//         if (fighting){
-//             for (let poke of pokeData) {
-//                 if("Fighting" in poke.type && result.indexOf(poke) === -1){
-//                     result.push(poke);
-//                     // setFilteredPokes([ ...filteredPokes, poke]);
-//                 }
-//             }
-//         }
-//         if (poison){
-//             for (let poke of pokeData) {
-//                 if("Poison" in poke.type && result.indexOf(poke) === -1){
-//                     result.push(poke);
-//                     // setFilteredPokes([ ...filteredPokes, poke]);
-//                 }
-//             }
-//         }
-//         if (electric){
-//             for (let poke of pokeData) {
-//                 if("Electric" in poke.type && result.indexOf(poke) === -1){
-//                     result.push(poke);
-//                     // setFilteredPokes([ ...filteredPokes, poke]);
-//                 }
-//             }
-//         }
-//         if (ground){
-//             for (let poke of pokeData) {
-//                 if("Ground" in poke.type && result.indexOf(poke) === -1){
-//                     result.push(poke);
-//                     // setFilteredPokes([ ...filteredPokes, poke]);
-//                 }
-//             }
-//         }
-//         if (rock){
-//             for (let poke of pokeData) {
-//                 if("Rock" in poke.type && result.indexOf(poke) === -1){
-//                     result.push(poke);
-//                     // setFilteredPokes([ ...filteredPokes, poke]);
-//                 }
-//             }
-//         }
-//         if (psychic){
-//             for (let poke of pokeData) {
-//                 if("Psychic" in poke.type && result.indexOf(poke) === -1){
-//                     result.push(poke);
-//                     // setFilteredPokes([ ...filteredPokes, poke]);
-//                 }
-//             }
-//         }
-//         if (ice){
-//             for (let poke of pokeData) {
-//                 if("Ice" in poke.type && result.indexOf(poke) === -1){
-//                     result.push(poke);
-//                     // setFilteredPokes([ ...filteredPokes, poke]);
-//                 }
-//             }
-//         }
-//         if (ghost){
-//             for (let poke of pokeData) {
-//                 if("Ghost" in poke.type && result.indexOf(poke) === -1){
-//                     // setFilteredPokes([ ...filteredPokes, poke]);
-//                     result.push(poke);
-//                 }
-//             }
-//         }
-//         if (bug){
-//             for (let poke of pokeData) {
-//                 if("Fire" in poke.type && result.indexOf(poke) === -1){
-//                     result.push(poke);
-//                     // setFilteredPokes([ ...filteredPokes, poke]);
-//                 }
-//             }
-//         }
-//         if (steel){
-//             for (let poke of pokeData) {
-//                 if("Steel" in poke.type && result.indexOf(poke) === -1){
-//                     result.push(poke);
-//                     // setFilteredPokes([ ...filteredPokes, poke]);
-//                 }
-//             }
-//         }
-//         if (dragon){
-//             for (let poke of pokeData) {
-//                 if("Dragon" in poke.type && result.indexOf(poke) === -1){
-//                     result.push(poke);
-//                     // setFilteredPokes([ ...filteredPokes, poke]);
-//                 }
-//             }
-//         }
-//         if (dark){
-//             for (let poke of pokeData) {
-//                 if("Dark" in poke.type && result.indexOf(poke) === -1){
-//                     result.push(poke);
-//                     // setFilteredPokes([ ...filteredPokes, poke]);
-//                 }
-//             }
-//         }
-//         if (fairy){
-//             for (let poke of pokeData) {
-//                 if("Dragon" in poke.type && result.indexOf(poke) === -1){
-//                     result.push(poke);
-//                     // setFilteredPokes([ ...filteredPokes, poke]);
-//                 }
-//             }
-//         }
-//         console.log(result);
-//         setFilteredPokes(result);
-//         console.log("finish filter");
-//
-//     }
+
 }
 export default CheckBoxType;

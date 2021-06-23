@@ -69,7 +69,9 @@ const FilterWrapper = styled.div`
    
 `
 const PokemonWrapper = styled.div`
-    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     width: 700px;
     max-width: 100%;
     margin: 0 auto;
@@ -91,19 +93,19 @@ function FilterSearchPage() {
              <Header/>
              <NavBar/>
               <SearchBar className="search"/>
+              <PokemonWrapper>
+                  {filteredPokes.map((pokemon, index) => {
+                      if (pokemon.name === ""){return <> </>}
+                      else {
+                          return <Fade left key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon.name}/></Fade>;
+                      }})}
+              </PokemonWrapper>
               <FilterWrapper>
                   <CheckBoxType
                       handleTypes={typeFilter}
                   />
               </FilterWrapper>
           </FilterSearchContentWrapper>
-           <PokemonWrapper>
-               {filteredPokes.map((pokemon, index) => {
-                   if (pokemon.name === ""){return <span> </span>}
-                   else {
-                       return <Fade left key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon.name}/></Fade>;
-                   }})}
-           </PokemonWrapper>
 
        </FilterSearchWrapper>
        </Background>
@@ -224,7 +226,7 @@ function FilterSearchPage() {
         }
         if (bug){
             for (let poke of PokemonData) {
-                if(poke.type.includes("Fire" ) && result.indexOf(poke) === -1){
+                if(poke.type.includes("Bug" ) && result.indexOf(poke) === -1){
                     result.push(poke);
                     // setFilteredPokes([ ...filteredPokes, poke]);
                 }

@@ -82,23 +82,23 @@ const SearchBarWrapper = styled.div`
 `;
 
 const PokemonWrapper = styled.div`
-    // display: flex;
-    flex: 1;
-    // flex-direction: row;
+   display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    // flex: 1;
     width: 700px;
     max-width: 100%;
     margin: 0 auto;
-    text-align: left;
     @media(max-width: 875px){
       width: 418px;
-      // padding: 0 30px;
+      padding: 0 30px;
     }
 `;
 
 
 
 const ResultWrapper = styled.div`
-  display: flex;
+  // display: inline-block;
   background: white;
   mix-blend-mode: normal;
   color: blue;
@@ -180,9 +180,12 @@ function SearchBar(props: any) {
         </SearchBarWrapper>
          <ResultWrapper>
       <PokemonWrapper>
-     {filteredPokemons.map((pokemon, index) => {
+
+              {filteredPokemons.map((pokemon, index) => {
+                  if (pokemon.name === ""){return <> </>}
+                  else {
          return  <Fade left key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon.name}/></Fade>;
-     })}
+     }})}
      </PokemonWrapper>
      </ResultWrapper>
         </SearchBarResultWrapper>
