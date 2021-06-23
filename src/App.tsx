@@ -7,16 +7,12 @@ import WelcomePage from "./views/WelcomePage";
 import PokemonDetailsPage from "./views/PokemonDetailsPage";
 import PokemonData from "./pokedexData.json";
 import LoginPage from "views/LoginPage";
-import Overview from "./components/Overview";
-import Collection from "./components/Collection";
 import UserHomePage from "./views/UserHomePage";
-import RoughForum from "./components/Forum/RoughForum";
-
-const Test = styled.span`
-  position: fixed;
-  left: 300px;
-  top: 0;
-`;
+import OverviewPage from "./views/OverviewPage";
+import CollectionPage from "./views/CollectionPage";
+import ForumHomePage from "./views/ForumHomePage";
+import ForumNewPostPage from "./views/ForumNewPostPage";
+import PostDetailsPage from "views/PostDetailsPage";
 
 function App() {
    return (
@@ -32,10 +28,11 @@ function App() {
          </Route>
          <Route exact path="/profile">
             <SideBar />
-            <Overview/>
+            <OverviewPage/>
          </Route>
          <Route exact path="/collections">
-            <Collection/>
+            <SideBar />
+            <CollectionPage/>
          </Route>
          {/*<Route exact path="/myPosts">*/}
          {/*   <SideBar />*/}
@@ -45,12 +42,20 @@ function App() {
             <FilterSearchPage />
          </Route>
          <Route exact path="/forum">
-            <RoughForum/>
+            <ForumHomePage/>
+         </Route>
+         <Route exact path="/forum/newPost">
+            <ForumNewPostPage/>
          </Route>
          <Route exact path="/Pokemon/:id"
                 render={(props) => {
                    const index: number = parseInt(props.match.params.id);
                    return <PokemonDetailsPage pokemon={PokemonData[index-1]}/>;
+                }}/>
+         <Route exact path="/post/:id"
+                render={(props) => {
+                   const index: number = parseInt(props.match.params.id);
+                   return <PostDetailsPage/>;
                 }}/>
       </Switch>
    );

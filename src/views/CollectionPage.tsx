@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import CardColumns from 'react-bootstrap/CardColumns'
-import PokemonCard from "./PokemonCard";
-import SideBar from "./Common/SideBar";
-import Container from 'react-bootstrap/Container'
+import PokemonCard from "../components/PokemonCard";
 
 const Wrapper = styled.div`
 box-sizing: border-box;
@@ -82,7 +80,7 @@ const addPokemonCard = (card:PokemonCard)=>{
 
 };
 
-class Collection extends React.Component{
+class CollectionPage extends React.Component{
     render(){
         return(
             <Wrapper>
@@ -125,4 +123,4 @@ class Collection extends React.Component{
     }
 }
 
-export default Collection;
+export default CollectionPage;

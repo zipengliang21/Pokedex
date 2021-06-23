@@ -42,7 +42,7 @@ const CollectionPreviewContainer = styled.div`
 
 `;
 
-class Overview extends React.Component{
+class OverviewPage extends React.Component{
     render(){
         return(
             <OverviewContainer >
@@ -64,4 +64,4 @@ class Overview extends React.Component{
     }
 }
 
-export default Overview;
+export default OverviewPage;
