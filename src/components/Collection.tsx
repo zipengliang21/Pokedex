@@ -1,43 +1,81 @@
 import React from 'react';
-import { Avatar } from '@material-ui/core';
 import styled from "styled-components";
 import CardColumns from 'react-bootstrap/CardColumns'
 import PokemonCard from "./PokemonCard";
+import SideBar from "./Common/SideBar";
+import Container from 'react-bootstrap/Container'
 
-const CollectionContainer = styled.div`
-    position: absolute;
-    float: left;
-    top: 0px;
-    width: 1236px;
-    height:1000px;
-    margin-left:300px;
+const Wrapper = styled.div`
+box-sizing: border-box;
+display: flex;
+flex-direction: row;
+flex: auto;
+width: 100%;
+min-height: 100%;
 `;
 
-const CollectionUserDiv = styled.div`
-position: absolute;
-float: left;
-top: 20px;
-width: 136px;
-margin-left:300px;
-text-align:center;
+const CollectionContainer = styled.section`
+display: flex;
+flex: auto;
+flex-direction: column;
+min-height: 0;
+background-size: cover;
+`;
+
+const Banner = styled.header`
+min-height: 4rem;
+-webkit-filter: none;
+z-index: 1;
+display:flex;
+flex-direction:column;
+margin-bottom:0px;
+.bannerImg{
+    width:100%;
+    height:40vh;
+}
+.welcomeMsg{
+    font-size: 2.5rem;
+    text-align:center;
+    color: #212D3B;
+    background: #FBFAF6;
+}
+`;
+
+const ContentWrapper = styled.div`
+display: flex;
+flex-wrap: wrap;
+`;
+
+const Header = styled.h1`
+position: relative;
+scroll-margin-top: 5rem;
+font-size: 2.5rem;
+margin-block-start: 0.67em;
+margin-block-end: 0.67em;
+margin-inline-start: 0px;
+margin-inline-end: 0px;
+margin-bottom: 2rem;
+font-weight: 500;
+line-height: 1.2;
+margin-top: 30px;
+margin-left:120px;
+color:black;
 `;
 
 const CollectionListDiv = styled.div`
-width: 1536px;
-float: left;
-margin-top: 20px;
-margin-left:300px;
-text-align:center;
+position: relative;
+margin-bottom: 3rem;
+background-color: #fff;
+flex: 1;
+text-align: center;
+max-width: 100%;
+`;
+
+const StyledCollumContainer = styled.div`
 position: relative;
 padding: 1rem;
-border: .2rem solid #ececec;
-border-radius: 8px;
 margin-right: 0;
-color: #212529;
-height:1000px;
-`;
-const StyledCollumContainer = styled.div`
-    height:1000px;
+margin-left: 10px;
 `;
 
 const addPokemonCard = (card:PokemonCard)=>{
@@ -47,15 +85,22 @@ const addPokemonCard = (card:PokemonCard)=>{
 class Collection extends React.Component{
     render(){
         return(
+            <Wrapper>
+            <SideBar/>
             <CollectionContainer>
-                <CollectionUserDiv>
-                <Avatar src="https://www.pinclipart.com/picdir/middle/413-4130758_first-sample-avatar-image-silhouette-clipart.png" alt="user picture" style={{position:"relative",height: '170px', width: '170px',marginLeft:'-300px' }} />
-                <label style={{left: "-280px", position:"absolute",float: "left",margin:"10px", fontFamily: "inherit",fontSize:"20px"}}>Jane Doe</label>
-                </CollectionUserDiv>
-
+            <Banner role="banner">
+            <a className="welcomeMsg" target="_blank" rel="noreferrer">Welcome to your collection!</a>
+            </Banner>
+            <Banner role="banner" >
+            <img className="bannerImg" src="https://pokemongamesharkcodes.files.wordpress.com/2016/09/banner-pokemon.png" alt="logo" />
+            </Banner>
+            <Container fluid>
+                <Header>Colleacted Pokemon </Header>
+                <ContentWrapper>
                 <CollectionListDiv>
                     <StyledCollumContainer>
                     <CardColumns style={{
+                        position: "relative",
                         display: "block", 
                         width: "100%",
                         columnCount:3,
@@ -72,8 +117,10 @@ class Collection extends React.Component{
                     </CardColumns>
                     </StyledCollumContainer>
                 </CollectionListDiv>
-
+                </ContentWrapper>
+                </Container>
             </CollectionContainer>
+            </Wrapper>
         );
     }
 }

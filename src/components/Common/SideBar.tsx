@@ -4,7 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled from "styled-components";
 
 const NavBarWrapper = styled.header`
-    height: 100vh;
+    height: auto;
+    min-height: 100vh;
     width: 256px;
     min-width: 256px;
     max-width: 256px;
@@ -75,10 +76,10 @@ const SideBar = (props: any) => (
        <NavBarMenu>
           <HideSidebarButton id='hideButton' onClick={props.HideSideBarButton}><span>☰</span></HideSidebarButton>
           <div className="account">
-             <NavLink exact to="/">Account</NavLink>
+             <NavLink exact to="/user/home">Account</NavLink>
           </div>
           <MenuText>
-             <NavLink exact activeClassName="selected" to="/">
+             <NavLink exact activeClassName="selected" to="/user/home">
                 <FontAwesomeIcon icon="home"/>
                 <span>home</span>
                 <FontAwesomeIcon icon="angle-up" className="arrow"/>
@@ -103,21 +104,21 @@ const SideBar = (props: any) => (
                 <span>Collections</span>
              </NavLink >
           </MenuSubText>
-          <MenuSubText>
-             <NavLink exact activeClassName="selected" to="/myPosts">
-                <FontAwesomeIcon icon="sim-card" className="subIcon"/>
-                <span>My Posts</span>
-             </NavLink >
-          </MenuSubText>
+          {/*<MenuSubText>*/}
+          {/*   <NavLink exact activeClassName="selected" to="/myPosts">*/}
+          {/*      <FontAwesomeIcon icon="sim-card" className="subIcon"/>*/}
+          {/*      <span>My Posts</span>*/}
+          {/*   </NavLink >*/}
+          {/*</MenuSubText>*/}
           <MenuText>
-             <NavLink exact activeClassName="selected" to="/filterSearch">
+             <NavLink exact activeClassName="selected" to="/advancedSearch">
                 <FontAwesomeIcon icon="search"  />
                 <span>Advanced Search</span>
                 <FontAwesomeIcon icon="angle-up" className="arrow"/>
              </NavLink >
           </MenuText>
           <MenuText>
-             <NavLink exact activeClassName="selected" to="/pokemonComments">
+             <NavLink exact activeClassName="selected" to="/forum">
                 <FontAwesomeIcon icon="comment"/>
                 <span>
                    <span>Forum</span><FontAwesomeIcon icon="angle-up" className="arrow"/>

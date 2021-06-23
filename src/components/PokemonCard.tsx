@@ -13,15 +13,14 @@ interface CardProps{
 }
 
 const StyledCardImg = styled.img`
-    width: 200px;
-    height: 200px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    width: 280px;
+    height: 280px;
 `;
 
 const StyledLink = styled.a`
-    font-size: 17px;
-    color: #80B2EC;
+    font-size: 40px;
+    font-weight:600;
+    color: black;
 `;
 
 class PokemonCard extends React.Component<CardProps>{
@@ -48,8 +47,8 @@ class PokemonCard extends React.Component<CardProps>{
                 flexDirection: "column",
                 backgroundColor: "#fff",
                 backgroundClip: "border-box",
-                border: "1px solid rgba(0,0,0,.125)",
-                borderRadius: ".25rem",}
+                flexWrap: "wrap",
+            }
             }>
             <StyledCardImg src={this.props.picSource} alt={this.props.picName}></StyledCardImg>
             <CardBody style={{
@@ -57,17 +56,8 @@ class PokemonCard extends React.Component<CardProps>{
                 minHeight: "1px",
                 padding: "1.25rem",
             }}>
-            <CardTitle tag="h2">{this.props.picName}</CardTitle>
-                <CardSubtitle tag="h6" className="mb-2 text-muted">{this.props.description}</CardSubtitle>
+                <StyledLink href="/#/pokemon/001">{this.props.picName}</StyledLink>
             </CardBody>
-            <CardFooter style={{
-                padding: ".75rem 1.25rem",
-                backgroundColor: "rgba(0,0,0,.03)",
-                borderTop: "1px solid rgba(0,0,0,.125)",
-            }
-            }>
-                <StyledLink href="#">Link to view Pokemon detail</StyledLink>
-            </CardFooter>
             </Card>
             )
         }

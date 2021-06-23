@@ -9,6 +9,8 @@ import PokemonData from "./pokedexData.json";
 import LoginPage from "views/LoginPage";
 import Overview from "./components/Overview";
 import Collection from "./components/Collection";
+import UserHomePage from "./views/UserHomePage";
+import RoughForum from "./components/Forum/RoughForum";
 
 const Test = styled.span`
   position: fixed;
@@ -25,24 +27,25 @@ function App() {
          <Route exact path="/">
             <WelcomePage/>
          </Route>
+         <Route exact path="/user/home">
+            <UserHomePage />
+         </Route>
          <Route exact path="/profile">
             <SideBar />
-            <Test>Profile</Test>
+            <Overview/>
          </Route>
          <Route exact path="/collections">
-            <SideBar />
-            <Test>collections</Test>
+            <Collection/>
          </Route>
-         <Route exact path="/myPosts">
-            <SideBar />
-            <Test>myPosts</Test>
-         </Route>
-         <Route exact path="/filterSearch">
+         {/*<Route exact path="/myPosts">*/}
+         {/*   <SideBar />*/}
+         {/*   <Test>myPosts</Test>*/}
+         {/*</Route>*/}
+         <Route exact path="/advancedSearch">
             <FilterSearchPage />
          </Route>
-         <Route exact path="/pokemonComments">
-            <SideBar />
-            <Test>Pokemon Comments</Test>
+         <Route exact path="/forum">
+            <RoughForum/>
          </Route>
          <Route exact path="/Pokemon/:id"
                 render={(props) => {

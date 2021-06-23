@@ -7,10 +7,16 @@ import SearchBar from "../components/Common/SearchBar";
 import PokemonData from "../pokedexData.json";
 
 const Wrapper = styled.div`
-      width: 850px;
-      margin: 0 auto;
-      background: #FFFFFF;
-      text-align: center;
+   width: 850px;
+   margin: 0 auto;
+   background: #FFFFFF;
+   text-align: center;
+   @media(max-width: 875px){
+      width: 418px;
+      .search{
+       margin-top: 75px;
+      }
+  }
 `;
 
 const Header = styled.div`
@@ -39,14 +45,9 @@ const DecorationBar = styled.div`
   margin: 0 auto;
   background-image: url("https://www.nintendo.com.au/web_images/pages/1939/attachments/attach1473204999.png");
   margin-bottom: 40px;
-`;
-
-const LoginDiv = styled.div`
-    font-size: 18px;
-    color: #212D3B;
-    background: linear-gradient(112.93deg, #DCDECE 9.22%, rgba(53, 57, 30, 0.58) 70.36%);
-    text-align: right;
-    padding-right: 10px;
+  @media(max-width: 875px){
+   display: none;
+  }
 `;
 
 function PokemonDetailsPage({pokemon}: any) {
