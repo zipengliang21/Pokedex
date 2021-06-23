@@ -3,6 +3,9 @@ import React from "react";
 import NavBar from "../components/Common/NavBar";
 import Header from "../components/Common/Header";
 import ForumHeader from "../components/Forum/ForumHeader";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {NavLink} from "react-router-dom";
+import ForumSubHeader from "../components/Forum/ForumSubHeader";
 
 const Background = styled.div`
   background: url("https://onlyvectorbackgrounds.com/wp-content/uploads/2019/03/Subtle-Lines-Abstract-Gradient-Background-Cool.jpg")
@@ -33,7 +36,7 @@ const ForumContentWrapper = styled.section`
     width: 800px;
     margin: 0 auto;
 `;
-const ForumHeaderWrapper = styled.div`
+const ForumSubHeaderWrapper = styled.div`
     height: 40px;
     display: flex;
     flex-direction: row;
@@ -48,6 +51,10 @@ const ForumHeaderWrapper = styled.div`
     }
     .headerRight{
       margin-right: 40px;
+    }
+    .plus{
+      margin-right: 5px;
+      color: green;
     }    
 `;
 
@@ -88,10 +95,7 @@ function ForumHomePage(props: any) {
           <NavBar/>
           <ForumHeader/>
           <ForumWrapper>
-             <ForumHeaderWrapper>
-                <span className="headerLeft">Threads</span>
-                <span className="headerRight">New Post</span>
-             </ForumHeaderWrapper>
+             <ForumSubHeader/>
              <ForumContentWrapper>
                 <table>
                    <ForumTr>
