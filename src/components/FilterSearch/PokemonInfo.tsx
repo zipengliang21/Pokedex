@@ -275,4 +275,3 @@ const PokemonInfo = ({pokemon}: any) => {
 };
 
 export default PokemonInfo;
-
