@@ -95,7 +95,7 @@ class Collection extends React.Component{
             <img className="bannerImg" src="https://pokemongamesharkcodes.files.wordpress.com/2016/09/banner-pokemon.png" alt="logo" />
             </Banner>
             <Container fluid>
-                <Header>Colleacted Pokemon </Header>
+                <Header>Collected Pokemon </Header>
                 <ContentWrapper>
                 <CollectionListDiv>
                     <StyledCollumContainer>
