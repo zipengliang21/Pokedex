@@ -4,9 +4,6 @@ import styled from "styled-components";
 
 const PokemonWrapper = styled.div`
     flex: 1;
-    width: 50%;
-    min-width:50%; 
-    max-width:50%; 
     height: 350px;
     text-align: center;
     display: inline-block;
