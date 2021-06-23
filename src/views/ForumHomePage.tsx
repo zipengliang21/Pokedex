@@ -36,27 +36,6 @@ const ForumContentWrapper = styled.section`
     width: 800px;
     margin: 0 auto;
 `;
-const ForumSubHeaderWrapper = styled.div`
-    height: 40px;
-    display: flex;
-    flex-direction: row;
-    background: linear-gradient(180deg, #80B2ED -3.56%, #B6CDE9 104.67%);
-    justify-content: space-between;
-    align-items: center;
-    span{
-      font-size: 18px;
-    }
-    .headerLeft{
-      margin-left: 40px;
-    }
-    .headerRight{
-      margin-right: 40px;
-    }
-    .plus{
-      margin-right: 5px;
-      color: green;
-    }    
-`;
 
 const ForumTh = styled.th`
     border-style: solid;
@@ -106,9 +85,12 @@ function ForumHomePage(props: any) {
                    </ForumTr>
                    <ForumTr>
                       <ForumTdName>
-                         <ForumA href="https://veekun.com/forums/1/threads/102">
-                            Considering a split
-                         </ForumA>
+                         <NavLink to={`/post/${1}`}>
+                            <ForumA href="https://veekun.com/forums/1/threads/102">
+                               Considering a split
+                            </ForumA>
+                         </NavLink>
+
                       </ForumTdName>
                       <ForumTdName>Description</ForumTdName>
                       <ForumTdName>Author</ForumTdName>

@@ -12,6 +12,7 @@ import OverviewPage from "./views/OverviewPage";
 import CollectionPage from "./views/CollectionPage";
 import ForumHomePage from "./views/ForumHomePage";
 import ForumNewPostPage from "./views/ForumNewPostPage";
+import PostDetailsPage from "views/PostDetailsPage";
 
 function App() {
    return (
@@ -50,6 +51,11 @@ function App() {
                 render={(props) => {
                    const index: number = parseInt(props.match.params.id);
                    return <PokemonDetailsPage pokemon={PokemonData[index-1]}/>;
+                }}/>
+         <Route exact path="/post/:id"
+                render={(props) => {
+                   const index: number = parseInt(props.match.params.id);
+                   return <PostDetailsPage/>;
                 }}/>
       </Switch>
    );

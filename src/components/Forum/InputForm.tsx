@@ -103,8 +103,6 @@ const InputForm = (props: any) => {
                 </FormTop>
                 <SimpleMDE/>
              </FormWrapper>
-
-
              <div className="buttons">
                 <button id="submitButton" onClick={() => props.onAdd()}>Submit</button>
                 <button id="deleteButton" onClick={() => {
