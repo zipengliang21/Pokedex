@@ -1,0 +1,23 @@
+[
+  {
+    "userId": "0001",
+    "postID": "0001",
+    "title": "The first one, Pikachu!",
+    "content": "Hello, I am the first post",
+    "follow": "0000"
+  },
+  {
+    "userId": "0002",
+    "postID": "0002",
+    "title": "The second one, eevee!",
+    "content": "Hello, I am the second post",
+    "follow": "0000"
+  },
+  {
+    "userId": "0003",
+    "postID": "0003",
+    "title": "The third one, Pikachu2!",
+    "content": "Hello, I am the third post follow first one",
+    "follow": "0001"
+  }
+]
