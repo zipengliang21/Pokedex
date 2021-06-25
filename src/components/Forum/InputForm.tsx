@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import SimpleMDE from "react-simplemde-editor";
 import "easymde/dist/easymde.min.css";
@@ -73,16 +73,23 @@ const InputWrapper = styled.div`
     input{
       width: 100%;
       text-align: center;
-      color: #F0F2F5;
+      color: black;
+      // #F0F2F5
     }
 `;
 
 const InputForm = (props: any) => {
-   const onChangeName = (e: any) => {
-      props.onChangeName(e.target.value);
-   };
-   const onChangeDescription = (e: any) => {
-      props.onChangeDescription(e.target.value);
+   const [title, setTitle] = useState('');
+   const [description, setDescription] = useState('');
+   const [content, setContent] = useState('');
+   // const onChangeTitle = (e: any) => {
+   //    props.onChangeTitle(e.target.value);
+   // };
+   // const onChangeDescription = (e: any) => {
+   //    props.onChangeDescription(e.target.value);
+   // };
+   const handleContentChange = (value: string) => {
+      setContent(value);
    };
    return (
        <InputFormWrapper>
@@ -95,16 +102,25 @@ const InputForm = (props: any) => {
                       <label htmlFor="description">Description:</label>
                    </LabelWrapper>
                    <InputWrapper>
-                      <input type="text" id="nameInput" name="nameInput" placeholder="Title"
-                             value={props.title} onChange={onChangeName} ref={props.titleRef}/><br/>
-                      <input type="text" id="descriptionInput" name="descriptionInput" placeholder="Description"
-                             value={props.description} onChange={onChangeDescription} ref={props.descriptionRef}/><br/>
+                      <input type="text" id="nameInput" name="nameInput"
+                             placeholder="Title"
+                             // value={props.title}
+                             onChange={ (event => {setTitle(event.target.value)}) }
+                             // ref={props.titleRef}
+                      />
+                             <br/>
+                      <input type="text" id="descriptionInput" name="descriptionInput"
+                             placeholder="Description"
+                             // value={props.description}
+                             onChange={ (event => {setDescription(event.target.value)}) }
+                             // ref={props.descriptionRef}
+                      /><br/>
                    </InputWrapper>
                 </FormTop>
-                <SimpleMDE/>
+                <SimpleMDE value={content} onChange={handleContentChange}/>
              </FormWrapper>
              <div className="buttons">
-                <button id="submitButton" onClick={() => props.onAdd()}>Submit</button>
+                <button id="submitButton" onClick={() => props.add}>Submit</button>
                 <button id="deleteButton" onClick={() => {
                    props.onClear();
                 }}>Discard
