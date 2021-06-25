@@ -1,10 +1,12 @@
 import React from "react";
-import PokemonData from "../pokedexData.json";
 import {NavLink} from "react-router-dom";
 import styled from "styled-components";
 
 const PokemonWrapper = styled.div`
+    flex: 1;
+    height: 350px;
     text-align: center;
+    display: inline-block;
     .number{
       color:#8A8C7D;
     }
