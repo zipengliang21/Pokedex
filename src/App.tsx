@@ -27,11 +27,9 @@ function App() {
             <UserHomePage />
          </Route>
          <Route exact path="/profile">
-            <SideBar />
             <OverviewPage/>
          </Route>
          <Route exact path="/collections">
-            <SideBar />
             <CollectionPage/>
          </Route>
          {/*<Route exact path="/myPosts">*/}
