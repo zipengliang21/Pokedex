@@ -5,7 +5,7 @@ import {NavLink} from "react-router-dom";
 
 
 const NavBarWrapper = styled.div`
-   width: 850px;
+   width: 100%;
    margin: 0 auto;
    letter-spacing: 0;
    font-size: 15px;
@@ -31,7 +31,7 @@ const NavBarWrapper = styled.div`
       mix-blend-mode: multiply;
    }
    @media(max-width: 875px){
-      width: 418px;
+      width: 100%;
       height: 70px;
       .selected{
          height: 100%;

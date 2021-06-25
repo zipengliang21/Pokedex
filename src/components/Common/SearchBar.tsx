@@ -1,6 +1,9 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import PokemonData from "../../pokedexData.json";
+import Fade from "react-reveal/Fade";
+import Pokemon from "../DetailedView/Pokemon";
 
 const SearchBarWrapper = styled.div`
   display: flex;
@@ -87,33 +90,118 @@ const SearchBarWrapper = styled.div`
    }
 `;
 
-function SearchBar() {
-   const [Key, setKey] = useState("");
 
-   const handleSubmit = (event: any) => {
-      setKey(event.target.value);
-   };
-   return (
-       <SearchBarWrapper>
-          <div className="left">
-             <div className="title">Name or Number</div>
-             <form>
-                <input
-                    type="text"
-                    id="search"
-                    placeholder="Search Pokemon names"
-                    name="s"
-                    onChange={(e) => setKey(e.target.value)}
-                />
-                <button onClick={handleSubmit} className="searchButton">
-                   <FontAwesomeIcon icon="search"/>
-                </button>
-             </form>
-             <div className="note">Use the Advanced Search to explore Pokemon by different filters</div>
-          </div>
-          <div className="right">Search for a Pokemon by name or using its National Pokedex number.</div>
-       </SearchBarWrapper>
-   );
+const PokemonWrapper = styled.div`
+   display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    // flex: 1;
+    width: 700px;
+    max-width: 100%;
+    margin: 0 auto;
+    @media(max-width: 875px){
+      width: 418px;
+      padding: 0 30px;
+    }
+`;
+
+
+
+const ResultWrapper = styled.div`
+  // display: inline-block;
+  background: white;
+  mix-blend-mode: normal;
+  color: blue;
+  // padding: 20px 0;
+`;
+
+const SearchBarResultWrapper = styled.div`
+    width: 850px;
+    margin: 0 auto;
+    background: inherit;
+    text-align: center;
+`;
+
+
+// const  = [
+//     "Siri",
+//     "Alexa",
+//     "Google",
+//     "Facebook",
+//     "Twitter",
+//     "Linkedin",
+//     "Sinkedin"
+// ];
+function SearchBar(props: any) {
+    const [search, setSearch] = useState("");
+    const [pokemons, setPokemons] = useState([{id: "",
+        name: "",
+        img: "",
+        type: [
+            ''
+        ]}]);
+    const [filteredPokemons, setfilteredPokemons] = useState([{name:""}]);
+
+    useEffect(() => {
+        setPokemons(PokemonData);
+    }, []);
+
+    // const handleSubmit = (event: any) => {
+    //     setSearch(event.target.value);
+    //     // setfilteredPokemons(
+    //     //     pokemons.filter((poke) =>
+    //     //         poke.name.toLowerCase().includes(search.toLowerCase())
+    //     //     )
+    //     // );
+    // };
+    useEffect(() => {
+        const result = pokemons.filter((poke) =>
+            poke.name.toLowerCase().includes(search.toLowerCase())
+
+        );
+        if(search.length === 0){
+            setfilteredPokemons([]);
+        }
+        else {
+            setfilteredPokemons(result);
+        }
+    }, [search, pokemons]);
+    return (
+        <SearchBarResultWrapper>
+        <SearchBarWrapper>
+            <div className="left">
+                <div className="title">Pokemon Name</div>
+                <form>
+                    <input
+                        type="text"
+                        id="search"
+                        placeholder="Search Pokemon names"
+                        name="s"
+                        onChange={(e) => setSearch(e.target.value)}
+                    />
+                    {/*<button onClick={handleSubmit} className="searchButton">*/}
+                    {/*    <FontAwesomeIcon icon="search"/>*/}
+                    {/*</button>*/}
+                </form>
+                <div className="note">Use the Advanced Search to explore Pokemon by different filters</div>
+            </div>
+            <div className="right">Search for a Pokemon by name or using its National Pokedex number.</div>
+
+        </SearchBarWrapper>
+         <ResultWrapper>
+      <PokemonWrapper>
+
+              {filteredPokemons.map((pokemon, index) => {
+                  if (pokemon.name === ""){return <> </>}
+                  else {
+         return  <Fade left key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon.name}/></Fade>;
+     }})}
+     </PokemonWrapper>
+     </ResultWrapper>
+        </SearchBarResultWrapper>
+
+    )
+
 }
 
 

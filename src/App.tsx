@@ -13,12 +13,16 @@ import CollectionPage from "./views/CollectionPage";
 import ForumHomePage from "./views/ForumHomePage";
 import ForumNewPostPage from "./views/ForumNewPostPage";
 import PostDetailsPage from "views/PostDetailsPage";
+import AdminPage from "./views/AdminPage";
 
 function App() {
    return (
       <Switch>
          <Route exact path="/login">
             <LoginPage />
+         </Route>
+         <Route exact path="/admin">
+            <AdminPage />
          </Route>
          <Route exact path="/">
             <WelcomePage/>
