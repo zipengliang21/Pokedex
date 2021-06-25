@@ -64,7 +64,7 @@ const PokemonWrapper = styled.div`
     justify-content: space-between;
     width: 700px;
     max-width: 100%;
-    margin: 0 auto;
+    margin: 50px auto 0 auto;
     @media(max-width: 875px){
       width: 418px;
       padding: 0 30px;
