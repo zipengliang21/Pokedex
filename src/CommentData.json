@@ -1,0 +1,23 @@
+[
+  {
+   "userId": "0003",
+   "userName": "User c",
+    "postID": "0001",
+  "commentID": "0001",
+  "content": "Hello, I am the third comment follow first post"
+  },
+  {
+    "userId": "0004",
+    "userName": "User d",
+    "postID": "0001",
+    "commentID": "0002",
+    "content": "Hello, I am the fourth comment follow first post"
+  },
+  {
+    "userId": "0005",
+    "userName": "User e",
+    "postID": "0002",
+    "commentID": "0003",
+    "content": "Hello, I am the first comment follow second post"
+  }
+]

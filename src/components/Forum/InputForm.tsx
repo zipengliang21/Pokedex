@@ -120,7 +120,9 @@ const InputForm = (props: any) => {
                 <SimpleMDE value={content} onChange={handleContentChange}/>
              </FormWrapper>
              <div className="buttons">
-                <button id="submitButton" onClick={() => props.add}>Submit</button>
+                <a href="http://localhost:3000/Pokemon#/forum">
+                <button id="submitButton" onClick={() => props.add(title,description,content)}>Submit</button>
+                </a>
                 <button id="deleteButton" onClick={() => {
                    props.onClear();
                 }}>Discard

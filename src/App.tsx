@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { Switch, Route } from "react-router-dom";
 import styled from "styled-components";
 import SideBar from "./components/Common/SideBar";
@@ -13,8 +13,12 @@ import CollectionPage from "./views/CollectionPage";
 import ForumHomePage from "./views/ForumHomePage";
 import ForumNewPostPage from "./views/ForumNewPostPage";
 import PostDetailsPage from "views/PostDetailsPage";
+import ForumData from "./ForumData.json";
+import CommentData from "./CommentData.json"
 
 function App() {
+    const[postList, setPostList] = useState(ForumData);
+    const [commentList, setCommentList] = useState(CommentData);
    return (
       <Switch>
          <Route exact path="/login">
@@ -42,10 +46,10 @@ function App() {
             <FilterSearchPage />
          </Route>
          <Route exact path="/forum">
-            <ForumHomePage/>
+            <ForumHomePage postList ={postList}/>
          </Route>
          <Route exact path="/forum/newPost">
-            <ForumNewPostPage/>
+            <ForumNewPostPage add = {add}/>
          </Route>
          <Route exact path="/Pokemon/:id"
                 render={(props) => {
@@ -55,10 +59,43 @@ function App() {
          <Route exact path="/post/:id"
                 render={(props) => {
                    const index: number = parseInt(props.match.params.id);
-                   return <PostDetailsPage/>;
+                   return <PostDetailsPage rootPost ={postList[index - 1]}
+                                           postID = {postList[index - 1].postID}
+                                           addComment = {addComment}
+                                           commentList = {commentList}/>;
                 }}/>
       </Switch>
    );
+    function add (title:string, description:string, content:string) {
+        let postId = JSON.stringify(ForumData.length + 1);
+        let newPost = {
+            userId: "0003",
+            userName: "default",
+            postID: postId,
+            title: title,
+            description: description,
+            content: content,
+        }
+        console.log(newPost);
+
+        setPostList([...postList, newPost]);
+    }
+
+    function addComment (content:string, postID: string) {
+        let commentID = JSON.stringify(commentList.length + 1);
+        let newComment = {
+            userId: "0007", //must get from other aspect
+            userName: "default username", //must get from other aspect
+            postID: postID,
+            commentID: commentID,
+            content: content
+        }
+        console.log(newComment);
+        setCommentList([...commentList, newComment]);
+
+        console.log(commentList);
+    }
+
 }
 
 export default App;

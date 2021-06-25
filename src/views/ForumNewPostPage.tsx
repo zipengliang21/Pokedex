@@ -5,7 +5,7 @@ import Header from "../components/Common/Header";
 import ForumHeader from "../components/Forum/ForumHeader";
 import ForumSubHeader from "../components/Forum/ForumSubHeader";
 import InputForm from "../components/Forum/InputForm";
-import ForumData from "../ForumData.json"
+// import ForumData from "../ForumData.json"
 
 const Background = styled.div`
   background: url("https://onlyvectorbackgrounds.com/wp-content/uploads/2019/03/Subtle-Lines-Abstract-Gradient-Background-Cool.jpg")
@@ -45,7 +45,7 @@ const ForumNewPostWrapper = styled.div`
 `;
 
 function ForumNewPostPage(props: any) {
-    const[postList, setPostList] = useState(ForumData);
+    // const[postList, setPostList] = useState(ForumData);
 
    return (
        <Background>
@@ -55,26 +55,26 @@ function ForumNewPostPage(props: any) {
           <ForumWrapper>
              <ForumSubHeader/>
              <ForumNewPostWrapper>
-               <InputForm add={add}/>
+               <InputForm add={props.add} />
              </ForumNewPostWrapper>
           </ForumWrapper>;
        </Background>
    );
 
-    function add (title:string, description:string, content:string) {
-        let postId = JSON.stringify(ForumData.length + 1);
-        let newPost = {
-            userId: "u001",
-            postID: postId,
-            title: title,
-            description: description,
-            content: content,
-            follow: "0000"
-        }
-        console.log(newPost);
-
-        setPostList([...postList, newPost]);
-    }
+    // function add (title:string, description:string, content:string) {
+    //     let postId = JSON.stringify(ForumData.length + 1);
+    //     let newPost = {
+    //         userId: "u001",
+    //         postID: postId,
+    //         title: title,
+    //         description: description,
+    //         content: content,
+    //         follow: "0000"
+    //     }
+    //     console.log(newPost);
+    //
+    //     setPostList([...postList, newPost]);
+    // }
 
 
 }
