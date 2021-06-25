@@ -6,6 +6,8 @@ import ForumHeader from "../components/Forum/ForumHeader";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {NavLink} from "react-router-dom";
 import ForumSubHeader from "../components/Forum/ForumSubHeader";
+import Fade from "react-reveal/Fade";
+import Pokemon from "../components/DetailedView/Pokemon";
 
 const Background = styled.div`
   background: url("https://onlyvectorbackgrounds.com/wp-content/uploads/2019/03/Subtle-Lines-Abstract-Gradient-Background-Cool.jpg")
@@ -83,19 +85,23 @@ function ForumHomePage(props: any) {
                       <ForumTh>Author</ForumTh>
                       <ForumTh>Date</ForumTh>
                    </ForumTr>
-                   <ForumTr>
-                      <ForumTdName>
-                         <NavLink to={`/post/${1}`}>
-                            <ForumA href="https://veekun.com/forums/1/threads/102">
-                               Considering a split
-                            </ForumA>
-                         </NavLink>
+                   {props.postList.map((post:any, index: any) => {
+                         return (
+                             <ForumTr>
+                            <ForumTdName>
+                               <NavLink to={`/post/${index + 1}`}>
+                                  <ForumA>
+                                     {post.title}
+                                  </ForumA>
+                               </NavLink>
 
-                      </ForumTdName>
-                      <ForumTdName>Description</ForumTdName>
-                      <ForumTdName>Author</ForumTdName>
-                      <ForumTdName>Date</ForumTdName>
-                   </ForumTr>
+                            </ForumTdName>
+                            <ForumTdName>{post.description}</ForumTdName>
+                            <ForumTdName>{post.userName}</ForumTdName>
+                            <ForumTdName>Date</ForumTdName>
+                         </ForumTr>
+                      )})}
+
 
                    <ForumTr>
                       <ForumTdName><ForumA href="https://veekun.com/forums/1/threads/102">Considering a

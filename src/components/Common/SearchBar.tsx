@@ -123,15 +123,6 @@ const SearchBarResultWrapper = styled.div`
 `;
 
 
-// const  = [
-//     "Siri",
-//     "Alexa",
-//     "Google",
-//     "Facebook",
-//     "Twitter",
-//     "Linkedin",
-//     "Sinkedin"
-// ];
 function SearchBar(props: any) {
     const [search, setSearch] = useState("");
     const [pokemons, setPokemons] = useState([{id: "",
@@ -146,14 +137,6 @@ function SearchBar(props: any) {
         setPokemons(PokemonData);
     }, []);
 
-    // const handleSubmit = (event: any) => {
-    //     setSearch(event.target.value);
-    //     // setfilteredPokemons(
-    //     //     pokemons.filter((poke) =>
-    //     //         poke.name.toLowerCase().includes(search.toLowerCase())
-    //     //     )
-    //     // );
-    // };
     useEffect(() => {
         const result = pokemons.filter((poke) =>
             poke.name.toLowerCase().includes(search.toLowerCase())
