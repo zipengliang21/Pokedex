@@ -13,12 +13,12 @@ interface CardProps{
 }
 
 const StyledCardImg = styled.img`
-    width: 280px;
-    height: 280px;
+    width: 180px;
+    height: 180px;
 `;
 
 const StyledLink = styled.a`
-    font-size: 40px;
+    font-size: 30px;
     font-weight:600;
     color: black;
 `;
@@ -48,13 +48,14 @@ class PokemonCard extends React.Component<CardProps>{
                 backgroundColor: "#fff",
                 backgroundClip: "border-box",
                 flexWrap: "wrap",
+                background: "#EEEAD6",
             }
             }>
             <StyledCardImg src={this.props.picSource} alt={this.props.picName}></StyledCardImg>
             <CardBody style={{
                 flex: "1 1 auto",
                 minHeight: "1px",
-                padding: "1.25rem",
+                padding: "1 rem",
             }}>
                 <StyledLink href="/#/pokemon/001">{this.props.picName}</StyledLink>
             </CardBody>
