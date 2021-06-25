@@ -13,8 +13,10 @@ import CollectionPage from "./views/CollectionPage";
 import ForumHomePage from "./views/ForumHomePage";
 import ForumNewPostPage from "./views/ForumNewPostPage";
 import PostDetailsPage from "views/PostDetailsPage";
+import AdminPage from "./views/AdminPage";
 import ForumData from "./ForumData.json";
 import CommentData from "./CommentData.json"
+
 
 function App() {
     const[postList, setPostList] = useState(ForumData);
@@ -23,6 +25,9 @@ function App() {
       <Switch>
          <Route exact path="/login">
             <LoginPage />
+         </Route>
+         <Route exact path="/admin">
+            <AdminPage />
          </Route>
          <Route exact path="/">
             <WelcomePage/>
