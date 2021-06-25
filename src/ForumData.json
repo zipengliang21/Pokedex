@@ -1,0 +1,18 @@
+[
+  {
+    "userId": "0001",
+    "userName": "User A",
+    "postID": "0001",
+    "title": "The first one, Pikachu!",
+    "description": "Pokemon",
+    "content": "Hello, I am the first post"
+  },
+  {
+    "userId": "0002",
+    "userName": "User B",
+    "postID": "0002",
+    "title": "The second one, eevee!",
+    "description": "User",
+    "content": "Hello, I am the second post"
+  }
+]
