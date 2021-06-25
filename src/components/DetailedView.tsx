@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-
 const Popup =  styled.div`
   position: fixed;
   width: 100%;
@@ -13,6 +12,7 @@ const Popup =  styled.div`
   margin: auto;
 
 `
+
 const Popup_inner =  styled.div`
   position: absolute;
   left: 25%;
@@ -26,17 +26,13 @@ const Popup_inner =  styled.div`
 `
 
 const DetailImag =  styled.img`
-   width: 20%;
+  width: 20%;
   height: 20%;
   border: 3px solid orange;
 
 `
 
-
-
 function DetailedView  (props: any) {
-
-
         return (
             <Popup>
                 <Popup_inner>
@@ -50,4 +46,5 @@ function DetailedView  (props: any) {
         );
 
 }
+
 export default DetailedView;
