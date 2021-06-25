@@ -6,7 +6,7 @@ import {NavLink} from "react-router-dom";
 
 
 const HeaderWrapper = styled.div`
-   width: 100%;
+   width: 850px;
    margin: 0 auto;
    letter-spacing: 0;   
    display: flex;
@@ -26,7 +26,7 @@ const HeaderWrapper = styled.div`
       margin-right: 5px;
    }
    @media(max-width: 875px){
-      width: 100%;
+      width: 418px;
       .login{
           margin-right: 20px;
       }

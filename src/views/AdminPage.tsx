@@ -26,7 +26,8 @@ const Background = styled.div`
 
 
 const Wrapper = styled.div`
-  width: 100%;
+  width: 850px;
+  margin: 0 auto;
   background: inherit;
   @media (max-width: 875px) {
     width: 418px;
