@@ -134,7 +134,7 @@ function CheckBoxType(props:any) {
         <Base>
         <div className={classes.root}>
             <FormControl component="fieldset" className={classes.formControl}>
-                <h2>Select Type!</h2>
+                <h2>Must Select a Type!</h2>
                 <FormGroup>
                     {/*<FormControlLabel*/}
                     {/*    control={<Checkbox checked={all} onChange={handleChange} name="all" />}*/}
@@ -197,7 +197,7 @@ function CheckBoxType(props:any) {
                 </FormGroup>
             </FormControl>
             <FormControl component="fieldset" className={classes.formControl}>
-                <h2>Select Type!</h2>
+                <h2>Must Select a Type!</h2>
                 <FormGroup>
                     <FormControlLabel
                         control={<Checkbox checked={rock} onChange={handleChange} name="rock" />}

@@ -80,18 +80,7 @@ function PostDetailsPage(props:any) {
         );
         setfilteredComment(result);
     }, []);
-    let commentID:string = JSON.stringify(filteredComment.length + 1);
-    // useEffect(() => {
-    //     const result = commentList.filter((post:any) =>
-    //         post.follow === props.postId
-    //
-    //
-    //     );
-    //     setFollowPost(result);
-    //     console.log(props.postId);
-    //     console.log(result);
-    //     console.log(followPosts[0])
-    // }, [postList]);
+
    return (
        <Background>
           <Header/>
