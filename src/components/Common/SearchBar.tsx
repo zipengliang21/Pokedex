@@ -95,7 +95,6 @@ const PokemonWrapper = styled.div`
    display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    // flex: 1;
     width: 700px;
     max-width: 100%;
     margin: 0 auto;
@@ -105,14 +104,10 @@ const PokemonWrapper = styled.div`
     }
 `;
 
-
-
 const ResultWrapper = styled.div`
-  // display: inline-block;
   background: white;
   mix-blend-mode: normal;
   color: blue;
-  // padding: 20px 0;
 `;
 
 const SearchBarResultWrapper = styled.div`
@@ -120,6 +115,14 @@ const SearchBarResultWrapper = styled.div`
     margin: 0 auto;
     background: inherit;
     text-align: center;
+    @media(max-width: 875px){
+      width: 418px;
+      display: block;
+    }
+   @media(max-width: 576px){
+     width: 100%;
+     display: block;
+   }
 `;
 
 
