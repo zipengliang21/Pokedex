@@ -186,6 +186,5 @@ function SearchBar(props: any) {
 
 }
 
-
 export default SearchBar;
 
