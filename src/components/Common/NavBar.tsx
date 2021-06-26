@@ -66,10 +66,12 @@ function NavBar (){
              <FontAwesomeIcon icon="comment"/>
              <div className="span">Forum</div>
           </NavLink>
-          <NavLink exact activeClassName="selected" to="/about" className="login">
+          {/*<NavLink exact activeClassName="selected" to="/about" className="login">*/}
+          <a href="https://github.com/zipengliang21/Pokedex" target="_blank">
              <FontAwesomeIcon icon="edit"/>
              <div className="span">About</div>
-          </NavLink>
+          </a>
+          {/*</NavLink>*/}
        </NavBarWrapper>
    )
 
