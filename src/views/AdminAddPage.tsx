@@ -4,7 +4,7 @@ import NavBar from "../components/Common/NavBar";
 import LogoutHeader from "../components/Common/LogoutHeader";
 import SearchBar from "../components/Common/SearchBar";
 import { useForm } from "react-hook-form";
-import CheckBoxType from "../components/FilterSearch/CheckBoxType";
+import SelectType from "../components/SelectType";
 
 
 const Background = styled.div`
@@ -59,7 +59,7 @@ const FormWrapper = styled.div`
     flex-direction:column;
     text-align:center;
     width:auto;
-    margin-top: 5vh;
+    margin-top: 3vh;
     fontFamily: inherit;
     color: black;
 }
@@ -107,7 +107,7 @@ const AdminAddPage = () => {
                     <FormEntry>
                     <label>Pokemon Type:</label>
                     <FilterWrapper>
-                    <CheckBoxType />
+                    <SelectType />
                     </FilterWrapper>
                     </FormEntry>
                     <input type="submit" />
