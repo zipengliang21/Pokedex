@@ -28,12 +28,24 @@ const DateWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     padding: 0 75px;
+    @media(max-width: 875px){
+     width: 418px;
+    }
+   @media(max-width: 576px){
+      width: 100%;
+    }
 `;
 
 const ContentWrapper = styled.div`
     width: 750px;
     display: flex;
     justify-items: center;
+       @media(max-width: 875px){
+     width: 418px;
+   }
+   @media(max-width: 576px){
+      width: 100%;
+    }
 `;
 
 const UserWrapper = styled.div`

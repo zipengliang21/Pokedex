@@ -118,7 +118,7 @@ function ForumHomePage(props: any) {
              <Pagination>
                 1 2 3 4 ... 9 10
              </Pagination>
-          </ForumWrapper>;
+          </ForumWrapper>
        </Background>
    );
 

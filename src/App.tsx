@@ -7,7 +7,6 @@ import WelcomePage from "./views/WelcomePage";
 import PokemonDetailsPage from "./views/PokemonDetailsPage";
 import PokemonData from "./pokedexData.json";
 import LoginPage from "views/LoginPage";
-import UserHomePage from "./views/UserHomePage";
 import OverviewPage from "./views/OverviewPage";
 import CollectionPage from "./views/CollectionPage";
 import ForumHomePage from "./views/ForumHomePage";
@@ -32,9 +31,6 @@ function App() {
          </Route>
          <Route exact path="/">
             <WelcomePage/>
-         </Route>
-         <Route exact path="/user/home">
-            <UserHomePage />
          </Route>
          <Route exact path="/profile">
             <OverviewPage/>

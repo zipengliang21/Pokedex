@@ -26,6 +26,14 @@ const ContentWrapper = styled.div`
     width: 750px;
     display: flex;
     justify-items: center;
+    @media(max-width: 875px){
+          flex-direction: column;
+     width: 418px;
+    }
+    @media(max-width: 576px){
+      flex-direction: column;
+      width: 100%;
+    }
 `;
 
 const UserWrapper = styled.div`
@@ -34,6 +42,10 @@ const UserWrapper = styled.div`
     text-align: left;
     padding-left: 50px;
     margin-top: 10px;
+    width: 30%;
+    @media(max-width: 875px){
+      width: 100%;
+    }
 `;
 
 const CommentWrapper = styled.div`
@@ -52,6 +64,9 @@ const CommentWrapper = styled.div`
        border-radius: 4px;
        color: #FFFFFF;
        margin-top: 10px;
+    }
+     @media(max-width: 875px){
+        width: 100%;
     }
 `;
 

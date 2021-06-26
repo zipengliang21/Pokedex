@@ -44,7 +44,7 @@ const InputFormWrapper = styled.div`
        color: #FFFFFF;
    }
     @media(max-width: 576px) {
-      width: 90%;
+      width: 100%;
     };
                   
 `;

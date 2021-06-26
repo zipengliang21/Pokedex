@@ -34,7 +34,7 @@ const ForumWrapper = styled.div`
     width: 418px;
   }
   @media(max-width: 576px){
-    width: 230px;
+    width: 100%;
   }
 `;
 
@@ -99,7 +99,7 @@ function PostDetailsPage(props:any) {
                                 // filteredComment ={filteredComment}
                                 postID = {props.postID}/>
              </ForumViewWrapper>
-          </ForumWrapper>;
+          </ForumWrapper>
        </Background>
    );
 

@@ -27,7 +27,7 @@ const ForumWrapper = styled.div`
     width: 418px;
   }
   @media(max-width: 576px){
-    width: 230px;
+    width: 100%
   }
 `;
 
@@ -40,7 +40,7 @@ const ForumNewPostWrapper = styled.div`
     width: 418px;
   }
   @media(max-width: 576px){
-    width: 230px;
+    width: 100%;
   }
 `;
 
@@ -57,7 +57,7 @@ function ForumNewPostPage(props: any) {
              <ForumNewPostWrapper>
                <InputForm add={props.add} />
              </ForumNewPostWrapper>
-          </ForumWrapper>;
+          </ForumWrapper>
        </Background>
    );
 

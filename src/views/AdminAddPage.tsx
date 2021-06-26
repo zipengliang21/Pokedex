@@ -110,7 +110,7 @@ const AdminAddPage = () => {
                     <CheckBoxType />
                     </FilterWrapper>
                     </FormEntry>
-                    <input type="submit" />
+                    {/*<input type="submit" />*/}
                 </form>
                 </FormWrapper>
                 </PokemonWrapper>
