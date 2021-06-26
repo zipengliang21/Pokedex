@@ -33603,8 +33603,8 @@
   },
   {
     "id": "083",
-    "name": "Farfetch'd",
-    "img": "http://img.pokemondb.net/artwork/farfetch'd.jpg",
+    "name": "Farfetchd",
+    "img": "http://img.pokemondb.net/artwork/farfetchd.jpg",
     "type": [
       "Normal",
       "Flying"
@@ -62962,6 +62962,417 @@
         "3 HP Point(s)"
       ],
       "fleeflag": "0",
+      "entreeforestlevel": "30"
+    }
+  },
+  {
+    "id": "126",
+    "name": "Magmar",
+    "img": "http://img.pokemondb.net/artwork/magmar.jpg",
+    "type": [
+      "Fire"
+    ],
+    "stats": {
+      "hp": "65",
+      "attack": "95",
+      "defense": "57",
+      "spattack": "100",
+      "spdefense": "85",
+      "speed": "93"
+    },
+    "moves": {
+      "level": [
+        {
+          "learnedat": "",
+          "name": "smog",
+          "gen": "V"
+        },
+        {
+          "learnedat": "",
+          "name": "leer",
+          "gen": "V"
+        },
+        {
+          "learnedat": "",
+          "name": "ember",
+          "gen": "V"
+        },
+        {
+          "learnedat": "6",
+          "name": "ember",
+          "gen": "V"
+        },
+        {
+          "learnedat": "11",
+          "name": "smokescreen",
+          "gen": "V"
+        },
+        {
+          "learnedat": "16",
+          "name": "faint attack",
+          "gen": "V"
+        },
+        {
+          "learnedat": "21",
+          "name": "fire spin",
+          "gen": "V"
+        },
+        {
+          "learnedat": "26",
+          "name": "confuse ray",
+          "gen": "V"
+        },
+        {
+          "learnedat": "32",
+          "name": "flame burst",
+          "gen": "V"
+        },
+        {
+          "learnedat": "38",
+          "name": "fire punch",
+          "gen": "V"
+        },
+        {
+          "learnedat": "44",
+          "name": "lava plume",
+          "gen": "V"
+        },
+        {
+          "learnedat": "50",
+          "name": "flamethrower",
+          "gen": "V"
+        },
+        {
+          "learnedat": "56",
+          "name": "sunny day",
+          "gen": "V"
+        },
+        {
+          "learnedat": "62",
+          "name": "fire blast",
+          "gen": "V"
+        }
+      ],
+      "tmhm": [
+        {
+          "learnedat": "tm06",
+          "name": "toxic",
+          "gen": "V"
+        },
+        {
+          "learnedat": "tm10",
+          "name": "hidden power",
+          "gen": "V"
+        },
+        {
+          "learnedat": "tm11",
+          "name": "sunny day",
+          "gen": "V"
+        },
+        {
+          "learnedat": "tm15",
+          "name": "hyper beam",
+          "gen": "V"
+        },
+        {
+          "learnedat": "tm17",
+          "name": "protect",
+          "gen": "V"
+        },
+        {
+          "learnedat": "tm21",
+          "name": "frustration",
+          "gen": "V"
+        },
+        {
+          "learnedat": "tm27",
+          "name": "return",
+          "gen": "V"
+        },
+        {
+          "learnedat": "tm29",
+          "name": "psychic",
+          "gen": "V"
+        },
+        {
+          "learnedat": "tm31",
+          "name": "brick break",
+          "gen": "V"
+        },
+        {
+          "learnedat": "tm32",
+          "name": "double team",
+          "gen": "V"
+        },
+        {
+          "learnedat": "tm35",
+          "name": "flamethrower",
+          "gen": "V"
+        },
+        {
+          "learnedat": "tm38",
+          "name": "fire blast",
+          "gen": "V"
+        },
+        {
+          "learnedat": "tm42",
+          "name": "facade",
+          "gen": "V"
+        },
+        {
+          "learnedat": "tm43",
+          "name": "flame charge",
+          "gen": "V"
+        },
+        {
+          "learnedat": "tm44",
+          "name": "rest",
+          "gen": "V"
+        },
+        {
+          "learnedat": "tm45",
+          "name": "attract",
+          "gen": "V"
+        },
+        {
+          "learnedat": "tm46",
+          "name": "thief",
+          "gen": "V"
+        },
+        {
+          "learnedat": "tm47",
+          "name": "low sweep",
+          "gen": "V"
+        },
+        {
+          "learnedat": "tm48",
+          "name": "round",
+          "gen": "V"
+        },
+        {
+          "learnedat": "tm50",
+          "name": "overheat",
+          "gen": "V"
+        },
+        {
+          "learnedat": "tm52",
+          "name": "focus blast",
+          "gen": "V"
+        },
+        {
+          "learnedat": "tm56",
+          "name": "fling",
+          "gen": "V"
+        },
+        {
+          "learnedat": "tm59",
+          "name": "incinerate",
+          "gen": "V"
+        },
+        {
+          "learnedat": "tm61",
+          "name": "will-o-wisp",
+          "gen": "V"
+        },
+        {
+          "learnedat": "tm68",
+          "name": "giga impact",
+          "gen": "V"
+        },
+        {
+          "learnedat": "tm87",
+          "name": "swagger",
+          "gen": "V"
+        },
+        {
+          "learnedat": "tm90",
+          "name": "substitute",
+          "gen": "V"
+        },
+        {
+          "learnedat": "tm94",
+          "name": "rock smash",
+          "gen": "V"
+        },
+        {
+          "learnedat": "hm04",
+          "name": "strength",
+          "gen": "V"
+        }
+      ],
+      "egg": [
+        {
+          "name": "karate chop",
+          "gen": "V"
+        },
+        {
+          "name": "mega punch",
+          "gen": "V"
+        },
+        {
+          "name": "barrier",
+          "gen": "V"
+        },
+        {
+          "name": "screech",
+          "gen": "V"
+        },
+        {
+          "name": "cross chop",
+          "gen": "V"
+        },
+        {
+          "name": "thunderpunch",
+          "gen": "V"
+        },
+        {
+          "name": "mach punch",
+          "gen": "V"
+        },
+        {
+          "name": "dynamicpunch",
+          "gen": "V"
+        },
+        {
+          "name": "flare blitz",
+          "gen": "V"
+        },
+        {
+          "name": "belly drum",
+          "gen": "V"
+        },
+        {
+          "name": "iron tail",
+          "gen": "V"
+        },
+        {
+          "name": "focus energy",
+          "gen": "V"
+        }
+      ],
+      "tutor": [],
+      "gen34": [
+        {
+          "name": "focus punch",
+          "method": "Gen IV TM01"
+        },
+        {
+          "name": "secret power",
+          "method": "Gen IV TM43"
+        },
+        {
+          "name": "endure",
+          "method": "Gen IV TM58"
+        },
+        {
+          "name": "captivate",
+          "method": "Gen IV TM78"
+        },
+        {
+          "name": "sleep talk",
+          "method": "Gen IV TM82"
+        },
+        {
+          "name": "natural gift",
+          "method": "Gen IV TM83"
+        },
+        {
+          "name": "helping hand",
+          "method": "Move Tutor  PtHGSS"
+        },
+        {
+          "name": "snore",
+          "method": "Move Tutor  PtHGSS"
+        },
+        {
+          "name": "heat wave",
+          "method": "Move Tutor  PtHGSS"
+        },
+        {
+          "name": "mudslap",
+          "method": "Move Tutor  PtHGSS"
+        },
+        {
+          "name": "low kick",
+          "method": "Move Tutor  HGSS"
+        },
+        {
+          "name": "headbutt",
+          "method": "Move Tutor  HGSS"
+        },
+        {
+          "name": "mega kick",
+          "method": "Move Tutor  FRLG"
+        },
+        {
+          "name": "body slam",
+          "method": "Move Tutor  FRLG"
+        },
+        {
+          "name": "doubleedge",
+          "method": "Move Tutor  FRLG"
+        },
+        {
+          "name": "counter",
+          "method": "Move Tutor  FRLG"
+        },
+        {
+          "name": "seismic toss",
+          "method": "Move Tutor  FRLG"
+        },
+        {
+          "name": "mimic",
+          "method": "Move Tutor  FRLG"
+        },
+        {
+          "name": "follow me",
+          "method": "XD Purification"
+        }
+      ]
+    },
+    "damages": {
+      "normal": "1",
+      "fire": "0.5",
+      "water": "2",
+      "electric": "1",
+      "grass": "0.5",
+      "ice": "0.5",
+      "fight": "1",
+      "poison": "1",
+      "ground": "2",
+      "flying": "1",
+      "psychic": "1",
+      "bug": "0.5",
+      "rock": "2",
+      "ghost": "1",
+      "dragon": "1",
+      "dark": "1",
+      "steel": "0.5"
+    },
+    "misc": {
+      "sex": {
+        "male": "75",
+        "female": "25"
+      },
+      "abilities": {
+        "normal": [
+          "Flame Body"
+        ],
+        "hidden": [
+          "Vital Spirit"
+        ]
+      },
+      "classification": "spitfire pokemon",
+      "height": "4’03”",
+      "weight": "98.1",
+      "capturerate": 45,
+      "eggsteps": "6400",
+      "expgrowth": "1000000",
+      "happiness": "70",
+      "evpoints": [
+        "2 Sp. Attack Point(s)"
+      ],
+      "fleeflag": "72",
       "entreeforestlevel": "30"
     }
   }

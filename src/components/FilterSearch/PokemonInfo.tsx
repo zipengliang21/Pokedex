@@ -1,52 +1,102 @@
 import React from "react";
 import styled from "styled-components";
+import FavButton from "components/Common/FavButton"
+import Fade from "react-reveal/Fade";
+import Pokemon from "../DetailedView/Pokemon";
 
 const InfoWrapper = styled.div`
-  width: 850px;
+  width: 750px;
+  min-height: 500px;
+  margin: 50px auto;
   display: flex;
-  flex-direction: row;
-  margin: 100px auto 0 auto;
-  align-items: center;
-  background: white;
-  img{
-    margin: 0 100px 0 0;
-  }
+  flex-direction: column;
+  text-align: center;
+  background: linear-gradient(63.06deg, #AC85DE 0%, rgba(127, 176, 213, 0.8) 78.62%);
+  border: 2px solid #80B1EC;
   header{
-    margin: 100px 0 0 200px;
+    margin-top: 50px;
     font-weight: 600;
-    font-size: 36px;
+    font-size: 28px;
+    color: #04266D;
   }
-  @media(max-width: 875px){
-    flex-direction: column;
-    text-align: center;
-    margin: 0;
-    align-items: flex-start;
+  .pokeID{
+    color: #262626;
+    font-size: 18px;
   }
+   @media(max-width: 875px){
+     width: 418px;
+   }
+   @media(max-width: 576px){
+     width: 100%;
+   }
 `;
 
 const DataWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-    .InfoColumn2{
+    display: flex;
+    margin: 20px auto 0 auto;
+    text-align: center;
+    align-items: center;
+    @media(max-width: 576px){
       display: flex;
-      flex-direction: row;
-      text-align: center;
+      flex-direction: column;
+      margin: 0;
+   }
+`;
+
+const ImageWrapper = styled.div`
+    text-align: center;
+    img{
+      border: 2px solid #80B1EC;
     }
-    .BaseStat{
-      display: flex;
-      margin: 20px;
-      text-align: right;
-      align-items: center;
+    div{
+      font-size: 18px;
+      color: #04266D;
+      font-weight: bold;
+    }
+    label{
+      background-color: #9BCC50;
+      color: white;
+      border-radius: 5px;
+      margin: 5px;
+      padding: 4px 12px;
+    }
+    @media(max-width: 576px){
+      margin: 0;
+   }
+`;
+
+const StatWrapper = styled.div`
+    margin-left: 50px;
+    .InfoRow1{
+      text-align: left;
       span{
         margin-right: 10px;
       }
     }
+    .InfoRow2{
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      margin-top: 20px;
+      .InfoRow2Data{
+        display: flex;
+        flex-direction: row;
+      }
+      .BaseStat{
+        padding-left: 20px;
+      }
+    }
     @media(max-width: 875px){
-       flex-direction: column;
-       text-align: center;
+       margin-left: 10px;
+    }
+    @media(max-width: 576px){
        margin: 0;
-       align-items: flex-start;
+       .InfoRow1{
+          margin-top: 20px;
+       }
+       .InfoRow1, .InfoRow2{
+         text-align: center;
+       }
     }
 `;
 // cannot make the button style effect
@@ -150,90 +200,121 @@ const data = `
    ]
 `;
 
+const HeaderWrapper = styled.div`
+display: flex;
+margin: 50px auto;
+margin-bottom:0px;
+flex-wrap: no-wrap;
+flex-direction: row;
+text-align: center;
+`;
+
+const NameWrapper = styled.div`
+position: relative;
+display:inline;
+`;
+
+const StarWrapper = styled.div`
+margin-top: 63px;
+margin-left:10px;
+position: relative;
+display:inline;
+`;
+
 const PokemonInfo = ({pokemon}: any) => {
    // const [collect, setCollect] = useState("");
    const dummyData = JSON.parse(data);
    return (
        <InfoWrapper>
           {/*<CollectionButtonStyle onClick={() => setCollect(dummyData[0]["Pokemon"])}>Collect!</CollectionButtonStyle>*/}
-          <img src={pokemon.img}
-               alt={`pikachu`}
-               width={285}
-               height={285}/>
-          <div>
-             <header>{pokemon.name}</header>
-             <DataWrapper>
-                <div className={"InfoColumn1"}>
-                   National No: {pokemon.id} <br/>
-                   Type: {dummyData[0]["Pokedex Data"].Type} <br/>
-                   Species: {dummyData[0]["Pokedex Data"].Species} <br/>
-                   Height: {dummyData[0]["Pokedex Data"].Height} <br/>
-                   Weight: {dummyData[0]["Pokedex Data"].Weight} <br/>
-                   Abilities: {dummyData[0]["Pokedex Data"]["Abilities"]} <br/>
+          <HeaderWrapper>
+            <NameWrapper>
+               <header>{pokemon.name}</header>
+            </NameWrapper>
+            <StarWrapper>
+               <FavButton pId={pokemon.id} pName ={pokemon.name}></FavButton>
+            </StarWrapper>
+          </HeaderWrapper>
+          <div className="pokeID">{`#` + pokemon.id}</div>
+          <DataWrapper>
+             <ImageWrapper>
+                <img src={pokemon.img}
+                     alt={`pikachu`}
+                     width={150}
+                     height={150}
+                />
+                <div>{pokemon.name}</div>
+                {pokemon.type.map((pokeType:any) => {
+                      return <label>{pokeType}</label>;
+                   })}
+                {/*<label>{pokemon.type[0]}</label>*/}
+                {/*<label>{if (pokemon.type.length !==1 ) {pokemon.type[1]}}</label>*/}
+             </ImageWrapper>
+             <StatWrapper>
+                <div className="InfoRow1">
+                   Species: {pokemon.misc.classification} <br/>
+                   {/*Abilities: {dummyData[0]["Pokedex Data"]["Abilities"]} <br/>*/}
+                   Normal Abilities: {pokemon.misc.abilities.normal} <br/>
+                   Hidden Abilities: {pokemon.misc.abilities.hidden} <br/>
+                   <div className="bodySize">
+                      <span>Height: {pokemon.misc.height} </span>
+                      <span>Weight: {pokemon.misc.weight} <br/></span>
+                   </div>
                 </div>
-                <div>
-                   {/*Base Stats: <br/>*/}
-                   <ul className={"InfoColumn2"}>
-                      <div>
-                         <li className={"BaseStat"}>
-                            <span>HP:</span>
-                            <ul>
-                               <li>Base:{dummyData[0]["Base Stats"]["HP"]["Base"]} <br/></li>
-                               <li>Min:{dummyData[0]["Base Stats"]["HP"]["Min"]} <br/></li>
-                               <li>Max:{dummyData[0]["Base Stats"]["HP"]["Max"]} <br/></li>
-                            </ul>
+                <div className="InfoRow2">
+                   {/*Base/Min/Max:*/}
+                   Stats:
+                   <ul className="InfoRow2Data">
+                      <div >
+                         <li>
+                            <span>HP:
+                               {/*{dummyData[0]["Base Stats"]["HP"]["Base"]}/*/}
+                               {/*{dummyData[0]["Base Stats"]["HP"]["Min"]}/*/}
+                               {pokemon.stats.hp} </span>
                          </li>
-                         <li className={"BaseStat"}>
-                            <span>Sp Atk:</span>
-                            <ul>
-                               <li>Base:{dummyData[0]["Base Stats"]["Sp Atk"]["Base"]} <br/></li>
-                               <li>Min:{dummyData[0]["Base Stats"]["Sp Atk"]["Min"]} <br/></li>
-                               <li>Max:{dummyData[0]["Base Stats"]["Sp Atk"]["Max"]} <br/></li>
-                            </ul>
+                         <li>
+                            <span>Sp Attack:
+                               {/*{dummyData[0]["Base Stats"]["Sp Atk"]["Base"]}/*/}
+                               {/*{dummyData[0]["Base Stats"]["Sp Atk"]["Min"]}/*/}
+                               {pokemon.stats.spattack}
+                            </span>
                          </li>
-                         <li className={"BaseStat"}>
-                            <span>Defense:</span>
-                            <ul>
-                               <li>Base:{dummyData[0]["Base Stats"]["Defense"]["Base"]} <br/></li>
-                               <li>Min:{dummyData[0]["Base Stats"]["Defense"]["Min"]} <br/></li>
-                               <li>Max:{dummyData[0]["Base Stats"]["Defense"]["Max"]} <br/></li>
-                            </ul>
+                         <li>
+                            <span>Defense:
+                               {/*{dummyData[0]["Base Stats"]["Defense"]["Base"]}/*/}
+                               {/*{dummyData[0]["Base Stats"]["Defense"]["Min"]}/*/}
+                               {pokemon.stats.defense}</span>
                          </li>
                       </div>
-                      <div>
-                         <li className={"BaseStat"}>
-                            <span>Attack:</span>
-                            <ul>
-                               <li>Base:{dummyData[0]["Base Stats"]["Attack"]["Base"]}<br/></li>
-                               <li>Min:{dummyData[0]["Base Stats"]["Attack"]["Min"]} <br/></li>
-                               <li>Max:{dummyData[0]["Base Stats"]["Attack"]["Max"]} <br/></li>
-                            </ul>
+                      <div className="BaseStat">
+                         <li>
+                            <span>Attack:
+                               {/*{dummyData[0]["Base Stats"]["Attack"]["Base"]}/*/}
+                               {/*{dummyData[0]["Base Stats"]["Attack"]["Min"]}/*/}
+                               {pokemon.stats.attack}
+                            </span>
                          </li>
-                         <li className={"BaseStat"}>
-                            <span>Sp Def:</span>
-                            <ul>
-                               <li>Base:{dummyData[0]["Base Stats"]["Sp Def"]["Base"]} <br/></li>
-                               <li>Min:{dummyData[0]["Base Stats"]["Sp Def"]["Min"]} <br/></li>
-                               <li>Max:{dummyData[0]["Base Stats"]["Sp Def"]["Max"]} <br/></li>
-                            </ul>
+                         <li>
+                            <span>Sp Defense:
+                               {/*{dummyData[0]["Base Stats"]["Sp Def"]["Base"]}/*/}
+                               {/*{dummyData[0]["Base Stats"]["Sp Def"]["Min"]}/*/}
+                               {pokemon.stats.spdefense}
+                            </span>
                          </li>
-                         <li className={"BaseStat"}>
-                            <span>Speed:</span>
-                            <ul>
-                               <li>Base:{dummyData[0]["Base Stats"]["Speed"]["Base"]} <br/></li>
-                               <li>Min:{dummyData[0]["Base Stats"]["Speed"]["Min"]} <br/></li>
-                               <li>Max:{dummyData[0]["Base Stats"]["Speed"]["Max"]}<br/></li>
-                            </ul>
+                         <li>
+                            <span>Speed:
+                               {/*{dummyData[0]["Base Stats"]["Speed"]["Base"]}/*/}
+                               {/*{dummyData[0]["Base Stats"]["Speed"]["Min"]}/*/}
+                               {pokemon.stats.speed}
+                            </span>
                          </li>
                       </div>
                    </ul>
                 </div>
-             </DataWrapper>
-          </div>
-
+             </StatWrapper>
+          </DataWrapper>
        </InfoWrapper>
    );
 };
 
 export default PokemonInfo;
-
