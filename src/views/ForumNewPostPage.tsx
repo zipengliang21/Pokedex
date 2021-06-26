@@ -61,21 +61,6 @@ function ForumNewPostPage(props: any) {
        </Background>
    );
 
-    // function add (title:string, description:string, content:string) {
-    //     let postId = JSON.stringify(ForumData.length + 1);
-    //     let newPost = {
-    //         userId: "u001",
-    //         postID: postId,
-    //         title: title,
-    //         description: description,
-    //         content: content,
-    //         follow: "0000"
-    //     }
-    //     console.log(newPost);
-    //
-    //     setPostList([...postList, newPost]);
-    // }
-
 
 }
 

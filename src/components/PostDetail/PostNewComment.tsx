@@ -84,7 +84,9 @@ const PostNewComment = (props:any) => {
              </UserWrapper>
              <CommentWrapper>
                  <SimpleMDE value={commentContent} onChange={handleContentChange}/>
-                <button id="submitButton" onClick={() => props.add(commentContent,props.postID)}>Submit</button>
+                 <a href="http://localhost:3000/Pokemon#/forum">
+                     <button id="submitButton" onClick={() => props.add(commentContent,props.postID)}>Submit</button>
+                 </a>
              </CommentWrapper>
           </ContentWrapper>
        </InfoWrapper>

@@ -17,6 +17,7 @@ import AdminManagePage from "views/AdminManagePage";
 import AdminAddPage from "views/AdminAddPage";
 import ForumData from "./ForumData.json";
 import CommentData from "./CommentData.json"
+import AdminPage from "./views/AdminPage";
 
 function App() {
     const[postList, setPostList] = useState(ForumData);

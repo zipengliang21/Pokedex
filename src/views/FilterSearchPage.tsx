@@ -64,7 +64,7 @@ const PokemonWrapper = styled.div`
     justify-content: space-between;
     width: 700px;
     max-width: 100%;
-    margin: 50px auto 0 auto;
+    margin: 0 auto;
     @media(max-width: 875px){
       width: 418px;
       padding: 0 30px;
@@ -76,37 +76,37 @@ function FilterSearchPage() {
     const [filteredPokes, setFilteredPokes] = useState([{name:"",id:""}]);
 
     return (
-       <Background>
-       <FilterSearchWrapper>
-          <FilterSearchContentWrapper>
-             {/*<DecorationBar/>*/}
-             <Header/>
-             <NavBar/>
-              <SearchBar className="search"/>
-              <PokemonWrapper>
-                  {filteredPokes.map((pokemon, index) => {
-                      if (pokemon.name === ""){return <> </>}
-                      else {
-                          return <Fade left key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon.name}/></Fade>;
-                      }})}
-              </PokemonWrapper>
-              <FilterWrapper>
-                  <CheckBoxType
-                      handleTypes={typeFilter}
-                  />
-              </FilterWrapper>
-          </FilterSearchContentWrapper>
+        <Background>
+            <FilterSearchWrapper>
+                <FilterSearchContentWrapper>
+                    {/*<DecorationBar/>*/}
+                    <Header/>
+                    <NavBar/>
+                    <SearchBar className="search"/>
+                    <PokemonWrapper>
+                        {filteredPokes.map((pokemon, index) => {
+                            if (pokemon.name === ""){return <> </>}
+                            else {
+                                return <Fade left key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon.name}/></Fade>;
+                            }})}
+                    </PokemonWrapper>
+                    <FilterWrapper>
+                        <CheckBoxType
+                            handleTypes={typeFilter}
+                        />
+                    </FilterWrapper>
+                </FilterSearchContentWrapper>
 
-       </FilterSearchWrapper>
-       </Background>
-   )
+            </FilterSearchWrapper>
+        </Background>
+    )
 
     function typeFilter (normal:boolean, fire:boolean, water:boolean, grass:boolean, flying:boolean,
                          fighting:boolean, poison:boolean, electric:boolean, ground:boolean, rock:boolean,
                          psychic: boolean, ice: boolean, bug: boolean, ghost: boolean, steel: boolean,
                          dragon: boolean, dark: boolean, fairy: boolean,
-    HeightLittle:boolean, HeightMedium: boolean, HeightTall: boolean,
-        WeightLight: boolean, WeightMedium: boolean, WeightHeavy: boolean) {
+                         HeightLittle:boolean, HeightMedium: boolean, HeightTall: boolean,
+                         WeightLight: boolean, WeightMedium: boolean, WeightHeavy: boolean) {
         let result = [];
         let res: any[] = [];
 
@@ -255,15 +255,15 @@ function FilterSearchPage() {
             }
         }
         if (!HeightLittle && !HeightMedium &&!HeightTall && !WeightLight && !WeightMedium &&
-                !WeightHeavy ){
+            !WeightHeavy ){
             res = result;
         }
         if (HeightLittle){
             for (let poke of result){
-                 if (parseInt(poke.misc.height.split("'")[0]) <= 5 ){
-                     res.push(poke);
+                if (parseInt(poke.misc.height.split("'")[0]) <= 5 ){
+                    res.push(poke);
 
-                 }
+                }
             }
         }
         if (HeightMedium){
