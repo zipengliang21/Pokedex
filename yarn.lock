@@ -9938,6 +9938,11 @@ react-error-overlay@^6.0.9:
   resolved "https://registry.npm.taobao.org/react-error-overlay/download/react-error-overlay-6.0.9.tgz#3c743010c9359608c375ecd6bc76f35d93995b0a"
   integrity sha1-PHQwEMk1lgjDdezWvHbzXZOZWwo=
 
+react-hook-form@^7.9.0:
+  version "7.9.0"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.9.0.tgz#0b5ed2f262a1e3cc64cfcf855f09a6e236d46ac3"
+  integrity sha512-1SazsTvsC5A4jLxc8fIf0bB92kEp4MGjP69k8s+2nI1spHPha5UkLwaebOXhO9vY95aGqcyBU67pRiv+6T5KZQ==
+
 react-input-autosize@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npm.taobao.org/react-input-autosize/download/react-input-autosize-3.0.0.tgz?cache=0&sync_timestamp=1607939981071&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freact-input-autosize%2Fdownload%2Freact-input-autosize-3.0.0.tgz#6b5898c790d4478d69420b55441fcc31d5c50a85"

@@ -13,6 +13,8 @@ import CollectionPage from "./views/CollectionPage";
 import ForumHomePage from "./views/ForumHomePage";
 import ForumNewPostPage from "./views/ForumNewPostPage";
 import PostDetailsPage from "views/PostDetailsPage";
+import AdminManagePage from "views/AdminManagePage";
+import AdminAddPage from "views/AdminAddPage";
 
 function App() {
    return (
@@ -31,6 +33,12 @@ function App() {
          </Route>
          <Route exact path="/collections">
             <CollectionPage/>
+         </Route>
+         <Route exact path="/admin/pokemon-manage">
+            <AdminManagePage />
+         </Route>
+         <Route exact path="/admin/add">
+            <AdminAddPage />
          </Route>
          {/*<Route exact path="/myPosts">*/}
          {/*   <SideBar />*/}

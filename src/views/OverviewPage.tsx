@@ -1,14 +1,11 @@
-import React, { useState, useEffect,useRef, useCallback } from 'react';
-import { Avatar, Input, TextField } from '@material-ui/core';
+import React, { useState,useRef} from 'react';
+import { Avatar,} from '@material-ui/core';
 import styled from "styled-components";
-import { makeStyles } from '@material-ui/core/styles';
 import NavBar from "../components/Common/NavBar";
 import LogoutHeader from "../components/Common/LogoutHeader";
 import { faEdit,faBookmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {NavLink} from "react-router-dom";
-import FormControl from '@material-ui/core/FormControl';
-import InputBase from '@material-ui/core/InputBase';
 
 const Background = styled.div`
   background: url("https://onlyvectorbackgrounds.com/wp-content/uploads/2019/03/Subtle-Lines-Abstract-Gradient-Background-Cool.jpg")
@@ -238,8 +235,7 @@ const ProfileEdit: React.FC = () => {
         </div>
     </ul>
     )
-  
-  }
+}
 
 class OverviewPage extends React.Component{
     render(){
