@@ -13,10 +13,10 @@ import CollectionPage from "./views/CollectionPage";
 import ForumHomePage from "./views/ForumHomePage";
 import ForumNewPostPage from "./views/ForumNewPostPage";
 import PostDetailsPage from "views/PostDetailsPage";
-import AdminPage from "./views/AdminPage";
+import AdminManagePage from "views/AdminManagePage";
+import AdminAddPage from "views/AdminAddPage";
 import ForumData from "./ForumData.json";
 import CommentData from "./CommentData.json"
-
 
 function App() {
     const[postList, setPostList] = useState(ForumData);
@@ -36,12 +36,16 @@ function App() {
             <UserHomePage />
          </Route>
          <Route exact path="/profile">
-            <SideBar />
             <OverviewPage/>
          </Route>
          <Route exact path="/collections">
-            <SideBar />
             <CollectionPage/>
+         </Route>
+         <Route exact path="/admin/pokemon-manage">
+            <AdminManagePage />
+         </Route>
+         <Route exact path="/admin/add">
+            <AdminAddPage />
          </Route>
          {/*<Route exact path="/myPosts">*/}
          {/*   <SideBar />*/}

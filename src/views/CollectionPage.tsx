@@ -1,43 +1,83 @@
 import React from 'react';
-import { Avatar } from '@material-ui/core';
 import styled from "styled-components";
 import CardColumns from 'react-bootstrap/CardColumns'
 import PokemonCard from "../components/PokemonCard";
+import Container from 'react-bootstrap/Container'
+import NavBar from "../components/Common/NavBar";
+import LogoutHeader from "../components/Common/LogoutHeader";
 
-const CollectionContainer = styled.div`
-    position: absolute;
-    float: left;
-    top: 0px;
-    width: 1236px;
-    height:1000px;
-    margin-left:300px;
+const Background = styled.div`
+  background: url("https://onlyvectorbackgrounds.com/wp-content/uploads/2019/03/Subtle-Lines-Abstract-Gradient-Background-Cool.jpg")
+  no-repeat center center fixed rgba(161, 189, 198, 0.75);
+  min-height: 100vh;
+  background-size: cover;
+  background-blend-mode: multiply;
 `;
 
-const CollectionUserDiv = styled.div`
-position: absolute;
-float: left;
-top: 20px;
-width: 136px;
-margin-left:300px;
-text-align:center;
+const Wrapper = styled.div`
+box-sizing: border-box;
+display: flex;
+flex-direction: row;
+flex: auto;
+width: 100%;
+min-height: 100%;
+`;
+
+const CollectionContainer = styled.section`
+display: flex;
+flex: auto;
+flex-direction: column;
+min-height: 0;
+background-size: cover;
+`;
+
+const Banner = styled.header`
+width: 850px;
+margin: 0 auto;
+background: inherit;
+text-align: center;
+-webkit-filter: none;
+z-index: 1;
+display:flex;
+flex-direction:column;
+margin-bottom:0px;
+.bannerImg{
+    min-height: 4rem;
+    width:100%;
+    height:30vh;
+}
+.welcomeMsg{
+    min-height: 3rem;
+    font-size: 30px;
+    text-align:center;
+    color: #212D3B;
+    background: #EFD1C6;
+}
+`;
+
+const ContentWrapper = styled.div`
+display: flex;
+flex-wrap: wrap;
+width: 850px;
+margin: 0 auto;
+text-align: center;
 `;
 
 const CollectionListDiv = styled.div`
-width: 1536px;
-float: left;
-margin-top: 20px;
-margin-left:300px;
-text-align:center;
+position: relative;
+margin-bottom: 3rem;
+background-color: #fff;
+flex: 1;
+text-align: center;
+max-width: 100%;
+background: linear-gradient(90deg, rgba(177, 209, 202, 0.83) 20.21%, rgba(178, 223, 217, 0.79) 60.83%, #B2E6DF 78.85%);
+`;
+
+const StyledCollumContainer = styled.div`
 position: relative;
 padding: 1rem;
-border: .2rem solid #ececec;
-border-radius: 8px;
 margin-right: 0;
-color: #212529;
-height:1000px;
-`;
-const StyledCollumContainer = styled.div`
-    height:1000px;
+margin-left: 10px;
 `;
 
 const addPokemonCard = (card:PokemonCard)=>{
@@ -47,19 +87,27 @@ const addPokemonCard = (card:PokemonCard)=>{
 class CollectionPage extends React.Component{
     render(){
         return(
+            <Background>
+            <LogoutHeader/>
+            <NavBar/>
+            <Wrapper>
             <CollectionContainer>
-                <CollectionUserDiv>
-                <Avatar src="https://www.pinclipart.com/picdir/middle/413-4130758_first-sample-avatar-image-silhouette-clipart.png" alt="user picture" style={{position:"relative",height: '170px', width: '170px',marginLeft:'-300px' }} />
-                <label style={{left: "-280px", position:"absolute",float: "left",margin:"10px", fontFamily: "inherit",fontSize:"20px"}}>Jane Doe</label>
-                </CollectionUserDiv>
-
+            <Banner role="banner">
+            <a className="welcomeMsg" target="_blank" rel="noreferrer">Welcome to your collection!</a>
+            </Banner>
+            <Banner role="banner" >
+            <img className="bannerImg" src="https://pokemongamesharkcodes.files.wordpress.com/2016/09/banner-pokemon.png" alt="logo" />
+            </Banner>
+            <Container fluid>
+                <ContentWrapper>
                 <CollectionListDiv>
                     <StyledCollumContainer>
                     <CardColumns style={{
+                        position: "relative",
                         display: "block", 
                         width: "100%",
                         columnCount:3,
-                        columnGap: "1.5rem",
+                        columnGap: "1.2rem",
                         orphans: 1,
                         widows: 1,
                     }}>
@@ -72,8 +120,11 @@ class CollectionPage extends React.Component{
                     </CardColumns>
                     </StyledCollumContainer>
                 </CollectionListDiv>
-
+                </ContentWrapper>
+                </Container>
             </CollectionContainer>
+            </Wrapper>
+            </Background>
         );
     }
 }

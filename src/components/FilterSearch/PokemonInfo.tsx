@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import FavButton from "components/Common/FavButton"
 import Fade from "react-reveal/Fade";
 import Pokemon from "../DetailedView/Pokemon";
 
@@ -199,13 +200,41 @@ const data = `
    ]
 `;
 
+const HeaderWrapper = styled.div`
+display: flex;
+margin: 50px auto;
+margin-bottom:0px;
+flex-wrap: no-wrap;
+flex-direction: row;
+text-align: center;
+`;
+
+const NameWrapper = styled.div`
+position: relative;
+display:inline;
+`;
+
+const StarWrapper = styled.div`
+margin-top: 63px;
+margin-left:10px;
+position: relative;
+display:inline;
+`;
+
 const PokemonInfo = ({pokemon}: any) => {
    // const [collect, setCollect] = useState("");
    const dummyData = JSON.parse(data);
    return (
        <InfoWrapper>
           {/*<CollectionButtonStyle onClick={() => setCollect(dummyData[0]["Pokemon"])}>Collect!</CollectionButtonStyle>*/}
-          <header>{pokemon.name}</header>
+          <HeaderWrapper>
+            <NameWrapper>
+               <header>{pokemon.name}</header>
+            </NameWrapper>
+            <StarWrapper>
+               <FavButton pId={pokemon.id} pName ={pokemon.name}></FavButton>
+            </StarWrapper>
+          </HeaderWrapper>
           <div className="pokeID">{`#` + pokemon.id}</div>
           <DataWrapper>
              <ImageWrapper>
