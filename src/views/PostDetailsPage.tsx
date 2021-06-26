@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 import PokemonInfo from "../components/FilterSearch/PokemonInfo";
 import Header from "../components/Common/Header";
@@ -10,6 +10,10 @@ import InputForm from "../components/Forum/InputForm";
 import PostDetails from "components/PostDetail/PostDetails";
 import PostComment from "components/PostDetail/PostComment";
 import PostNewComment from "components/PostDetail/PostNewComment";
+import CommentData from '../CommentData.json'
+import {NavLink} from "react-router-dom";
+import ForumData from "../ForumData.json";
+
 
 const Background = styled.div`
   background: url("https://onlyvectorbackgrounds.com/wp-content/uploads/2019/03/Subtle-Lines-Abstract-Gradient-Background-Cool.jpg")
@@ -47,8 +51,36 @@ const ForumViewWrapper = styled.div`
   }
 `;
 
-function PostDetailsPage() {
+function PostDetailsPage(props:any) {
    // const index = pokemon.id;
+   //  const [postList, setPostList] = useState(props.postList);
+   //  const [search, setSearch] = useState("");
+    const [filteredComment, setfilteredComment] = useState([{
+        userId: "",
+        userName: "",
+        postID: "",
+        commentID: "",
+        content: ""
+    }]);
+    // const [commentList, setCommentList] = useState([{
+    //     userId: "",
+    //     userName: "",
+    //     postID: "",
+    //     commentID: "",
+    //     content: ""
+    // }]);
+    // useEffect(() => {
+    //     setCommentList(CommentData);
+    // }, []);
+
+    useEffect(() => {
+        const result = props.commentList.filter((comment:any) =>
+            comment.postID === props.postID
+
+        );
+        setfilteredComment(result);
+    }, []);
+
    return (
        <Background>
           <Header/>
@@ -57,13 +89,21 @@ function PostDetailsPage() {
           <ForumWrapper>
              <ForumSubHeader/>
              <ForumViewWrapper>
-                <PostDetails/>
-                <PostComment/>
-                <PostNewComment/>
+                <PostDetails rootPost ={props.rootPost}/>
+                 {filteredComment.map((comment:any, index: any) => {
+                     return (
+                         <PostComment comment = {comment} id = {index} />
+                     )})}
+
+                <PostNewComment add = {props.addComment}
+                                // filteredComment ={filteredComment}
+                                postID = {props.postID}/>
              </ForumViewWrapper>
           </ForumWrapper>;
        </Background>
    );
+
+
 }
 
 export default PostDetailsPage;

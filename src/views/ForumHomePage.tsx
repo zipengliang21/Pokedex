@@ -6,6 +6,8 @@ import ForumHeader from "../components/Forum/ForumHeader";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {NavLink} from "react-router-dom";
 import ForumSubHeader from "../components/Forum/ForumSubHeader";
+import Fade from "react-reveal/Fade";
+import Pokemon from "../components/DetailedView/Pokemon";
 
 const Background = styled.div`
   background: url("https://onlyvectorbackgrounds.com/wp-content/uploads/2019/03/Subtle-Lines-Abstract-Gradient-Background-Cool.jpg")
@@ -24,16 +26,26 @@ const ForumWrapper = styled.div`
   text-align: center;
   @media(max-width: 875px){
     width: 418px;
+    .small{
+      display: none;
+    }
+    .title{
+      width: 418px;
+    }
   }
   @media(max-width: 576px){
-    width: 230px;
+    width: 100%;
+    .title{
+      margin: 0 auto;
+    }
   }
 `;
 
 const ForumContentWrapper = styled.section`
     display: flex;
     flex-direction: column;
-    width: 800px;
+    max-width: 800px;
+    min-width: 100%;
     margin: 0 auto;
 `;
 
@@ -76,173 +88,30 @@ function ForumHomePage(props: any) {
           <ForumWrapper>
              <ForumSubHeader/>
              <ForumContentWrapper>
-                <table>
+                <table className="title">
                    <ForumTr>
-                      <ForumTh>Title</ForumTh>
-                      <ForumTh>Description</ForumTh>
-                      <ForumTh>Author</ForumTh>
-                      <ForumTh>Date</ForumTh>
+                      <ForumTh className="title">Title</ForumTh>
+                      <ForumTh className="small">Description</ForumTh>
+                      <ForumTh className="small">Author</ForumTh>
+                      <ForumTh className="small">Date</ForumTh>
                    </ForumTr>
-                   <ForumTr>
-                      <ForumTdName>
-                         <NavLink to={`/post/${1}`}>
-                            <ForumA href="https://veekun.com/forums/1/threads/102">
-                               Considering a split
-                            </ForumA>
-                         </NavLink>
+                   {props.postList.map((post: any, index: any) => {
+                      return (
+                          <ForumTr>
+                             <ForumTdName>
+                                <NavLink to={`/post/${index + 1}`}>
+                                   <ForumA className="title">
+                                      {post.title}
+                                   </ForumA>
+                                </NavLink>
 
-                      </ForumTdName>
-                      <ForumTdName>Description</ForumTdName>
-                      <ForumTdName>Author</ForumTdName>
-                      <ForumTdName>Date</ForumTdName>
-                   </ForumTr>
-
-                   <ForumTr>
-                      <ForumTdName><ForumA href="https://veekun.com/forums/1/threads/102">Considering a
-                         split</ForumA></ForumTdName>
-                      <ForumTdName>Description</ForumTdName>
-                      <ForumTdName>Author</ForumTdName>
-                      <ForumTdName>Date</ForumTdName>
-
-                   </ForumTr>
-                   <ForumTr>
-
-                      <ForumTdName><ForumA href="https://veekun.com/forums/1/threads/102">Considering a
-                         split</ForumA></ForumTdName>
-                      <ForumTdName>Description</ForumTdName>
-                      <ForumTdName>Author</ForumTdName>
-                      <ForumTdName>Date</ForumTdName>
-
-                   </ForumTr>
-                   <ForumTr>
-
-                      <ForumTdName><ForumA href="https://veekun.com/forums/1/threads/102">Considering a
-                         split</ForumA></ForumTdName>
-                      <ForumTdName>Description</ForumTdName>
-                      <ForumTdName>Author</ForumTdName>
-                      <ForumTdName>Date</ForumTdName>
-
-                   </ForumTr>
-                   <ForumTr>
-
-                      <ForumTdName><ForumA href="https://veekun.com/forums/1/threads/102">Considering a
-                         split</ForumA></ForumTdName>
-                      <ForumTdName>Description</ForumTdName>
-                      <ForumTdName>Author</ForumTdName>
-                      <ForumTdName>Date</ForumTdName>
-
-                   </ForumTr>
-                   <ForumTr>
-
-                      <ForumTdName><ForumA href="https://veekun.com/forums/1/threads/102">Considering a
-                         split</ForumA></ForumTdName>
-                      <ForumTdName>Description</ForumTdName>
-                      <ForumTdName>Author</ForumTdName>
-                      <ForumTdName>Date</ForumTdName>
-
-                   </ForumTr>
-                   <ForumTr>
-
-                      <ForumTdName><ForumA href="https://veekun.com/forums/1/threads/102">Considering a
-                         split</ForumA></ForumTdName>
-                      <ForumTdName>Description</ForumTdName>
-                      <ForumTdName>Author</ForumTdName>
-                      <ForumTdName>Date</ForumTdName>
-
-                   </ForumTr>
-                   <ForumTr>
-
-                      <ForumTdName><ForumA href="https://veekun.com/forums/1/threads/102">Considering a
-                         split</ForumA></ForumTdName>
-                      <ForumTdName>Description</ForumTdName>
-                      <ForumTdName>Author</ForumTdName>
-                      <ForumTdName>Date</ForumTdName>
-
-                   </ForumTr>
-                   <ForumTr>
-                      <ForumTdName><ForumA href="https://veekun.com/forums/1/threads/102">Considering a
-                         split</ForumA></ForumTdName>
-                      <ForumTdName>Description</ForumTdName>
-                      <ForumTdName>Author</ForumTdName>
-                      <ForumTdName>Date</ForumTdName>
-                   </ForumTr>
-                   <ForumTr>
-                      <ForumTdName><ForumA href="https://veekun.com/forums/1/threads/102">Considering a
-                         split</ForumA></ForumTdName>
-                      <ForumTdName>Description</ForumTdName>
-                      <ForumTdName>Author</ForumTdName>
-                      <ForumTdName>Date</ForumTdName>
-                   </ForumTr>
-                   <ForumTr>
-                      <ForumTdName><ForumA href="https://veekun.com/forums/1/threads/102">Considering a
-                         split</ForumA></ForumTdName>
-                      <ForumTdName>Description</ForumTdName>
-                      <ForumTdName>Author</ForumTdName>
-                      <ForumTdName>Date</ForumTdName>
-                   </ForumTr>
-                   <ForumTr>
-                      <ForumTdName><ForumA href="https://veekun.com/forums/1/threads/102">Considering a
-                         split</ForumA></ForumTdName>
-                      <ForumTdName>Description</ForumTdName>
-                      <ForumTdName>Author</ForumTdName>
-                      <ForumTdName>Date</ForumTdName>
-                   </ForumTr>
-                   <ForumTr>
-                      <ForumTdName><ForumA href="https://veekun.com/forums/1/threads/102">Considering a
-                         split</ForumA></ForumTdName>
-                      <ForumTdName>Description</ForumTdName>
-                      <ForumTdName>Author</ForumTdName>
-                      <ForumTdName>Date</ForumTdName>
-                   </ForumTr>
-                   <ForumTr>
-                      <ForumTdName><ForumA href="https://veekun.com/forums/1/threads/102">Considering a
-                         split</ForumA></ForumTdName>
-                      <ForumTdName>Description</ForumTdName>
-                      <ForumTdName>Author</ForumTdName>
-                      <ForumTdName>Date</ForumTdName>
-                   </ForumTr>
-                   <ForumTr>
-                      <ForumTdName><ForumA href="https://veekun.com/forums/1/threads/102">Considering a
-                         split</ForumA></ForumTdName>
-                      <ForumTdName>Description</ForumTdName>
-                      <ForumTdName>Author</ForumTdName>
-                      <ForumTdName>Date</ForumTdName>
-                   </ForumTr>
-                   <ForumTr>
-                      <ForumTdName><ForumA href="https://veekun.com/forums/1/threads/102">Considering a
-                         split</ForumA></ForumTdName>
-                      <ForumTdName>Description</ForumTdName>
-                      <ForumTdName>Author</ForumTdName>
-                      <ForumTdName>Date</ForumTdName>
-                   </ForumTr>
-                   <ForumTr>
-                      <ForumTdName><ForumA href="https://veekun.com/forums/1/threads/102">Considering a
-                         split</ForumA></ForumTdName>
-                      <ForumTdName>Description</ForumTdName>
-                      <ForumTdName>Author</ForumTdName>
-                      <ForumTdName>Date</ForumTdName>
-                   </ForumTr>
-                   <ForumTr>
-                      <ForumTdName><ForumA href="https://veekun.com/forums/1/threads/102">Considering a
-                         split</ForumA></ForumTdName>
-                      <ForumTdName>Description</ForumTdName>
-                      <ForumTdName>Author</ForumTdName>
-                      <ForumTdName>Date</ForumTdName>
-                   </ForumTr>
-                   <ForumTr>
-                      <ForumTdName><ForumA href="https://veekun.com/forums/1/threads/102">Considering a
-                         split</ForumA></ForumTdName>
-                      <ForumTdName>Description</ForumTdName>
-                      <ForumTdName>Author</ForumTdName>
-                      <ForumTdName>Date</ForumTdName>
-                   </ForumTr>
-                   <ForumTr>
-                      <ForumTdName><ForumA href="https://veekun.com/forums/1/threads/102">Considering a
-                         split</ForumA></ForumTdName>
-                      <ForumTdName>Description</ForumTdName>
-                      <ForumTdName>Author</ForumTdName>
-                      <ForumTdName>Date</ForumTdName>
-                   </ForumTr>
+                             </ForumTdName>
+                             <ForumTdName className="small">{post.description}</ForumTdName>
+                             <ForumTdName className="small">{post.userName}</ForumTdName>
+                             <ForumTdName className="small">Date</ForumTdName>
+                          </ForumTr>
+                      );
+                   })}
                 </table>
 
              </ForumContentWrapper>
