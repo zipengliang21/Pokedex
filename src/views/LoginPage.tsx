@@ -20,6 +20,7 @@ import NavBar from "../components/Common/NavBar";
 import {NavLink} from "react-router-dom";
 import { Link as RouterLink } from "react-router-dom";
 import { MemoryRouter as Router } from "react-router";
+import LoginHeader from "components/LoginHeader";
 
 const Background = styled.div`
   background: url("https://onlyvectorbackgrounds.com/wp-content/uploads/2019/03/Subtle-Lines-Abstract-Gradient-Background-Cool.jpg")
@@ -72,7 +73,6 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    marginTop: theme.spacing(10),
     paddingTop: theme.spacing(10),
     paddingBottom: theme.spacing(10),
     display: "flex",
@@ -132,6 +132,7 @@ export default function SignIn() {
     <Background>
       <Header />
       <NavBar />
+      <LoginHeader flag={flag}/>
       <Wrapper>
         <Container component="main" maxWidth="xs">
           <CssBaseline />

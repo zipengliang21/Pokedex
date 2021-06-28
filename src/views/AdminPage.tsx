@@ -15,6 +15,7 @@ import Container from "@material-ui/core/Container";
 import styled from "styled-components";
 import Header from "../components/Common/Header";
 import NavBar from "../components/Common/NavBar";
+import LoginHeader from "../components/LoginHeader";
 
 const Background = styled.div`
   background: url("https://onlyvectorbackgrounds.com/wp-content/uploads/2019/03/Subtle-Lines-Abstract-Gradient-Background-Cool.jpg")
@@ -52,7 +53,6 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    marginTop: theme.spacing(10),
     paddingTop: theme.spacing(10),
     paddingBottom: theme.spacing(10),
     display: "flex",
@@ -102,6 +102,7 @@ export default function AdminPage() {
     <Background>
       <Header />
       <NavBar />
+      <LoginHeader flag={1}/>
       <Wrapper>
         <Container component="main" maxWidth="xs">
           <CssBaseline />

@@ -55,8 +55,8 @@ const CommentWrapper = styled.div`
     padding: 2px 5px;
     text-align: left;
     #submitButton{
-       background-color: #1890FF;
-       border-color: #1890ff;
+       background-color: #3F51B5;
+       border-color: #3F51B5;
        cursor: pointer;
        height: 32px;
        padding: 0 15px;
