@@ -22,8 +22,8 @@ const InputFormWrapper = styled.div`
     }
     
     #submitButton{
-       background-color: #1890FF;
-       border-color: #1890ff;
+       background-color: #3F51B5;
+       border-color: #3F51B5;
        cursor: pointer;
        height: 32px;
        padding: 0 15px;
@@ -34,8 +34,8 @@ const InputFormWrapper = styled.div`
    }
    
     #deleteButton{
-       background-color: #FF4D4F;
-       border-color: #FF4D4F;
+       background-color: #DC004E;
+       border-color: #DC004E;
        cursor: pointer;
        height: 32px;
        padding: 0 15px;

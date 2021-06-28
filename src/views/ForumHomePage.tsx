@@ -75,7 +75,7 @@ const ForumTdName = styled.td`
 
 const Pagination = styled.div`
     margin-top: 30px;
-    color: mediumpurple;
+    color: #3F51B5;
 `;
 
 

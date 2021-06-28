@@ -54,7 +54,7 @@ const FilterSearchContentWrapper = styled.section`
 const FilterWrapper = styled.div`
     display: flex;
     flex-direction: row;
-    background: rgba(140,140,140,0.8)
+    //background: #FCFCFC;
     // text-align: center;
    
 `
