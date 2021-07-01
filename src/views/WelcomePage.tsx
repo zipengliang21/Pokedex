@@ -28,7 +28,7 @@ const Wrapper = styled.div`
         width: 418px;
       }
       @media(max-width: 576px){
-        width: 230px;
+        width: 100%;
       }
 `;
 
@@ -40,7 +40,7 @@ const PokemonWrapper = styled.div`
     padding: 15px;
     @media(max-width: 875px){
       width: 418px;
-      padding: 0 40px;
+      //padding: 0 40px;
     }
 `;
 
@@ -49,11 +49,16 @@ const GroupWrapper = styled.div`
     flex-wrap: wrap;
     justify-content: space-between;
     max-width: 100%;
-     margin: 10px auto;
+    margin: 10px auto;
     text-align: center;
-    @media(max-width: 875px){
-      // margin: 50px auto;
-    }
+    @media(max-width: 576px){
+      width: 100%;
+      margin: 0 auto;
+    }     
+    @media(max-width: 320px){
+      justify-content: center;
+      margin: 0 auto;
+    }     
 `;
 
 const WelcomePage = () => {
