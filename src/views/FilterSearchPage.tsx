@@ -24,6 +24,12 @@ const FilterSearchWrapper = styled.div`
    margin: 0 auto;
    background: inherit;
    text-align: center;
+   @media(max-width: 875px){
+      width: 418px;
+    }
+    @media(max-width: 576px){
+       width: 230px;
+    }
 `;
 
 const FilterSearchContentWrapper = styled.section`
@@ -31,18 +37,16 @@ const FilterSearchContentWrapper = styled.section`
     width: 850px;
     flex: auto;
     flex-direction: column;
-    // min-height: 0;
-    // width: 850px;
-     margin: 0 auto;
-     background: inherit;
-     text-align: center;
+    margin: 0 auto;
+    background: inherit;
+    text-align: center;
     
-     @media(max-width: 875px){
-       width: 418px;
-     }
-     @media(max-width: 576px){
-       width: 100%;
-     }
+    @media(max-width: 875px){
+      width: 418px;
+    }
+    @media(max-width: 576px){
+       width: 230px;
+    }
     
 `
 // const Background = styled.div`
@@ -56,6 +60,12 @@ const FilterWrapper = styled.div`
     flex-direction: row;
     //background: #FCFCFC;
     // text-align: center;
+    @media(max-width: 875px){
+      width: 418px;
+    }
+    @media(max-width: 576px){
+       width: 230px;
+    }
    
 `
 const PokemonWrapper = styled.div`
@@ -260,7 +270,7 @@ function FilterSearchPage() {
         }
         if (HeightLittle){
             for (let poke of result){
-                if (parseInt(poke.misc.height.split("'")[0]) <= 5 ){
+                if (parseInt(poke.misc.height.split("'")[0]) <= 5 && res.indexOf(poke) === -1 ){
                     res.push(poke);
 
                 }
@@ -269,7 +279,7 @@ function FilterSearchPage() {
         if (HeightMedium){
             for (let poke of result){
                 if (parseInt(poke.misc.height.split("'")[0]) <= 11 &&
-                    parseInt(poke.misc.height.split("'")[0]) > 5){
+                    parseInt(poke.misc.height.split("'")[0]) > 5  && res.indexOf(poke) === -1){
                     res.push(poke);
 
                 }
@@ -277,7 +287,7 @@ function FilterSearchPage() {
         }
         if (HeightTall){
             for (let poke of result){
-                if (parseInt(poke.misc.height.split("'")[0]) > 11) {
+                if (parseInt(poke.misc.height.split("'")[0]) > 11  && res.indexOf(poke) === -1) {
                     res.push(poke);
 
                 }
@@ -285,21 +295,22 @@ function FilterSearchPage() {
         }
         if (WeightLight){
             for (let poke of result){
-                if (parseFloat(poke.misc.weight) <= 100.00) {
+                if (parseFloat(poke.misc.weight) <= 100.00  && res.indexOf(poke) === -1) {
                     res.push(poke);
                 }
             }
         }
         if (WeightMedium){
             for (let poke of result){
-                if (parseFloat(poke.misc.weight) <= 200.00 && parseFloat(poke.misc.weight) > 100.00) {
+                if (parseFloat(poke.misc.weight) <= 200.00 && parseFloat(poke.misc.weight) > 100.00
+                    && res.indexOf(poke) === -1) {
                     res.push(poke);
                 }
             }
         }
         if (WeightHeavy){
             for (let poke of result){
-                if (parseFloat(poke.misc.weight) > 200.00) {
+                if (parseFloat(poke.misc.weight) > 200.00  && res.indexOf(poke) === -1) {
                     res.push(poke);
                 }
             }

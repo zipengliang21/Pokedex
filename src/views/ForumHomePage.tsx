@@ -31,12 +31,24 @@ const ForumWrapper = styled.div`
     }
     .title{
       width: 418px;
+       @media(max-width: 875px){
+        width: 418px;
+      }
+      @media(max-width: 576px){
+        width: 230px;
+      }
     }
   }
   @media(max-width: 576px){
     width: 100%;
     .title{
       margin: 0 auto;
+       @media(max-width: 875px){
+        width: 418px;
+      }
+      @media(max-width: 576px){
+        width: 230px;
+      }
     }
   }
 `;

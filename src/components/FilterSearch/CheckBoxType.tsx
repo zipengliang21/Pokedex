@@ -50,25 +50,22 @@ const Base = styled.div`
     display: flex;
     flex-direction: column;
     width: 850px;
-    @media(max-width: 850px){
+    @media(max-width: 875px){
       width: 418px;
-      padding: 0 30px;
     }
-    button{
-      //background-color: #1890ff;
-      //&:hover{
-      //background-color: #1890ff;
-      //};
+    @media(max-width: 576px){
+       width: 230px;
     }
 `;
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
        root: {
-          display: "flex",
+           flexGrow: 1,
+
        },
        formControl: {
-          margin: theme.spacing(5),
+           margin: theme.spacing(5, 'auto'),
           size: "medium",
        },
        submitButton: {

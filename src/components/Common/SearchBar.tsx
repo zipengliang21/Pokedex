@@ -91,15 +91,16 @@ const SearchBarWrapper = styled.div`
 
 
 const PokemonWrapper = styled.div`
-   display: flex;
+    display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     width: 700px;
     max-width: 100%;
     margin: 0 auto;
+    padding: 15px;
     @media(max-width: 875px){
       width: 418px;
-      padding: 0 30px;
+      padding: 0 40px;
     }
 `;
 
