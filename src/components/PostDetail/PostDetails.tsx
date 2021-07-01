@@ -28,12 +28,24 @@ const DateWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     padding: 0 75px;
+   @media(max-width: 875px){
+     width: 418px;
+   }
+   @media(max-width: 576px){
+      width: 100%;
+    }
 `;
 
 const ContentWrapper = styled.div`
     width: 750px;
     display: flex;
     justify-items: center;
+       @media(max-width: 875px){
+     width: 418px;
+   }
+   @media(max-width: 576px){
+      width: 100%;
+    }
 `;
 
 const UserWrapper = styled.div`
@@ -49,12 +61,12 @@ const Content = styled.div`
     margin: 0 auto;
 `;
 
-const PostDetails = ({post}: any) => {
+const PostDetails = (props: any) => {
    const logo = "http://3.bp.blogspot.com/-fZ-FTGBT_OI/V87me3nL3PI/AAAAAAAAAkQ/" +
        "ornK37y9NRgbYhQB1sjANbXUX2HxrISbgCK4B/s1600/068_Machamp.png";
    return (
        <InfoWrapper>
-          <header>Post Title</header>
+          <header>{props.rootPost.title}</header>
           <DateWrapper>
              <span>Date</span>
              <span>#1</span>
@@ -62,12 +74,9 @@ const PostDetails = ({post}: any) => {
           <ContentWrapper>
              <UserWrapper>
                 <img src={`${logo}`} alt="logo" className="logo" width={100}/>
-                <div className="userName">Original Poster</div>
+                <div className="userName">{props.rootPost.userName}</div>
              </UserWrapper>
-             <Content>Content Content Content Content Content Content Content Content Content Content
-                Content Content Content Content Content Content Content Content Content Content Content Content
-                Content Content Content Content Content Content Content Content Content Content Content Content Content
-             </Content>
+             <Content>{props.rootPost.content}</Content>
           </ContentWrapper>
        </InfoWrapper>
    );

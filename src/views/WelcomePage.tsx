@@ -49,10 +49,10 @@ const GroupWrapper = styled.div`
     flex-wrap: wrap;
     justify-content: space-between;
     max-width: 100%;
-    margin: 75px auto;
+     margin: 10px auto;
     text-align: center;
     @media(max-width: 875px){
-      margin: 50px auto;
+      // margin: 50px auto;
     }
 `;
 

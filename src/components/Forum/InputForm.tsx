@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import SimpleMDE from "react-simplemde-editor";
 import "easymde/dist/easymde.min.css";
@@ -22,8 +22,8 @@ const InputFormWrapper = styled.div`
     }
     
     #submitButton{
-       background-color: #1890FF;
-       border-color: #1890ff;
+       background-color: #3F51B5;
+       border-color: #3F51B5;
        cursor: pointer;
        height: 32px;
        padding: 0 15px;
@@ -34,8 +34,8 @@ const InputFormWrapper = styled.div`
    }
    
     #deleteButton{
-       background-color: #FF4D4F;
-       border-color: #FF4D4F;
+       background-color: #DC004E;
+       border-color: #DC004E;
        cursor: pointer;
        height: 32px;
        padding: 0 15px;
@@ -44,7 +44,7 @@ const InputFormWrapper = styled.div`
        color: #FFFFFF;
    }
     @media(max-width: 576px) {
-      width: 90%;
+      width: 100%;
     };
                   
 `;
@@ -73,16 +73,23 @@ const InputWrapper = styled.div`
     input{
       width: 100%;
       text-align: center;
-      color: #F0F2F5;
+      color: black;
+      // #F0F2F5
     }
 `;
 
 const InputForm = (props: any) => {
-   const onChangeName = (e: any) => {
-      props.onChangeName(e.target.value);
-   };
-   const onChangeDescription = (e: any) => {
-      props.onChangeDescription(e.target.value);
+   const [title, setTitle] = useState('');
+   const [description, setDescription] = useState('');
+   const [content, setContent] = useState('');
+   // const onChangeTitle = (e: any) => {
+   //    props.onChangeTitle(e.target.value);
+   // };
+   // const onChangeDescription = (e: any) => {
+   //    props.onChangeDescription(e.target.value);
+   // };
+   const handleContentChange = (value: string) => {
+      setContent(value);
    };
    return (
        <InputFormWrapper>
@@ -95,16 +102,27 @@ const InputForm = (props: any) => {
                       <label htmlFor="description">Description:</label>
                    </LabelWrapper>
                    <InputWrapper>
-                      <input type="text" id="nameInput" name="nameInput" placeholder="Title"
-                             value={props.title} onChange={onChangeName} ref={props.titleRef}/><br/>
-                      <input type="text" id="descriptionInput" name="descriptionInput" placeholder="Description"
-                             value={props.description} onChange={onChangeDescription} ref={props.descriptionRef}/><br/>
+                      <input type="text" id="nameInput" name="nameInput"
+                             placeholder="Title"
+                             // value={props.title}
+                             onChange={ (event => {setTitle(event.target.value)}) }
+                             // ref={props.titleRef}
+                      />
+                             <br/>
+                      <input type="text" id="descriptionInput" name="descriptionInput"
+                             placeholder="Description"
+                             // value={props.description}
+                             onChange={ (event => {setDescription(event.target.value)}) }
+                             // ref={props.descriptionRef}
+                      /><br/>
                    </InputWrapper>
                 </FormTop>
-                <SimpleMDE/>
+                <SimpleMDE value={content} onChange={handleContentChange}/>
              </FormWrapper>
              <div className="buttons">
-                <button id="submitButton" onClick={() => props.onAdd()}>Submit</button>
+                <a href="http://localhost:3000/Pokemon#/forum">
+                <button id="submitButton" onClick={() => props.add(title,description,content)}>Submit</button>
+                </a>
                 <button id="deleteButton" onClick={() => {
                    props.onClear();
                 }}>Discard

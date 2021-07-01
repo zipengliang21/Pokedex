@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import styled from "styled-components";
+import SimpleMDE from "react-simplemde-editor";
 
 const InfoWrapper = styled.div`
   width: 750px;
@@ -25,6 +26,14 @@ const ContentWrapper = styled.div`
     width: 750px;
     display: flex;
     justify-items: center;
+    @media(max-width: 875px){
+          flex-direction: column;
+     width: 418px;
+    }
+    @media(max-width: 576px){
+      flex-direction: column;
+      width: 100%;
+    }
 `;
 
 const UserWrapper = styled.div`
@@ -33,6 +42,10 @@ const UserWrapper = styled.div`
     text-align: left;
     padding-left: 50px;
     margin-top: 10px;
+    width: 30%;
+    @media(max-width: 875px){
+      width: 100%;
+    }
 `;
 
 const CommentWrapper = styled.div`
@@ -42,8 +55,8 @@ const CommentWrapper = styled.div`
     padding: 2px 5px;
     text-align: left;
     #submitButton{
-       background-color: #1890FF;
-       border-color: #1890ff;
+       background-color: #3F51B5;
+       border-color: #3F51B5;
        cursor: pointer;
        height: 32px;
        padding: 0 15px;
@@ -51,6 +64,9 @@ const CommentWrapper = styled.div`
        border-radius: 4px;
        color: #FFFFFF;
        margin-top: 10px;
+    }
+     @media(max-width: 875px){
+        width: 100%;
     }
 `;
 
@@ -63,19 +79,29 @@ const Comment = styled.div`
     text-align: left;
 `;
 
-const PostNewComment = ({post}: any) => {
+const PostNewComment = (props:any) => {
    const logo = "http://3.bp.blogspot.com/-fZ-FTGBT_OI/V87me3nL3PI/AAAAAAAAAkQ/" +
        "ornK37y9NRgbYhQB1sjANbXUX2HxrISbgCK4B/s1600/068_Machamp.png";
+   const[commentContent, setCommentContent] = useState('');
+   // const[commentID, setcommentID] = useState('');
+   // const[postID, setPostId] = useState('');
+    const handleContentChange = (value: string) => {
+        setCommentContent(value);
+        // setcommentID(props.commentID);
+        // setPostId(props.postID);
+    };
    return (
        <InfoWrapper>
           <ContentWrapper>
              <UserWrapper>
                 <img src={`${logo}`} alt="logo" className="logo" width={100}/>
-                <div className="userName">Mock User 2</div>
+                <div className="userName">Mock user passed from other user aspect</div>
              </UserWrapper>
              <CommentWrapper>
-                <Comment>Please be considerate and polite in your comment.</Comment>
-                <button id="submitButton">Submit</button>
+                 <SimpleMDE value={commentContent} onChange={handleContentChange}/>
+                 <a href="http://localhost:3000/Pokemon#/forum">
+                     <button id="submitButton" onClick={() => props.add(commentContent,props.postID)}>Submit</button>
+                 </a>
              </CommentWrapper>
           </ContentWrapper>
        </InfoWrapper>

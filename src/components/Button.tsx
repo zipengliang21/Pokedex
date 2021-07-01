@@ -8,9 +8,9 @@ const Button = styled.button`
     height: 40px;
     line-height: 37px;
     padding: 0 15px;
-    background-color: #03256C;
+    background-color: #3F51B5;
     color: #EAEAEA;
-    border: 2px solid #03256C;
+    border: 2px solid #3F51B5;
     border-radius: 5px;
     -webkit-appearance: none;
     display: inline-block;
@@ -20,8 +20,8 @@ const Button = styled.button`
         cursor: pointer;
         text-decoration: none;
         background-color: rgba(0, 0, 0, 0);
-        color: #03256C;
-        border: 2px solid #03256C;
+        color: #3F51B5;
+        border: 2px solid #3F51B5;
     }
 `;
 

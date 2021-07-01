@@ -13,14 +13,9 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import styled from "styled-components";
-import Github from "../components/LoginIcon/Github";
-import Google from "../components/LoginIcon/Google";
 import Header from "../components/Common/Header";
 import NavBar from "../components/Common/NavBar";
-import {NavLink} from "react-router-dom";
-import { Link as RouterLink } from "react-router-dom";
-import { MemoryRouter as Router } from "react-router";
-import LoginHeader from "components/LoginHeader";
+import LoginHeader from "../components/LoginHeader";
 
 const Background = styled.div`
   background: url("https://onlyvectorbackgrounds.com/wp-content/uploads/2019/03/Subtle-Lines-Abstract-Gradient-Background-Cool.jpg")
@@ -30,21 +25,6 @@ const Background = styled.div`
   background-blend-mode: multiply;
 `;
 
-const Indicator = styled.div`
-  background: #3d5afe;
-  height: 5%;
-  width: 100%;
-  .adminButtonStyle {
-    margin-top: 20px;
-    background: #81cfed;
-    border: none;
-    padding: 10px;
-    border-radius: 8px;
-    color: #ffff;
-    font-weight: bold;
-    font-size: 24px;
-  }
-`;
 
 const Wrapper = styled.div`
   width: 850px;
@@ -115,24 +95,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn() {
+export default function AdminPage() {
   const classes = useStyles();
-  const [flag, setFlag] = React.useState(1);
-
-  const handleChangeFlag = (event: any) => {
-    const temp = event.currentTarget.id;
-    if (temp === "login") {
-      setFlag(1);
-    } else {
-      setFlag(2);
-    }
-  };
 
   return (
     <Background>
       <Header />
       <NavBar />
-      <LoginHeader flag={flag}/>
+      <LoginHeader flag={1}/>
       <Wrapper>
         <Container component="main" maxWidth="xs">
           <CssBaseline />
@@ -140,29 +110,10 @@ export default function SignIn() {
             <Avatar className={classes.avatar}>
               <LockOutlinedIcon />
             </Avatar>
-            <div className={classes.switchContainer}>
-              <div>
-                <Button
-                  id="login"
-                  className={classes.button}
-                  onClick={handleChangeFlag}
-                >
-                  Sign In
-                </Button>
-                <Indicator hidden={flag !== 1} />
-              </div>
-              <div>
-                <Button
-                  id="register"
-                  className={classes.button}
-                  onClick={handleChangeFlag}
-                >
-                  Register
-                </Button>
-                <Indicator hidden={flag !== 2} />
-              </div>
-            </div>
-            <form className={classes.form} noValidate hidden={flag !== 1}>
+            <Typography>
+                Admin Login
+            </Typography>
+            <form className={classes.form} noValidate>
               <TextField
                 variant="outlined"
                 margin="normal"
@@ -206,67 +157,6 @@ export default function SignIn() {
                 </Grid>
               </Grid>
             </form>
-            <form className={classes.form} noValidate hidden={flag !== 2}>
-              <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Enter Your Valid Email Address"
-                name="email"
-                autoComplete="email"
-                autoFocus
-              />
-              <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="Set your Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-              />
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              />
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-                className={classes.submit}
-              >
-                Register
-              </Button>
-            </form>
-          </div>
-
-          <div className={classes.iconContainer}>
-            <NavLink exact activeClassName="selected" to="/admin" >
-              Admin
-            </NavLink>
-            <div className={classes.icon}>
-              <a
-                href="https://github.com/zipengliang21"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Google />
-              </a>
-            </div>
-            <div className={classes.icon}>
-              <a
-                href="https://github.com/zipengliang21"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Github />
-              </a>
-            </div>
           </div>
           <Box className={classes.copyright} mt={8}>
             <Copyright />

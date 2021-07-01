@@ -1,45 +1,31 @@
 import React from "react";
-import styled from "styled-components";
-import StarBorderIcon from '@material-ui/icons/StarBorder';
-import StarIcon from '@material-ui/icons/Star';
+import StarBorderIcon from "@material-ui/icons/StarBorder";
 
-interface FavProps{
-    pId:number,
-    pName:string,
+interface FavProps {
+   className: string,
+   pId: number,
+   pName: string,
 }
 
-const ButtonWrapper = styled.div`
-`;
+class FavButton extends React.Component<FavProps> {
+   constructor(props: FavProps) {
+      super(props);
+   }
 
-// const FavButton = styled.button`
-//    display: inline-block;
-//    font: inherit;
-//    padding: 0px 5px;
-//    cursor: pointer;
-// `;
+   checkProps = (props: FavProps) => {
+      if (props.pId !== 0 && props.pName !== "") {
+         return true;
+      }
+      return false;
+   };
 
-class FavButton extends React.Component<FavProps>{
-    constructor(props:FavProps){
-        super(props);
-    }
-
-    checkProps = (props: FavProps)=>{
-        if(props.pId!==0&&props.pName!==""){
-            return true;
-        }
-        return false;
-    }
-
-    render(){
-        if(this.checkProps(this.props)){
-            return(
-                <ButtonWrapper>
-                    <StarBorderIcon />
-                </ButtonWrapper>
-                
-            )
-        }
-    };
+   render() {
+      if (this.checkProps(this.props)) {
+         return (
+             <StarBorderIcon/>
+         );
+      }
+   };
 }
 
 export default FavButton;

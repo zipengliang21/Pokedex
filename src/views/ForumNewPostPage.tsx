@@ -1,10 +1,11 @@
 import styled from "styled-components";
-import React from "react";
+import React, {useState} from "react";
 import NavBar from "../components/Common/NavBar";
 import Header from "../components/Common/Header";
 import ForumHeader from "../components/Forum/ForumHeader";
 import ForumSubHeader from "../components/Forum/ForumSubHeader";
 import InputForm from "../components/Forum/InputForm";
+// import ForumData from "../ForumData.json"
 
 const Background = styled.div`
   background: url("https://onlyvectorbackgrounds.com/wp-content/uploads/2019/03/Subtle-Lines-Abstract-Gradient-Background-Cool.jpg")
@@ -26,7 +27,7 @@ const ForumWrapper = styled.div`
     width: 418px;
   }
   @media(max-width: 576px){
-    width: 230px;
+    width: 100%
   }
 `;
 
@@ -39,11 +40,13 @@ const ForumNewPostWrapper = styled.div`
     width: 418px;
   }
   @media(max-width: 576px){
-    width: 230px;
+    width: 100%;
   }
 `;
 
 function ForumNewPostPage(props: any) {
+    // const[postList, setPostList] = useState(ForumData);
+
    return (
        <Background>
           <Header/>
@@ -52,9 +55,9 @@ function ForumNewPostPage(props: any) {
           <ForumWrapper>
              <ForumSubHeader/>
              <ForumNewPostWrapper>
-               <InputForm/>
+               <InputForm add={props.add} />
              </ForumNewPostWrapper>
-          </ForumWrapper>;
+          </ForumWrapper>
        </Background>
    );
 
