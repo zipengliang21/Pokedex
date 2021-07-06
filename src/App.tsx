@@ -17,10 +17,12 @@ import AdminAddPage from "views/AdminAddPage";
 import ForumData from "./ForumData.json";
 import CommentData from "./CommentData.json"
 import AdminPage from "./views/AdminPage";
+import {usePokemonList} from "./hooks/usePokemonList";
 
 function App() {
-    const[postList, setPostList] = useState(ForumData);
-    const [commentList, setCommentList] = useState(CommentData);
+   const {pokemonList} = usePokemonList();
+   const [postList, setPostList] = useState(ForumData);
+   const [commentList, setCommentList] = useState(CommentData);
    return (
       <Switch>
          <Route exact path="/login">
@@ -30,7 +32,7 @@ function App() {
             <AdminPage />
          </Route>
          <Route exact path="/">
-            <WelcomePage/>
+            <WelcomePage pokemonList={pokemonList}/>
          </Route>
          <Route exact path="/profile">
             <OverviewPage/>
@@ -44,10 +46,6 @@ function App() {
          <Route exact path="/admin/add">
             <AdminAddPage />
          </Route>
-         {/*<Route exact path="/myPosts">*/}
-         {/*   <SideBar />*/}
-         {/*   <Test>myPosts</Test>*/}
-         {/*</Route>*/}
          <Route exact path="/advancedSearch">
             <FilterSearchPage />
          </Route>
