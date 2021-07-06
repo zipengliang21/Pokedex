@@ -23,7 +23,7 @@ const Pokemon = ({pokemon, key}: any) => {
                 <img src={pokemon.img}
                      width={150}
                      height={150}
-                     alt={"Pokemon"}/>
+                     alt={""}/>
              </div>
              <div className="number">{`#` + pokemon.id}</div>
              <div className="name">{pokemon.name}</div>
