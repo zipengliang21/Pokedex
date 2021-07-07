@@ -10,7 +10,7 @@ import InputForm from "../components/Forum/InputForm";
 import PostDetails from "components/PostDetail/PostDetails";
 import PostComment from "components/PostDetail/PostComment";
 import PostNewComment from "components/PostDetail/PostNewComment";
-import CommentData from '../CommentData.json'
+import {useCommentList} from "../hooks/useCommentList";
 import {NavLink} from "react-router-dom";
 import ForumData from "../ForumData.json";
 
@@ -52,9 +52,6 @@ const ForumViewWrapper = styled.div`
 `;
 
 function PostDetailsPage(props:any) {
-   // const index = pokemon.id;
-   //  const [postList, setPostList] = useState(props.postList);
-   //  const [search, setSearch] = useState("");
     const [filteredComment, setfilteredComment] = useState([{
         userId: "",
         userName: "",
@@ -62,6 +59,7 @@ function PostDetailsPage(props:any) {
         commentID: "",
         content: ""
     }]);
+    // const [commentLi, setcommentLi] = useState<Comment[]>([]);
     // const [commentList, setCommentList] = useState([{
     //     userId: "",
     //     userName: "",
@@ -70,11 +68,13 @@ function PostDetailsPage(props:any) {
     //     content: ""
     // }]);
     // useEffect(() => {
-    //     setCommentList(CommentData);
+    //     const commentList = getCommentList();
+    //     setcommentLi(commentList);
     // }, []);
 
     useEffect(() => {
-        const result = props.commentList.filter((comment:any) =>
+
+        const result:[] = props.commentList.filter((comment:any) =>
             comment.postID === props.postID
 
         );

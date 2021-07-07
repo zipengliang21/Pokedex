@@ -24,7 +24,7 @@ const FilterSearchWrapper = styled.div`
    margin: 0 auto;
    background: inherit;
    text-align: center;
-   @media(max-width: 875px){
+    @media(max-width: 875px){
       width: 418px;
     }
     @media(max-width: 576px){
@@ -64,7 +64,7 @@ const FilterWrapper = styled.div`
       width: 418px;
     }
     @media(max-width: 576px){
-       width: 230px;
+       width: 100%;
     }
    
 `

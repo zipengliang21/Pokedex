@@ -29,24 +29,24 @@ const usePostList = () => {
       initialSet();
    }, [])
 
-   const addPost = (title:string, description:string, content:string) => {
+   const addPost = async (title:string, description:string, content:string) => {
       let postId = getCount() + 1;
       let newPost: Post = {
-         userId: "0003",
-         userName: "default",
+         userId: "0003", //get from other aspect
+         userName: "default",  //get from other aspect
          postID: postId,
          title: title,
          description: description,
          content: content,
       }
       console.log(newPost);
-
-      setPostList([...postList, newPost]);
+      await axios.post(`${localhostURL}/posts/`, newPost);
+      setPostList(await getPostList());
    }
 
    const getPost = async (_id: string) => {
       const response = await axios.get(`${localhostURL}/post/${_id}`);
-      return response.data.pokemon;
+      return response.data.post;
    }
 
    const getPostList = async (): Promise<Post[]> => {

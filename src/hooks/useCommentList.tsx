@@ -28,7 +28,7 @@ const useCommentList = () => {
       initialSet();
    }, [])
 
-   const addComment = (content:string, postID: string) => {
+   const addComment = async (content:string, postID: string) => {
       let commentID = getCount() + 1;
       let newComment: Comment = {
          userId: "0007", //must get from other aspect
@@ -37,11 +37,12 @@ const useCommentList = () => {
          commentID: commentID,
          content: content
       };
-      setCommentList([...commentList, newComment]);
+      await axios.post(`${localhostURL}/comments/`, newComment);
+      setCommentList(await getCommentList());
    }
 
    const getComment = async (_id: string) => {
-      const response = await axios.get(`${productionURL}/comment/${_id}`);
+      const response = await axios.get(`${productionURL}/comments/${_id}`);
       return response.data.comment;
    }
 
