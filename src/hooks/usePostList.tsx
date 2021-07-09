@@ -17,6 +17,7 @@ interface Post {
 // Create a custom React Hook for Post List
 const usePostList = () => {
    const [postList, setPostList] = useState<Post[]>([]);
+   // const [postList, setPostList] = useState([]);
    const [count, setCount] = useState<number>(0)
 
    useEffect( () => {
@@ -44,12 +45,12 @@ const usePostList = () => {
       setPostList(await getPostList());
    }
 
-   const getPost = async (_id: string) => {
+   const getPost = async (_id: string):Promise<Post[]> => {
       const response = await axios.get(`${localhostURL}/post/${_id}`);
       return response.data.post;
    }
 
-   const getPostList = async (): Promise<Post[]> => {
+   const getPostList = async () => {
       const response = await axios.get(`${localhostURL}/posts/`);
       return response.data.postList;
    }
