@@ -12,6 +12,7 @@ interface Post {
    title: string;
    description: string;
    content: string;
+   date:Date;
 }
 
 // Create a custom React Hook for Post List
@@ -32,6 +33,7 @@ const usePostList = () => {
 
    const addPost = async (title:string, description:string, content:string) => {
       let postId = getCount() + 1;
+      let date = new Date();
       let newPost: Post = {
          userId: "0003", //get from other aspect
          userName: "default",  //get from other aspect
@@ -39,10 +41,14 @@ const usePostList = () => {
          title: title,
          description: description,
          content: content,
+         date: date
       }
       console.log(newPost);
       await axios.post(`${localhostURL}/posts/`, newPost);
       setPostList(await getPostList());
+      // setPostList([...postList, newPost]);
+      // setPostList([...postList, newPost]);
+
    }
 
    const getPost = async (_id: string):Promise<Post[]> => {

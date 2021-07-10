@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {Switch, Route} from "react-router-dom";
 import FilterSearchPage from "./views/FilterSearchPage";
 import WelcomePage from "./views/WelcomePage";
@@ -18,7 +18,8 @@ import {usePostList} from "./hooks/usePostList";
 import {useCommentList} from "./hooks/useCommentList";
 
 function App() {
-   const {pokemonList} = usePokemonList();
+   const {pokemonList, getPokemon} = usePokemonList();
+   const [pickedPokemon, setPickedPokemon] = useState({});
    const {postList, addPost} = usePostList();
    const {commentList, addComment} = useCommentList();
    return (
@@ -55,8 +56,8 @@ function App() {
           </Route>
           <Route exact path="/Pokemon/:id"
                  render={(props) => {
-                    const index: number = parseInt(props.match.params.id);
-                    return <PokemonDetailsPage pokemon={PokemonData[index - 1]}/>;
+                     const index: number = parseInt(props.match.params.id);
+                     return <PokemonDetailsPage pokemon={pokemonList[index - 1]}/>;
                  }}/>
           <Route exact path="/post/:id"
                  render={(props) => {
