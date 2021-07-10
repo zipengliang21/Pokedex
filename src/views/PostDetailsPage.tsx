@@ -10,7 +10,7 @@ import InputForm from "../components/Forum/InputForm";
 import PostDetails from "components/PostDetail/PostDetails";
 import PostComment from "components/PostDetail/PostComment";
 import PostNewComment from "components/PostDetail/PostNewComment";
-import CommentData from '../CommentData.json'
+import {useCommentList} from "../hooks/useCommentList";
 import {NavLink} from "react-router-dom";
 import ForumData from "../ForumData.json";
 
@@ -51,18 +51,21 @@ const ForumViewWrapper = styled.div`
   }
 `;
 
+
+interface Comment {
+    userId: string;
+    userName: string;
+    postID: string;
+    commentID: number;
+    content: string;
+}
+
 function PostDetailsPage(props:any) {
-   // const index = pokemon.id;
-   //  const [postList, setPostList] = useState(props.postList);
-   //  const [search, setSearch] = useState("");
-    const [filteredComment, setfilteredComment] = useState([{
-        userId: "",
-        userName: "",
-        postID: "",
-        commentID: "",
-        content: ""
-    }]);
-    // const [commentList, setCommentList] = useState([{
+    const {getCommentForPost} = useCommentList();
+    // const [filteredComment, setfilteredComment] = useState<Comment[]>([]);
+    // const [commentLi, setcommentLi] = useState<Comment[]>([]);
+    const [filteredComment, setfilteredComment] = useState<Comment[]>([]);
+    //     useState([{
     //     userId: "",
     //     userName: "",
     //     postID: "",
@@ -70,16 +73,17 @@ function PostDetailsPage(props:any) {
     //     content: ""
     // }]);
     // useEffect(() => {
-    //     setCommentList(CommentData);
+    //     const commentList = getCommentList();
+    //     setcommentLi(commentList);
     // }, []);
-
+    const init = async () => {
+        const data = await getCommentForPost(props.postID);
+        setfilteredComment(data)
+    }
     useEffect(() => {
-        const result = props.commentList.filter((comment:any) =>
-            comment.postID === props.postID
-
-        );
-        setfilteredComment(result);
+       init();
     }, []);
+   // console.log("After useEffect Filtered Comments "+filteredComment[0]+typeof filteredComment + props.postID);
 
    return (
        <Background>
