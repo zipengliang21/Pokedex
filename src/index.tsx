@@ -6,10 +6,10 @@ import App from './App';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faHome, faAddressCard, faSearch, faComment, faAngleUp, faFilter, faUser,
-         faPlus, faSimCard, faEdit, faPlusCircle} from '@fortawesome/free-solid-svg-icons'
+         faPlus, faSimCard, faEdit, faPlusCircle, faHeart} from '@fortawesome/free-solid-svg-icons'
 
 library.add(faHome, faAddressCard, faSearch, faComment, faAngleUp, faFilter,
-    faUser, faPlus, faSimCard, faEdit, faPlusCircle)
+    faUser, faPlus, faSimCard, faEdit, faPlusCircle, faHeart)
 
 ReactDOM.render(
     <Router>
