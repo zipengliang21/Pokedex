@@ -11,6 +11,7 @@ interface Comment {
    postID: string;
    commentID: number;
    content: string;
+   date:Date;
 }
 
 // Create a custom React Hook for Comment List
@@ -31,12 +32,14 @@ const useCommentList = () => {
 
    const addComment = async (content:string, postID: string) => {
       let commentID = getCount() + 1;
+      let date = new Date();
       let newComment: Comment = {
          userId: "0007", //must get from other aspect
          userName: "default username", //must get from other aspect
          postID: postID,
          commentID: commentID,
-         content: content
+         content: content,
+         date: date
       };
       await axios.post(`${localhostURL}/comments/`, newComment);
       setCommentList(await getCommentList());

@@ -19,6 +19,7 @@ const usePokemonList = () => {
 
    const getPokemon = async (_id: string) => {
       const response = await axios.get(`${productionURL}/pokemons/${_id}`);
+      // setPickedPokemon(response.data.pokemon);
       return response.data.pokemon;
    }
 

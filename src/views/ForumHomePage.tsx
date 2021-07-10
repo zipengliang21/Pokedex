@@ -120,7 +120,7 @@ function ForumHomePage(props: any) {
                              </ForumTdName>
                              <ForumTdName className="small">{post.description}</ForumTdName>
                              <ForumTdName className="small">{post.userName}</ForumTdName>
-                             <ForumTdName className="small">Date</ForumTdName>
+                             <ForumTdName className="small">{post.date}</ForumTdName>
                           </ForumTr>
                       );
                    })}
