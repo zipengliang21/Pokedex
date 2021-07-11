@@ -11,7 +11,7 @@ interface Comment {
    postID: string;
    commentID: number;
    content: string;
-   date:Date;
+   date: Date;
 }
 
 // Create a custom React Hook for Comment List

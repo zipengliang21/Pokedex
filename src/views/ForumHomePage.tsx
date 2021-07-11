@@ -3,12 +3,10 @@ import React from "react";
 import NavBar from "../components/Common/NavBar";
 import Header from "../components/Common/Header";
 import ForumHeader from "../components/Forum/ForumHeader";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import Comment from "../components/Icon/ForumIcon/Comment"
 import {NavLink} from "react-router-dom";
 import ForumSubHeader from "../components/Forum/ForumSubHeader";
-import Fade from "react-reveal/Fade";
-import Pokemon from "../components/DetailedView/Pokemon";
+import moment from 'moment';
 import Heart from "components/Icon/ForumIcon/Heart";
 
 const Background = styled.div`
@@ -144,7 +142,7 @@ function ForumHomePage(props: any) {
                                 <Heart className="icon"/>
                                 3
                              </Icon>
-                             <div className="date">{post.date}</div>
+                             <div className="date">{moment(post.date).format('YYYY-MM-DD HH:mm:ss')}</div>
                           </StatWrapper>
                        </ContentWrapper>
                        <UserWrapper>
