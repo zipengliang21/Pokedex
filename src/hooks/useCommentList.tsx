@@ -43,6 +43,7 @@ const useCommentList = () => {
       };
       await axios.post(`${localhostURL}/comments/`, newComment);
       setCommentList(await getCommentList());
+      setfilteredComment([...filteredComment,newComment]);
    }
 
    const getComment = async (_id: string) => {
@@ -63,6 +64,6 @@ const useCommentList = () => {
       return count;
    }
 
-   return {commentList, setCommentList, filteredComment, setfilteredComment,getCommentForPost, addComment, getComment, getCommentList}
+   return {commentList, setCommentList, filteredComment, setfilteredComment, count,getCommentForPost, addComment, getComment, getCommentList}
 }
 export {useCommentList};

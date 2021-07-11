@@ -61,29 +61,15 @@ interface Comment {
 }
 
 function PostDetailsPage(props:any) {
-    const {getCommentForPost} = useCommentList();
-    // const [filteredComment, setfilteredComment] = useState<Comment[]>([]);
-    // const [commentLi, setcommentLi] = useState<Comment[]>([]);
-    const [filteredComment, setfilteredComment] = useState<Comment[]>([]);
-    //     useState([{
-    //     userId: "",
-    //     userName: "",
-    //     postID: "",
-    //     commentID: "",
-    //     content: ""
-    // }]);
-    // useEffect(() => {
-    //     const commentList = getCommentList();
-    //     setcommentLi(commentList);
-    // }, []);
+    const {filteredComment,setfilteredComment,getCommentForPost} = useCommentList();
+
     const init = async () => {
         const data = await getCommentForPost(props.postID);
         setfilteredComment(data)
     }
     useEffect(() => {
        init();
-    }, []);
-   // console.log("After useEffect Filtered Comments "+filteredComment[0]+typeof filteredComment + props.postID);
+    }, [filteredComment]);
 
    return (
        <Background>
