@@ -100,8 +100,12 @@ const PokemonWrapper = styled.div`
     padding: 15px;
     @media(max-width: 875px){
       width: 418px;
-      padding: 0 40px;
+      padding: 15px 40px;
     }
+    @media(max-width: 576px){
+     width: 100%;
+     padding: 15px 40px;
+   }
 `;
 
 const ResultWrapper = styled.div`
@@ -165,9 +169,6 @@ function SearchBar(props: any) {
                             name="s"
                             onChange={(e) => setSearch(e.target.value)}
                         />
-                        {/*<button onClick={handleSubmit} className="searchButton">*/}
-                        {/*    <FontAwesomeIcon icon="search"/>*/}
-                        {/*</button>*/}
                     </form>
                     <div className="note">Use the Advanced Search to explore Pokemon by different filters</div>
                 </div>
@@ -176,7 +177,6 @@ function SearchBar(props: any) {
             </SearchBarWrapper>
             <ResultWrapper>
                 <PokemonWrapper>
-
                     {filteredPokemons.map((pokemon, index) => {
                         if (pokemon.name === ""){return <> </>}
                         else {

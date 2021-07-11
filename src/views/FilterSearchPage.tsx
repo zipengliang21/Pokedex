@@ -28,7 +28,7 @@ const FilterSearchWrapper = styled.div`
       width: 418px;
     }
     @media(max-width: 576px){
-       width: 230px;
+        width: 100%;
     }
 `;
 
@@ -42,29 +42,26 @@ const FilterSearchContentWrapper = styled.section`
     text-align: center;
     
     @media(max-width: 875px){
-      width: 418px;
+       width: 100%;
     }
     @media(max-width: 576px){
-       width: 230px;
+       width: 100%;
     }
     
 `
-// const Background = styled.div`
-//    background: #f0f2f5 url("https://www.teahub.io/photos/full/206-2063227_free-christmas-background-christmas-background-light-blue.jpg");
-//    background-size: cover;
-// `
 
 
 const FilterWrapper = styled.div`
     display: flex;
     flex-direction: row;
-    //background: #FCFCFC;
-    // text-align: center;
     @media(max-width: 875px){
       width: 418px;
+      justify-content: center;
     }
     @media(max-width: 576px){
        width: 100%;
+       justify-content: center;
+  
     }
    
 `
@@ -77,7 +74,12 @@ const PokemonWrapper = styled.div`
     margin: 0 auto;
     @media(max-width: 875px){
       width: 418px;
-      padding: 0 30px;
+      padding: 15px 30px;
+    }
+    @media(max-width: 576px){
+       width: 100%;
+       padding: 15px 30px;
+  
     }
 `;
 
