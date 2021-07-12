@@ -10,6 +10,7 @@ const ForumSubHeaderWrapper = styled.div`
     background: linear-gradient(180deg, #80B2ED -3.56%, #B6CDE9 104.67%);
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid #3F51B5;
     span{
       font-size: 18px;
     }
@@ -23,6 +24,15 @@ const ForumSubHeaderWrapper = styled.div`
       margin-right: 5px;
       color: green;
     }    
+    @media(max-width: 320px){
+      justify-content: center;
+      .headerLeft{
+          display: none;
+      }
+      .headerRight{
+        margin-right: 0;
+      }
+    }
 `;
 
 function ForumSubHeader() {

@@ -13,6 +13,7 @@ import PostNewComment from "components/PostDetail/PostNewComment";
 import {useCommentList} from "../hooks/useCommentList";
 import {NavLink} from "react-router-dom";
 import ForumData from "../ForumData.json";
+import Heart from "../components/Icon/ForumIcon/Heart";
 
 
 const Background = styled.div`
@@ -40,15 +41,30 @@ const ForumWrapper = styled.div`
 
 const ForumViewWrapper = styled.div`
   width: 800px;
+  display: flex;
+  flex-direction: column;
   min-height: 500px;
   margin: 0 auto;
-
+  align-items: center;
   @media(max-width: 875px){
     width: 418px;
   }
   @media(max-width: 576px){
-    width: 230px;
+    width: 90%;
   }
+`;
+
+const LikeButton = styled.div`
+    background-color: #DC004E;
+    border-color: #DC004E;
+    cursor: pointer;
+    padding: 5px 18px;
+    font-size: 14px;
+    border-radius: 4px;
+    color: #FFFFFF;
+    svg{
+      margin-right: 5px;
+    }
 `;
 
 
@@ -80,11 +96,11 @@ function PostDetailsPage(props:any) {
              <ForumSubHeader/>
              <ForumViewWrapper>
                 <PostDetails rootPost ={props.rootPost}/>
-                 {filteredComment.map((comment:any, index: any) => {
+                 {filteredComment.map((comment:any, index: number) => {
                      return (
                          <PostComment comment = {comment} id = {index} />
                      )})}
-
+                <LikeButton><Heart color="#FFFFFF"/>Liked</LikeButton>
                 <PostNewComment add = {props.addComment}
                                 // filteredComment ={filteredComment}
                                 postID = {props.postID}/>

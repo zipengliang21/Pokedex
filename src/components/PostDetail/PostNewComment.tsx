@@ -4,7 +4,7 @@ import SimpleMDE from "react-simplemde-editor";
 
 const InfoWrapper = styled.div`
   width: 750px;
-  margin: 50px auto;
+  margin: 10px auto 50px auto;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -48,6 +48,7 @@ const UserWrapper = styled.div`
     }
     @media(max-width: 875px){
       width: 100%;
+      padding-left: 0;
     }
 `;
 
@@ -67,8 +68,9 @@ const CommentWrapper = styled.div`
        color: #FFFFFF;
        margin-top: 10px;
     }
-     @media(max-width: 875px){
+    @media(max-width: 875px){
         width: 100%;
+        margin: 0;
     }
 `;
 

@@ -132,9 +132,15 @@ const WelcomePage = ({pokemonList}: any) => {
          <Fade bottom>
             {/*<Button className="loadMore">Load More Pokemon</Button>*/}
             <PaginationWrapper>
-               <ReactPaginate containerClassName="pagination" marginPagesDisplayed={2} pageCount={10}
-                              pageRangeDisplayed={2} activeClassName={"active"} previousLabel="prev"
-                              nextLabel="next" previousClassName="previous" nextClassName="next"
+               <ReactPaginate containerClassName="pagination"
+                              marginPagesDisplayed={2}
+                              pageCount={Math.ceil(pokemonList.length/16)}
+                              pageRangeDisplayed={2}
+                              activeClassName={"active"}
+                              previousLabel="Prev"
+                              nextLabel="Next"
+                              previousClassName="previous"
+                              nextClassName="next"
                               onPageChange={handlePageClick}/>
             </PaginationWrapper>
          </Fade>
