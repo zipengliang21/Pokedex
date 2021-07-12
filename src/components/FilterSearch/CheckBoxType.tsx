@@ -6,50 +6,36 @@ import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import Button from "@material-ui/core/Button";
-import BugType from "./BugType.png";
-import Dragon from "./Dragon.png";
-import Ghost from "./ghost.png";
-import FlyingType from "./FlyingType.png";
-import WaterType from "./WaterType.png";
-import DarkType from "./DarkType.png";
-import EleType from "./EleType.png";
-import FightingType from "./FightingType.png";
-import FireType from "./FireType.png";
-import FairyType from "./FairyType.png";
-import PhyType from "./PhyType.png";
-import PoisonType from "./PoisonType.png";
-import NormalType from "./NormalType.png";
-import GroundType from "./GroundType.png";
-import IceType from "./IceType.png";
-import RockType from "./RockType.png";
-import SteelType from "./SteelType.png";
-import GrassType from "./GrassType.png";
-// import PokemonData from "../../pokedexData.json";
 import Weight1 from "./weight1.png";
 import Weight2 from "./weight2.png";
 import Weight3 from "./weight3.png";
 import Hei1 from "./height1.png";
 import Hei2 from "./height2.png";
 import Hei3 from "./height3.png";
-import Fade from "react-reveal/Fade";
-import Pokemon from "../DetailedView/Pokemon";
 import styled from "styled-components";
 
-// const PokemonWrapper = styled.div`
-//     flex: 1;
-//     width: 700px;
-//     max-width: 100%;
-//     margin: 0 auto;
-//     @media(max-width: 875px){
-//       width: 418px;
-//       padding: 0 30px;
-//     }
-// `;
+
 
 const Base = styled.div`
     display: flex;
     flex-direction: column;
     width: 850px;
+    .spanSelect{
+       display: inline-block;
+       color: white;
+       padding: 4px;
+       font-size: 9px;
+       font-family: Arial;
+       width: 90px;
+       height: 25px;
+       box-shadow: 2px 4px 4px #888888;
+       }
+    .select-img{
+     width: 90px;
+     height: auto;
+     margin-right: 5px;
+     box-shadow: 2px 4px 4px #888888;
+    }
     @media(max-width: 875px){
       width: 418px;
     }
@@ -57,6 +43,7 @@ const Base = styled.div`
        width: 230px;
     }
 `;
+
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -67,10 +54,11 @@ const useStyles = makeStyles((theme: Theme) =>
        formControl: {
            margin: theme.spacing(5, 'auto'),
           size: "medium",
+
        },
        submitButton: {
           marginLeft: "30px",
-       }
+       },
 
     }),
 );
@@ -78,12 +66,6 @@ const useStyles = makeStyles((theme: Theme) =>
 
 function CheckBoxType(props: any) {
    const classes = useStyles();
-   // const [filteredPokes, setFilteredPokes] = useState([{id: "",
-   //     name: "",
-   //     img: "",
-   //     type: [
-   //         ""
-   //     ]}]);
    const [types, setTypes] = useState({
       normal: false,
       fire: false,
@@ -140,71 +122,59 @@ function CheckBoxType(props: any) {
              <FormControl component="fieldset" className={classes.formControl}>
                 <h2>Must Select a Type!</h2>
                 <FormGroup>
-                   {/*<FormControlLabel*/}
-                   {/*    control={<Checkbox checked={all} onChange={handleChange} name="all" />}*/}
-                   {/*    label="All"*/}
-                   {/*/>*/}
                    <FormControlLabel
                        control={<Checkbox color="primary"  checked={normal} onChange={handleChange} name="normal"/>}
                        label={
-                          <img src={NormalType} className="profile-img" width="90px" height="auto"
-                               style={{marginRight: "5px"}}/>
+                           <span className="spanSelect" style={{background:"#808080"}}> Normal </span>
                        }
                    />
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={fire} onChange={handleChange} name="fire"/>}
                        label={
-                          <img src={FireType} className="profile-img" width="90px" height="auto"
-                               style={{marginRight: "5px"}}/>
+                           <span className="spanSelect" style={{background:"orange"}}> Fire </span>
                        }
                    />
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={water} onChange={handleChange} name="water"/>}
                        label={
-                          <img src={WaterType} className="profile-img" width="90px" height="auto"
-                               style={{marginRight: "5px"}}/>
+                           <span className="spanSelect" style={{background:"#33ccff"}}> Water </span>
                        }
                    />
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={grass} onChange={handleChange} name="grass"/>}
                        label={
-                          <img src={GrassType} className="profile-img" width="90px" height="auto"
-                               style={{marginRight: "5px"}}/>
+                           <span className="spanSelect" style={{background:"#00cc44"}}> Grass </span>
                        }
                    />
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={flying} onChange={handleChange} name="flying"/>}
                        label={
-                          <img src={FlyingType} className="profile-img" width="90px" height="auto"
-                               style={{marginRight: "5px"}}/>
+                           <span className="spanSelect" style={{background: "linear-gradient(#33ccff, #808080)"}}> Flying </span>
+
                        }
                    />
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={fighting} onChange={handleChange} name="fighting"/>}
                        label={
-                          <img src={FightingType} className="profile-img" width="90px" height="auto"
-                               style={{marginRight: "5px"}}/>
+                           <span className="spanSelect" style={{background: " #cc5200"}}> Fighting </span>
                        }
                    />
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={poison} onChange={handleChange} name="poison"/>}
                        label={
-                          <img src={PoisonType} className="profile-img" width="90px" height="auto"
-                               style={{marginRight: "5px"}}/>
+                           <span className="spanSelect" style={{background: "#800080"}}> Poison </span>
                        }
                    />
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={electric} onChange={handleChange} name="electric"/>}
                        label={
-                          <img src={EleType} className="profile-img" width="90px" height="auto"
-                               style={{marginRight: "5px"}}/>
+                           <span className="spanSelect" style={{background: "#ffd11a", color:"black"}}> Electric </span>
                        }
                    />
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={ground} onChange={handleChange} name="ground"/>}
                        label={
-                          <img src={GroundType} className="profile-img" width="90px" height="auto"
-                               style={{marginRight: "5px"}}/>
+                           <span className="spanSelect" style={{background: "linear-gradient(#ffd11a, #808080)"}}> Ground </span>
                        }
                    />
                 </FormGroup>
@@ -215,64 +185,55 @@ function CheckBoxType(props: any) {
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={rock} onChange={handleChange} name="rock"/>}
                        label={
-                          <img src={RockType} className="profile-img" width="90px" height="auto" alt="no"
-                               style={{marginRight: "5px"}}/>
+                           <span className="spanSelect" style={{background: "#77773c"}}> Rock </span>
                        }
                    />
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={psychic} onChange={handleChange} name="psychic"/>}
                        label={
-                          <img src={PhyType} className="profile-img" width="90px" height="auto" alt="no"
-                               style={{marginRight: "5px"}}/>
+                           <span className="spanSelect" style={{background: "#cc0066"}}> Phychic </span>
                        }
                    />
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={ice} onChange={handleChange} name="ice"/>}
                        label={
-                          <img src={IceType} className="profile-img" width="90px" height="auto" alt="no"
-                               style={{marginRight: "5px"}}/>
+                           <span className="spanSelect" style={{background: "#00ffff", color:"black"}}> Ice </span>
                        }
                    />
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={bug} onChange={handleChange} name="bug"/>}
                        label={
-                          <img src={BugType} className="profile-img" width="90px" height="auto" alt="no"
-                               style={{marginRight: "5px"}}/>
+                           <span className="spanSelect" style={{background: "#408000"}}> Bug </span>
                        }
                    />
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={ghost} onChange={handleChange} name="ghost"/>}
                        label={
-                          <img src={Ghost} className="profile-img" width="90px" height="auto" alt="no"
-                               style={{marginRight: "5px"}}/>
+                           <span className="spanSelect" style={{background: "#b366ff"}}> Ghost </span>
                        }
                    />
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={steel} onChange={handleChange} name="steel"/>}
                        label={
-                          <img src={SteelType} className="profile-img" width="90px" height="auto" alt="no"
-                               style={{marginRight: "5px"}}/>
+                           <span className="spanSelect" style={{background: "#808080"}}> Steel </span>
                        }
                    />
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={dragon} onChange={handleChange} name="dragon"/>}
                        label={
-                          <img src={Dragon} className="profile-img" width="90px" height="auto" alt="no"
-                               style={{marginRight: "5px"}}/>
+                           <span className="spanSelect" style={{background: "linear-gradient(#e66465, #9198e5)"}}> Dragon </span>
                        }
                    />
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={dark} onChange={handleChange} name="dark"/>}
                        label={
-                          <img src={DarkType} className="profile-img" width="90px" height="auto" alt="no"
-                               style={{marginRight: "5px"}}/>
+                           <span className="spanSelect" style={{background: "#3d3d5c"}}> Dark </span>
                        }
                    />
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={fairy} onChange={handleChange} name="fairy"/>}
                        label={
-                          <img src={FairyType} className="profile-img" width="90px" height="auto" alt="no"
-                               style={{marginRight: "5px"}}/>
+                           <span className="spanSelect" style={{background: "#ff80ff"}}> Fairy </span>
                        }
                    />
                 </FormGroup>
@@ -282,29 +243,22 @@ function CheckBoxType(props: any) {
              <FormControl component="fieldset" className={classes.formControl}>
                 <h2>Select Height!</h2>
                 <FormGroup>
-                   {/*<FormControlLabel*/}
-                   {/*    control={<Checkbox checked={HeightAll} onChange={handleChange} name="HeightAll" />}*/}
-                   {/*    label="All"*/}
-                   {/*/>*/}
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={HeightLittle} onChange={handleChange} name="HeightLittle"/>}
                        label={
-                          <img src={Hei1} className="profile-img" width="90px" height="auto" alt="no"
-                               style={{marginRight: "5px"}}/>
+                          <img src={Hei1} className="select-img" alt="no"/>
                        }
                    />
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={HeightMedium} onChange={handleChange} name="HeightMedium"/>}
                        label={
-                          <img src={Hei2} className="profile-img" width="90px" height="auto" alt="no"
-                               style={{marginRight: "5px"}}/>
+                          <img src={Hei2} className="select-img" alt="no"/>
                        }
                    />
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={HeightTall} onChange={handleChange} name="HeightTall"/>}
                        label={
-                          <img src={Hei3} className="profile-img" width="90px" height="auto" alt="no"
-                               style={{marginRight: "5px"}}/>
+                          <img src={Hei3} className="select-img" alt="no"/>
                        }
                    />
                 </FormGroup>
@@ -313,29 +267,22 @@ function CheckBoxType(props: any) {
              <FormControl component="fieldset" className={classes.formControl}>
                 <h2>Select Weight!</h2>
                 <FormGroup>
-                   {/*<FormControlLabel*/}
-                   {/*    control={<Checkbox checked={WeightAll} onChange={handleChange} name="WeightAll" />}*/}
-                   {/*    label="All"*/}
-                   {/*/>*/}
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={WeightLight} onChange={handleChange} name="WeightLight"/>}
                        label={
-                          <img src={Weight1} className="profile-img" width="90px" height="auto" alt="no"
-                               style={{marginRight: "5px"}}/>
+                          <img src={Weight1} className="select-img" alt="no"/>
                        }
                    />
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={WeightMedium} onChange={handleChange} name="WeightMedium"/>}
                        label={
-                          <img src={Weight2} className="profile-img" width="90px" height="auto" alt="no"
-                               style={{marginRight: "5px"}}/>
+                          <img src={Weight2} className="select-img" alt="no"/>
                        }
                    />
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={WeightHeavy} onChange={handleChange} name="WeightHeavy"/>}
                        label={
-                          <img src={Weight3} className="profile-img" width="90px" height="auto" alt="no"
-                               style={{marginRight: "5px"}}/>
+                          <img src={Weight3} className="select-img" alt="no"/>
                        }
                    />
                 </FormGroup>

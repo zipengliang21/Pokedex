@@ -126,14 +126,12 @@ function FilterSearchPage() {
             for (let poke of PokemonData) {
                 if(poke.type.includes("Normal")  && result.indexOf(poke) === -1){
                     result.push(poke);
-                    // setFilteredPokes([ ...filteredPokes, poke]);
                 }
             }
         }
         if (fire){
             for (let poke of PokemonData) {
                 if(poke.type.includes("Fire") && result.indexOf(poke) === -1){
-                    // setFilteredPokes([ ...filteredPokes, poke]);
                     result.push(poke);
                 }
             }
@@ -150,7 +148,6 @@ function FilterSearchPage() {
             for (let poke of PokemonData) {
                 if(poke.type.includes("Grass") && result.indexOf(poke) === -1){
                     result.push(poke);
-                    // setFilteredPokes([ ...filteredPokes, poke]);
                 }
             }
         }
@@ -158,7 +155,6 @@ function FilterSearchPage() {
             for (let poke of PokemonData) {
                 if(poke.type.includes("Flying") && result.indexOf(poke) === -1){
                     result.push(poke);
-                    // setFilteredPokes([ ...filteredPokes, poke]);
                 }
             }
         }
@@ -166,7 +162,6 @@ function FilterSearchPage() {
             for (let poke of PokemonData) {
                 if(poke.type.includes("Fighting") && result.indexOf(poke) === -1){
                     result.push(poke);
-                    // setFilteredPokes([ ...filteredPokes, poke]);
                 }
             }
         }
@@ -174,7 +169,6 @@ function FilterSearchPage() {
             for (let poke of PokemonData) {
                 if(poke.type.includes("Poison") && result.indexOf(poke) === -1){
                     result.push(poke);
-                    // setFilteredPokes([ ...filteredPokes, poke]);
                 }
             }
         }
@@ -182,7 +176,6 @@ function FilterSearchPage() {
             for (let poke of PokemonData) {
                 if(poke.type.includes("Electric") && result.indexOf(poke) === -1){
                     result.push(poke);
-                    // setFilteredPokes([ ...filteredPokes, poke]);
                 }
             }
         }
@@ -190,7 +183,6 @@ function FilterSearchPage() {
             for (let poke of PokemonData) {
                 if(poke.type.includes("Ground") && result.indexOf(poke) === -1){
                     result.push(poke);
-                    // setFilteredPokes([ ...filteredPokes, poke]);
                 }
             }
         }
@@ -198,7 +190,6 @@ function FilterSearchPage() {
             for (let poke of PokemonData) {
                 if(poke.type.includes("Rock")  && result.indexOf(poke) === -1){
                     result.push(poke);
-                    // setFilteredPokes([ ...filteredPokes, poke]);
                 }
             }
         }
@@ -206,7 +197,6 @@ function FilterSearchPage() {
             for (let poke of PokemonData) {
                 if(poke.type.includes("Psychic") && result.indexOf(poke) === -1){
                     result.push(poke);
-                    // setFilteredPokes([ ...filteredPokes, poke]);
                 }
             }
         }
@@ -214,14 +204,12 @@ function FilterSearchPage() {
             for (let poke of PokemonData) {
                 if(poke.type.includes("Ice")  && result.indexOf(poke) === -1){
                     result.push(poke);
-                    // setFilteredPokes([ ...filteredPokes, poke]);
                 }
             }
         }
         if (ghost){
             for (let poke of PokemonData) {
                 if(poke.type.includes("Ghost") && result.indexOf(poke) === -1){
-                    // setFilteredPokes([ ...filteredPokes, poke]);
                     result.push(poke);
                 }
             }
@@ -230,7 +218,6 @@ function FilterSearchPage() {
             for (let poke of PokemonData) {
                 if(poke.type.includes("Bug" ) && result.indexOf(poke) === -1){
                     result.push(poke);
-                    // setFilteredPokes([ ...filteredPokes, poke]);
                 }
             }
         }
@@ -238,7 +225,6 @@ function FilterSearchPage() {
             for (let poke of PokemonData) {
                 if(poke.type.includes("Steel") && result.indexOf(poke) === -1){
                     result.push(poke);
-                    // setFilteredPokes([ ...filteredPokes, poke]);
                 }
             }
         }
@@ -246,7 +232,6 @@ function FilterSearchPage() {
             for (let poke of PokemonData) {
                 if(poke.type.includes("Dragon")  && result.indexOf(poke) === -1){
                     result.push(poke);
-                    // setFilteredPokes([ ...filteredPokes, poke]);
                 }
             }
         }
@@ -254,7 +239,6 @@ function FilterSearchPage() {
             for (let poke of PokemonData) {
                 if(poke.type.includes("Dark")  && result.indexOf(poke) === -1){
                     result.push(poke);
-                    // setFilteredPokes([ ...filteredPokes, poke]);
                 }
             }
         }
@@ -262,7 +246,6 @@ function FilterSearchPage() {
             for (let poke of PokemonData) {
                 if(poke.type.includes("Fairy") && result.indexOf(poke) === -1){
                     result.push(poke);
-                    // setFilteredPokes([ ...filteredPokes, poke]);
                 }
             }
         }
