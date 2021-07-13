@@ -109,23 +109,23 @@ const WelcomePage = ({pokemonList}: any) => {
       data = <div>
          <PokemonWrapper>
             <GroupWrapper>
-               {pokemonList.slice(offset * 16, offset * 16 + 4).map((pokemon: any, index: number) => {
-                  return <Fade left key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon.name}/></Fade>;
+               {pokemonList.slice(offset * 16, offset * 16 + 4).map((pokemon: any) => {
+                  return <Fade left key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon._id}/></Fade>;
                })}
             </GroupWrapper>
             <GroupWrapper>
-               {pokemonList.slice(offset * 16 + 4, offset * 16 + 8).map((pokemon: any, index: number) => {
-                  return <Fade right key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon.name}/></Fade>;
+               {pokemonList.slice(offset * 16 + 4, offset * 16 + 8).map((pokemon: any) => {
+                  return <Fade right key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon._id}/></Fade>;
                })}
             </GroupWrapper>
             <GroupWrapper>
-               {pokemonList.slice(offset * 16 + 8, offset * 16 + 12).map((pokemon: any, index: number) => {
-                  return <Fade left key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon.name}/></Fade>;
+               {pokemonList.slice(offset * 16 + 8, offset * 16 + 12).map((pokemon: any) => {
+                  return <Fade left key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon._id}/></Fade>;
                })}
             </GroupWrapper>
             <GroupWrapper>
-               {pokemonList.slice(offset * 16 + 12, offset * 16 + 16).map((pokemon: any, index: number) => {
-                  return <Fade right key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon.name}/></Fade>;
+               {pokemonList.slice(offset * 16 + 12, offset * 16 + 16).map((pokemon: any) => {
+                  return <Fade right key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon._id}/></Fade>;
                })}
             </GroupWrapper>
          </PokemonWrapper>

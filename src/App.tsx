@@ -54,10 +54,10 @@ function App() {
           <Route exact path="/forum/newPost">
              <ForumNewPostPage addPost={addPost}/>
           </Route>
-          <Route exact path="/Pokemon/:id"
+          <Route exact path="/Pokemon/:_id"
                  render={(props) => {
-                     const index: number = parseInt(props.match.params.id);
-                     return <PokemonDetailsPage pokemon={pokemonList[index - 1]}/>;
+                     return <PokemonDetailsPage id={props.match.params._id}
+                                                getPokemon={getPokemon}/>;
                  }}/>
           <Route exact path="/post/:_id"
                  render={(props) => {
