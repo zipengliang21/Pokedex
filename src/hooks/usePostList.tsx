@@ -19,7 +19,6 @@ interface Post {
 const usePostList = () => {
    const [postList, setPostList] = useState<Post[]>([]);
    const [count, setCount] = useState<number>(0);
-   const [pickedPost, setPickedPost] =  useState<Post>();
 
    useEffect( () => {
       async function initialSet() {
@@ -46,14 +45,11 @@ const usePostList = () => {
       console.log(newPost);
       await axios.post(`${localhostURL}/posts/`, newPost);
       setPostList(await getPostList());
-      // setPostList([...postList, newPost]);
-      // setPostList([...postList, newPost]);
 
    }
 
    const getPost = async (_id: string):Promise<Post> => {
       const response = await axios.get(`${localhostURL}/posts/${_id}`);
-      // setPickedPost(response.data.post);
       return response.data.post[0];
    }
 
@@ -66,6 +62,6 @@ const usePostList = () => {
       return count;
    }
 
-   return {postList, setPostList, addPost, getPost, getPostList}
+   return {postList, setPostList, count, addPost, getPost, getPostList}
 }
 export {usePostList};

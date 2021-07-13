@@ -1,18 +1,13 @@
 import React, {useEffect, useState} from "react";
 import styled from "styled-components";
-import PokemonInfo from "../components/FilterSearch/PokemonInfo";
 import Header from "../components/Common/Header";
 import NavBar from "../components/Common/NavBar";
-import SearchBar from "../components/Common/SearchBar";
 import ForumHeader from "../components/Forum/ForumHeader";
 import ForumSubHeader from "../components/Forum/ForumSubHeader";
-import InputForm from "../components/Forum/InputForm";
 import PostDetails from "components/PostDetail/PostDetails";
 import PostComment from "components/PostDetail/PostComment";
 import PostNewComment from "components/PostDetail/PostNewComment";
 import {useCommentList} from "../hooks/useCommentList";
-import {NavLink} from "react-router-dom";
-import ForumData from "../ForumData.json";
 import Heart from "../components/Icon/ForumIcon/Heart";
 import {usePostList} from "../hooks/usePostList";
 
@@ -69,39 +64,21 @@ const LikeButton = styled.div`
 `;
 
 
-interface Comment {
-    userId: string;
-    userName: string;
-    postID: string;
-    commentID: number;
-    content: string;
-}
-
 function PostDetailsPage(props:any) {
     const {filteredComment,setfilteredComment,getCommentForPost} = useCommentList();
     const {getPost} = usePostList();
     const [post, setPost] = useState({postID:""});
 
-    const pickPost = async () => {
-        const post = await getPost(props._id);
-        setPost(post);
-        console.log(post);
-    }
-
     const init = async () => {
-        const data = await getCommentForPost(post.postID);
-        console.log(post.postID);
-        setfilteredComment(data)
-        console.log("DATA"+data);
+        const pickPost = await getPost(props._id);
+        setPost(pickPost);
+        const data = await getCommentForPost(pickPost.postID);
+        setfilteredComment(data);
     }
 
-    const initialSet  = async () => {
-        await pickPost();
-        await init();
-    }
     useEffect(() => {
-        initialSet();
-    }, [filteredComment, post]);
+        init();
+    }, [filteredComment]);
 
    return (
        <Background>

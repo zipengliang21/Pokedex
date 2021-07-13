@@ -1,13 +1,10 @@
 import styled from "styled-components";
-import SideBar from "../components/Common/SideBar";
 import SearchBar from "../components/Common/SearchBar";
-// import DecorationBar from "../components/FilterSearch/DecorationBar";
 import CheckBoxType from "../components/FilterSearch/CheckBoxType";
 import NavBar from "../components/Common/NavBar";
 import Header from "../components/Common/Header";
 import PokemonData from "../pokedexData.json";
 import React, {useState, useEffect} from "react";
-import {types} from "util";
 import Fade from "react-reveal/Fade";
 import Pokemon from "../components/DetailedView/Pokemon";
 
@@ -91,7 +88,6 @@ function FilterSearchPage() {
         <Background>
             <FilterSearchWrapper>
                 <FilterSearchContentWrapper>
-                    {/*<DecorationBar/>*/}
                     <Header/>
                     <NavBar/>
                     <SearchBar className="search"/>

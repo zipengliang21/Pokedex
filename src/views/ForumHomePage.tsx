@@ -156,7 +156,6 @@ function ForumHomePage(props: any) {
    const [offset, setOffset] = useState(0);
    const handlePageClick = (e: any) => {
       const selectedPage = e.selected;
-      console.log(selectedPage + 1);
       setOffset(selectedPage);
    };
    return (
