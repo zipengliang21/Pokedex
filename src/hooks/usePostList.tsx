@@ -8,7 +8,7 @@ const productionURL = "https://pokedex-455-server.herokuapp.com";
 interface Post {
    userId: string;
    userName: string;
-   postID: number;
+   postID: string;
    title: string;
    description: string;
    content: string;
@@ -18,7 +18,8 @@ interface Post {
 // Create a custom React Hook for Post List
 const usePostList = () => {
    const [postList, setPostList] = useState<Post[]>([]);
-   const [count, setCount] = useState<number>(0)
+   const [count, setCount] = useState<number>(0);
+   const [pickedPost, setPickedPost] =  useState<Post>();
 
    useEffect( () => {
       async function initialSet() {
@@ -31,7 +32,7 @@ const usePostList = () => {
    }, [])
 
    const addPost = async (title:string, description:string, content:string) => {
-      let postId = getCount() + 1;
+      let postId: string = (getCount() + 1).toString();
       let date = new Date();
       let newPost: Post = {
          userId: "0003", //get from other aspect
@@ -50,9 +51,10 @@ const usePostList = () => {
 
    }
 
-   const getPost = async (_id: string):Promise<Post[]> => {
-      const response = await axios.get(`${localhostURL}/post/${_id}`);
-      return response.data.post;
+   const getPost = async (_id: string):Promise<Post> => {
+      const response = await axios.get(`${localhostURL}/posts/${_id}`);
+      // setPickedPost(response.data.post);
+      return response.data.post[0];
    }
 
    const getPostList = async () => {

@@ -170,7 +170,7 @@ function ForumHomePage(props: any) {
                 return (
                     <ForumContentWrapper theme={index % 2 === 0 ? "full" : "half"}>
                        <ContentWrapper>
-                          <NavLink to={`/post/${index + 1}`}>
+                          <NavLink to={`/post/${post._id}`}>
                              <ForumA className="title">
                                 {post.title}
                              </ForumA>

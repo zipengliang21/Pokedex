@@ -14,6 +14,7 @@ import {useCommentList} from "../hooks/useCommentList";
 import {NavLink} from "react-router-dom";
 import ForumData from "../ForumData.json";
 import Heart from "../components/Icon/ForumIcon/Heart";
+import {usePostList} from "../hooks/usePostList";
 
 
 const Background = styled.div`
@@ -78,14 +79,29 @@ interface Comment {
 
 function PostDetailsPage(props:any) {
     const {filteredComment,setfilteredComment,getCommentForPost} = useCommentList();
+    const {getPost} = usePostList();
+    const [post, setPost] = useState({postID:""});
+
+    const pickPost = async () => {
+        const post = await getPost(props._id);
+        setPost(post);
+        console.log(post);
+    }
 
     const init = async () => {
-        const data = await getCommentForPost(props.postID);
+        const data = await getCommentForPost(post.postID);
+        console.log(post.postID);
         setfilteredComment(data)
+        console.log("DATA"+data);
+    }
+
+    const initialSet  = async () => {
+        await pickPost();
+        await init();
     }
     useEffect(() => {
-       init();
-    }, [filteredComment]);
+        initialSet();
+    }, [filteredComment, post]);
 
    return (
        <Background>
@@ -95,7 +111,7 @@ function PostDetailsPage(props:any) {
           <ForumWrapper>
              <ForumSubHeader/>
              <ForumViewWrapper>
-                <PostDetails rootPost ={props.rootPost}/>
+                <PostDetails rootPost ={post}/>
                  {filteredComment.map((comment:any, index: number) => {
                      return (
                          <PostComment comment = {comment} id = {index} />
@@ -103,7 +119,7 @@ function PostDetailsPage(props:any) {
                 <LikeButton><Heart color="#FFFFFF"/>Liked</LikeButton>
                 <PostNewComment add = {props.addComment}
                                 // filteredComment ={filteredComment}
-                                postID = {props.postID}/>
+                                postID = {post.postID}/>
              </ForumViewWrapper>
           </ForumWrapper>
        </Background>

@@ -20,7 +20,7 @@ import {useCommentList} from "./hooks/useCommentList";
 function App() {
    const {pokemonList, getPokemon} = usePokemonList();
    const [pickedPokemon, setPickedPokemon] = useState({});
-   const {postList, addPost} = usePostList();
+   const {postList, addPost, getPost} = usePostList();
    const {commentList, addComment} = useCommentList();
    return (
        <Switch>
@@ -59,13 +59,12 @@ function App() {
                      const index: number = parseInt(props.match.params.id);
                      return <PokemonDetailsPage pokemon={pokemonList[index - 1]}/>;
                  }}/>
-          <Route exact path="/post/:id"
+          <Route exact path="/post/:_id"
                  render={(props) => {
-                    const index: number = parseInt(props.match.params.id);
-                    return <PostDetailsPage rootPost={postList[index - 1]}
-                                            postID={postList[index - 1].postID}
-                                            addComment={addComment}
-                                            commentList={commentList}/>;
+                    return <PostDetailsPage
+                        _id = {props.match.params._id}
+                        // getPost = {getPost}
+                        addComment={addComment}/>;
                  }}/>
        </Switch>
    );
