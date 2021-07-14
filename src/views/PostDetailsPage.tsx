@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState,useRef} from "react";
 import styled from "styled-components";
 import Header from "../components/Common/Header";
 import NavBar from "../components/Common/NavBar";
@@ -63,22 +63,37 @@ const LikeButton = styled.div`
     }
 `;
 
+interface Comment {
+    userId: string;
+    userName: string;
+    postID: string;
+    commentID: number;
+    content: string;
+    date: Date;
+}
+
 
 function PostDetailsPage(props:any) {
     const {filteredComment,setfilteredComment,getCommentForPost} = useCommentList();
     const {getPost} = usePostList();
     const [post, setPost] = useState({postID:""});
-
+    // const ref = useRef(filteredComment);
     const init = async () => {
         const pickPost = await getPost(props._id);
         setPost(pickPost);
-        const data = await getCommentForPost(pickPost.postID);
-        setfilteredComment(data);
+        await getCommentForPost(pickPost.postID);
+        // setfilteredComment(data);
     }
+    // if (filteredComment !==ref.current) {
+    //     ref.current = filteredComment;
+    // }
 
     useEffect(() => {
         init();
-    }, [filteredComment]);
+    }, []);
+    // useEffect(() => {
+    //     ;
+    // }, []);
 
    return (
        <Background>
@@ -95,7 +110,7 @@ function PostDetailsPage(props:any) {
                      )})}
                 <LikeButton><Heart color="#FFFFFF"/>Liked</LikeButton>
                 <PostNewComment add = {props.addComment}
-                                // filteredComment ={filteredComment}
+                                _id = {props._id}
                                 postID = {post.postID}/>
              </ForumViewWrapper>
           </ForumWrapper>

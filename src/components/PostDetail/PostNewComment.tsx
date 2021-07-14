@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 import SimpleMDE from "react-simplemde-editor";
+import {NavLink} from "react-router-dom";
 
 const InfoWrapper = styled.div`
   width: 750px;
@@ -81,6 +82,10 @@ const PostNewComment = (props: any) => {
    const handleContentChange = (value: string) => {
       setCommentContent(value);
    };
+   function refreshPage(){
+      window.location.reload();
+   }
+
    return (
        <InfoWrapper>
           <ContentWrapper>
@@ -90,8 +95,10 @@ const PostNewComment = (props: any) => {
              </UserWrapper>
              <CommentWrapper>
                 <SimpleMDE value={commentContent} onChange={handleContentChange}/>
-                <button id="submitButton" onClick={() => props.add(commentContent, props.postID)}>Submit</button>
-             </CommentWrapper>
+                <button id="submitButton"
+                        onClick={() =>
+                        {props.add(commentContent, props.postID); refreshPage()}}>Submit</button>
+                </CommentWrapper>
           </ContentWrapper>
        </InfoWrapper>
    );

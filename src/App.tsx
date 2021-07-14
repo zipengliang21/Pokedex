@@ -46,7 +46,7 @@ function App() {
              <AdminAddPage/>
           </Route>
           <Route exact path="/advancedSearch">
-             <FilterSearchPage/>
+             <FilterSearchPage pokemonList={pokemonList}/>
           </Route>
           <Route exact path="/forum">
              <ForumHomePage postList={postList}/>
@@ -56,14 +56,13 @@ function App() {
           </Route>
           <Route exact path="/Pokemon/:_id"
                  render={(props) => {
-                     return <PokemonDetailsPage id={props.match.params._id}
+                     return <PokemonDetailsPage _id={props.match.params._id}
                                                 getPokemon={getPokemon}/>;
                  }}/>
           <Route exact path="/post/:_id"
                  render={(props) => {
                     return <PostDetailsPage
                         _id = {props.match.params._id}
-                        // getPost = {getPost}
                         addComment={addComment}/>;
                  }}/>
        </Switch>

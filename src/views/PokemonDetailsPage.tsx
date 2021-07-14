@@ -4,7 +4,6 @@ import PokemonInfo from "../components/FilterSearch/PokemonInfo";
 import Header from "../components/Common/Header";
 import NavBar from "../components/Common/NavBar";
 import SearchBar from "../components/Common/SearchBar";
-import {usePostList} from "../hooks/usePostList";
 import {usePokemonList} from "../hooks/usePokemonList";
 
 const Background = styled.div`
@@ -29,29 +28,22 @@ const Wrapper = styled.div`
 `;
 
 function PokemonDetailsPage(props: any) {
-   const [pokemon, setPokemon] = useState({});
+   const [pickedPokemon, setPickedPokemon] = useState({});
    const {getPokemon} = usePokemonList();
-   console.log(pokemon);
    const init = async () => {
-      const data = await getPokemon(props.id);
-      setPokemon(data);
+      const data = await getPokemon(props._id);
+      setPickedPokemon(data);
    }
    useEffect(() => {
-      // async function getThePokemon() {
-      //    console.log(111);
-      //    setPokemon(await props.getPokemon(props.id));
-      // }
-      console.log(111)
       init();
    }, [])
-   console.log(222)
    return (
        <Background>
           <Wrapper>
              <Header/>
              <NavBar/>
              <SearchBar/>
-             <PokemonInfo pokemon={pokemon}/>
+             <PokemonInfo pokemon={pickedPokemon}/>
           </Wrapper>
        </Background>
    );

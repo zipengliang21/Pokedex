@@ -18,13 +18,13 @@ const usePokemonList = () => {
    }, [])
 
    const getPokemon = async (_id: string) => {
-      const response = await axios.get(`${productionURL}/pokemons/${_id}`);
+      const response = await axios.get(`${localhostURL}/pokemons/${_id}`);
       console.log(response.data.pokemon[0])
       return response.data.pokemon[0];
    }
 
    const getPokemonList = async () => {
-      const response = await axios.get(`${productionURL}/pokemons/`);
+      const response = await axios.get(`${localhostURL}/pokemons/`);
       return response.data.pokemonList;
    }
 

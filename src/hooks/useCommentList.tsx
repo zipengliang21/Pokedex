@@ -14,11 +14,13 @@ interface Comment {
    date: Date;
 }
 
+
 // Create a custom React Hook for Comment List
 const useCommentList = () => {
    const [commentList, setCommentList] = useState<Comment[]>([]);
    const [count, setCount] = useState<number>(0);
    const [filteredComment, setfilteredComment] = useState<Comment[]>([]);
+
 
    useEffect( () => {
       async function initialSet() {
@@ -43,7 +45,7 @@ const useCommentList = () => {
       };
       await axios.post(`${localhostURL}/comments/`, newComment);
       setCommentList(await getCommentList());
-      setfilteredComment([...filteredComment,newComment]);
+      setfilteredComment(await getCommentForPost(postID));
 
    }
 
@@ -59,6 +61,7 @@ const useCommentList = () => {
 
    const getCommentForPost = async (postID: string):Promise<Comment[]> => {
       const response = await axios.get(`${localhostURL}/comments/post/${postID}`);
+      setfilteredComment(response.data.comment);
       return response.data.comment;
    }
    const getCount = () => {

@@ -152,7 +152,7 @@ const WelcomePage = ({pokemonList}: any) => {
           <Wrapper>
              <Header/>
              <NavBar/>
-             <SearchBar/>
+             <SearchBar pokemonList = {pokemonList}/>
              {data}
           </Wrapper>
        </Background>

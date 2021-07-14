@@ -159,21 +159,20 @@ const PokemonInfo = ({pokemon}: any) => {
                        height={150}
                   />
                   <div>{pokemon.name}</div>
-                  {pokemon.type.map((pokeType:any) => {
-                     return <label>{pokeType}</label>;
-                  })}
-                  {/*<label>{pokemon.type[0]}</label>*/}
-                  {/*<label>{if (pokemon.type.length !==1 ) {pokemon.type[1]}}</label>*/}
+                  {/*{pokemon.type.map((pokeType:any) => {*/}
+                   {/*   return <label>{pokeType}</label>;*/}
+                  {/*})}*/}
+
                </ImageWrapper>
                <StatWrapper>
                   <div className="InfoRow1">
-                     Species: {pokemon.misc.classification} <br/>
+                     {/*Species: {pokemon.misc.classification} <br/>*/}
                      {/*Abilities: {dummyData[0]["Pokedex Data"]["Abilities"]} <br/>*/}
-                     Normal Abilities: {pokemon.misc.abilities.normal} <br/>
-                     Hidden Abilities: {pokemon.misc.abilities.hidden} <br/>
+                     {/*Normal Abilities: {pokemon.misc.abilities.normal} <br/>*/}
+                     {/*Hidden Abilities: {pokemon.misc.abilities.hidden} <br/>*/}
                      <div className="bodySize">
-                        <span>Height: {pokemon.misc.height} </span>
-                        <span>Weight: {pokemon.misc.weight} <br/></span>
+                        {/*<span>Height: {pokemon.misc.height} </span>*/}
+                        {/*<span>Weight: {pokemon.misc.weight} <br/></span>*/}
                      </div>
                   </div>
                   <div className="InfoRow2">
@@ -185,20 +184,22 @@ const PokemonInfo = ({pokemon}: any) => {
                             <span>HP:
                                {/*{dummyData[0]["Base Stats"]["HP"]["Base"]}/*/}
                                {/*{dummyData[0]["Base Stats"]["HP"]["Min"]}/*/}
-                               {pokemon.stats.hp} </span>
+                               {/*{pokemon.stats.hp} */}
+                            </span>
                            </li>
                            <li>
                             <span>Sp Attack:
                                {/*{dummyData[0]["Base Stats"]["Sp Atk"]["Base"]}/*/}
                                {/*{dummyData[0]["Base Stats"]["Sp Atk"]["Min"]}/*/}
-                               {pokemon.stats.spattack}
+                               {/*{pokemon.stats.spattack}*/}
                             </span>
                            </li>
                            <li>
                             <span>Defense:
                                {/*{dummyData[0]["Base Stats"]["Defense"]["Base"]}/*/}
                                {/*{dummyData[0]["Base Stats"]["Defense"]["Min"]}/*/}
-                               {pokemon.stats.defense}</span>
+                               {/*{pokemon.stats.defense}*/}
+                            </span>
                            </li>
                         </div>
                         <div className="BaseStat">
@@ -206,21 +207,21 @@ const PokemonInfo = ({pokemon}: any) => {
                             <span>Attack:
                                {/*{dummyData[0]["Base Stats"]["Attack"]["Base"]}/*/}
                                {/*{dummyData[0]["Base Stats"]["Attack"]["Min"]}/*/}
-                               {pokemon.stats.attack}
+                               {/*{pokemon.stats.attack}*/}
                             </span>
                            </li>
                            <li>
                             <span>Sp Defense:
                                {/*{dummyData[0]["Base Stats"]["Sp Def"]["Base"]}/*/}
                                {/*{dummyData[0]["Base Stats"]["Sp Def"]["Min"]}/*/}
-                               {pokemon.stats.spdefense}
+                               {/*{pokemon.stats.spdefense}*/}
                             </span>
                            </li>
                            <li>
                             <span>Speed:
                                {/*{dummyData[0]["Base Stats"]["Speed"]["Base"]}/*/}
                                {/*{dummyData[0]["Base Stats"]["Speed"]["Min"]}/*/}
-                               {pokemon.stats.speed}
+                               {/*{pokemon.stats.speed}*/}
                             </span>
                            </li>
                         </div>

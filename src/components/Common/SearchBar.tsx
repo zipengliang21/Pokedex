@@ -1,7 +1,5 @@
 import React, {useState, useEffect} from "react";
 import styled from "styled-components";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import PokemonData from "../../pokedexData.json";
 import Fade from "react-reveal/Fade";
 import Pokemon from "../DetailedView/Pokemon";
 
@@ -141,7 +139,7 @@ function SearchBar(props: any) {
     const [filteredPokemons, setfilteredPokemons] = useState([{name:""}]);
 
     useEffect(() => {
-        setPokemons(PokemonData);
+        setPokemons(props.pokemonList);
     }, []);
 
     useEffect(() => {
