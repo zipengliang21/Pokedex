@@ -74,27 +74,20 @@ interface Comment {
 
 
 function PostDetailsPage(props:any) {
-    const {filteredComment,setfilteredComment,getCommentForPost} = useCommentList();
+    const {filteredComment,setFilteredComment,getCommentForPost} = useCommentList();
     const {getPost} = usePostList();
     const [post, setPost] = useState({postID:""});
-    // const ref = useRef(filteredComment);
+
     const init = async () => {
         const pickPost = await getPost(props._id);
         setPost(pickPost);
         await getCommentForPost(pickPost.postID);
-        // setfilteredComment(data);
     }
-    // if (filteredComment !==ref.current) {
-    //     ref.current = filteredComment;
-    // }
 
     useEffect(() => {
         init();
     }, []);
-    // useEffect(() => {
-    //     ;
-    // }, []);
-
+   console.log(filteredComment)
    return (
        <Background>
           <Header/>
@@ -111,7 +104,9 @@ function PostDetailsPage(props:any) {
                 <LikeButton><Heart color="#FFFFFF"/>Liked</LikeButton>
                 <PostNewComment add = {props.addComment}
                                 _id = {props._id}
-                                postID = {post.postID}/>
+                                postID = {post.postID}
+                                filteredComment = {filteredComment}
+                                setFilteredComment={setFilteredComment} />
              </ForumViewWrapper>
           </ForumWrapper>
        </Background>

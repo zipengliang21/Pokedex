@@ -82,8 +82,9 @@ const PostNewComment = (props: any) => {
    const handleContentChange = (value: string) => {
       setCommentContent(value);
    };
-   function refreshPage(){
-      window.location.reload();
+
+   const addNewComment = async () => {
+      props.setFilteredComment([...props.filteredComment, await props.add(commentContent, props.postID)])
    }
 
    return (
@@ -96,8 +97,7 @@ const PostNewComment = (props: any) => {
              <CommentWrapper>
                 <SimpleMDE value={commentContent} onChange={handleContentChange}/>
                 <button id="submitButton"
-                        onClick={() =>
-                        {props.add(commentContent, props.postID); refreshPage()}}>Submit</button>
+                        onClick={() => addNewComment()}>Submit</button>
                 </CommentWrapper>
           </ContentWrapper>
        </InfoWrapper>

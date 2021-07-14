@@ -5,6 +5,7 @@ import Header from "../components/Common/Header";
 import NavBar from "../components/Common/NavBar";
 import SearchBar from "../components/Common/SearchBar";
 import {usePokemonList} from "../hooks/usePokemonList";
+import DetailPageHeader from "../components/DetailedView/DetailPageHeader";
 
 const Background = styled.div`
   background: url("https://onlyvectorbackgrounds.com/wp-content/uploads/2019/03/Subtle-Lines-Abstract-Gradient-Background-Cool.jpg")
@@ -33,7 +34,7 @@ function PokemonDetailsPage(props: any) {
           <Wrapper>
              <Header/>
              <NavBar/>
-             <SearchBar/>
+             <DetailPageHeader/>
              <PokemonInfo id={props._id}
                           getPokemon={props.getPokemon}/>
           </Wrapper>

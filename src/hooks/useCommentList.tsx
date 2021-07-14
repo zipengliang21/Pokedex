@@ -19,7 +19,7 @@ interface Comment {
 const useCommentList = () => {
    const [commentList, setCommentList] = useState<Comment[]>([]);
    const [count, setCount] = useState<number>(0);
-   const [filteredComment, setfilteredComment] = useState<Comment[]>([]);
+   const [filteredComment, setFilteredComment] = useState<Comment[]>([]);
 
 
    useEffect( () => {
@@ -45,8 +45,8 @@ const useCommentList = () => {
       };
       await axios.post(`${localhostURL}/comments/`, newComment);
       setCommentList(await getCommentList());
-      setfilteredComment(await getCommentForPost(postID));
-
+      setFilteredComment(await getCommentForPost(postID));
+      return newComment;
    }
 
    const getComment = async (_id: string) => {
@@ -61,13 +61,13 @@ const useCommentList = () => {
 
    const getCommentForPost = async (postID: string):Promise<Comment[]> => {
       const response = await axios.get(`${localhostURL}/comments/post/${postID}`);
-      setfilteredComment(response.data.comment);
+      setFilteredComment(response.data.comment);
       return response.data.comment;
    }
    const getCount = () => {
       return count;
    }
 
-   return {commentList, setCommentList, filteredComment, setfilteredComment,getCommentForPost, addComment, getComment, getCommentList}
+   return {commentList, setCommentList, filteredComment, setFilteredComment, getCommentForPost, addComment, getComment, getCommentList}
 }
 export {useCommentList};

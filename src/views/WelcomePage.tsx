@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import styled from "styled-components";
 import SearchBar from "../components/Common/SearchBar";
 import Pokemon from "../components/DetailedView/Pokemon";
-import {Button} from "../components/Button";
 import Fade from "react-reveal/Fade";
 import NavBar from "../components/Common/NavBar";
 import Header from "../components/Common/Header";
@@ -76,7 +75,6 @@ const PokemonWrapper = styled.div`
     padding: 15px;
     @media(max-width: 875px){
       width: 418px;
-      //padding: 0 40px;
     }
 `;
 
@@ -101,7 +99,6 @@ const WelcomePage = ({pokemonList}: any) => {
    const [offset, setOffset] = useState(0);
    const handlePageClick = (e: any) => {
       const selectedPage = e.selected;
-      console.log(selectedPage + 1);
       setOffset(selectedPage);
    };
    let data = <Spinner/>;
@@ -130,7 +127,6 @@ const WelcomePage = ({pokemonList}: any) => {
             </GroupWrapper>
          </PokemonWrapper>
          <Fade bottom>
-            {/*<Button className="loadMore">Load More Pokemon</Button>*/}
             <PaginationWrapper>
                <ReactPaginate containerClassName="pagination"
                               marginPagesDisplayed={2}
