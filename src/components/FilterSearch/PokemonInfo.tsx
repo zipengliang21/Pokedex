@@ -1,8 +1,9 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 import FavButton from "components/Common/FavButton"
 import Fade from "react-reveal/Fade";
 import Pokemon from "../DetailedView/Pokemon";
+import {usePokemonList} from "../../hooks/usePokemonList";
 
 const InfoWrapper = styled.div`
   width: 750px;
@@ -138,15 +139,26 @@ const StarWrapper =styled.div`
   } 
 `;
 
-const PokemonInfo = ({pokemon}: any) => {
-   return (
+const PokemonInfo = (props: any) => {
+   const {pokemon, setPokemon} = usePokemonList();
+
+   const init = async () => {
+      const data = await props.getPokemon(props.id);
+      setPokemon(data);
+   }
+
+   useEffect(() => {
+      init();
+   }, [])
+
+   return pokemon? (
        <InfoWrapper>
          <ContentWrapper>
             <HeaderWrapper>
                <HeaderSubWrapper>
                   <header>{pokemon.name}</header>
                   <StarWrapper>
-                     <FavButton className="Fav" pId={pokemon.id} pName ={pokemon.name}/>
+                     <FavButton className="Fav" pId={parseInt(pokemon.id)} pName ={pokemon.name}/>
                   </StarWrapper>
                </HeaderSubWrapper>
                <div className="pokeID">{`#` + pokemon.id}</div>
@@ -159,20 +171,20 @@ const PokemonInfo = ({pokemon}: any) => {
                        height={150}
                   />
                   <div>{pokemon.name}</div>
-                  {/*{pokemon.type.map((pokeType:any) => {*/}
-                   {/*   return <label>{pokeType}</label>;*/}
-                  {/*})}*/}
+                  {pokemon.type.map((pokeType:any) => {
+                      return <label>{pokeType}</label>;
+                  })}
 
                </ImageWrapper>
                <StatWrapper>
                   <div className="InfoRow1">
                      {/*Species: {pokemon.misc.classification} <br/>*/}
                      {/*Abilities: {dummyData[0]["Pokedex Data"]["Abilities"]} <br/>*/}
-                     {/*Normal Abilities: {pokemon.misc.abilities.normal} <br/>*/}
-                     {/*Hidden Abilities: {pokemon.misc.abilities.hidden} <br/>*/}
+                     Normal Abilities: {pokemon.misc.abilities.normal} <br/>
+                     Hidden Abilities: {pokemon.misc.abilities.hidden} <br/>
                      <div className="bodySize">
-                        {/*<span>Height: {pokemon.misc.height} </span>*/}
-                        {/*<span>Weight: {pokemon.misc.weight} <br/></span>*/}
+                        <span>Height: {pokemon.misc.height} </span>
+                        <span>Weight: {pokemon.misc.weight} <br/></span>
                      </div>
                   </div>
                   <div className="InfoRow2">
@@ -184,21 +196,21 @@ const PokemonInfo = ({pokemon}: any) => {
                             <span>HP:
                                {/*{dummyData[0]["Base Stats"]["HP"]["Base"]}/*/}
                                {/*{dummyData[0]["Base Stats"]["HP"]["Min"]}/*/}
-                               {/*{pokemon.stats.hp} */}
+                               {pokemon.stats.hp}
                             </span>
                            </li>
                            <li>
                             <span>Sp Attack:
                                {/*{dummyData[0]["Base Stats"]["Sp Atk"]["Base"]}/*/}
                                {/*{dummyData[0]["Base Stats"]["Sp Atk"]["Min"]}/*/}
-                               {/*{pokemon.stats.spattack}*/}
+                               {pokemon.stats.spattack}
                             </span>
                            </li>
                            <li>
                             <span>Defense:
                                {/*{dummyData[0]["Base Stats"]["Defense"]["Base"]}/*/}
                                {/*{dummyData[0]["Base Stats"]["Defense"]["Min"]}/*/}
-                               {/*{pokemon.stats.defense}*/}
+                               {pokemon.stats.defense}
                             </span>
                            </li>
                         </div>
@@ -207,21 +219,21 @@ const PokemonInfo = ({pokemon}: any) => {
                             <span>Attack:
                                {/*{dummyData[0]["Base Stats"]["Attack"]["Base"]}/*/}
                                {/*{dummyData[0]["Base Stats"]["Attack"]["Min"]}/*/}
-                               {/*{pokemon.stats.attack}*/}
+                               {pokemon.stats.attack}
                             </span>
                            </li>
                            <li>
                             <span>Sp Defense:
                                {/*{dummyData[0]["Base Stats"]["Sp Def"]["Base"]}/*/}
                                {/*{dummyData[0]["Base Stats"]["Sp Def"]["Min"]}/*/}
-                               {/*{pokemon.stats.spdefense}*/}
+                               {pokemon.stats.spdefense}
                             </span>
                            </li>
                            <li>
                             <span>Speed:
                                {/*{dummyData[0]["Base Stats"]["Speed"]["Base"]}/*/}
                                {/*{dummyData[0]["Base Stats"]["Speed"]["Min"]}/*/}
-                               {/*{pokemon.stats.speed}*/}
+                               {pokemon.stats.speed}
                             </span>
                            </li>
                         </div>
@@ -231,7 +243,7 @@ const PokemonInfo = ({pokemon}: any) => {
             </DataWrapper>
          </ContentWrapper>
        </InfoWrapper>
-   );
+   ): null;
 };
 
 export default PokemonInfo;

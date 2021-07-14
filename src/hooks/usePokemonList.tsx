@@ -6,8 +6,21 @@ const productionURL = "https://pokedex-455-server.herokuapp.com";
 
 
 // Create a custom React Hook for Pokemon List
+
+interface Pokemon {
+   name: string;
+   id: string;
+   img: string;
+   type: Array<string>;
+   stats: any;
+   moves: any;
+   damages: any;
+   misc: any;
+}
+
 const usePokemonList = () => {
-   const [pokemonList, setPokemonList] = useState([]);
+   const [pokemonList, setPokemonList] = useState<Pokemon[]>([]);
+   const [pokemon, setPokemon] = useState<Pokemon | null>(null);
 
    useEffect( () => {
       async function initialSet() {
@@ -19,7 +32,6 @@ const usePokemonList = () => {
 
    const getPokemon = async (_id: string) => {
       const response = await axios.get(`${localhostURL}/pokemons/${_id}`);
-      console.log(response.data.pokemon[0])
       return response.data.pokemon[0];
    }
 
@@ -28,6 +40,6 @@ const usePokemonList = () => {
       return response.data.pokemonList;
    }
 
-   return {pokemonList, setPokemonList, getPokemon, getPokemonList}
+   return {pokemonList, setPokemonList, pokemon, setPokemon, getPokemon, getPokemonList}
 }
 export {usePokemonList};

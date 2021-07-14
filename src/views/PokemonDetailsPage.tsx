@@ -28,22 +28,14 @@ const Wrapper = styled.div`
 `;
 
 function PokemonDetailsPage(props: any) {
-   const [pickedPokemon, setPickedPokemon] = useState({});
-   const {getPokemon} = usePokemonList();
-   const init = async () => {
-      const data = await getPokemon(props._id);
-      setPickedPokemon(data);
-   }
-   useEffect(() => {
-      init();
-   }, [])
    return (
        <Background>
           <Wrapper>
              <Header/>
              <NavBar/>
              <SearchBar/>
-             <PokemonInfo pokemon={pickedPokemon}/>
+             <PokemonInfo id={props._id}
+                          getPokemon={props.getPokemon}/>
           </Wrapper>
        </Background>
    );
