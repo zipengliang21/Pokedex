@@ -138,11 +138,9 @@ function SearchBar(props: any) {
         ]}]);
     const [filteredPokemons, setfilteredPokemons] = useState([{name:""}]);
 
-    useEffect(() => {
-        setPokemons(props.pokemonList);
-    }, []);
 
     useEffect(() => {
+        setPokemons(props.pokemonList);
         const result = pokemons.filter((poke) =>
             poke.name.toLowerCase().includes(search.toLowerCase())
 
@@ -153,6 +151,7 @@ function SearchBar(props: any) {
         else {
             setfilteredPokemons(result);
         }
+        console.log("search"+filteredPokemons[0]);
     }, [search, pokemons]);
     return (
         <SearchBarResultWrapper>
