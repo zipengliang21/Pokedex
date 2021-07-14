@@ -130,13 +130,13 @@ const SearchBarResultWrapper = styled.div`
 
 function SearchBar(props: any) {
     const [search, setSearch] = useState("");
-    const [pokemons, setPokemons] = useState([{id: "",
+    const [pokemons, setPokemons] = useState([{id: "",_id:"",
         name: "",
         img: "",
         type: [
             ''
         ]}]);
-    const [filteredPokemons, setfilteredPokemons] = useState([{name:""}]);
+    const [filteredPokemons, setfilteredPokemons] = useState([{name:"", _id:""}]);
 
 
     useEffect(() => {
@@ -177,7 +177,7 @@ function SearchBar(props: any) {
                     {filteredPokemons.map((pokemon, index) => {
                         if (pokemon.name === ""){return <> </>}
                         else {
-                            return  <Fade left key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon.name}/></Fade>;
+                            return  <Fade left key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon._id}/></Fade>;
                         }})}
                 </PokemonWrapper>
             </ResultWrapper>

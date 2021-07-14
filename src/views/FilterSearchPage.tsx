@@ -81,7 +81,7 @@ const PokemonWrapper = styled.div`
 
 
 function FilterSearchPage(props:any) {
-    const [filteredPokes, setFilteredPokes] = useState([{name:"",id:""}]);
+    const [filteredPokes, setFilteredPokes] = useState([{name:"",_id:""}]);
     const pokemonData = props.pokemonList;
 
     return (
@@ -95,7 +95,7 @@ function FilterSearchPage(props:any) {
                         {filteredPokes.map((pokemon, index) => {
                             if (pokemon.name === ""){return <> </>}
                             else {
-                                return <Fade left key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon.name}/></Fade>;
+                                return <Fade left key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon._id}/></Fade>;
                             }})}
                     </PokemonWrapper>
                     <FilterWrapper>
