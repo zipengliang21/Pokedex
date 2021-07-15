@@ -3,7 +3,6 @@ import {Switch, Route} from "react-router-dom";
 import FilterSearchPage from "./views/FilterSearchPage";
 import WelcomePage from "./views/WelcomePage";
 import PokemonDetailsPage from "./views/PokemonDetailsPage";
-import PokemonData from "./pokedexData.json";
 import LoginPage from "views/LoginPage";
 import OverviewPage from "./views/OverviewPage";
 import CollectionPage from "./views/CollectionPage";
@@ -19,7 +18,6 @@ import {useCommentList} from "./hooks/useCommentList";
 
 function App() {
    const {pokemonList, getPokemon} = usePokemonList();
-   const [pickedPokemon, setPickedPokemon] = useState({});
    const {postList, addPost, getPost} = usePostList();
    const {commentList, addComment} = useCommentList();
    return (
