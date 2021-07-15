@@ -5,11 +5,15 @@ import LogoutHeader from "../components/Common/LogoutHeader";
 import { useForm } from "react-hook-form";
 import EditPokemon from "../components/EditPokemon";
 import Button from "@material-ui/core/Button";
+import Alert from '@material-ui/lab/Alert';
+import AlertTitle from '@material-ui/lab/AlertTitle';
+import Collapse from '@material-ui/core/Collapse';
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { useHistory } from "react-router";
 import axios from 'axios';
+import {usePokemonList} from "../hooks/usePokemonList";
 
 const server = "http://localhost:5000";
 
@@ -91,6 +95,7 @@ const FormEntry = styled.div`
 `;
 
 const AdminAddPage = () => {
+    const {pokemonList, setPokemonList} = usePokemonList();
     const { register, handleSubmit } = useForm();
     const onSubmit = (data:any) => alert(JSON.stringify(data));
     const classes = useStyles();
@@ -121,6 +126,8 @@ const AdminAddPage = () => {
     const [minSpeed, setMinSpeed] = React.useState('');
     const [maxSpeed, setMaxSpeed] = React.useState('');
 
+    const [open, setOpen] = React.useState(false);
+    const [message, setMessage] = React.useState('');
 
     const handleChangeFlag = (event: any) => {
         const temp = event.currentTarget.id;
@@ -287,12 +294,17 @@ const AdminAddPage = () => {
                 maxSpeed: maxSpeed
             }
         })
-            .then((response) => {
+            .then((response: any) => {
                 console.log(response)
                 if (response.status === 200) {
+                    // let newPokemon = response.data.added;
+                    // setPokemonList([...pokemonList, newPokemon]);
+                    setMessage('Add Pokemon Successfully!');
+                    setOpen(true);
                 }
+
             })
-            .catch((error) => {
+            .catch((error: any) => {
                 console.log(error)
             })
     }
@@ -306,18 +318,24 @@ const AdminAddPage = () => {
                 name: name,
             }
         })
-            .then((response) => {
+            .then((response: any) => {
                 console.log(response)
                 if (response.status === 200) {
                 }
             })
-            .catch((error) => {
+            .catch((error: any) => {
                 console.log(error)
             })
     }
 
     return(
         <Background>
+            <Collapse in={open}>
+                <Alert severity="success" onClose={() => {setOpen(false);}}>
+                    <AlertTitle>Info</AlertTitle>
+                    {message}
+                </Alert>
+            </Collapse>
             <LogoutHeader />
             <NavBar/>
             <EditPokemon/>
@@ -423,7 +441,6 @@ const AdminAddPage = () => {
                         <Button onClick={handleDeletePokemon} variant="contained" color="secondary" size = "small" style={{width:"100px",margin:"10px auto" }}>
                             Delete
                         </Button>
-
                     </form>
                 </Container>
             </Wrapper>
