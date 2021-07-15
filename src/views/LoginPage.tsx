@@ -122,8 +122,10 @@ const useStyles = makeStyles((theme) => ({
 export default function SignIn() {
   const classes = useStyles();
   const [flag, setFlag] = React.useState(1);
+  const [email, setEmail] = React.useState('');
   const [userName, setUserName] = React.useState('');
   const [password, setPassword] = React.useState('');
+  const [confirmPassword, setConfirmPassword] = React.useState('');
 
   const history = useHistory();
 
@@ -136,6 +138,11 @@ export default function SignIn() {
     }
   };
 
+  const handleChangeEmail = (event: any) => {
+    const temp = event.target.value;
+    setEmail(temp);
+  }
+
   const handleChangeUserName = (event: any) => {
     const temp = event.target.value;
     setUserName(temp);
@@ -146,20 +153,25 @@ export default function SignIn() {
     setPassword(temp);
   }
 
+  const handleChangeConfirmPassword = (event: any) => {
+    const temp = event.target.value;
+    setConfirmPassword(temp);
+  }
+
   const handleClickSubmit = () => {
     if (flag === 1) {
       axios({
         method: 'post',
         url: server + '/login',
         data: {
-          userName: userName,
+          email: email,
           password: password
         }
       })
           .then((response) => {
             console.log(response)
             if (response.status === 200) {
-              history.push('/collections');
+              history.push('/profile');
             }
           })
           .catch((error) => {
@@ -170,13 +182,14 @@ export default function SignIn() {
         method: 'post',
         url: server + '/register',
         data: {
+          email: email,
           userName: userName,
-          password: password
+          password: password,
+          confirmPassword: confirmPassword
         }
       })
           .then((response) => {
-            console.log(response);
-            history.push('/login');
+            setFlag(1);
           })
           .catch((error) => {
             console.log(error)
@@ -212,8 +225,8 @@ export default function SignIn() {
               </div>
               <form className={classes.form} noValidate hidden={flag !== 1}>
                 <TextField
-                    value = {userName}
-                    onChange = {handleChangeUserName}
+                    value = {email}
+                    onChange = {handleChangeEmail}
                     variant="outlined"
                     margin="normal"
                     required
@@ -260,6 +273,8 @@ export default function SignIn() {
               </form>
               <form className={classes.form} noValidate hidden={flag !== 2}>
                 <TextField
+                    value = {email}
+                    onChange = {handleChangeEmail}
                     variant="outlined"
                     margin="normal"
                     required
@@ -271,6 +286,21 @@ export default function SignIn() {
                     autoFocus
                 />
                 <TextField
+                    value = {userName}
+                    onChange = {handleChangeUserName}
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="name"
+                    label="Enter Your User Name"
+                    name="name"
+                    autoComplete="name"
+                    autoFocus
+                />
+                <TextField
+                    value = {password}
+                    onChange = {handleChangePassword}
                     variant="outlined"
                     margin="normal"
                     required
@@ -281,15 +311,24 @@ export default function SignIn() {
                     id="password"
                     autoComplete="current-password"
                 />
-                <FormControlLabel
-                    control={<Checkbox value="remember" color="primary" />}
-                    label="Remember me"
+                <TextField
+                    value = {confirmPassword}
+                    onChange = {handleChangeConfirmPassword}
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    fullWidth
+                    name="confirmPassword"
+                    label="Confirm Your Password"
+                    type="password"
+                    id="confirmPassword"
+                    autoComplete="current-confirmPassword"
                 />
                 <Button
-                    type="submit"
                     fullWidth
                     variant="contained"
                     color="primary"
+                    onClick={handleClickSubmit}
                     className={classes.submit}
                 >
                   Register
