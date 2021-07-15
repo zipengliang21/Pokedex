@@ -1,9 +1,11 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 import PokemonInfo from "../components/FilterSearch/PokemonInfo";
 import Header from "../components/Common/Header";
 import NavBar from "../components/Common/NavBar";
 import SearchBar from "../components/Common/SearchBar";
+import {usePokemonList} from "../hooks/usePokemonList";
+import DetailPageHeader from "../components/DetailedView/DetailPageHeader";
 
 const Background = styled.div`
   background: url("https://onlyvectorbackgrounds.com/wp-content/uploads/2019/03/Subtle-Lines-Abstract-Gradient-Background-Cool.jpg")
@@ -26,15 +28,15 @@ const Wrapper = styled.div`
    }
 `;
 
-function PokemonDetailsPage({pokemon}: any) {
-   // const index = pokemon.id;
+function PokemonDetailsPage(props: any) {
    return (
        <Background>
           <Wrapper>
              <Header/>
              <NavBar/>
-             <SearchBar/>
-             <PokemonInfo pokemon={pokemon}/>
+             <DetailPageHeader/>
+             <PokemonInfo id={props._id}
+                          getPokemon={props.getPokemon}/>
           </Wrapper>
        </Background>
    );

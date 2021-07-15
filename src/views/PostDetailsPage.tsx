@@ -1,18 +1,15 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState,useRef} from "react";
 import styled from "styled-components";
-import PokemonInfo from "../components/FilterSearch/PokemonInfo";
 import Header from "../components/Common/Header";
 import NavBar from "../components/Common/NavBar";
-import SearchBar from "../components/Common/SearchBar";
 import ForumHeader from "../components/Forum/ForumHeader";
 import ForumSubHeader from "../components/Forum/ForumSubHeader";
-import InputForm from "../components/Forum/InputForm";
 import PostDetails from "components/PostDetail/PostDetails";
 import PostComment from "components/PostDetail/PostComment";
 import PostNewComment from "components/PostDetail/PostNewComment";
-import CommentData from '../CommentData.json'
-import {NavLink} from "react-router-dom";
-import ForumData from "../ForumData.json";
+import {useCommentList} from "../hooks/useCommentList";
+import Heart from "../components/Icon/ForumIcon/Heart";
+import {usePostList} from "../hooks/usePostList";
 
 
 const Background = styled.div`
@@ -40,47 +37,57 @@ const ForumWrapper = styled.div`
 
 const ForumViewWrapper = styled.div`
   width: 800px;
+  display: flex;
+  flex-direction: column;
   min-height: 500px;
   margin: 0 auto;
-
+  align-items: center;
   @media(max-width: 875px){
     width: 418px;
   }
   @media(max-width: 576px){
-    width: 230px;
+    width: 90%;
   }
 `;
 
+const LikeButton = styled.div`
+    background-color: #DC004E;
+    border-color: #DC004E;
+    cursor: pointer;
+    padding: 5px 18px;
+    font-size: 14px;
+    border-radius: 4px;
+    color: #FFFFFF;
+    svg{
+      margin-right: 5px;
+    }
+`;
+
+interface Comment {
+    userId: string;
+    userName: string;
+    postID: string;
+    commentID: number;
+    content: string;
+    date: Date;
+}
+
+
 function PostDetailsPage(props:any) {
-   // const index = pokemon.id;
-   //  const [postList, setPostList] = useState(props.postList);
-   //  const [search, setSearch] = useState("");
-    const [filteredComment, setfilteredComment] = useState([{
-        userId: "",
-        userName: "",
-        postID: "",
-        commentID: "",
-        content: ""
-    }]);
-    // const [commentList, setCommentList] = useState([{
-    //     userId: "",
-    //     userName: "",
-    //     postID: "",
-    //     commentID: "",
-    //     content: ""
-    // }]);
-    // useEffect(() => {
-    //     setCommentList(CommentData);
-    // }, []);
+    const {filteredComment,setFilteredComment,getCommentForPost} = useCommentList();
+    const {getPost} = usePostList();
+    const [post, setPost] = useState({postID:""});
+
+    const init = async () => {
+        const pickPost = await getPost(props._id);
+        setPost(pickPost);
+        await getCommentForPost(pickPost.postID);
+    }
 
     useEffect(() => {
-        const result = props.commentList.filter((comment:any) =>
-            comment.postID === props.postID
-
-        );
-        setfilteredComment(result);
+        init();
     }, []);
-
+   console.log(filteredComment)
    return (
        <Background>
           <Header/>
@@ -89,15 +96,17 @@ function PostDetailsPage(props:any) {
           <ForumWrapper>
              <ForumSubHeader/>
              <ForumViewWrapper>
-                <PostDetails rootPost ={props.rootPost}/>
-                 {filteredComment.map((comment:any, index: any) => {
+                <PostDetails rootPost ={post}/>
+                 {filteredComment.map((comment:any, index: number) => {
                      return (
                          <PostComment comment = {comment} id = {index} />
                      )})}
-
+                <LikeButton><Heart color="#FFFFFF"/>Liked</LikeButton>
                 <PostNewComment add = {props.addComment}
-                                // filteredComment ={filteredComment}
-                                postID = {props.postID}/>
+                                _id = {props._id}
+                                postID = {post.postID}
+                                filteredComment = {filteredComment}
+                                setFilteredComment={setFilteredComment} />
              </ForumViewWrapper>
           </ForumWrapper>
        </Background>

@@ -16,6 +16,11 @@ import styled from "styled-components";
 import Header from "../components/Common/Header";
 import NavBar from "../components/Common/NavBar";
 import LoginHeader from "../components/LoginHeader";
+import {NavLink} from "react-router-dom";
+import { useHistory } from "react-router";
+import axios from 'axios';
+
+const server = "http://localhost:5000";
 
 const Background = styled.div`
   background: url("https://onlyvectorbackgrounds.com/wp-content/uploads/2019/03/Subtle-Lines-Abstract-Gradient-Background-Cool.jpg")
@@ -40,17 +45,16 @@ const Wrapper = styled.div`
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="#">
-        Pokedex
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
+      <Typography variant="body2" color="textSecondary" align="center">
+        {"Copyright © "}
+        <Link color="inherit" href="#">
+          Pokedex
+        </Link>{" "}
+        {new Date().getFullYear()}
+        {"."}
+      </Typography>
   );
 }
-
 const useStyles = makeStyles((theme) => ({
   paper: {
     paddingTop: theme.spacing(10),
@@ -98,71 +102,116 @@ const useStyles = makeStyles((theme) => ({
 export default function AdminPage() {
   const classes = useStyles();
 
+  const [userName, setUserName] = React.useState('');
+  const [password, setPassword] = React.useState('');
+
+  const history = useHistory();
+
+  const handleChangeUserName = (event: any) => {
+    const temp = event.target.value;
+    setUserName(temp);
+  }
+
+  const handleChangePassword = (event: any) => {
+    const temp = event.target.value;
+    setPassword(temp);
+  }
+
+  const handleClickSubmit = () => {
+    axios({
+      method: 'post',
+      url: server + '/adminLogin',
+      data: {
+        userName: userName,
+        password: password
+      }
+    })
+        .then((response) => {
+          console.log(response)
+          if (response.status === 200) {
+            history.push('/admin/pokemon-manage');
+          }
+        })
+        .catch((error) => {
+          console.log(error)
+        });
+  }
+
   return (
-    <Background>
-      <Header />
-      <NavBar />
-      <LoginHeader flag={1}/>
-      <Wrapper>
-        <Container component="main" maxWidth="xs">
-          <CssBaseline />
-          <div className={classes.paper}>
-            <Avatar className={classes.avatar}>
-              <LockOutlinedIcon />
-            </Avatar>
-            <Typography>
+      <Background>
+        <Header />
+        <NavBar />
+        <LoginHeader flag={1}/>
+        <Wrapper>
+          <Container component="main" maxWidth="xs">
+            <CssBaseline />
+            <div className={classes.paper}>
+              <Avatar className={classes.avatar}>
+                <LockOutlinedIcon />
+              </Avatar>
+              <Typography>
                 Admin Login
-            </Typography>
-            <form className={classes.form} noValidate>
-              <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                autoFocus
-              />
-              <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-              />
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              />
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-                className={classes.submit}
-              >
-                Sign In
-              </Button>
-              <Grid container>
-                <Grid item xs>
-                  <Link href="#" variant="body2">
-                    Forgot password?
-                  </Link>
+              </Typography>
+              <form className={classes.form} noValidate>
+                <TextField
+                    value = {userName}
+                    onChange = {handleChangeUserName}
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="email"
+                    label="Email Address"
+                    name="email"
+                    autoComplete="email"
+                    autoFocus
+                />
+                <TextField
+                    value = {password}
+                    onChange = {handleChangePassword}
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    fullWidth
+                    name="password"
+                    label="Password"
+                    type="password"
+                    id="password"
+                    autoComplete="current-password"
+                />
+                <FormControlLabel
+                    control={<Checkbox value="remember" color="primary" />}
+                    label="Remember me"
+                />
+                <Button
+                    onClick={handleClickSubmit}
+                    fullWidth
+                    variant="contained"
+                    color="primary"
+                    className={classes.submit}
+                >
+                  Sign In
+                </Button>
+                <Grid container>
+                  <Grid item xs>
+                    <Link href="#" variant="body2">
+                      Forgot password?
+                    </Link>
+                  </Grid>
                 </Grid>
-              </Grid>
-            </form>
-          </div>
-          <Box className={classes.copyright} mt={8}>
-            <Copyright />
-          </Box>
-        </Container>
-      </Wrapper>
-    </Background>
+
+                <div className={classes.iconContainer}>
+                  <NavLink exact activeClassName="selected" to="/login" >
+                    Return to Login
+                  </NavLink>
+                </div>
+              </form>
+            </div>
+            <Box className={classes.copyright} mt={8}>
+              <Copyright />
+            </Box>
+          </Container>
+        </Wrapper>
+      </Background>
   );
 }

@@ -5,7 +5,8 @@
     "postID": "0001",
     "title": "The first one, Pikachu!",
     "description": "Pokemon",
-    "content": "Hello, I am the first post"
+    "content": "Hello, I am the first post",
+    "date": "2021-07-10T07:00:00.000+00:00"
   },
   {
     "userId": "0002",
@@ -13,7 +14,8 @@
     "postID": "0002",
     "title": "The second one, eevee!",
     "description": "User",
-    "content": "Hello, I am the second post"
+    "content": "Hello, I am the second post",
+    "date": "2021-07-10T07:00:00.000+00:00"
   },
   {
     "userId": "0003",
@@ -21,7 +23,8 @@
     "postID": "0003",
     "title": "The Third one, Charizard!",
     "description": "Pokemon",
-    "content": "Hello, I am the third post"
+    "content": "Hello, I am the third post",
+    "date": "2021-07-10T07:00:00.000+00:00"
   },
   {
     "userId": "0004",
@@ -29,7 +32,8 @@
     "postID": "0004",
     "title": "The Forth one, Charizard!",
     "description": "Pokemon Game",
-    "content": "Hello, this is the test content"
+    "content": "Hello, this is the test content",
+    "date": "2021-07-10T07:00:00.000+00:00"
   },
   {
     "userId": "0005",
@@ -37,7 +41,8 @@
     "postID": "0005",
     "title": "Test data!",
     "description": "User",
-    "content": "Hello, this is the test content"
+    "content": "Hello, this is the test content",
+    "date": "2021-07-10T07:00:00.000+00:00"
   },
   {
     "userId": "0006",
@@ -45,7 +50,8 @@
     "postID": "0006",
     "title": "Test data!",
     "description": "User",
-    "content": "Hello, this is the test content"
+    "content": "Hello, this is the test content",
+    "date": "2021-07-10T07:00:00.000+00:00"
   },
   {
     "userId": "0007",
@@ -53,7 +59,8 @@
     "postID": "0007",
     "title": "Test data!",
     "description": "Pokemon",
-    "content": "Hello, this is the test content"
+    "content": "Hello, this is the test content",
+    "date": "2021-07-10T07:00:00.000+00:00"
   },
   {
     "userId": "0008",
@@ -61,7 +68,8 @@
     "postID": "0008",
     "title": "Test data!",
     "description": "User",
-    "content": "Hello, this is the test content"
+    "content": "Hello, this is the test content",
+    "date": "2021-07-10T07:00:00.000+00:00"
   },
   {
     "userId": "0009",
@@ -69,7 +77,8 @@
     "postID": "0009",
     "title": "Test data!",
     "description": "Pokemon Game",
-    "content": "Hello, this is the test content"
+    "content": "Hello, this is the test content",
+    "date": "2021-07-10T07:00:00.000+00:00"
   },
   {
     "userId": "0010",
@@ -77,7 +86,8 @@
     "postID": "0010",
     "title": "Test data!",
     "description": "Pokemon",
-    "content": "Hello, this is the test content"
+    "content": "Hello, this is the test content",
+    "date": "2021-07-10T07:00:00.000+00:00"
   },
   {
     "userId": "0011",
@@ -93,7 +103,8 @@
     "postID": "0012",
     "title": "Test data!",
     "description": "Pokemon Game",
-    "content": "Hello, this is the test content"
+    "content": "Hello, this is the test content",
+    "date": "2021-07-10T07:00:00.000+00:00"
   },
   {
     "userId": "0013",
@@ -101,7 +112,8 @@
     "postID": "0013",
     "title": "Test data!",
     "description": "User",
-    "content": "Hello, this is the test content"
+    "content": "Hello, this is the test content",
+    "date": "2021-07-10T07:00:00.000+00:00"
   },
   {
     "userId": "0014",
@@ -109,7 +121,8 @@
     "postID": "0014",
     "title": "Test data!",
     "description": "Pokemon Game",
-    "content": "Hello, this is the test content"
+    "content": "Hello, this is the test content",
+    "date": "2021-07-10T07:00:00.000+00:00"
   },
   {
     "userId": "0015",
@@ -117,6 +130,7 @@
     "postID": "0015",
     "title": "Test data!",
     "description": "Pokemon",
-    "content": "Hello, this is the test content"
+    "content": "Hello, this is the test content",
+    "date": "2021-07-10T07:00:00.000+00:00"
   }
 ]
