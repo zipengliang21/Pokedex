@@ -17,6 +17,7 @@ import AdminAddPage from "views/AdminAddPage";
 import ForumData from "./ForumData.json";
 import CommentData from "./CommentData.json"
 import AdminPage from "./views/AdminPage";
+import AccountEditPage from "./views/AcountEditPage";
 
 function App() {
     const[postList, setPostList] = useState(ForumData);
@@ -34,6 +35,9 @@ function App() {
          </Route>
          <Route exact path="/profile">
             <OverviewPage/>
+         </Route>
+         <Route exact path="/profile/edit">
+            <AccountEditPage/>
          </Route>
          <Route exact path="/collections">
             <CollectionPage/>

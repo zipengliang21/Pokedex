@@ -21,6 +21,7 @@
     "@types/react-router": "^5.1.15",
     "@types/react-router-dom": "^5.1.7",
     "@types/styled-components": "^5.1.9",
+    "axios": "^0.21.1",
     "codemirror": "^5.62.0",
     "easymde": "^2.15.0",
     "mongodb": "^3.6.9",
