@@ -70,10 +70,13 @@ const EditForm = (props: any) =>{
         //     }
         //     if(reqBody.password.length===0){
         //     } 
-        if(reqBody.passowrd!==cPassword){
+        if(reqBody.password!==cPassword){
             clearPwdField();
             return false;
+        }else{
+            return true;
         }
+
     }
 
     const clearPwdField=()=>{
