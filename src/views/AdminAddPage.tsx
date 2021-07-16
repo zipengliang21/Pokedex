@@ -5,8 +5,8 @@ import LogoutHeader from "../components/Common/LogoutHeader";
 import { useForm } from "react-hook-form";
 import EditPokemon from "../components/EditPokemon";
 import Button from "@material-ui/core/Button";
-import Alert from '@material-ui/lab/Alert';
-import AlertTitle from '@material-ui/lab/AlertTitle';
+// import Alert from '@material-ui/lab/Alert';
+// import AlertTitle from '@material-ui/lab/AlertTitle';
 import Collapse from '@material-ui/core/Collapse';
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
@@ -198,10 +198,10 @@ const AdminAddPage = () => {
     return(
         <Background>
             <Collapse in={open}>
-                <Alert severity="success" onClose={() => {setOpen(false);}}>
-                    <AlertTitle>Info</AlertTitle>
-                    {message}
-                </Alert>
+                {/*<Alert severity="success" onClose={() => {setOpen(false);}}>*/}
+                {/*    <AlertTitle>Info</AlertTitle>*/}
+                {/*    {message}*/}
+                {/*</Alert>*/}
             </Collapse>
             <LogoutHeader />
             <NavBar/>
