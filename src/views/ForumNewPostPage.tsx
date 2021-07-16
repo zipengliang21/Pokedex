@@ -45,8 +45,6 @@ const ForumNewPostWrapper = styled.div`
 `;
 
 function ForumNewPostPage(props: any) {
-    // const[postList, setPostList] = useState(ForumData);
-
    return (
        <Background>
           <Header/>
@@ -55,13 +53,11 @@ function ForumNewPostPage(props: any) {
           <ForumWrapper>
              <ForumSubHeader/>
              <ForumNewPostWrapper>
-               <InputForm add={props.add} />
+               <InputForm add={props.addPost} />
              </ForumNewPostWrapper>
           </ForumWrapper>
        </Background>
    );
-
-
 }
 
 export default ForumNewPostPage;

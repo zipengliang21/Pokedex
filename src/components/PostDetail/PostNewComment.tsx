@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 import SimpleMDE from "react-simplemde-editor";
+import {NavLink} from "react-router-dom";
 
 const InfoWrapper = styled.div`
   width: 750px;
-  margin: 50px auto;
+  margin: 10px auto 50px auto;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -25,6 +26,7 @@ const InfoWrapper = styled.div`
 const ContentWrapper = styled.div`
     width: 750px;
     display: flex;
+    flex-direction: column;
     justify-items: center;
     @media(max-width: 875px){
           flex-direction: column;
@@ -38,20 +40,22 @@ const ContentWrapper = styled.div`
 
 const UserWrapper = styled.div`
     display: flex;
-    flex-direction: column;
     text-align: left;
-    padding-left: 50px;
+    padding-left: 40px;
     margin-top: 10px;
-    width: 30%;
+    align-items: center;
+    .userName{
+      max-width: 150px;
+    }
     @media(max-width: 875px){
       width: 100%;
+      padding-left: 0;
     }
 `;
 
 const CommentWrapper = styled.div`
-    width: 500px;
-    margin: 0 auto;
-    //border: 2px solid gray;
+    width: 700px;
+    margin: 0 40px;
     padding: 2px 5px;
     text-align: left;
     #submitButton{
@@ -65,44 +69,36 @@ const CommentWrapper = styled.div`
        color: #FFFFFF;
        margin-top: 10px;
     }
-     @media(max-width: 875px){
+    @media(max-width: 875px){
         width: 100%;
+        margin: 0;
     }
 `;
 
-const Comment = styled.div`
-    width: 500px;
-    height: 100%;
-    margin: 0 auto;
-    border: 2px solid gray;
-    padding: 2px 5px;
-    text-align: left;
-`;
-
-const PostNewComment = (props:any) => {
+const PostNewComment = (props: any) => {
    const logo = "http://3.bp.blogspot.com/-fZ-FTGBT_OI/V87me3nL3PI/AAAAAAAAAkQ/" +
        "ornK37y9NRgbYhQB1sjANbXUX2HxrISbgCK4B/s1600/068_Machamp.png";
-   const[commentContent, setCommentContent] = useState('');
-   // const[commentID, setcommentID] = useState('');
-   // const[postID, setPostId] = useState('');
-    const handleContentChange = (value: string) => {
-        setCommentContent(value);
-        // setcommentID(props.commentID);
-        // setPostId(props.postID);
-    };
+   const [commentContent, setCommentContent] = useState("");
+   const handleContentChange = (value: string) => {
+      setCommentContent(value);
+   };
+
+   const addNewComment = async () => {
+      props.setFilteredComment([...props.filteredComment, await props.add(commentContent, props.postID)])
+   }
+
    return (
        <InfoWrapper>
           <ContentWrapper>
              <UserWrapper>
                 <img src={`${logo}`} alt="logo" className="logo" width={100}/>
-                <div className="userName">Mock user passed from other user aspect</div>
+                <div className="userName">Mock user</div>
              </UserWrapper>
              <CommentWrapper>
-                 <SimpleMDE value={commentContent} onChange={handleContentChange}/>
-                 <a href="http://localhost:3000/Pokemon#/forum">
-                     <button id="submitButton" onClick={() => props.add(commentContent,props.postID)}>Submit</button>
-                 </a>
-             </CommentWrapper>
+                <SimpleMDE value={commentContent} onChange={handleContentChange}/>
+                <button id="submitButton"
+                        onClick={() => addNewComment()}>Submit</button>
+                </CommentWrapper>
           </ContentWrapper>
        </InfoWrapper>
    );

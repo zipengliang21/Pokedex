@@ -82,12 +82,6 @@ const InputForm = (props: any) => {
    const [title, setTitle] = useState('');
    const [description, setDescription] = useState('');
    const [content, setContent] = useState('');
-   // const onChangeTitle = (e: any) => {
-   //    props.onChangeTitle(e.target.value);
-   // };
-   // const onChangeDescription = (e: any) => {
-   //    props.onChangeDescription(e.target.value);
-   // };
    const handleContentChange = (value: string) => {
       setContent(value);
    };
@@ -104,16 +98,12 @@ const InputForm = (props: any) => {
                    <InputWrapper>
                       <input type="text" id="nameInput" name="nameInput"
                              placeholder="Title"
-                             // value={props.title}
                              onChange={ (event => {setTitle(event.target.value)}) }
-                             // ref={props.titleRef}
                       />
                              <br/>
                       <input type="text" id="descriptionInput" name="descriptionInput"
                              placeholder="Description"
-                             // value={props.description}
                              onChange={ (event => {setDescription(event.target.value)}) }
-                             // ref={props.descriptionRef}
                       /><br/>
                    </InputWrapper>
                 </FormTop>
@@ -123,10 +113,10 @@ const InputForm = (props: any) => {
                 <a href="http://localhost:3000/Pokemon#/forum">
                 <button id="submitButton" onClick={() => props.add(title,description,content)}>Submit</button>
                 </a>
-                <button id="deleteButton" onClick={() => {
-                   props.onClear();
-                }}>Discard
-                </button>
+                {/*<button id="deleteButton" onClick={() => {*/}
+                {/*   props.onClear();*/}
+                {/*}}>Discard*/}
+                {/*</button>*/}
              </div>
           </div>
        </InputFormWrapper>

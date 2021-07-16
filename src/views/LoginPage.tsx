@@ -13,14 +13,18 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import styled from "styled-components";
-import Github from "../components/LoginIcon/Github";
-import Google from "../components/LoginIcon/Google";
 import Header from "../components/Common/Header";
 import NavBar from "../components/Common/NavBar";
 import {NavLink} from "react-router-dom";
 import { Link as RouterLink } from "react-router-dom";
 import { MemoryRouter as Router } from "react-router";
 import LoginHeader from "components/LoginHeader";
+import { useHistory } from "react-router";
+import axios from 'axios';
+import Google from "components/Icon/LoginIcon/Google";
+import Github from "../components/Icon/LoginIcon/Github";
+
+const server = "http://localhost:5000";
 
 const Background = styled.div`
   background: url("https://onlyvectorbackgrounds.com/wp-content/uploads/2019/03/Subtle-Lines-Abstract-Gradient-Background-Cool.jpg")
@@ -60,14 +64,14 @@ const Wrapper = styled.div`
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="#">
-        Pokedex
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
+      <Typography variant="body2" color="textSecondary" align="center">
+        {"Copyright © "}
+        <Link color="inherit" href="#">
+          Pokedex
+        </Link>{" "}
+        {new Date().getFullYear()}
+        {"."}
+      </Typography>
   );
 }
 
@@ -118,6 +122,12 @@ const useStyles = makeStyles((theme) => ({
 export default function SignIn() {
   const classes = useStyles();
   const [flag, setFlag] = React.useState(1);
+  const [email, setEmail] = React.useState('');
+  const [userName, setUserName] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  const [confirmPassword, setConfirmPassword] = React.useState('');
+
+  const history = useHistory();
 
   const handleChangeFlag = (event: any) => {
     const temp = event.currentTarget.id;
@@ -128,151 +138,232 @@ export default function SignIn() {
     }
   };
 
+  const handleChangeEmail = (event: any) => {
+    const temp = event.target.value;
+    setEmail(temp);
+  }
+
+  const handleChangeUserName = (event: any) => {
+    const temp = event.target.value;
+    setUserName(temp);
+  }
+
+  const handleChangePassword = (event: any) => {
+    const temp = event.target.value;
+    setPassword(temp);
+  }
+
+  const handleChangeConfirmPassword = (event: any) => {
+    const temp = event.target.value;
+    setConfirmPassword(temp);
+  }
+
+  const handleClickSubmit = () => {
+    if (flag === 1) {
+      axios({
+        method: 'post',
+        url: server + '/login',
+        data: {
+          email: email,
+          password: password
+        }
+      })
+          .then((response) => {
+            console.log(response)
+            if (response.status === 200) {
+              history.push('/profile');
+            }
+          })
+          .catch((error) => {
+            console.log(error)
+          })
+    } else {
+      axios({
+        method: 'post',
+        url: server + '/register',
+        data: {
+          email: email,
+          userName: userName,
+          password: password,
+          confirmPassword: confirmPassword
+        }
+      })
+          .then((response) => {
+            setFlag(1);
+          })
+          .catch((error) => {
+            console.log(error)
+          })
+    }
+  }
+
   return (
-    <Background>
-      <Header />
-      <NavBar />
-      <LoginHeader flag={flag}/>
-      <Wrapper>
-        <Container component="main" maxWidth="xs">
-          <CssBaseline />
-          <div className={classes.paper}>
-            <Avatar className={classes.avatar}>
-              <LockOutlinedIcon />
-            </Avatar>
-            <div className={classes.switchContainer}>
-              <div>
+      <Background>
+        <Header />
+        <NavBar />
+        <LoginHeader flag={flag}/>
+        <Wrapper>
+          <Container component="main" maxWidth="xs">
+            <CssBaseline />
+            <div className={classes.paper}>
+              <Avatar className={classes.avatar}>
+                <LockOutlinedIcon />
+              </Avatar>
+              <div className={classes.switchContainer}>
+                <div>
+                  <Button id="login" className={classes.button} onClick={handleChangeFlag}>
+                    Sign In
+                  </Button>
+                  <Indicator hidden={flag !== 1} />
+                </div>
+                <div>
+                  <Button id="register" className={classes.button} onClick={handleChangeFlag}>
+                    Register
+                  </Button>
+                  <Indicator hidden={flag !== 2} />
+                </div>
+              </div>
+              <form className={classes.form} noValidate hidden={flag !== 1}>
+                <TextField
+                    value = {email}
+                    onChange = {handleChangeEmail}
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="email"
+                    label="Email Address"
+                    name="email"
+                    autoComplete="email"
+                    autoFocus
+                />
+                <TextField
+                    value = {password}
+                    onChange = {handleChangePassword}
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    fullWidth
+                    name="password"
+                    label="Password"
+                    type="password"
+                    id="password"
+                    autoComplete="current-password"
+                />
+                <FormControlLabel
+                    control={<Checkbox value="remember" color="primary" />}
+                    label="Remember me"
+                />
                 <Button
-                  id="login"
-                  className={classes.button}
-                  onClick={handleChangeFlag}
+                    fullWidth
+                    variant="contained"
+                    color="primary"
+                    onClick={handleClickSubmit}
+                    className={classes.submit}
                 >
                   Sign In
                 </Button>
-                <Indicator hidden={flag !== 1} />
-              </div>
-              <div>
+                <Grid container>
+                  <Grid item xs>
+                    <Link href="#" variant="body2">
+                      Forgot password?
+                    </Link>
+                  </Grid>
+                </Grid>
+              </form>
+              <form className={classes.form} noValidate hidden={flag !== 2}>
+                <TextField
+                    value = {email}
+                    onChange = {handleChangeEmail}
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="email"
+                    label="Enter Your Valid Email Address"
+                    name="email"
+                    autoComplete="email"
+                    autoFocus
+                />
+                <TextField
+                    value = {userName}
+                    onChange = {handleChangeUserName}
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="name"
+                    label="Enter Your User Name"
+                    name="name"
+                    autoComplete="name"
+                    autoFocus
+                />
+                <TextField
+                    value = {password}
+                    onChange = {handleChangePassword}
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    fullWidth
+                    name="password"
+                    label="Set your Password"
+                    type="password"
+                    id="password"
+                    autoComplete="current-password"
+                />
+                <TextField
+                    value = {confirmPassword}
+                    onChange = {handleChangeConfirmPassword}
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    fullWidth
+                    name="confirmPassword"
+                    label="Confirm Your Password"
+                    type="password"
+                    id="confirmPassword"
+                    autoComplete="current-confirmPassword"
+                />
                 <Button
-                  id="register"
-                  className={classes.button}
-                  onClick={handleChangeFlag}
+                    fullWidth
+                    variant="contained"
+                    color="primary"
+                    onClick={handleClickSubmit}
+                    className={classes.submit}
                 >
                   Register
                 </Button>
-                <Indicator hidden={flag !== 2} />
+              </form>
+            </div>
+
+            <div className={classes.iconContainer}>
+              <NavLink exact activeClassName="selected" to="/admin" >
+                Admin
+              </NavLink>
+              <div className={classes.icon}>
+                <a
+                    // href="https://github.com/zipengliang21"
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                  <Google />
+                </a>
+              </div>
+              <div className={classes.icon}>
+                <a
+                    href="https://github.com/login/oauth/authorize?scope=user&client_id=${client_id}&redirect_uri=${redirect_uri}"
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                  <Github />
+                </a>
               </div>
             </div>
-            <form className={classes.form} noValidate hidden={flag !== 1}>
-              <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                autoFocus
-              />
-              <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-              />
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              />
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-                className={classes.submit}
-              >
-                Sign In
-              </Button>
-              <Grid container>
-                <Grid item xs>
-                  <Link href="#" variant="body2">
-                    Forgot password?
-                  </Link>
-                </Grid>
-              </Grid>
-            </form>
-            <form className={classes.form} noValidate hidden={flag !== 2}>
-              <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Enter Your Valid Email Address"
-                name="email"
-                autoComplete="email"
-                autoFocus
-              />
-              <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="Set your Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-              />
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              />
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-                className={classes.submit}
-              >
-                Register
-              </Button>
-            </form>
-          </div>
-
-          <div className={classes.iconContainer}>
-            <NavLink exact activeClassName="selected" to="/admin" >
-              Admin
-            </NavLink>
-            <div className={classes.icon}>
-              <a
-                href="https://github.com/zipengliang21"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Google />
-              </a>
-            </div>
-            <div className={classes.icon}>
-              <a
-                href="https://github.com/zipengliang21"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Github />
-              </a>
-            </div>
-          </div>
-          <Box className={classes.copyright} mt={8}>
-            <Copyright />
-          </Box>
-        </Container>
-      </Wrapper>
-    </Background>
+            <Box className={classes.copyright} mt={8}>
+              <Copyright />
+            </Box>
+          </Container>
+        </Wrapper>
+      </Background>
   );
 }

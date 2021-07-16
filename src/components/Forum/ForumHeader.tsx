@@ -53,6 +53,11 @@ const ForumHeaderWrapper = styled.div`
        text-align: center;
      }
    }
+   @media(max-width: 320px){
+      .title{
+        display: none;
+      }
+   }
 `;
 
 function ForumHeader() {

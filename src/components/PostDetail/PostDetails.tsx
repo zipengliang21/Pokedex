@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import moment from "moment";
 
 const InfoWrapper = styled.div`
   width: 750px;
@@ -27,12 +28,13 @@ const DateWrapper = styled.div`
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
-    padding: 0 75px;
+    padding: 0 50px;
    @media(max-width: 875px){
      width: 418px;
    }
    @media(max-width: 576px){
       width: 100%;
+      padding: 0 20px;
     }
 `;
 
@@ -40,10 +42,10 @@ const ContentWrapper = styled.div`
     width: 750px;
     display: flex;
     justify-items: center;
-       @media(max-width: 875px){
+    @media(max-width: 875px){
      width: 418px;
-   }
-   @media(max-width: 576px){
+    }
+    @media(max-width: 576px){
       width: 100%;
     }
 `;
@@ -54,6 +56,12 @@ const UserWrapper = styled.div`
     text-align: left;
     padding-left: 50px;
     margin-top: 10px;
+    @media(max-width: 875px){
+      padding-left: 20px;
+    }
+    @media(max-width: 576px){
+      padding-left: 0;
+    }
 `;
 
 const Content = styled.div`
@@ -68,7 +76,7 @@ const PostDetails = (props: any) => {
        <InfoWrapper>
           <header>{props.rootPost.title}</header>
           <DateWrapper>
-             <span>Date</span>
+             <span>{moment(props.rootPost.date).format('YYYY-MM-DD HH:mm:ss')}</span>
              <span>#1</span>
           </DateWrapper>
           <ContentWrapper>

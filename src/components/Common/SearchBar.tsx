@@ -1,7 +1,5 @@
 import React, {useState, useEffect} from "react";
 import styled from "styled-components";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import PokemonData from "../../pokedexData.json";
 import Fade from "react-reveal/Fade";
 import Pokemon from "../DetailedView/Pokemon";
 
@@ -91,16 +89,21 @@ const SearchBarWrapper = styled.div`
 
 
 const PokemonWrapper = styled.div`
-   display: flex;
+    display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     width: 700px;
     max-width: 100%;
     margin: 0 auto;
+    padding: 15px;
     @media(max-width: 875px){
       width: 418px;
-      padding: 0 30px;
+      padding: 15px 40px;
     }
+    @media(max-width: 576px){
+     width: 100%;
+     padding: 15px 40px;
+   }
 `;
 
 const ResultWrapper = styled.div`
@@ -127,19 +130,17 @@ const SearchBarResultWrapper = styled.div`
 
 function SearchBar(props: any) {
     const [search, setSearch] = useState("");
-    const [pokemons, setPokemons] = useState([{id: "",
+    const [pokemons, setPokemons] = useState([{id: "",_id:"",
         name: "",
         img: "",
         type: [
             ''
         ]}]);
-    const [filteredPokemons, setfilteredPokemons] = useState([{name:""}]);
+    const [filteredPokemons, setfilteredPokemons] = useState([{name:"", _id:""}]);
+
 
     useEffect(() => {
-        setPokemons(PokemonData);
-    }, []);
-
-    useEffect(() => {
+        setPokemons(props.pokemonList);
         const result = pokemons.filter((poke) =>
             poke.name.toLowerCase().includes(search.toLowerCase())
 
@@ -150,6 +151,7 @@ function SearchBar(props: any) {
         else {
             setfilteredPokemons(result);
         }
+        console.log("search"+filteredPokemons[0]);
     }, [search, pokemons]);
     return (
         <SearchBarResultWrapper>
@@ -164,9 +166,6 @@ function SearchBar(props: any) {
                             name="s"
                             onChange={(e) => setSearch(e.target.value)}
                         />
-                        {/*<button onClick={handleSubmit} className="searchButton">*/}
-                        {/*    <FontAwesomeIcon icon="search"/>*/}
-                        {/*</button>*/}
                     </form>
                     <div className="note">Use the Advanced Search to explore Pokemon by different filters</div>
                 </div>
@@ -175,11 +174,10 @@ function SearchBar(props: any) {
             </SearchBarWrapper>
             <ResultWrapper>
                 <PokemonWrapper>
-
                     {filteredPokemons.map((pokemon, index) => {
                         if (pokemon.name === ""){return <> </>}
                         else {
-                            return  <Fade left key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon.name}/></Fade>;
+                            return  <Fade left key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon._id}/></Fade>;
                         }})}
                 </PokemonWrapper>
             </ResultWrapper>

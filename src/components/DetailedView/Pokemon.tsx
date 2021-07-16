@@ -15,15 +15,15 @@ const PokemonWrapper = styled.div`
     }
 `;
 
-const Pokemon = ({pokemon, key}: any) => {
+const Pokemon = ({pokemon, id}: any) => {
    return (
        <PokemonWrapper>
-          <NavLink to={`/pokemon/${pokemon.id}`}>
+          <NavLink to={`/pokemon/${id}`}>
              <div className="cover">
                 <img src={pokemon.img}
                      width={150}
                      height={150}
-                     alt={"Pokemon"}/>
+                     alt={""}/>
              </div>
              <div className="number">{`#` + pokemon.id}</div>
              <div className="name">{pokemon.name}</div>
