@@ -297,8 +297,8 @@ const AdminAddPage = () => {
             .then((response: any) => {
                 console.log(response)
                 if (response.status === 200) {
-                    // let newPokemon = response.data.added;
-                    // setPokemonList([...pokemonList, newPokemon]);
+                    let newPokemon = response.data.added;
+                    setPokemonList([...pokemonList, newPokemon]);
                     setMessage('Add Pokemon Successfully!');
                     setOpen(true);
                 }
