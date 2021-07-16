@@ -9,6 +9,7 @@ import CollectionPage from "./views/CollectionPage";
 import ForumHomePage from "./views/ForumHomePage";
 import ForumNewPostPage from "./views/ForumNewPostPage";
 import PostDetailsPage from "views/PostDetailsPage";
+import AccountEditPage from "views/AcountEditPage";
 import AdminManagePage from "views/AdminManagePage";
 import AdminAddPage from "views/AdminAddPage";
 import AdminPage from "./views/AdminPage";
@@ -33,6 +34,9 @@ function App() {
           </Route>
           <Route exact path="/profile">
              <OverviewPage/>
+          </Route>
+          <Route exact path="/profile/edit">
+             <AccountEditPage />
           </Route>
           <Route exact path="/collections">
              <CollectionPage/>
