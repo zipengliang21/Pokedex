@@ -30,6 +30,36 @@ const usePokemonList = () => {
       initialSet();
    }, [])
 
+   const addPokemon = async (name: string, type: string, abilities: string, hiddenAbility: string,
+                             height: string, weight: string, baseHp: string, baseAttack: string, baseSpAtk: string,
+                             baseSpDef: string, baseDefence: string, baseSpeed: string,) => {
+
+      let data = {
+         name: name,
+         type: type,
+         abilities: abilities,
+         hiddenAbility: hiddenAbility,
+         height: height,
+         weight: weight,
+         baseHp: baseHp,
+         baseAttack: baseAttack,
+         baseSpAtk: baseSpAtk,
+         baseSpDef: baseSpDef,
+         baseDefence: baseDefence,
+         baseSpeed: baseSpeed,
+      }
+      await axios.post(`${localhostURL}/pokemons/`, data);
+      setPokemonList(await getPokemonList());
+
+   }
+   const deletePokemon =  async (id: string, name: string) => {
+      let deleteInfo = {id: id, name: name};
+      const response = await axios.delete(`${localhostURL}/pokemons/${id}`, {data:deleteInfo});
+      if (response.status === 204) {
+         setPokemonList(await getPokemonList());
+      }
+      return response.status;
+   }
    const getPokemon = async (_id: string) => {
       const response = await axios.get(`${localhostURL}/pokemons/${_id}`);
       return response.data.pokemon[0];
@@ -40,6 +70,6 @@ const usePokemonList = () => {
       return response.data.pokemonList;
    }
 
-   return {pokemonList, setPokemonList, pokemon, setPokemon, getPokemon, getPokemonList}
+   return {pokemonList, setPokemonList, pokemon, setPokemon,deletePokemon, addPokemon, getPokemon, getPokemonList}
 }
 export {usePokemonList};

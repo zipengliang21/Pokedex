@@ -3,13 +3,13 @@ import {Switch, Route} from "react-router-dom";
 import FilterSearchPage from "./views/FilterSearchPage";
 import WelcomePage from "./views/WelcomePage";
 import PokemonDetailsPage from "./views/PokemonDetailsPage";
-import PokemonData from "./pokedexData.json";
 import LoginPage from "views/LoginPage";
 import OverviewPage from "./views/OverviewPage";
 import CollectionPage from "./views/CollectionPage";
 import ForumHomePage from "./views/ForumHomePage";
 import ForumNewPostPage from "./views/ForumNewPostPage";
 import PostDetailsPage from "views/PostDetailsPage";
+import AccountEditPage from "views/AcountEditPage";
 import AdminManagePage from "views/AdminManagePage";
 import AdminAddPage from "views/AdminAddPage";
 import AdminPage from "./views/AdminPage";
@@ -24,7 +24,6 @@ import NavBar from "components/Common/NavBar";
 function App() {
    const {currentUser, setCurrentUser, getCurrentUser} = useUser();
    const {pokemonList, getPokemon} = usePokemonList();
-   const [pickedPokemon, setPickedPokemon] = useState({});
    const {postList, addPost, getPost} = usePostList();
    const {commentList, addComment} = useCommentList();
    return (
@@ -40,7 +39,7 @@ function App() {
                 <WelcomePage pokemonList={pokemonList}/>
              </Route>
              <Route exact path="/profile">
-                <OverviewPage/>
+                <AccountEditPage/>
              </Route>
              <Route exact path="/collections">
                 <CollectionPage/>

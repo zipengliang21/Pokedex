@@ -22,7 +22,9 @@ class FavButton extends React.Component<FavProps> {
    render() {
       if (this.checkProps(this.props)) {
          return (
+            <button style={{border:0,font:"inherit",backgroundColor:"transparent"}}>
              <StarBorderIcon/>
+            </button>
          );
       }
    };

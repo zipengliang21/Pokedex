@@ -178,8 +178,6 @@ const PokemonInfo = (props: any) => {
                </ImageWrapper>
                <StatWrapper>
                   <div className="InfoRow1">
-                     {/*Species: {pokemon.misc.classification} <br/>*/}
-                     {/*Abilities: {dummyData[0]["Pokedex Data"]["Abilities"]} <br/>*/}
                      Normal Abilities: {pokemon.misc.abilities.normal} <br/>
                      Hidden Abilities: {pokemon.misc.abilities.hidden} <br/>
                      <div className="bodySize">
@@ -194,22 +192,16 @@ const PokemonInfo = (props: any) => {
                         <div >
                            <li>
                             <span>HP:
-                               {/*{dummyData[0]["Base Stats"]["HP"]["Base"]}/*/}
-                               {/*{dummyData[0]["Base Stats"]["HP"]["Min"]}/*/}
                                {pokemon.stats.hp}
                             </span>
                            </li>
                            <li>
                             <span>Sp Attack:
-                               {/*{dummyData[0]["Base Stats"]["Sp Atk"]["Base"]}/*/}
-                               {/*{dummyData[0]["Base Stats"]["Sp Atk"]["Min"]}/*/}
                                {pokemon.stats.spattack}
                             </span>
                            </li>
                            <li>
                             <span>Defense:
-                               {/*{dummyData[0]["Base Stats"]["Defense"]["Base"]}/*/}
-                               {/*{dummyData[0]["Base Stats"]["Defense"]["Min"]}/*/}
                                {pokemon.stats.defense}
                             </span>
                            </li>
@@ -217,22 +209,16 @@ const PokemonInfo = (props: any) => {
                         <div className="BaseStat">
                            <li>
                             <span>Attack:
-                               {/*{dummyData[0]["Base Stats"]["Attack"]["Base"]}/*/}
-                               {/*{dummyData[0]["Base Stats"]["Attack"]["Min"]}/*/}
                                {pokemon.stats.attack}
                             </span>
                            </li>
                            <li>
                             <span>Sp Defense:
-                               {/*{dummyData[0]["Base Stats"]["Sp Def"]["Base"]}/*/}
-                               {/*{dummyData[0]["Base Stats"]["Sp Def"]["Min"]}/*/}
                                {pokemon.stats.spdefense}
                             </span>
                            </li>
                            <li>
                             <span>Speed:
-                               {/*{dummyData[0]["Base Stats"]["Speed"]["Base"]}/*/}
-                               {/*{dummyData[0]["Base Stats"]["Speed"]["Min"]}/*/}
                                {pokemon.stats.speed}
                             </span>
                            </li>
