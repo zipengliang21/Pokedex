@@ -22,8 +22,7 @@ Must be completed with your group before workshop 2
       **Pokemon lovers**<br>
    * What will it do? (What "human activity" will it support?)<br>
      **1. Search for different pokemons**<br> 
-     **2. User can collect pokemons**<br>
-     **3. User can Filter pokemons by their types**<br>
+     **2. User can Filter pokemons by their types**<br>
    * What type of data will it store?<br>
      **1. Pokemon:Image, number, char**<br> 
      **2. User/Admin Account: number, char**<br>
