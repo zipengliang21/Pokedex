@@ -32,12 +32,12 @@ const useCommentList = () => {
       initialSet();
    }, [])
 
-   const addComment = async (content:string, postID: string) => {
+   const addComment = async (content:string, postID: string, userName: string, userID:string) => {
       let commentID = getCount() + 1;
       let date = new Date();
       let newComment: Comment = {
-         userId: "0007", //must get from other aspect
-         userName: "default username", //must get from other aspect
+         userId: userID, //must get from other aspect
+         userName: userName, //must get from other aspect
          postID: postID,
          commentID: commentID,
          content: content,

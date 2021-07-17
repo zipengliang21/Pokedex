@@ -54,11 +54,11 @@ function App() {
                 <FilterSearchPage pokemonList={pokemonList}/>
              </Route>
              <Route exact path="/forum">
-                <ForumHomePage postList={postList}/>
+                <ForumHomePage postList={postList} />
              </Route>
-             <Route exact path="/forum/newPost">
-                <ForumNewPostPage addPost={addPost}/>
-             </Route>
+                <Route exact path="/forum/newPost">
+                   <ForumNewPostPage addPost={addPost} currentUser={currentUser}/>
+                </Route>
              <Route exact path="/Pokemon/:_id"
                     render={(props) => {
                        return <PokemonDetailsPage _id={props.match.params._id}
@@ -68,7 +68,8 @@ function App() {
                     render={(props) => {
                        return <PostDetailsPage
                            _id={props.match.params._id}
-                           addComment={addComment}/>;
+                           addComment={addComment}
+                           currentUser = {currentUser}/>;
                     }}/>
           </Switch>
        </Auth>

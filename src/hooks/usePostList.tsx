@@ -30,12 +30,13 @@ const usePostList = () => {
       initialSet();
    }, [])
 
-   const addPost = async (title:string, description:string, content:string) => {
-      let postId: string = (getCount() + 1).toString();
+   const addPost = async (title:string, description:string, content:string, userName:string, userId:string) => {
+      let postList = await getPostList();
+      let postId: string = (postList.length + 1).toString();
       let date = new Date();
       let newPost: Post = {
-         userId: "0003", //get from other aspect
-         userName: "default",  //get from other aspect
+         userId: userId, //get from other aspect
+         userName: userName,  //get from other aspect
          postID: postId,
          title: title,
          description: description,

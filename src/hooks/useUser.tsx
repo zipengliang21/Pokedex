@@ -6,6 +6,7 @@ const productionURL = "https://pokedex-455-server.herokuapp.com";
 
 
 export interface IUser {
+   _id?: string;
    userName: string;
    phone?: string;
    email: string;
