@@ -7,7 +7,6 @@ import NavBar from "../components/Common/NavBar";
 import Header from "../components/Common/Header";
 import ReactPaginate from "react-paginate";
 import Spinner from "components/Spinner";
-import {usePokemonList} from "../hooks/usePokemonList";
 
 const Background = styled.div`
   background: url("https://onlyvectorbackgrounds.com/wp-content/uploads/2019/03/Subtle-Lines-Abstract-Gradient-Background-Cool.jpg")
@@ -98,7 +97,6 @@ const GroupWrapper = styled.div`
 
 const WelcomePage = ({pokemonList}: any) => {
    const [offset, setOffset] = useState(0);
-   
    const handlePageClick = (e: any) => {
       const selectedPage = e.selected;
       setOffset(selectedPage);
