@@ -23,6 +23,7 @@ import { useHistory } from "react-router";
 import axios from 'axios';
 import Google from "components/Icon/LoginIcon/Google";
 import Github from "../components/Icon/LoginIcon/Github";
+import cookieChecker from 'js-cookie';
 
 const server = "http://localhost:5000";
 
@@ -119,7 +120,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn() {
+export default function SignIn(props: any) {
   const classes = useStyles();
   const [flag, setFlag] = React.useState(1);
   const [email, setEmail] = React.useState('');
@@ -158,9 +159,9 @@ export default function SignIn() {
     setConfirmPassword(temp);
   }
 
-  const handleClickSubmit = () => {
+  const handleClickSubmit = async () => {
     if (flag === 1) {
-      axios({
+      const response = await axios({
         method: 'post',
         url: server + '/login',
         data: {
@@ -168,15 +169,13 @@ export default function SignIn() {
           password: password
         }
       })
-          .then((response) => {
-            console.log(response)
-            if (response.status === 200) {
-              history.push('/profile');
-            }
-          })
-          .catch((error) => {
-            console.log(error)
-          })
+      if(response.data) {
+        const user = response.data.user;
+        props.setCurrentUser(user);
+        console.log(cookieChecker.get('jwt'))
+        alert("Login Successfully!");
+        // history.push("/profile");
+      }
     } else {
       axios({
         method: 'post',
@@ -199,8 +198,8 @@ export default function SignIn() {
 
   return (
       <Background>
-        <Header />
-        <NavBar />
+        <Header/>
+        <NavBar/>
         <LoginHeader flag={flag}/>
         <Wrapper>
           <Container component="main" maxWidth="xs">
@@ -351,7 +350,7 @@ export default function SignIn() {
               </div>
               <div className={classes.icon}>
                 <a
-                    href="https://github.com/login/oauth/authorize?scope=user&client_id=${client_id}&redirect_uri=${redirect_uri}"
+                    href="https://github.com/zipengliang21"
                     target="_blank"
                     rel="noreferrer"
                 >

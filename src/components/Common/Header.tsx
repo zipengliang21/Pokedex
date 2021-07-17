@@ -40,13 +40,14 @@ const HeaderWrapper = styled.div`
    }
 `;
 
-function Header (){
-
+function Header (props: any){
+   console.log(props.currentUser)
+   let value = props.currentUser? props.currentUser.userName: "Login";
    return (
        <HeaderWrapper>
           <NavLink exact activeClassName="selected" to="/login" className="login">
              <FontAwesomeIcon icon="user" className="user"/>
-             <span className="span">Login</span>
+             <span className="span">{value}</span>
           </NavLink>
        </HeaderWrapper>
    )
