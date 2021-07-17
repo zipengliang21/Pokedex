@@ -12,19 +12,17 @@ const FormWrapper = styled.div`
   text-align:center;
   form{
     display: inline-block;
-    max-width:100%;
-    min-width:80%;
     flex-direction:column;
     text-align:center;
-    width:auto;
-    margin-top: 3vh;
-    fontFamily: inherit;
+    margin-top: 30px;
     color: black;
-}
+  }
+  @media(max-width: 576px){
+    min-width: 2vw;
+  }
 `;
 
 const FormEntry = styled.div`
-justify-item:center;
 display:flex;
 flex-direction:column;
 text-align:center;
@@ -104,35 +102,35 @@ const EditForm = (props: any) =>{
             <form>
                 <FormEntry>
                 <label style={{textAlign: "left"}}>Email:</label>
-                <input type="email" placeholder="" style={{minWidth:"32vw",minHeight:"4.5vh",margin:"10px auto",marginTop:"0px"}} 
+                <input type="email" placeholder="" style={{width:"50vw", maxWidth:"400px",minHeight:"30px",margin:"10px 0",marginTop:"0px"}}
                 onChange={ (event => {setEmail(event.target.value)})} value={email}/>
                 </FormEntry>
                 <FormEntry>
                 <label style={{textAlign: "left"}}>Name:</label>
-                <input type="text" placeholder="" style={{minWidth:"32vw",minHeight:"4.5vh",margin:"10px auto",marginTop:"0px" }} 
+                <input type="text" placeholder="" style={{width:"50vw", maxWidth:"400px",minHeight:"30px",margin:"10px 0",marginTop:"0px" }}
                 onChange={ (event => {setName(event.target.value)}) } value={name}/>
                 </FormEntry>
                 <FormEntry>
                 <label style={{textAlign: "left"}}>Location:</label>
-                <input type="text" placeholder="" style={{minWidth:"32vw",minHeight:"4.5vh",margin:"10px auto",marginTop:"0px" }}
+                <input type="text" placeholder="" style={{width:"50vw", maxWidth:"400px",minHeight:"30px",margin:"10px 0",marginTop:"0px" }}
                 onChange={ (event => {setLocation(event.target.value)})} value={location}/>
                 </FormEntry>
                 <FormEntry>
                 <label style={{textAlign: "left"}}>Description:</label>
-                <textarea style={{minWidth:"32vw",minHeight:"15vh",margin:"10px auto",marginTop:"0px", overflow:"hidden"}} 
+                <textarea style={{width:"50vw", maxWidth:"400px",minHeight:"100px",margin:"10px 0",marginTop:"0px", overflow:"hidden"}}
                 onChange={ (event => {setDescription(event.target.value)})} value={description}/>
                 </FormEntry>
                 <FormEntry>
                 <label style={{textAlign: "left"}}>Password:</label>
-                <input type="text" placeholder="" style={{minWidth:"32vw",minHeight:"4.5vh",margin:"10px auto",marginTop:"0px" }}
+                <input type="password" placeholder="" style={{width:"50vw", maxWidth:"400px",minHeight:"30px",margin:"10px 0",marginTop:"0px" }}
                 onChange={ (event => {setPassword(event.target.value)})} value={password}/>
                 </FormEntry>
                 <FormEntry>
                 <label style={{textAlign: "left"}}>Confirm Password:</label>
-                <input type="text" placeholder="" style={{minWidth:"32vw",minHeight:"4.5vh",margin:"10px auto",marginTop:"0px" }}
+                <input type="password" placeholder="" style={{width:"50vw", maxWidth:"400px",minHeight:"30px",margin:"10px 0",marginTop:"0px" }}
                 onChange={ (event => {setCPassword(event.target.value)})} value={cPassword}/>
                 </FormEntry>
-                <button type="submit" style={{margin:"10px auto",width:"106px",height:"34px",font:"inherit",backgroundColor:"#3F51B5",color:"white",borderRadius:"5px",border:0}} 
+                <button type="submit" style={{margin:"10px 0",width:"106px",height:"34px",font:"inherit",backgroundColor:"#3F51B5",color:"white",borderRadius:"5px",border:0}}
                 onClick = {()=>handleSubmit()}>
                 <FontAwesomeIcon icon={faEdit} className="edit"/> Update</button>
             </form>

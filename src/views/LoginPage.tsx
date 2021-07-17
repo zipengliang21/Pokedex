@@ -174,10 +174,9 @@ export default function SignIn(props: any) {
         props.setCurrentUser(user);
         console.log(cookieChecker.get('jwt'))
         alert("Login Successfully!");
-        // history.push("/profile");
       }
     } else {
-      axios({
+      const response = await axios({
         method: 'post',
         url: server + '/register',
         data: {
@@ -187,13 +186,14 @@ export default function SignIn(props: any) {
           confirmPassword: confirmPassword
         }
       })
-          .then((response) => {
-            setFlag(1);
-          })
-          .catch((error) => {
-            console.log(error)
-          })
+      if(response.data) {
+        const user = response.data.user;
+        props.setCurrentUser(user);
+        console.log(cookieChecker.get('jwt'))
+        alert("Register Successfully!");
+      }
     }
+    history.push("/profile");
   }
 
   return (
