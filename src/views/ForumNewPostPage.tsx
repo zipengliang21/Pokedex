@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import NavBar from "../components/Common/NavBar";
 import Header from "../components/Common/Header";
 import ForumHeader from "../components/Forum/ForumHeader";
@@ -45,16 +45,24 @@ const ForumNewPostWrapper = styled.div`
 `;
 
 function ForumNewPostPage(props: any) {
+    const [isAuth, setIsAuth] = useState(false);
+    useEffect(() => {
+        if (props.currentUser !== undefined && props.currentUser !== null) {
+            setIsAuth(true);
+        }
+    }, []);
    return (
        <Background>
-          <Header/>
+          <Header currentUser={props.currentUser}/>
           <NavBar/>
           <ForumHeader/>
           <ForumWrapper>
              <ForumSubHeader/>
-             <ForumNewPostWrapper>
-               <InputForm add={props.addPost} />
-             </ForumNewPostWrapper>
+              {isAuth &&
+              <ForumNewPostWrapper>
+                  <InputForm add={props.addPost} currentUser={props.currentUser}/>
+              </ForumNewPostWrapper>
+              }
           </ForumWrapper>
        </Background>
    );

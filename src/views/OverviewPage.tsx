@@ -19,6 +19,7 @@ const ContentWrapper = styled.div`
 display: flex;
 width: 850px;
 margin: 100px auto 0 auto;
+margin-top:0;
 min-height: 500px;
 text-align: center;
 background: #F0F2F5;
@@ -29,6 +30,32 @@ background: #F0F2F5;
    @media(max-width: 576px){
      width: 100%;
    }
+`;
+
+const Banner = styled.header`
+width: 850px;
+margin: 0 auto;
+background: inherit;
+text-align: center;
+-webkit-filter: none;
+z-index: 1;
+display:flex;
+flex-direction:column;
+margin-bottom:0px;
+.welcomeMsg{
+    min-height: 3rem;
+    font-size: 30px;
+    text-align:center;
+    color: #212D3B;
+    background: #EFD1C6;
+}
+@media(max-width: 875px){
+   width: 418px;
+   flex-direction: column;
+ }
+ @media(max-width: 576px){
+   width: 100%;
+ }
 `;
 
 const LeftWrapper = styled.div`
@@ -194,6 +221,9 @@ class OverviewPage extends React.Component {
           <Background>
              <LogoutHeader/>
              <NavBar/>
+             <Banner role="banner">
+               <a className="welcomeMsg" target="_blank" rel="noreferrer">Welcome!</a>
+               </Banner>
                 <ContentWrapper>
                    <LeftWrapper>
                       <AvatarWrapper className="avatar">

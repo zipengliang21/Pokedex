@@ -22,8 +22,7 @@ Must be completed with your group before workshop 2
       **Pokemon lovers**<br>
    * What will it do? (What "human activity" will it support?)<br>
      **1. Search for different pokemons**<br> 
-     **2. User can collect pokemons**<br>
-     **3. User can Filter pokemons by their types**<br>
+     **2. User can Filter pokemons by their types**<br>
    * What type of data will it store?<br>
      **1. Pokemon:Image, number, char**<br> 
      **2. User/Admin Account: number, char**<br>
@@ -39,21 +38,21 @@ Must be completed with your group before workshop 2
 *  Project task requirements:<br>
    * 3-5 minimal requirements (will definitely complete)<br> 
       **1. Users can Search for different pokemons**<br>
-      **2. Users can collect pokemons**<br> 
-      **3. Users can Filter pokemon according to their types**<br>
-      **4. Users can sign up or login to their accounts**<br>   
+      **2. Users can Filter pokemon according to their types**<br>
+      **3. Users can sign up or login to their accounts**<br>   
    
    * 3-7 "standard" requirements (will most likely complete)<br> 
 
       **1. Admin can login an Admin account**<br> 
       **2. Add pokemons to database by Admin** <br>
       **3. Delete pokemons from database by Admin** <br>
-      **4.  Users can login via their google accounts or github accounts.**<br>
+      **4. Users can update their profile**<br>
 
    * 2-3 stretch requirements (plan to complete at least 1)<br> 
       **1. The website can recognize pokemon pictures by ML.** <br>
-      **2. Users can make comments for different pokemons.** <br> 
-      **3. Support different languages for users (e.g English and Chinese)**<br> 
+      **2. Users can make post in forum.** <br> 
+      **3. Users can make comments in forum.**<br>
+      **4. Users can login via their google accounts or github accounts.**<br> 
 
 *  Pick 2 of your minimal requirements and break each of them down into ~2-5 smaller tasks!<br> 
    *  This will help you divide up work among your teammates<br>

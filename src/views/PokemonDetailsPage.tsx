@@ -32,7 +32,7 @@ function PokemonDetailsPage(props: any) {
    return (
        <Background>
           <Wrapper>
-             <Header/>
+             <Header currentUser={props.currentUser}/>
              <NavBar/>
              <DetailPageHeader/>
              <PokemonInfo id={props._id}

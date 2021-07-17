@@ -160,7 +160,7 @@ function ForumHomePage(props: any) {
    };
    return (
        <Background>
-          <Header/>
+          <Header currentUser={props.currentUser}/>
           <NavBar/>
           <ForumHeader/>
           <ForumWrapper>
@@ -176,14 +176,14 @@ function ForumHomePage(props: any) {
                           </NavLink>
                           <div className="description">{post.description}</div>
                           <StatWrapper>
-                             <Icon>
-                                <Comment className="icon"/>
-                                2
-                             </Icon>
-                             <Icon>
-                                <Heart className="icon" color="black"/>
-                                3
-                             </Icon>
+                          {/*   <Icon>*/}
+                          {/*      <Comment className="icon"/>*/}
+                          {/*      2*/}
+                          {/*   </Icon>*/}
+                          {/*   <Icon>*/}
+                          {/*      <Heart className="icon" color="black"/>*/}
+                          {/*      3*/}
+                          {/*   </Icon>*/}
                              <div className="date">{moment(post.date).format('YYYY-MM-DD HH:mm:ss')}</div>
                           </StatWrapper>
                        </ContentWrapper>

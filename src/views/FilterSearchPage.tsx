@@ -88,7 +88,7 @@ function FilterSearchPage(props:any) {
         <Background>
             <FilterSearchWrapper>
                 <FilterSearchContentWrapper>
-                    <Header/>
+                    <Header currentUser={props.currentUser}/>
                     <NavBar/>
                     <SearchBar className="search" pokemonList={pokemonData}/>
                     <PokemonWrapper>

@@ -95,7 +95,7 @@ const GroupWrapper = styled.div`
     }     
 `;
 
-const WelcomePage = ({pokemonList}: any) => {
+const WelcomePage = ({pokemonList, currentUser}: any) => {
    const [offset, setOffset] = useState(0);
    const handlePageClick = (e: any) => {
       const selectedPage = e.selected;
@@ -146,7 +146,7 @@ const WelcomePage = ({pokemonList}: any) => {
    return (
        <Background>
           <Wrapper>
-             <Header/>
+             <Header currentUser={currentUser}/>
              <NavBar/>
              <SearchBar pokemonList = {pokemonList}/>
              {data}
