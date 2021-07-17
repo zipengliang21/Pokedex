@@ -198,7 +198,7 @@ export default function SignIn(props: any) {
 
   return (
       <Background>
-        <Header/>
+        <Header currentUser={props.currentUser}/>
         <NavBar/>
         <LoginHeader flag={flag}/>
         <Wrapper>

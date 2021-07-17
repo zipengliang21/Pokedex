@@ -12,6 +12,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import { useHistory } from "react-router";
 import axios from 'axios';
 import {usePokemonList} from "../hooks/usePokemonList";
+import Header from "../components/Common/Header";
 
 const server = "http://localhost:5000";
 
@@ -92,7 +93,7 @@ const FormEntry = styled.div`
     text-align:left;
 `;
 
-const AdminAddPage = () => {
+const AdminAddPage = (props: any) => {
     const {setPokemonList, addPokemon, deletePokemon, getPokemonList} = usePokemonList();
     const { register, handleSubmit } = useForm();
     const classes = useStyles();
@@ -196,7 +197,7 @@ const AdminAddPage = () => {
         <Background>
             <Collapse in={open}>
             </Collapse>
-            <LogoutHeader />
+            <Header currentUser={props.currentUser}/>
             <NavBar/>
             <EditPokemon/>
             <Wrapper>

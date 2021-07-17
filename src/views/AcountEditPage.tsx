@@ -5,6 +5,7 @@ import LogoutHeader from "../components/Common/LogoutHeader";
 import {faEdit, faBookmark} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import EditForm from "../components/DetailedView/EditForm";
+import Header from "../components/Common/Header";
 
 const Background = styled.div`
   background: url("https://onlyvectorbackgrounds.com/wp-content/uploads/2019/03/Subtle-Lines-Abstract-Gradient-Background-Cool.jpg")
@@ -81,11 +82,11 @@ text-align:center;
 justify-content: center;
 `;
 
-function AccountEditPage() {
+function AccountEditPage(props: any) {
     // const index = pokemon.id;
     return (
         <Background>
-        <LogoutHeader/>
+        <Header currentUser={props.currentUser}/>
         <NavBar/>
         <Banner role="banner">
             <a className="welcomeMsg" target="_blank" rel="noreferrer">Profile</a>

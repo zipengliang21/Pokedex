@@ -30,31 +30,25 @@ function App() {
        <Auth setCurrentUser={setCurrentUser} getCurrentUser={getCurrentUser}>
           <Switch>
              <Route exact path="/login">
-                <LoginPage setCurrentUser={setCurrentUser}/>
+                <LoginPage currentUser={currentUser} setCurrentUser={setCurrentUser}/>
              </Route>
              <Route exact path="/admin">
                 <AdminPage/>
              </Route>
              <Route exact path="/">
-                <WelcomePage pokemonList={pokemonList}/>
+                <WelcomePage pokemonList={pokemonList} currentUser={currentUser}/>
              </Route>
              <Route exact path="/profile">
-                <AccountEditPage/>
-             </Route>
-             <Route exact path="/collections">
-                <CollectionPage/>
-             </Route>
-             <Route exact path="/admin/pokemon-manage">
-                <AdminManagePage/>
+                <AccountEditPage currentUser={currentUser}/>
              </Route>
              <Route exact path="/admin/add">
-                <AdminAddPage/>
+                <AdminAddPage currentUser={currentUser}/>
              </Route>
              <Route exact path="/advancedSearch">
-                <FilterSearchPage pokemonList={pokemonList}/>
+                <FilterSearchPage pokemonList={pokemonList} currentUser={currentUser}/>
              </Route>
              <Route exact path="/forum">
-                <ForumHomePage postList={postList} />
+                <ForumHomePage postList={postList} currentUser={currentUser}/>
              </Route>
                 <Route exact path="/forum/newPost">
                    <ForumNewPostPage addPost={addPost} currentUser={currentUser}/>
@@ -62,7 +56,7 @@ function App() {
              <Route exact path="/Pokemon/:_id"
                     render={(props) => {
                        return <PokemonDetailsPage _id={props.match.params._id}
-                                                  getPokemon={getPokemon}/>;
+                                                  getPokemon={getPokemon} currentUser={currentUser}/>;
                     }}/>
              <Route exact path="/post/:_id"
                     render={(props) => {

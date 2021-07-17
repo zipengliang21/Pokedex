@@ -160,7 +160,7 @@ function ForumHomePage(props: any) {
    };
    return (
        <Background>
-          <Header/>
+          <Header currentUser={props.currentUser}/>
           <NavBar/>
           <ForumHeader/>
           <ForumWrapper>
