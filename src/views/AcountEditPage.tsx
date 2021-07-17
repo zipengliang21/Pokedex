@@ -21,7 +21,7 @@ margin: 100px auto 0 auto;
 margin-top:0;
 min-height: 500px;
 text-align: center;
-background: #F0F2F5;
+background: inherit;
 align-items: center;
 justify-content: center;
 
@@ -42,14 +42,15 @@ text-align: center;
 -webkit-filter: none;
 z-index: 1;
 display:flex;
+text-align:center;
 flex-direction:column;
-margin-bottom:0px;
 .welcomeMsg{
-    min-height: 3rem;
-    font-size: 30px;
-    text-align:center;
-    color: #212D3B;
-    background: #EFD1C6;
+    min-height: 80px;
+    font-size: 28px;
+    font-weight: 600;
+    color: #04266D;
+    background: #616161;
+    padding-top: 15px;
 }
 
 @media(max-width: 875px){

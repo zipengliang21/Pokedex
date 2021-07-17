@@ -5,8 +5,6 @@ import LogoutHeader from "../components/Common/LogoutHeader";
 import { useForm } from "react-hook-form";
 import EditPokemon from "../components/EditPokemon";
 import Button from "@material-ui/core/Button";
-// import Alert from '@material-ui/lab/Alert';
-// import AlertTitle from '@material-ui/lab/AlertTitle';
 import Collapse from '@material-ui/core/Collapse';
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
@@ -114,7 +112,6 @@ const AdminAddPage = () => {
     const [baseSpeed, setBaseSpeed] = React.useState('');
 
     const [open, setOpen] = React.useState(false);
-    const [message, setMessage] = React.useState('');
 
     const handleChangeFlag = (event: any) => {
         const temp = event.currentTarget.id;
@@ -198,10 +195,6 @@ const AdminAddPage = () => {
     return(
         <Background>
             <Collapse in={open}>
-                {/*<Alert severity="success" onClose={() => {setOpen(false);}}>*/}
-                {/*    <AlertTitle>Info</AlertTitle>*/}
-                {/*    {message}*/}
-                {/*</Alert>*/}
             </Collapse>
             <LogoutHeader />
             <NavBar/>
@@ -245,7 +238,7 @@ const AdminAddPage = () => {
                             <input type="text" value={weight} onChange={handleChangeWeight} style={{width:"29em",margin:"10px auto" }} />
                         </FormEntry>
                         <FormEntry>
-                            <label>Stat: Base/Min/Max</label>
+                            <label>Stat: </label>
                             <div>
                                 <label> Hp: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                                 <input type="text" value={baseHp} onChange={handleChangeBaseHp} style={{width:"8em",margin:"10px auto" }} />

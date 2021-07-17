@@ -33,9 +33,6 @@ function App() {
              <WelcomePage pokemonList={pokemonList}/>
           </Route>
           <Route exact path="/profile">
-             <OverviewPage/>
-          </Route>
-          <Route exact path="/profile/edit">
              <AccountEditPage />
           </Route>
           <Route exact path="/collections">
