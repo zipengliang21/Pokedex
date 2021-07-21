@@ -1,7 +1,5 @@
-import React, { useState,useRef} from 'react';
+import React from 'react';
 import styled from "styled-components";
-import NavBar from "../components/Common/NavBar";
-import LogoutHeader from "../components/Common/LogoutHeader";
 import { useForm } from "react-hook-form";
 import EditPokemon from "../components/EditPokemon";
 import Button from "@material-ui/core/Button";
@@ -12,7 +10,6 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import { useHistory } from "react-router";
 import axios from 'axios';
 import {usePokemonList} from "../hooks/usePokemonList";
-import Header from "../components/Common/Header";
 
 const server = "http://localhost:5000";
 
@@ -64,21 +61,19 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Background = styled.div`
-  background: url("https://onlyvectorbackgrounds.com/wp-content/uploads/2019/03/Subtle-Lines-Abstract-Gradient-Background-Cool.jpg")
-  no-repeat center center fixed rgba(161, 189, 198, 0.75);
-  min-height: 100vh;
-  background-size: cover;
-  background-blend-mode: multiply;
+   width: 850px;
+   margin: 0 auto;
+   background: inherit;
+   @media(max-width: 875px){
+    width: 418px;
+   }
+   @media(max-width: 576px){
+    width: 100%;
+   }
 `;
 
 const Wrapper = styled.div`
-width: 850px;
-      margin: 0 auto;
-      background: inherit;
       text-align: left;
-      .loadMore{
-        margin: 50px auto;
-      }
       @media(max-width: 875px){
         width: 418px;
       }
@@ -197,8 +192,6 @@ const AdminAddPage = (props: any) => {
         <Background>
             <Collapse in={open}>
             </Collapse>
-            <Header currentUser={props.currentUser}/>
-            <NavBar/>
             <EditPokemon/>
             <Wrapper>
                 <Container component="main" maxWidth="xs">

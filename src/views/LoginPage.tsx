@@ -13,8 +13,6 @@ import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import styled from "styled-components";
-import Header from "../components/Common/Header";
-import NavBar from "../components/Common/NavBar";
 import {NavLink} from "react-router-dom";
 import {Link as RouterLink} from "react-router-dom";
 import {MemoryRouter as Router} from "react-router";
@@ -23,16 +21,19 @@ import {useHistory} from "react-router";
 import axios from "axios";
 import Google from "components/Icon/LoginIcon/Google";
 import Github from "../components/Icon/LoginIcon/Github";
-import cookieChecker from "js-cookie";
 
 const server = "http://localhost:5000";
 
-const Background = styled.div`
-  background: url("https://onlyvectorbackgrounds.com/wp-content/uploads/2019/03/Subtle-Lines-Abstract-Gradient-Background-Cool.jpg")
-    no-repeat center center fixed rgba(161, 189, 198, 0.75);
-  min-height: 100vh;
-  background-size: cover;
-  background-blend-mode: multiply;
+const BackgroundWrapper = styled.div`
+  width: 850px;
+  margin: 0 auto;
+  background: inherit;
+    @media(max-width: 875px){
+    width: 418px;
+  }
+  @media(max-width: 576px){
+    width: 100%;
+  }
 `;
 
 const Indicator = styled.div`
@@ -188,9 +189,7 @@ export default function SignIn(props: any) {
 
 
    return (
-       <Background>
-          <Header currentUser={props.currentUser}/>
-          <NavBar/>
+       <BackgroundWrapper>
           <LoginHeader flag={flag}/>
           <Wrapper>
              <Container component="main" maxWidth="xs">
@@ -354,6 +353,6 @@ export default function SignIn(props: any) {
                 </Box>
              </Container>
           </Wrapper>
-       </Background>
+       </BackgroundWrapper>
    );
 }

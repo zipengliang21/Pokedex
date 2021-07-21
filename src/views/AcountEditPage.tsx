@@ -1,30 +1,31 @@
-import React, {useState, useRef} from "react";
+import React from "react";
 import styled from "styled-components";
-import NavBar from "../components/Common/NavBar";
-import LogoutHeader from "../components/Common/LogoutHeader";
-import {faEdit, faBookmark} from "@fortawesome/free-solid-svg-icons";
+import {faEdit} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import EditForm from "../components/DetailedView/EditForm";
-import Header from "../components/Common/Header";
 
 const Background = styled.div`
-  background: url("https://onlyvectorbackgrounds.com/wp-content/uploads/2019/03/Subtle-Lines-Abstract-Gradient-Background-Cool.jpg")
-  no-repeat center center fixed rgba(161, 189, 198, 0.75);
-  min-height: 100vh;
-  background-size: cover;
-  background-blend-mode: multiply;
+   width: 850px;
+   margin: 0 auto;
+   background: inherit;
+     @media(max-width: 875px){
+    width: 418px;
+  }
+  @media(max-width: 576px){
+    width: 100%;
+  }
 `;
 
 const ContentWrapper = styled.div`
-display: flex;
-width: 850px;
-margin: 100px auto 0 auto;
-margin-top:0;
-min-height: 500px;
-text-align: center;
-background: inherit;
-align-items: center;
-justify-content: center;
+   display: flex;
+   width: 850px;
+   margin: 100px auto 0 auto;
+   margin-top:0;
+   min-height: 500px;
+   text-align: center;
+   background: inherit;
+   align-items: center;
+   justify-content: center;
 
    @media(max-width: 875px){
      width: 418px;
@@ -36,25 +37,24 @@ justify-content: center;
 `;
 
 const Banner = styled.header`
-max-width:850px;
-margin: 0 auto;
-background: inherit;
-text-align: center;
--webkit-filter: none;
-z-index: 1;
-display:flex;
-text-align:center;
-flex-direction:column;
-.welcomeMsg{
-    min-height: 80px;
-    font-size: 28px;
-    font-weight: 600;
-    color: #04266D;
-    background: #616161;
-    padding-top: 15px;
+   max-width:850px;
+   margin: 0 auto;
+   background: inherit;
+   text-align: center;
+   -webkit-filter: none;
+   z-index: 1;
+   display:flex;
+   flex-direction:column;
+   .welcomeMsg{
+       min-height: 80px;
+       font-size: 28px;
+       font-weight: 600;
+       color: #04266D;
+       background: #616161;
+       padding-top: 15px;
 }
 
-@media(max-width: 875px){
+  @media(max-width: 875px){
     width: 418px;
     flex-direction: column;
   }
@@ -83,11 +83,8 @@ justify-content: center;
 `;
 
 function AccountEditPage(props: any) {
-    // const index = pokemon.id;
     return (
         <Background>
-        <Header currentUser={props.currentUser}/>
-        <NavBar/>
         <Banner role="banner">
             <a className="welcomeMsg" target="_blank" rel="noreferrer">Profile</a>
             </Banner>

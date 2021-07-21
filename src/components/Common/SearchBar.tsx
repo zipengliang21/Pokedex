@@ -151,7 +151,6 @@ function SearchBar(props: any) {
         else {
             setfilteredPokemons(result);
         }
-        console.log("search"+filteredPokemons[0]);
     }, [search, pokemons]);
     return (
         <SearchBarResultWrapper>

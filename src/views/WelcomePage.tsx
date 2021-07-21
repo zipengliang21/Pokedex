@@ -3,18 +3,8 @@ import styled from "styled-components";
 import SearchBar from "../components/Common/SearchBar";
 import Pokemon from "../components/DetailedView/Pokemon";
 import Fade from "react-reveal/Fade";
-import NavBar from "../components/Common/NavBar";
-import Header from "../components/Common/Header";
 import ReactPaginate from "react-paginate";
 import Spinner from "components/Spinner";
-
-const Background = styled.div`
-  background: url("https://onlyvectorbackgrounds.com/wp-content/uploads/2019/03/Subtle-Lines-Abstract-Gradient-Background-Cool.jpg")
-  no-repeat center center fixed rgba(161, 189, 198, 0.75);
-  min-height: 100vh;
-  background-size: cover;
-  background-blend-mode: multiply;
-`;
 
 const Wrapper = styled.div`
       width: 850px;
@@ -95,7 +85,7 @@ const GroupWrapper = styled.div`
     }     
 `;
 
-const WelcomePage = ({pokemonList, currentUser}: any) => {
+const WelcomePage = ({pokemonList}: any) => {
    const [offset, setOffset] = useState(0);
    const handlePageClick = (e: any) => {
       const selectedPage = e.selected;
@@ -144,14 +134,10 @@ const WelcomePage = ({pokemonList, currentUser}: any) => {
    }
 
    return (
-       <Background>
           <Wrapper>
-             <Header currentUser={currentUser}/>
-             <NavBar/>
              <SearchBar pokemonList = {pokemonList}/>
              {data}
           </Wrapper>
-       </Background>
    );
 };
 

@@ -1,23 +1,12 @@
 import styled from "styled-components";
 import React, {useState} from "react";
-import NavBar from "../components/Common/NavBar";
-import Header from "../components/Common/Header";
 import ForumHeader from "../components/Forum/ForumHeader";
-import Comment from "../components/Icon/ForumIcon/Comment"
 import {NavLink} from "react-router-dom";
 import ForumSubHeader from "../components/Forum/ForumSubHeader";
-import moment from 'moment';
+import moment from "moment";
 import Heart from "components/Icon/ForumIcon/Heart";
 import Fade from "react-reveal/Fade";
 import ReactPaginate from "react-paginate";
-
-const Background = styled.div`
-  background: url("https://onlyvectorbackgrounds.com/wp-content/uploads/2019/03/Subtle-Lines-Abstract-Gradient-Background-Cool.jpg")
-  no-repeat center center fixed rgba(161, 189, 198, 0.75);
-  min-height: 100vh;
-  background-size: cover;
-  background-blend-mode: multiply;
-`;
 
 const ForumWrapper = styled.div`
   display: flex;
@@ -159,9 +148,7 @@ function ForumHomePage(props: any) {
       setOffset(selectedPage);
    };
    return (
-       <Background>
-          <Header currentUser={props.currentUser}/>
-          <NavBar/>
+       <div>
           <ForumHeader/>
           <ForumWrapper>
              <ForumSubHeader/>
@@ -176,15 +163,15 @@ function ForumHomePage(props: any) {
                           </NavLink>
                           <div className="description">{post.description}</div>
                           <StatWrapper>
-                          {/*   <Icon>*/}
-                          {/*      <Comment className="icon"/>*/}
-                          {/*      2*/}
-                          {/*   </Icon>*/}
-                          {/*   <Icon>*/}
-                          {/*      <Heart className="icon" color="black"/>*/}
-                          {/*      3*/}
-                          {/*   </Icon>*/}
-                             <div className="date">{moment(post.date).format('YYYY-MM-DD HH:mm:ss')}</div>
+                             {/*   <Icon>*/}
+                             {/*      <Comment className="icon"/>*/}
+                             {/*      2*/}
+                             {/*   </Icon>*/}
+                             {/*   <Icon>*/}
+                             {/*      <Heart className="icon" color="black"/>*/}
+                             {/*      3*/}
+                             {/*   </Icon>*/}
+                             <div className="date">{moment(post.date).format("YYYY-MM-DD HH:mm:ss")}</div>
                           </StatWrapper>
                        </ContentWrapper>
                        <UserWrapper>
@@ -199,7 +186,7 @@ function ForumHomePage(props: any) {
                 <Pagination>
                    <ReactPaginate containerClassName="pagination"
                                   marginPagesDisplayed={2}
-                                  pageCount={Math.ceil(props.postList.length/10)}
+                                  pageCount={Math.ceil(props.postList.length / 10)}
                                   pageRangeDisplayed={2}
                                   activeClassName={"active"}
                                   previousLabel="Prev"
@@ -207,12 +194,12 @@ function ForumHomePage(props: any) {
                                   previousClassName="previous"
                                   nextClassName="next"
                                   onPageChange={handlePageClick}
-                                  />
+                   />
                 </Pagination>
              </Fade>
           </ForumWrapper>
-       </Background>
-   );
+       </div>
+)
 
 
 }
