@@ -28,7 +28,7 @@ const Background = styled.div`
 `;
 
 function App() {
-   const {currentUser, setCurrentUser, getCurrentUser} = useUser();
+   const {currentUser, setCurrentUser, getCurrentUser, logout} = useUser();
    const {pokemonList, getPokemon} = usePokemonList();
    const {postList, addPost, getPost} = usePostList();
    const {commentList, addComment} = useCommentList();
@@ -36,7 +36,7 @@ function App() {
 
        <Auth setCurrentUser={setCurrentUser} getCurrentUser={getCurrentUser}>
           <Background>
-             <Header currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+             <Header currentUser={currentUser} setCurrentUser={setCurrentUser} logout={logout}/>
              <NavBar/>
              <Switch>
                 <Route exact path="/login">

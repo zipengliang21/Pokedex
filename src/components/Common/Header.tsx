@@ -67,10 +67,6 @@ const DropDown = styled.div`
   }
 `;
 
-const Logout = () => {
-   console.log("Logout")
-}
-
 function Header (props: any){
    let value = props.currentUser? props.currentUser.userName: "Login";
    return (
@@ -82,7 +78,7 @@ function Header (props: any){
              </NavLink>
              <div className="dropdown-content">
                 <NavLink exact to="/profile">Profile</NavLink>
-                <a className="logout" onClick={() => Logout()} >Logout</a>
+                <a className="logout" onClick={() => props.logout()} >Logout</a>
              </div>
           </DropDown>
        </HeaderWrapper>

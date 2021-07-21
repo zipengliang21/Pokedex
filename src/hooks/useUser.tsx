@@ -38,6 +38,11 @@ const useUser = () => {
       return response.data.user;
    }
 
-   return {currentUser, setCurrentUser, getCurrentUser}
+   const logout = async () => {
+      await axios.get(`${localhostURL}/logout`, { withCredentials: true });
+      setCurrentUser(null);
+   }
+
+   return {currentUser, setCurrentUser, getCurrentUser, logout}
 }
 export {useUser};
