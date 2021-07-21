@@ -40,39 +40,40 @@ function App() {
              <NavBar/>
              <Switch>
                 <Route exact path="/login">
-                   <LoginPage setCurrentUser={setCurrentUser}/>
+                   <LoginPage currentUser={currentUser} setCurrentUser={setCurrentUser}/>
                 </Route>
                 <Route exact path="/admin">
                    <AdminPage/>
                 </Route>
                 <Route exact path="/">
-                   <WelcomePage pokemonList={pokemonList}/>
+                   <WelcomePage pokemonList={pokemonList} currentUser={currentUser}/>
                 </Route>
                 <Route exact path="/profile">
-                   <AccountEditPage/>
+                   <AccountEditPage currentUser={currentUser}/>
                 </Route>
                 <Route exact path="/admin/add">
-                   <AdminAddPage/>
+                   <AdminAddPage currentUser={currentUser}/>
                 </Route>
                 <Route exact path="/advancedSearch">
-                   <FilterSearchPage pokemonList={pokemonList}/>
+                   <FilterSearchPage pokemonList={pokemonList} currentUser={currentUser}/>
                 </Route>
                 <Route exact path="/forum">
-                   <ForumHomePage postList={postList}/>
+                   <ForumHomePage postList={postList} currentUser={currentUser}/>
                 </Route>
                 <Route exact path="/forum/newPost">
-                   <ForumNewPostPage addPost={addPost}/>
+                   <ForumNewPostPage addPost={addPost} currentUser={currentUser}/>
                 </Route>
                 <Route exact path="/Pokemon/:_id"
                        render={(props) => {
                           return <PokemonDetailsPage _id={props.match.params._id}
-                                                     getPokemon={getPokemon}/>;
+                                                     getPokemon={getPokemon} currentUser={currentUser}/>;
                        }}/>
                 <Route exact path="/post/:_id"
                        render={(props) => {
                           return <PostDetailsPage
                               _id={props.match.params._id}
-                              addComment={addComment}/>;
+                              addComment={addComment}
+                              currentUser = {currentUser}/>;
                        }}/>
              </Switch>
           </Background>
