@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import styled from "styled-components";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {NavLink} from "react-router-dom";
@@ -36,7 +36,7 @@ const HeaderWrapper = styled.div`
    }
 `;
 
-const DropDown = styled.div`
+const Wrapper = styled.div`
   .user{
       margin-right: 5px;
   }
@@ -48,7 +48,10 @@ const DropDown = styled.div`
      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
      z-index: 1;
      .logout{
-        border-top: 1px solid rgba(71, 32, 121, 0.9);
+        cursor: pointer;
+     }
+     .admin{
+        border-bottom: 1px solid rgba(71, 32, 121, 0.9);
      }
   }
   .dropdown-content a {
@@ -67,25 +70,33 @@ const DropDown = styled.div`
   }
 `;
 
-function Header (props: any){
-   let value = props.currentUser? props.currentUser.userName: "Login";
+function Header(props: any) {
+   let admin = props.currentUser && props.currentUser.isAdmin?
+       <NavLink className="admin" exact to="/admin/add">Admin</NavLink> :
+       null;
+   let value = props.currentUser?
+       <Wrapper id="login">
+          <NavLink exact to="/profile">
+             <FontAwesomeIcon icon="user" className="user"/>
+             <span className="span">{props.currentUser.userName}</span>
+          </NavLink>
+          <div className="dropdown-content">
+             {admin}
+             <a className="logout" onClick={() => props.logout()}>Logout</a>
+          </div>
+       </Wrapper> :
+       <NavLink exact to="/login">
+          <Wrapper id="login">
+             <FontAwesomeIcon icon="user" className="user"/>
+             <span className="span">login</span>
+          </Wrapper>
+       </NavLink>;
    return (
        <HeaderWrapper>
-          <DropDown className="dropdown" id="login">
-             <NavLink exact to="/login">
-                <FontAwesomeIcon icon="user" className="user"/>
-                <span className="span">{value}</span>
-             </NavLink>
-             <div className="dropdown-content">
-                <NavLink exact to="/profile">Profile</NavLink>
-                <a className="logout" onClick={() => props.logout()} >Logout</a>
-             </div>
-          </DropDown>
+          {value}
        </HeaderWrapper>
-   )
+   );
 }
-
-
 
 
 export default Header;
