@@ -48,7 +48,11 @@ function ForumNewPostPage(props: any) {
       if (props.currentUser !== undefined && props.currentUser !== null) {
          setIsAuth(true);
       }
-   }, []);
+       console.log("New Post auth in use eff:  "+isAuth);
+       console.log("New Post User in use eff:  "+ props.currentUser);
+   }, [props.currentUser]);
+
+    console.log("New Post auth:  "+ isAuth);
    return (
        <Wrapper>
           <ForumHeader/>

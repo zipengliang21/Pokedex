@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Switch, Route} from "react-router-dom";
 import FilterSearchPage from "./views/FilterSearchPage";
 import WelcomePage from "./views/WelcomePage";
@@ -32,6 +32,12 @@ function App() {
    const {pokemonList, getPokemon} = usePokemonList();
    const {postList, addPost, getPost} = usePostList();
    const {commentList, addComment} = useCommentList();
+   // const [isAuth, setIsAuth] = useState(false);
+   // useEffect(() => {
+   //    if (currentUser !== undefined && currentUser !== null) {
+   //       setIsAuth(true);
+   //    }
+   // }, [currentUser]);
    return (
 
        <Auth setCurrentUser={setCurrentUser} getCurrentUser={getCurrentUser}>

@@ -91,7 +91,7 @@ function PostDetailsPage(props: any) {
 
    useEffect(() => {
       init();
-   }, []);
+   }, [props.currentUser]);
    return (
        <Wrapper>
           <ForumHeader/>

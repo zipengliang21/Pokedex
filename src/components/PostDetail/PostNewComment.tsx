@@ -80,14 +80,17 @@ const PostNewComment = (props: any) => {
        "ornK37y9NRgbYhQB1sjANbXUX2HxrISbgCK4B/s1600/068_Machamp.png";
    const [commentContent, setCommentContent] = useState("");
    const [userName,setUserName] = useState("");
+
    useEffect(() => {
       if (props.currentUser !== undefined && props.currentUser !== null){
          setUserName(props.currentUser.userName);
       } else {
          setUserName("visitor");
       }
-   }, []);
+      console.log(props.currentUser);
+   }, [props.currentUser]);
 
+   console.log(props.currentUser);
 
    const handleContentChange = (value: string) => {
       setCommentContent(value);
@@ -97,20 +100,8 @@ const PostNewComment = (props: any) => {
    const addNewComment = async () => {
       props.setFilteredComment([...props.filteredComment, await props.add(commentContent, props.postID, props.currentUser.userName, props.currentUser._id)])
    }
-   // {props.currentUser.userName}
 
-   // let newComment = props.isAuth?   <ContentWrapper>
-   //    <UserWrapper>
-   //       <img src={`${logo}`} alt="logo" className="logo" width={100}/>
-   //       <div className="userName">{props.currentUser.userName}</div>
-   //    </UserWrapper>
-   //    <CommentWrapper>
-   //       <SimpleMDE value={commentContent} onChange={handleContentChange}/>
-   //       <button id="submitButton"
-   //               onClick={() => addNewComment()}>Submit
-   //       </button>
-   //    </CommentWrapper>
-   // </ContentWrapper>: null;
+
 
    return (
        <InfoWrapper>
