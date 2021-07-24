@@ -48,17 +48,26 @@ const usePokemonList = () => {
          baseDefence: baseDefence,
          baseSpeed: baseSpeed,
       }
-      await axios.post(`${localhostURL}/pokemons/`, data);
-      setPokemonList(await getPokemonList());
+         const response = await axios.post(`${localhostURL}/pokemons/`, data);
+         if (response.data) {
+            setPokemonList(await getPokemonList());
+            alert("add pokemon successfully");
+         }else {alert("add pokemon failed");}
 
    }
    const deletePokemon =  async (id: string, name: string) => {
       let deleteInfo = {id: id, name: name};
-      const response = await axios.delete(`${localhostURL}/pokemons/${id}`, {data:deleteInfo});
-      if (response.status === 204) {
-         setPokemonList(await getPokemonList());
+      try{ const response = await axios.delete(`${localhostURL}/pokemons/${id}`, {data:deleteInfo});
+         if (response.status === 204) {
+            alert("delete successfully")
+            setPokemonList(await getPokemonList());
+         }
+         return response.status;
+      }catch (error){
+         alert("delete failed");
+         return error.response.status;
       }
-      return response.status;
+
    }
    const getPokemon = async (_id: string) => {
       const response = await axios.get(`${localhostURL}/pokemons/${_id}`);

@@ -162,29 +162,45 @@ export default function SignIn(props: any) {
 
    const handleClickSubmit = async () => {
       if (flag === 1) {
-         const response = await axios.post(server + "/login", {
-            email: email,
-            password: password
-         }, {withCredentials: true});
-         if (response.data) {
-            const user = response.data.user;
-            props.setCurrentUser(user);
-            alert("Login Successfully!");
+         let response:any;
+         try {
+             response = await axios.post(server + "/login", {
+               email: email,
+               password: password
+            }, {withCredentials: true});
+            if (response.data) {
+               const user = response.data.user;
+               props.setCurrentUser(user);
+               alert("Login Successfully!");
+               console.log("Login Successfully!");
+               history.push("/profile");
+               console.log("first if "+ response.status);
+            }
+         } catch (error) {
+            alert(error.response.data);
          }
+
+
       } else {
-         const response = await axios.post(server + "/register", {
-            email: email,
-            userName: userName,
-            password: password,
-            confirmPassword: confirmPassword
-         }, {withCredentials: true});
-         if (response.data) {
-            const user = response.data.user;
-            props.setCurrentUser(user);
-            alert("Register Successfully!");
+         try {
+            const response = await axios.post(server + "/register", {
+               email: email,
+               userName: userName,
+               password: password,
+               confirmPassword: confirmPassword
+            }, {withCredentials: true});
+            if (response.data) {
+               const user = response.data.user;
+               props.setCurrentUser(user);
+               alert("Register Successfully!");
+               history.push("/profile");
+            }
+         } catch (error) {
+            alert(error.response.data);
          }
       }
-      history.push("/profile");
+
+
    };
 
 

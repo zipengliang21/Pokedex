@@ -78,20 +78,20 @@ function PostDetailsPage(props: any) {
    const {filteredComment, setFilteredComment, getCommentForPost} = useCommentList();
    const {getPost} = usePostList();
    const [post, setPost] = useState({postID: ""});
-   const [isAuth, setIsAuth] = useState(false);
+   // const [isAuth, setIsAuth] = useState(false);
 
    const init = async () => {
       const pickPost = await getPost(props._id);
       setPost(pickPost);
       await getCommentForPost(pickPost.postID);
-      if (props.currentUser !== undefined && props.currentUser !== null) {
-         setIsAuth(true);
-      }
+      // if (props.currentUser !== undefined && props.currentUser !== null) {
+      //    setIsAuth(true);
+      // }
    };
 
    useEffect(() => {
       init();
-   }, [props.currentUser]);
+   }, []);
    return (
        <Wrapper>
           <ForumHeader/>
@@ -105,13 +105,13 @@ function PostDetailsPage(props: any) {
                    );
                 })}
                 {/*<LikeButton><Heart color="#FFFFFF"/>Liked</LikeButton>*/}
-                {isAuth && <PostNewComment add={props.addComment}
+                {props.currentUser && <PostNewComment add={props.addComment}
                                            _id={props._id}
                                            postID={post.postID}
                                            filteredComment={filteredComment}
                                            setFilteredComment={setFilteredComment}
                                            currentUser={props.currentUser}
-                                           isAuth={isAuth}/>}
+                                           />}
              </ForumViewWrapper>
           </ForumWrapper>
        </Wrapper>

@@ -33,8 +33,18 @@ const useUser = () => {
 
 
    const getCurrentUser = async () => {
-      const response = await axios.get(`${localhostURL}/getCurrentUser`, { withCredentials: true });
-      setCurrentUser(response.data.user);
+      let response: {data: {user: any}} = {data: {user: null}} ;
+      try {
+          response = await axios.get(`${localhostURL}/getCurrentUser`, {withCredentials: true});
+      }catch (e) {
+         console.log("catch user get no current user");
+         setCurrentUser(null);
+      }
+      if (response !== null) {
+         setCurrentUser(response.data.user);
+      } else {
+         setCurrentUser(null);
+      }
       return response.data.user;
    }
 

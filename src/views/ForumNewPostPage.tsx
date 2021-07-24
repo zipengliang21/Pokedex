@@ -43,22 +43,13 @@ const ForumNewPostWrapper = styled.div`
 `;
 
 function ForumNewPostPage(props: any) {
-   const [isAuth, setIsAuth] = useState(false);
-   useEffect(() => {
-      if (props.currentUser !== undefined && props.currentUser !== null) {
-         setIsAuth(true);
-      }
-       console.log("New Post auth in use eff:  "+isAuth);
-       console.log("New Post User in use eff:  "+ props.currentUser);
-   }, [props.currentUser]);
 
-    console.log("New Post auth:  "+ isAuth);
    return (
        <Wrapper>
           <ForumHeader/>
           <ForumWrapper>
              <ForumSubHeader/>
-             {isAuth &&
+             {props.currentUser &&
              <ForumNewPostWrapper>
                 <InputForm add={props.addPost} currentUser={props.currentUser}/>
              </ForumNewPostWrapper>
