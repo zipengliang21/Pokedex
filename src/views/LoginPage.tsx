@@ -21,6 +21,7 @@ import {useHistory} from "react-router";
 import axios from "axios";
 import Google from "components/Icon/LoginIcon/Google";
 import Github from "../components/Icon/LoginIcon/Github";
+import swal from 'sweetalert';
 
 const server = "http://localhost:5000";
 
@@ -171,16 +172,16 @@ export default function SignIn(props: any) {
             if (response.data) {
                const user = response.data.user;
                props.setCurrentUser(user);
-               alert("Login Successfully!");
+               swal("Login Successfully!", "", "success")
+                   .then(() => {
+                      history.push("/profile");
+                   });
                console.log("Login Successfully!");
-               history.push("/profile");
                console.log("first if "+ response.status);
             }
          } catch (error) {
-            alert(error.response.data);
+            swal(`${error.response.data}`, "", "warning");
          }
-
-
       } else {
          try {
             const response = await axios.post(server + "/register", {
@@ -192,11 +193,13 @@ export default function SignIn(props: any) {
             if (response.data) {
                const user = response.data.user;
                props.setCurrentUser(user);
-               alert("Register Successfully!");
-               history.push("/profile");
+               swal("Register Successfully!", "", "success")
+                   .then(() => {
+                      history.push("/profile");
+                   });
             }
          } catch (error) {
-            alert(error.response.data);
+            swal(`${error.response.data}`, "", "warning");
          }
       }
 
