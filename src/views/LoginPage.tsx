@@ -14,8 +14,6 @@ import {makeStyles} from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import styled from "styled-components";
 import {NavLink} from "react-router-dom";
-import {Link as RouterLink} from "react-router-dom";
-import {MemoryRouter as Router} from "react-router";
 import LoginHeader from "components/LoginHeader";
 import {useHistory} from "react-router";
 import axios from "axios";
