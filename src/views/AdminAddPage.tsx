@@ -10,6 +10,8 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import { useHistory } from "react-router";
 import axios from 'axios';
 import {usePokemonList} from "../hooks/usePokemonList";
+import {NavLink} from "react-router-dom";
+import swal from "sweetalert";
 
 const server = "http://localhost:5000";
 
@@ -87,6 +89,33 @@ const FormEntry = styled.div`
     flex-direction:column;
     text-align:left;
 `;
+
+const Warning = styled.div`
+   display: flex;
+   background: inherit;
+   padding: 20px 0;
+   span {
+   font-size: 26px;
+   color: orange;
+   text-align: center;
+   margin: 0 auto;
+   font-weight: bold;
+    @media(max-width: 875px){
+        width: 418px;
+      }
+      @media(max-width: 576px){
+        width: 100%;
+        font-size: 13px;
+      }
+   }
+   @media(max-width: 875px){
+       width: 418px;
+   }
+   @media(max-width: 576px){
+       width: 100%;
+   }
+`;
+
 
 const AdminAddPage = (props: any) => {
     const {setPokemonList, addPokemon, deletePokemon, getPokemonList} = usePokemonList();
@@ -188,104 +217,110 @@ const AdminAddPage = (props: any) => {
         setBaseSpeed(temp);
     }
 
+    let admin = props.currentUser && props.currentUser.isAdmin?
+        <Container component="main" maxWidth="xs">
+            <CssBaseline />
+            <div className={classes.switchContainer}>
+                <div>
+                    <Button id="Add" size = "small" variant="outlined" color="primary" className={classes.button} onClick={handleChangeFlag}>
+                        Add
+                    </Button>
+                    <Button id="Delete" size = "small" variant="outlined" color="primary" className={classes.button} onClick={handleChangeFlag}>
+                        Delete
+                    </Button>
+                </div>
+            </div>
+            <form className={classes.form} noValidate hidden={flag !== 1}>
+                <FormEntry>
+                    <label>Pokemon Name:</label>
+                    <input type="text" value={name} onChange={handleChangeName} style={{width:"29em",margin:"10px auto" }} />
+                </FormEntry>
+                <FormEntry>
+                    <label>Pokemon Type:</label>
+                    <input type="twxt" value={type} onChange={handleChangeType} style={{width:"29em",margin:"10px auto" }} />
+                </FormEntry>
+                <FormEntry>
+                    <label>Normal Ability:</label>
+                    <input type="text" value={ability} onChange={handleChangeAbility} style={{width:"29em",margin:"10px auto" }} />
+                </FormEntry>
+                <FormEntry>
+                    <label>Hidden Ability:</label>
+                    <input type="text" value={hiddenAbility} onChange={handleChangeHiddenAbility} style={{width:"29em",margin:"10px auto" }} />
+                </FormEntry>
+                <FormEntry>
+                    <label>Height:</label>
+                    <input type="text" value={height} onChange={handleChangeHeight} style={{width:"29em",margin:"10px auto" }} />
+                </FormEntry>
+                <FormEntry>
+                    <label>Weight:</label>
+                    <input type="text" value={weight} onChange={handleChangeWeight} style={{width:"29em",margin:"10px auto" }} />
+                </FormEntry>
+                <FormEntry>
+                    <label>Stat: </label>
+                    <div>
+                        <label> Hp: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        <input type="text" value={baseHp} onChange={handleChangeBaseHp} style={{width:"8em",margin:"10px auto" }} />
+                        <b>&nbsp;</b>
+                        <b>&nbsp;</b>
+                        <label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Attack: &nbsp;&nbsp;</label>
+                        <input type="text" value={baseAttack} onChange={handleChangeBaseAttack} style={{width:"8em",margin:"10px auto" }} />
+                        <b>&nbsp;</b>
+                        <b>&nbsp;</b>
+                    </div>
+                    <div>
+                        <label> Sp Atk: &nbsp;&nbsp;</label>
+                        <input type="text" value={baseSpAttack} onChange={handleChangeBaseSpAttack} style={{width:"8em",margin:"10px auto" }} />
+                        <b>&nbsp;</b>
+                        <b>&nbsp;</b>
+                        <label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sp Def:&nbsp;&nbsp;&nbsp;</label>
+                        <input type="text" value={baseSpDefence} onChange={handleChangeBaseSpDefence} style={{width:"8em",margin:"10px auto" }} />
+                        <b>&nbsp;</b>
+                        <b>&nbsp;</b>
+                    </div>
+                    <div>
+                        <label> Defense: </label>
+                        <input type="text" value={baseDefence} onChange={handleChangeBaseDefence} style={{width:"8em",margin:"10px auto" }} />
+                        <b>&nbsp;</b>
+                        <b>&nbsp;</b>
+                        <label> &nbsp;&nbsp;&nbsp;&nbsp;Speed: &nbsp;&nbsp;&nbsp;</label>
+                        <input type="text" value={baseSpeed} onChange={handleChangeBaseSpeed} style={{width:"8em",margin:"10px auto" }} />
+                        <b>&nbsp;</b>
+                        <b>&nbsp;</b>
+                    </div>
+                </FormEntry>
+                <p>&nbsp;</p>
+                <Button onClick={() => addPokemon(name, type, ability, hiddenAbility, height, weight, baseHp,
+                    baseAttack, baseAttack, baseSpDefence, baseDefence, baseSpeed)} variant="contained" color="primary" size = "small" style={{width:"100px",margin:"10px auto" }}>
+                    Add
+                </Button>
+            </form>
+            <form className={classes.form} noValidate hidden={flag !== 2}>
+                <FormEntry>
+                    <label>Pokemon ID:</label>
+                    <input type="text" value={id} onChange={handleChangeId} placeholder="001" style={{width:"29em",margin:"10px auto" }}  />
+                </FormEntry>
+                <FormEntry>
+                    <label>Pokemon name:</label>
+                    <label>(Just confirm whether it is the correct one):</label>
+                    <input type="text" value={name} onChange={handleChangeName} style={{width:"29em",margin:"10px auto" }} />
+                    <p>&nbsp;</p>
+                </FormEntry>
+                <Button onClick={() => deletePokemon(id, name)} variant="contained" color="secondary" size = "small" style={{width:"100px",margin:"10px auto" }}>
+                    Delete
+                </Button>
+            </form>
+        </Container> :
+        <Warning>
+        <span>Please Login through Admin Account</span>
+        </Warning>
+
     return(
         <Background>
             <Collapse in={open}>
             </Collapse>
             <EditPokemon/>
             <Wrapper>
-                <Container component="main" maxWidth="xs">
-                    <CssBaseline />
-                    <div className={classes.switchContainer}>
-                        <div>
-                            <Button id="Add" size = "small" variant="outlined" color="primary" className={classes.button} onClick={handleChangeFlag}>
-                                Add
-                            </Button>
-                            <Button id="Delete" size = "small" variant="outlined" color="primary" className={classes.button} onClick={handleChangeFlag}>
-                                Delete
-                            </Button>
-                        </div>
-                    </div>
-                    <form className={classes.form} noValidate hidden={flag !== 1}>
-                        <FormEntry>
-                            <label>Pokemon Name:</label>
-                            <input type="text" value={name} onChange={handleChangeName} style={{width:"29em",margin:"10px auto" }} />
-                        </FormEntry>
-                        <FormEntry>
-                            <label>Pokemon Type:</label>
-                            <input type="twxt" value={type} onChange={handleChangeType} style={{width:"29em",margin:"10px auto" }} />
-                        </FormEntry>
-                        <FormEntry>
-                            <label>Normal Ability:</label>
-                            <input type="text" value={ability} onChange={handleChangeAbility} style={{width:"29em",margin:"10px auto" }} />
-                        </FormEntry>
-                        <FormEntry>
-                            <label>Hidden Ability:</label>
-                            <input type="text" value={hiddenAbility} onChange={handleChangeHiddenAbility} style={{width:"29em",margin:"10px auto" }} />
-                        </FormEntry>
-                        <FormEntry>
-                            <label>Height:</label>
-                            <input type="text" value={height} onChange={handleChangeHeight} style={{width:"29em",margin:"10px auto" }} />
-                        </FormEntry>
-                        <FormEntry>
-                            <label>Weight:</label>
-                            <input type="text" value={weight} onChange={handleChangeWeight} style={{width:"29em",margin:"10px auto" }} />
-                        </FormEntry>
-                        <FormEntry>
-                            <label>Stat: </label>
-                            <div>
-                                <label> Hp: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                <input type="text" value={baseHp} onChange={handleChangeBaseHp} style={{width:"8em",margin:"10px auto" }} />
-                                <b>&nbsp;</b>
-                                <b>&nbsp;</b>
-                                <label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Attack: &nbsp;&nbsp;</label>
-                                <input type="text" value={baseAttack} onChange={handleChangeBaseAttack} style={{width:"8em",margin:"10px auto" }} />
-                                <b>&nbsp;</b>
-                                <b>&nbsp;</b>
-                            </div>
-                            <div>
-                                <label> Sp Atk: &nbsp;&nbsp;</label>
-                                <input type="text" value={baseSpAttack} onChange={handleChangeBaseSpAttack} style={{width:"8em",margin:"10px auto" }} />
-                                <b>&nbsp;</b>
-                                <b>&nbsp;</b>
-                                <label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sp Def:&nbsp;&nbsp;&nbsp;</label>
-                                <input type="text" value={baseSpDefence} onChange={handleChangeBaseSpDefence} style={{width:"8em",margin:"10px auto" }} />
-                                <b>&nbsp;</b>
-                                <b>&nbsp;</b>
-                            </div>
-                            <div>
-                                <label> Defense: </label>
-                                <input type="text" value={baseDefence} onChange={handleChangeBaseDefence} style={{width:"8em",margin:"10px auto" }} />
-                                <b>&nbsp;</b>
-                                <b>&nbsp;</b>
-                                <label> &nbsp;&nbsp;&nbsp;&nbsp;Speed: &nbsp;&nbsp;&nbsp;</label>
-                                <input type="text" value={baseSpeed} onChange={handleChangeBaseSpeed} style={{width:"8em",margin:"10px auto" }} />
-                                <b>&nbsp;</b>
-                                <b>&nbsp;</b>
-                            </div>
-                        </FormEntry>
-                        <p>&nbsp;</p>
-                        <Button onClick={() => addPokemon(name, type, ability, hiddenAbility, height, weight, baseHp,
-                            baseAttack, baseAttack, baseSpDefence, baseDefence, baseSpeed)} variant="contained" color="primary" size = "small" style={{width:"100px",margin:"10px auto" }}>
-                            Add
-                        </Button>
-                    </form>
-                    <form className={classes.form} noValidate hidden={flag !== 2}>
-                        <FormEntry>
-                            <label>Pokemon ID:</label>
-                            <input type="text" value={id} onChange={handleChangeId} placeholder="001" style={{width:"29em",margin:"10px auto" }}  />
-                        </FormEntry>
-                        <FormEntry>
-                            <label>Pokemon name:</label>
-                            <label>(Just confim whether it is the correct one):</label>
-                            <input type="text" value={name} onChange={handleChangeName} style={{width:"29em",margin:"10px auto" }} />
-                            <p>&nbsp;</p>
-                        </FormEntry>
-                        <Button onClick={() => deletePokemon(id, name)} variant="contained" color="secondary" size = "small" style={{width:"100px",margin:"10px auto" }}>
-                            Delete
-                        </Button>
-                    </form>
-                </Container>
+                {admin}
             </Wrapper>
         </Background>
     )

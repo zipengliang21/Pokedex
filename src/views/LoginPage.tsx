@@ -180,7 +180,7 @@ export default function SignIn(props: any) {
                console.log("first if "+ response.status);
             }
          } catch (error) {
-            swal(`${error.response.data}`, "", "warning");
+            await swal(`${error.response.data}`, "", "warning");
          }
       } else {
          try {

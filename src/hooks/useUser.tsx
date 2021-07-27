@@ -15,6 +15,7 @@ export interface IUser {
    location?: string;
    password: string;
    confirmPassword?: string;
+   isAdmin?: boolean;
    createdOn?: Date;
    updatedOn?: Date;
 }
