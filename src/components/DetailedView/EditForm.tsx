@@ -36,6 +36,22 @@ const EditForm = (props: any) =>{
     const [password, setPassword] = useState('');
     const [cPassword, setCPassword] = useState('');
 
+    const getProfile = async (_id: string) => {
+        const response = await Axios.get(`http://localhost:5000/profile/${_id}`);
+        return response.data.profile[0];
+    }
+
+    useEffect( () => {
+        async function initialSet() {
+            const initProfile = await getProfile(props._id);
+            setEmail(initProfile.email);
+            setName(initProfile.userName);
+            setDescription(initProfile.description);
+            setLocation(initProfile.location);
+        }
+        initialSet();
+    }, []);
+
 
     const validateForm = (reqBody:any) =>{
         let regexp = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
@@ -75,6 +91,7 @@ const EditForm = (props: any) =>{
             location:location,
             password:password,
         }
+        console.log("Edit form " + reqBody);
         if(validateForm(reqBody)){
             await Axios.post('http://localhost:5000/profile/edit',reqBody);
         }

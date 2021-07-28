@@ -143,10 +143,16 @@ function AccountEditPage(props: any) {
         async function initialSet() {
             // const profile = await getProfile(props.currentUser._id);
             // console.log(profile);
-            setAvatarGet(props.currentUser.avatar);
+            if (props.currentUser !== undefined && props.currentUser !== null){
+                setAvatarGet(props.currentUser.avatar);
+            }
+            // else {
+            //     setUserName("visitor");
+            // }
+            // setAvatarGet(props.currentUser.avatar);
         }
         initialSet();
-    }, []);
+    }, [props.currentUser]);
 
     const handleClose = () =>{
         setPopup(!popup);
@@ -165,36 +171,55 @@ function AccountEditPage(props: any) {
             <Banner role="banner">
                 <a className="welcomeMsg" target="_blank" rel="noreferrer">Profile</a>
             </Banner>
+            {props.currentUser &&
             <ContentWrapper>
                 <CurrInfoWrapper>
                     <AvatarWrapperT className="avatar">
-                        <button className="changeAvatar" style={{background:"transparent",border: 0,cursor: "pointer",height:"80%",padding: 0,width: "80%"}}
-                                onClick= {()=>handleClose()}>
+                        <button className="changeAvatar" style={{
+                            background: "transparent",
+                            border: 0,
+                            cursor: "pointer",
+                            height: "80%",
+                            padding: 0,
+                            width: "80%"
+                        }}
+                                onClick={() => handleClose()}>
                             <img
                                 src={avatarGet}
-                                alt="user picture" style={{borderRadius:"50%",marginTop:"1rem", height: "100px", width: "100px"}}>
+                                alt="user picture"
+                                style={{borderRadius: "50%", marginTop: "1rem", height: "100px", width: "100px"}}>
                             </img>
                         </button>
                     </AvatarWrapperT>
-                    <AvatarWrapperB >
+                    <AvatarWrapperB>
                         <h1>{props.currentUser.userName}</h1>
-                        <button  className="changeAvatar" style={{width:"160px",height:"34px",borderColor:"#D9D9D9",font:"inherit",background:"white",borderRadius:"5px"}}
-                                 onClick= {()=>handleClose()}>
-                            <FontAwesomeIcon icon={faEdit} className="edit"/> Change Avatar</button>
+                        <button className="changeAvatar" style={{
+                            width: "160px",
+                            height: "34px",
+                            borderColor: "#D9D9D9",
+                            font: "inherit",
+                            background: "white",
+                            borderRadius: "5px"
+                        }}
+                                onClick={() => handleClose()}>
+                            <FontAwesomeIcon icon={faEdit} className="edit"/> Change Avatar
+                        </button>
                     </AvatarWrapperB>
                     {popup &&
-                    <Modal backdrop="static" show={popup} onHide={()=>handleClose()}
-                           style={{position: "fixed",
+                    <Modal backdrop="static" show={popup} onHide={() => handleClose()}
+                           style={{
+                               position: "fixed",
                                top: 0,
                                left: 0,
                                zIndex: 1060,
-                               backgroundColor:"rgba(0,0,0,0.5)",
+                               backgroundColor: "rgba(0,0,0,0.5)",
                                display: "none",
                                width: "100%",
                                height: "100%",
                                overflowX: "hidden",
                                overflowY: "auto",
-                               outline: 0}}>
+                               outline: 0
+                           }}>
                         <ModalContent>
                             <Modal.Header closeButton style={{
                                 display: "flex",
@@ -208,13 +233,19 @@ function AccountEditPage(props: any) {
                             }}>
                                 <Modal.Title>Insert image url</Modal.Title>
                             </Modal.Header>
-                            <Modal.Body style={{position: "relative",
+                            <Modal.Body style={{
+                                position: "relative",
                                 flex: "1 1 auto",
-                                padding: "1rem"}}>
-                                <input type="text" placeholder="http://example.com" style={{width:"45vw", maxWidth:"400px",minHeight:"30px",margin:"10px 0"}}
-                                       onChange={ (event => {setAvatar(event.target.value)})} value={avatar}/>
+                                padding: "1rem"
+                            }}>
+                                <input type="text" placeholder="http://example.com"
+                                       style={{width: "45vw", maxWidth: "400px", minHeight: "30px", margin: "10px 0"}}
+                                       onChange={(event => {
+                                           setAvatar(event.target.value)
+                                       })} value={avatar}/>
                             </Modal.Body>
-                            <Modal.Footer style={{display: "flex",
+                            <Modal.Footer style={{
+                                display: "flex",
                                 flexWrap: "wrap",
                                 flexShrink: 0,
                                 alignItems: "center",
@@ -222,19 +253,21 @@ function AccountEditPage(props: any) {
                                 padding: ".75rem",
                                 borderTop: "1px solid #dee2e6",
                                 borderBottomRightRadius: "calc(.3rem - 1px)",
-                                borderBottomLeftRadius: "calc(.3rem - 1px)"}}>
-                                <button className="close-bottom" onClick= {()=>handleClose()}>Close</button>
-                                <button className="save-btn" onClick= {()=>handleChangeAvatar()}>
+                                borderBottomLeftRadius: "calc(.3rem - 1px)"
+                            }}>
+                                <button className="close-bottom" onClick={() => handleClose()}>Close</button>
+                                <button className="save-btn" onClick={() => handleChangeAvatar()}>
                                     Save Changes
                                 </button>
                             </Modal.Footer>
                         </ModalContent>
                     </Modal>
                     }
-                    <EditForm currentUser={props.currentUser}/>
+                    <EditForm currentUser={props.currentUser}
+                              _id={props.currentUser._id}/>
                 </CurrInfoWrapper>
             </ContentWrapper>
-
+            }
         </Background>
     );
 }

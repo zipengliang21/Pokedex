@@ -87,7 +87,6 @@ const PostNewComment = (props: any) => {
       } else {
          setUserName("visitor");
       }
-      console.log(props.currentUser);
    }, [props.currentUser]);
 
    console.log(props.currentUser);
