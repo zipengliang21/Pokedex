@@ -80,24 +80,23 @@ const PostNewComment = (props: any) => {
        "ornK37y9NRgbYhQB1sjANbXUX2HxrISbgCK4B/s1600/068_Machamp.png";
    const [commentContent, setCommentContent] = useState("");
    const [userName,setUserName] = useState("");
+   const [avatar, setAvatar] = useState("");
 
    useEffect(() => {
       if (props.currentUser !== undefined && props.currentUser !== null){
          setUserName(props.currentUser.userName);
-      } else {
-         setUserName("visitor");
+         setAvatar(props.currentUser.avatar);
       }
    }, [props.currentUser]);
 
-   console.log(props.currentUser);
 
    const handleContentChange = (value: string) => {
       setCommentContent(value);
    };
-   console.log(props.currentUser);
 
    const addNewComment = async () => {
-      props.setFilteredComment([...props.filteredComment, await props.add(commentContent, props.postID, props.currentUser.userName, props.currentUser._id)])
+      props.setFilteredComment([...props.filteredComment, await props.add(commentContent, props.postID,
+          props.currentUser.userName, props.currentUser._id, props.currentUser.avatar)])
    }
 
 
@@ -106,7 +105,7 @@ const PostNewComment = (props: any) => {
        <InfoWrapper>
                  <ContentWrapper>
                     <UserWrapper>
-                       <img src={`${logo}`} alt="logo" className="logo" width={100}/>
+                       <img src={avatar}  height={100} alt="logo" className="logo" width={100}/>
                        <div className="userName">{userName}</div>
                     </UserWrapper>
                     <CommentWrapper>

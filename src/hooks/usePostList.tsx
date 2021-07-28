@@ -12,6 +12,7 @@ interface Post {
    title: string;
    description: string;
    content: string;
+   avatar: string;
    date:Date;
 }
 
@@ -30,7 +31,7 @@ const usePostList = () => {
       initialSet();
    }, [])
 
-   const addPost = async (title:string, description:string, content:string, userName:string, userId:string) => {
+   const addPost = async (title:string, description:string, content:string, userName:string, userId:string, avatar:string) => {
       let postList = await getPostList();
       let postId: string = (postList.length + 1).toString();
       let date = new Date();
@@ -41,6 +42,7 @@ const usePostList = () => {
          title: title,
          description: description,
          content: content,
+         avatar: avatar,
          date: date
       }
       console.log(newPost);

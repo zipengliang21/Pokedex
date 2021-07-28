@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import ForumHeader from "../components/Forum/ForumHeader";
 import {NavLink} from "react-router-dom";
 import ForumSubHeader from "../components/Forum/ForumSubHeader";
@@ -7,6 +7,8 @@ import moment from "moment";
 import Heart from "components/Icon/ForumIcon/Heart";
 import Fade from "react-reveal/Fade";
 import ReactPaginate from "react-paginate";
+const axios = require('axios');
+
 
 const ForumWrapper = styled.div`
   display: flex;
@@ -147,6 +149,9 @@ function ForumHomePage(props: any) {
       const selectedPage = e.selected;
       setOffset(selectedPage);
    };
+
+
+
    return (
        <div>
           <ForumHeader/>
@@ -163,19 +168,11 @@ function ForumHomePage(props: any) {
                           </NavLink>
                           <div className="description">{post.description}</div>
                           <StatWrapper>
-                             {/*   <Icon>*/}
-                             {/*      <Comment className="icon"/>*/}
-                             {/*      2*/}
-                             {/*   </Icon>*/}
-                             {/*   <Icon>*/}
-                             {/*      <Heart className="icon" color="black"/>*/}
-                             {/*      3*/}
-                             {/*   </Icon>*/}
                              <div className="date">{moment(post.date).format("YYYY-MM-DD HH:mm:ss")}</div>
                           </StatWrapper>
                        </ContentWrapper>
                        <UserWrapper>
-                          <img src={`${logo}`} alt="logo" className="logo"/>
+                          <img src={post.avatar} alt="logo" className="logo" width={100} height = {75}/>
                           {post.userName}
                        </UserWrapper>
                     </ForumContentWrapper>

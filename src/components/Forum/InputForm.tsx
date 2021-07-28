@@ -111,7 +111,8 @@ const InputForm = (props: any) => {
              </FormWrapper>
              <div className="buttons">
                 <a href="http://localhost:3000/Pokemon#/forum">
-                <button id="submitButton" onClick={() => props.add(title,description,content,props.currentUser.userName, props.currentUser._id)}>Submit</button>
+                <button id="submitButton" onClick={() => props.add(title,description,content,props.currentUser.userName,
+                    props.currentUser._id, props.currentUser.avatar)}>Submit</button>
                 </a>
              </div>
           </div>

@@ -101,7 +101,7 @@ function PostDetailsPage(props: any) {
                 <PostDetails rootPost={post}/>
                 {filteredComment.map((comment: any, index: number) => {
                    return (
-                       <PostComment comment={comment} id={index}/>
+                       <PostComment comment={comment} id={index} currentUser={props.currentUser}/>
                    );
                 })}
                 {/*<LikeButton><Heart color="#FFFFFF"/>Liked</LikeButton>*/}

@@ -1,6 +1,7 @@
 import React, {useState,useEffect} from "react";
 import styled from "styled-components";
 import moment from "moment";
+const axios = require('axios');
 
 const InfoWrapper = styled.div`
   width: 750px;
@@ -73,6 +74,7 @@ const PostComment = (props: any) => {
    const logo = "http://3.bp.blogspot.com/-fZ-FTGBT_OI/V87me3nL3PI/AAAAAAAAAkQ/" +
        "ornK37y9NRgbYhQB1sjANbXUX2HxrISbgCK4B/s1600/068_Machamp.png";
 
+
    return (
        <InfoWrapper>
           <DateWrapper>
@@ -81,7 +83,7 @@ const PostComment = (props: any) => {
           </DateWrapper>
           <ContentWrapper>
              <UserWrapper>
-                <img src={`${logo}`} alt="logo" className="logo" width={100}/>
+                <img src={props.comment.avatar} alt="logo" className="logo" width={100} height = {100}/>
                 <div className="userName">{props.comment.userName}</div>
              </UserWrapper>
              <Content>{props.comment.content}</Content>

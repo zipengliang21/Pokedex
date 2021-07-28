@@ -1,5 +1,7 @@
 import {useEffect, useState} from "react";
+import swal from 'sweetalert';
 const axios = require('axios');
+
 
 const localhostURL = "http://localhost:5000";
 const productionURL = "https://pokedex-455-server.herokuapp.com";
@@ -51,20 +53,22 @@ const usePokemonList = () => {
          const response = await axios.post(`${localhostURL}/pokemons/`, data);
          if (response.data) {
             setPokemonList(await getPokemonList());
-            alert("add pokemon successfully");
-         }else {alert("add pokemon failed");}
+            swal("add Pokemon successfully", "", "success");
+         }else {
+            swal("add Pokemon Failed", "", "warning");
+         }
 
    }
    const deletePokemon =  async (id: string, name: string) => {
       let deleteInfo = {id: id, name: name};
       try{ const response = await axios.delete(`${localhostURL}/pokemons/${id}`, {data:deleteInfo});
          if (response.status === 204) {
-            alert("delete successfully")
             setPokemonList(await getPokemonList());
+            await swal("delete Pokemon successfully", "", "success");
          }
          return response.status;
       }catch (error){
-         alert("delete failed");
+         await swal("delete Pokemon Failed", "", "warning");
          return error.response.status;
       }
 

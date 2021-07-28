@@ -141,15 +141,9 @@ function AccountEditPage(props: any) {
 
     useEffect( () => {
         async function initialSet() {
-            // const profile = await getProfile(props.currentUser._id);
-            // console.log(profile);
             if (props.currentUser !== undefined && props.currentUser !== null){
                 setAvatarGet(props.currentUser.avatar);
             }
-            // else {
-            //     setUserName("visitor");
-            // }
-            // setAvatarGet(props.currentUser.avatar);
         }
         initialSet();
     }, [props.currentUser]);

@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 import moment from "moment";
+const axios = require('axios');
 
 const InfoWrapper = styled.div`
   width: 750px;
@@ -81,7 +82,7 @@ const PostDetails = (props: any) => {
           </DateWrapper>
           <ContentWrapper>
              <UserWrapper>
-                <img src={`${logo}`} alt="logo" className="logo" width={100}/>
+                <img src={props.rootPost.avatar} alt="logo" className="logo" width={100} height = {100}/>
                 <div className="userName">{props.rootPost.userName}</div>
              </UserWrapper>
              <Content>{props.rootPost.content}</Content>

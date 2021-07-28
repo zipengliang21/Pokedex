@@ -11,6 +11,7 @@ interface Comment {
    postID: string;
    commentID: number;
    content: string;
+   avatar:string;
    date: Date;
 }
 
@@ -32,7 +33,7 @@ const useCommentList = () => {
       initialSet();
    }, [])
 
-   const addComment = async (content:string, postID: string, userName: string, userID:string) => {
+   const addComment = async (content:string, postID: string, userName: string, userID:string, avatar:string) => {
       let commentID = getCount() + 1;
       let date = new Date();
       let newComment: Comment = {
@@ -41,6 +42,7 @@ const useCommentList = () => {
          postID: postID,
          commentID: commentID,
          content: content,
+         avatar: avatar,
          date: date
       };
       await axios.post(`${localhostURL}/comments/`, newComment);
