@@ -3,6 +3,10 @@
 This is a CPSC 455 project.
 Project Progress after Workshop 1
 
+High Level Description:
+
+Pokedex is a one-stop web application for Pokemon lovers and trainers. Users can find the natures and characteristics of Pokemon that they want on the application. The application also allows users to comment on Pokemon for social and networking purposes.
+
 First step:
 Brainstorm some ideas for the first lab. In Lab 1, we will finalize groups, and discuss project ideas. By Lab 2, you should have selected a project topic. 
 
