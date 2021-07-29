@@ -2,13 +2,7 @@ import {useEffect, useState} from "react";
 import swal from 'sweetalert';
 const axios = require('axios');
 
-
-const localhostURL = "http://localhost:5000";
-const productionURL = "https://pokedex-455-server.herokuapp.com";
-
-
 // Create a custom React Hook for Pokemon List
-
 interface Pokemon {
    name: string;
    id: string;
@@ -50,7 +44,7 @@ const usePokemonList = () => {
          baseDefence: baseDefence,
          baseSpeed: baseSpeed,
       }
-         const response = await axios.post(`${localhostURL}/pokemons/`, data);
+         const response = await axios.post(`/api/pokemons/`, data);
          if (response.data) {
             setPokemonList(await getPokemonList());
             swal("add Pokemon successfully", "", "success");
@@ -61,7 +55,7 @@ const usePokemonList = () => {
    }
    const deletePokemon =  async (id: string, name: string) => {
       let deleteInfo = {id: id, name: name};
-      try{ const response = await axios.delete(`${localhostURL}/pokemons/${id}`, {data:deleteInfo});
+      try{ const response = await axios.delete(`/api/pokemons/${id}`, {data:deleteInfo});
          if (response.status === 204) {
             setPokemonList(await getPokemonList());
             await swal("delete Pokemon successfully", "", "success");
@@ -74,12 +68,12 @@ const usePokemonList = () => {
 
    }
    const getPokemon = async (_id: string) => {
-      const response = await axios.get(`${localhostURL}/pokemons/${_id}`);
+      const response = await axios.get(`/api/pokemons/${_id}`);
       return response.data.pokemon[0];
    }
 
    const getPokemonList = async () => {
-      const response = await axios.get(`${localhostURL}/pokemons/`);
+      const response = await axios.get(`/api/pokemons/`);
       return response.data.pokemonList;
    }
 

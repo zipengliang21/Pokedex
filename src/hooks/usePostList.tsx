@@ -1,10 +1,6 @@
 import {useEffect, useState} from "react";
 const axios = require('axios');
 
-const localhostURL = "http://localhost:5000";
-const productionURL = "https://pokedex-455-server.herokuapp.com";
-
-
 interface Post {
    userId: string;
    userName: string;
@@ -46,18 +42,18 @@ const usePostList = () => {
          date: date
       }
       console.log(newPost);
-      await axios.post(`${localhostURL}/posts/`, newPost);
+      await axios.post(`/api/posts/`, newPost);
       setPostList(await getPostList());
 
    }
 
    const getPost = async (_id: string):Promise<Post> => {
-      const response = await axios.get(`${localhostURL}/posts/${_id}`);
+      const response = await axios.get(`/api/posts/${_id}`);
       return response.data.post[0];
    }
 
    const getPostList = async () => {
-      const response = await axios.get(`${localhostURL}/posts/`);
+      const response = await axios.get(`/api/posts/`);
       return response.data.postList;
    }
 

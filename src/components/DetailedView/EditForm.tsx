@@ -37,7 +37,7 @@ const EditForm = (props: any) =>{
     const [cPassword, setCPassword] = useState('');
 
     const getProfile = async (_id: string) => {
-        const response = await Axios.get(`http://localhost:5000/profile/${_id}`);
+        const response = await Axios.get(`/api/profile/${_id}`);
         return response.data.profile[0];
     }
 
@@ -93,7 +93,7 @@ const EditForm = (props: any) =>{
         }
         console.log("Edit form " + reqBody);
         if(validateForm(reqBody)){
-            await Axios.post('http://localhost:5000/profile/edit',reqBody);
+            await Axios.post('/api/profile/edit',reqBody);
         }
         clearPwdField();
     };

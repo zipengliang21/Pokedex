@@ -21,8 +21,6 @@ import Google from "components/Icon/LoginIcon/Google";
 import Github from "../components/Icon/LoginIcon/Github";
 import swal from 'sweetalert';
 
-const server = "http://localhost:5000";
-
 const BackgroundWrapper = styled.div`
   width: 850px;
   margin: 0 auto;
@@ -163,7 +161,7 @@ export default function SignIn(props: any) {
       if (flag === 1) {
          let response:any;
          try {
-             response = await axios.post(server + "/login", {
+             response = await axios.post("/api/login", {
                email: email,
                password: password
             }, {withCredentials: true});
@@ -182,7 +180,7 @@ export default function SignIn(props: any) {
          }
       } else {
          try {
-            const response = await axios.post(server + "/register", {
+            const response = await axios.post("/api/register", {
                email: email,
                userName: userName,
                password: password,

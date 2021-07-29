@@ -135,7 +135,7 @@ function AccountEditPage(props: any) {
     const [avatarGet,setAvatarGet] = useState('');
 
     const getProfile = async (_id: string) => {
-        const response = await Axios.get(`http://localhost:5000/profile/${_id}`);
+        const response = await Axios.get(`/api/profile/${_id}`);
         return response.data.profile[0];
     }
 
@@ -154,7 +154,7 @@ function AccountEditPage(props: any) {
     }
     const handleChangeAvatar = async() =>{
         const reqBody = {avatar:avatar,userId:props.currentUser._id};
-        const res = await Axios.post(`http://localhost:5000/profile/avatar`,reqBody);
+        const res = await Axios.post(`/api/profile/avatar`,reqBody);
         console.log(res);
         const profile = await getProfile(props.currentUser._id);
         setAvatarGet(profile.avatar);
