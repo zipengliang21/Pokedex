@@ -7,13 +7,8 @@ import Collapse from "@material-ui/core/Collapse";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import { useHistory } from "react-router";
-import axios from "axios";
 import { usePokemonList } from "../hooks/usePokemonList";
-import { NavLink } from "react-router-dom";
-import swal from "sweetalert";
 
-const server = "http://localhost:5000";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -63,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Background = styled.div`
-  width: 100%;
+  width: 850px;
   margin: 0 auto;
   background: inherit;
   @media (max-width: 875px) {
@@ -417,7 +412,9 @@ const AdminAddPage = (props: any) => {
     <Background>
       <Collapse in={open}></Collapse>
       <EditPokemon />
-      <Wrapper>{admin}</Wrapper>
+      <Wrapper>
+        {admin}
+      </Wrapper>
     </Background>
   );
 };

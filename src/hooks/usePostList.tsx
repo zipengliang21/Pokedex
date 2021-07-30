@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import swal from "sweetalert";
 const axios = require('axios');
 
 interface Post {
@@ -41,9 +42,16 @@ const usePostList = () => {
          avatar: avatar,
          date: date
       }
-      console.log(newPost);
-      await axios.post(`/api/posts/`, newPost);
-      setPostList(await getPostList());
+
+      try {
+         const response = await axios.post(`/api/posts/`, newPost);
+         if (response.status === 201) {
+            setPostList(await getPostList());
+            await swal("add post successfully", "", "success");
+         }
+      }catch (error){
+         await swal("add post Failed", "", "warning");
+      }
 
    }
 

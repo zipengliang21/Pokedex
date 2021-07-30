@@ -341,9 +341,9 @@ export default function SignIn(props: any) {
                 </div>
 
                 <div className={classes.iconContainer}>
-                   <NavLink exact activeClassName="selected" to="/admin">
-                      Admin
-                   </NavLink>
+                   {/*<NavLink exact activeClassName="selected" to="/admin">*/}
+                   {/*   Admin*/}
+                   {/*</NavLink>*/}
                    <div className={classes.icon}>
                       <a
                           // href="https://github.com/zipengliang21"

@@ -18,7 +18,6 @@ import {NavLink} from "react-router-dom";
 import { useHistory } from "react-router";
 import axios from 'axios';
 
-const server = "http://localhost:5000";
 
 const Background = styled.div`
    width: 850px;
@@ -116,7 +115,7 @@ export default function AdminPage() {
   const handleClickSubmit = () => {
     axios({
       method: 'post',
-      url: server + '/adminLogin',
+      url: '/adminLogin',
       data: {
         userName: userName,
         password: password

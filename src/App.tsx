@@ -9,7 +9,6 @@ import ForumNewPostPage from "./views/ForumNewPostPage";
 import PostDetailsPage from "views/PostDetailsPage";
 import AccountEditPage from "views/AcountEditPage";
 import AdminAddPage from "views/AdminAddPage";
-import AdminPage from "./views/AdminPage";
 import {usePokemonList} from "./hooks/usePokemonList";
 import {usePostList} from "./hooks/usePostList";
 import {useCommentList} from "./hooks/useCommentList";
@@ -47,9 +46,6 @@ function App() {
              <Switch>
                 <Route exact path="/login">
                    <LoginPage currentUser={currentUser} setCurrentUser={setCurrentUser}/>
-                </Route>
-                <Route exact path="/admin">
-                   <AdminPage/>
                 </Route>
                 <Route exact path="/">
                    <WelcomePage pokemonList={pokemonList} currentUser={currentUser}/>
