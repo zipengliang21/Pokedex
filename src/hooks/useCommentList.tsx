@@ -1,16 +1,13 @@
 import {useEffect, useState} from "react";
 const axios = require('axios');
 
-const localhostURL = "http://localhost:5000";
-const productionURL = "https://pokedex-455-server.herokuapp.com";
-
-
 interface Comment {
    userId: string;
    userName: string;
    postID: string;
    commentID: number;
    content: string;
+   avatar:string;
    date: Date;
 }
 
@@ -32,7 +29,7 @@ const useCommentList = () => {
       initialSet();
    }, [])
 
-   const addComment = async (content:string, postID: string, userName: string, userID:string) => {
+   const addComment = async (content:string, postID: string, userName: string, userID:string, avatar:string) => {
       let commentID = getCount() + 1;
       let date = new Date();
       let newComment: Comment = {
@@ -41,26 +38,27 @@ const useCommentList = () => {
          postID: postID,
          commentID: commentID,
          content: content,
+         avatar: avatar,
          date: date
       };
-      await axios.post(`${localhostURL}/comments/`, newComment);
+      await axios.post(`/api/comments/`, newComment);
       setCommentList(await getCommentList());
       setFilteredComment(await getCommentForPost(postID));
       return newComment;
    }
 
    const getComment = async (_id: string) => {
-      const response = await axios.get(`${localhostURL}/comments/${_id}`);
+      const response = await axios.get(`/api/comments/${_id}`);
       return response.data.comment;
    }
 
    const getCommentList = async (): Promise<Comment[]> => {
-      const response = await axios.get(`${localhostURL}/comments/`);
+      const response = await axios.get(`/api/comments/`);
       return response.data.commentList;
    }
 
    const getCommentForPost = async (postID: string):Promise<Comment[]> => {
-      const response = await axios.get(`${localhostURL}/comments/post/${postID}`);
+      const response = await axios.get(`/api/comments/post/${postID}`);
       setFilteredComment(response.data.comment);
       return response.data.comment;
    }

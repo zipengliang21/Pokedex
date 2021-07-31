@@ -1,12 +1,8 @@
 import {useEffect, useState} from "react";
+import swal from 'sweetalert';
 const axios = require('axios');
 
-const localhostURL = "http://localhost:5000";
-const productionURL = "https://pokedex-455-server.herokuapp.com";
-
-
 // Create a custom React Hook for Pokemon List
-
 interface Pokemon {
    name: string;
    id: string;
@@ -48,25 +44,36 @@ const usePokemonList = () => {
          baseDefence: baseDefence,
          baseSpeed: baseSpeed,
       }
-      await axios.post(`${localhostURL}/pokemons/`, data);
-      setPokemonList(await getPokemonList());
+         const response = await axios.post(`/api/pokemons/`, data);
+         if (response.data) {
+            setPokemonList(await getPokemonList());
+            swal("add Pokemon successfully", "", "success");
+         }else {
+            swal("add Pokemon Failed", "", "warning");
+         }
 
    }
    const deletePokemon =  async (id: string, name: string) => {
       let deleteInfo = {id: id, name: name};
-      const response = await axios.delete(`${localhostURL}/pokemons/${id}`, {data:deleteInfo});
-      if (response.status === 204) {
-         setPokemonList(await getPokemonList());
+      try{ const response = await axios.delete(`/api/pokemons/${id}`, {data:deleteInfo});
+         if (response.status === 204) {
+            setPokemonList(await getPokemonList());
+            await swal("delete Pokemon successfully", "", "success");
+         }
+         return response.status;
+      }catch (error){
+         await swal("delete Pokemon Failed", "", "warning");
+         return error.response.status;
       }
-      return response.status;
+
    }
    const getPokemon = async (_id: string) => {
-      const response = await axios.get(`${localhostURL}/pokemons/${_id}`);
+      const response = await axios.get(`/api/pokemons/${_id}`);
       return response.data.pokemon[0];
    }
 
    const getPokemonList = async () => {
-      const response = await axios.get(`${localhostURL}/pokemons/`);
+      const response = await axios.get(`/api/pokemons/`);
       return response.data.pokemonList;
    }
 

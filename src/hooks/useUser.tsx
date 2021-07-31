@@ -1,10 +1,6 @@
 import {useEffect, useState} from "react";
 const axios = require('axios');
 
-const localhostURL = "http://localhost:5000";
-const productionURL = "https://pokedex-455-server.herokuapp.com";
-
-
 export interface IUser {
    _id?: string;
    userName: string;
@@ -15,6 +11,7 @@ export interface IUser {
    location?: string;
    password: string;
    confirmPassword?: string;
+   isAdmin?: boolean;
    createdOn?: Date;
    updatedOn?: Date;
 }
@@ -33,11 +30,26 @@ const useUser = () => {
 
 
    const getCurrentUser = async () => {
-      const response = await axios.get(`${localhostURL}/getCurrentUser`, { withCredentials: true });
-      setCurrentUser(response.data.user);
+      let response: {data: {user: any}} = {data: {user: null}} ;
+      try {
+          response = await axios.get(`/api/getCurrentUser`, {withCredentials: true});
+      }catch (e) {
+         console.log("catch user get no current user");
+         setCurrentUser(null);
+      }
+      if (response !== null) {
+         setCurrentUser(response.data.user);
+      } else {
+         setCurrentUser(null);
+      }
       return response.data.user;
    }
 
-   return {currentUser, setCurrentUser, getCurrentUser}
+   const logout = async () => {
+      await axios.get(`/api/logout`, { withCredentials: true });
+      setCurrentUser(null);
+   }
+
+   return {currentUser, setCurrentUser, getCurrentUser, logout}
 }
 export {useUser};

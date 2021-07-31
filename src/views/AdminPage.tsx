@@ -13,21 +13,16 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import styled from "styled-components";
-import Header from "../components/Common/Header";
-import NavBar from "../components/Common/NavBar";
 import LoginHeader from "../components/LoginHeader";
 import {NavLink} from "react-router-dom";
 import { useHistory } from "react-router";
 import axios from 'axios';
 
-const server = "http://localhost:5000";
 
 const Background = styled.div`
-  background: url("https://onlyvectorbackgrounds.com/wp-content/uploads/2019/03/Subtle-Lines-Abstract-Gradient-Background-Cool.jpg")
-    no-repeat center center fixed rgba(161, 189, 198, 0.75);
-  min-height: 100vh;
-  background-size: cover;
-  background-blend-mode: multiply;
+   width: 850px;
+   margin: 0 auto;
+   background: inherit;
 `;
 
 
@@ -120,7 +115,7 @@ export default function AdminPage() {
   const handleClickSubmit = () => {
     axios({
       method: 'post',
-      url: server + '/adminLogin',
+      url: '/adminLogin',
       data: {
         userName: userName,
         password: password
@@ -139,8 +134,6 @@ export default function AdminPage() {
 
   return (
       <Background>
-        <Header />
-        <NavBar />
         <LoginHeader flag={1}/>
         <Wrapper>
           <Container component="main" maxWidth="xs">

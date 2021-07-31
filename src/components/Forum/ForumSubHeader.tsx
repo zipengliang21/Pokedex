@@ -4,6 +4,8 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {NavLink} from "react-router-dom";
 
 const ForumSubHeaderWrapper = styled.div`
+    width: 850px;
+    margin: 0 auto;
     height: 40px;
     display: flex;
     flex-direction: row;
@@ -33,6 +35,12 @@ const ForumSubHeaderWrapper = styled.div`
         margin-right: 0;
       }
     }
+    @media(max-width: 875px){
+      width: 418px;
+   }
+   @media(max-width: 576px){
+      width: 100%;
+   }
 `;
 
 function ForumSubHeader() {

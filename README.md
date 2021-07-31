@@ -3,6 +3,10 @@
 This is a CPSC 455 project.
 Project Progress after Workshop 1
 
+**High Level Description:**
+
+Pokedex is a one-stop web application for Pokemon lovers and trainers. Users can find the natures and characteristics of Pokemon that they want on the application. The application also allows users to comment on Pokemon for social and networking purposes.
+
 First step:
 Brainstorm some ideas for the first lab. In Lab 1, we will finalize groups, and discuss project ideas. By Lab 2, you should have selected a project topic. 
 
@@ -49,10 +53,9 @@ Must be completed with your group before workshop 2
       **4. Users can update their profile**<br>
 
    * 2-3 stretch requirements (plan to complete at least 1)<br> 
-      **1. The website can recognize pokemon pictures by ML.** <br>
-      **2. Users can make post in forum.** <br> 
-      **3. Users can make comments in forum.**<br>
-      **4. Users can login via their google accounts or github accounts.**<br> 
+      **1. Privide Engish and Chinese language versions.** <br>
+      **2. Users can make post and comments in forum.** <br> 
+      **3. Users can login via their google accounts or github accounts.**<br> 
 
 *  Pick 2 of your minimal requirements and break each of them down into ~2-5 smaller tasks!<br> 
    *  This will help you divide up work among your teammates<br>

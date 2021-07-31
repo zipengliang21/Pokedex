@@ -1,9 +1,6 @@
 import {useEffect, useState} from "react";
+import swal from "sweetalert";
 const axios = require('axios');
-
-const localhostURL = "http://localhost:5000";
-const productionURL = "https://pokedex-455-server.herokuapp.com";
-
 
 interface Post {
    userId: string;
@@ -12,6 +9,7 @@ interface Post {
    title: string;
    description: string;
    content: string;
+   avatar: string;
    date:Date;
 }
 
@@ -30,7 +28,7 @@ const usePostList = () => {
       initialSet();
    }, [])
 
-   const addPost = async (title:string, description:string, content:string, userName:string, userId:string) => {
+   const addPost = async (title:string, description:string, content:string, userName:string, userId:string, avatar:string) => {
       let postList = await getPostList();
       let postId: string = (postList.length + 1).toString();
       let date = new Date();
@@ -41,21 +39,29 @@ const usePostList = () => {
          title: title,
          description: description,
          content: content,
+         avatar: avatar,
          date: date
       }
-      console.log(newPost);
-      await axios.post(`${localhostURL}/posts/`, newPost);
-      setPostList(await getPostList());
+
+      try {
+         const response = await axios.post(`/api/posts/`, newPost);
+         if (response.status === 201) {
+            setPostList(await getPostList());
+            await swal("add post successfully", "", "success");
+         }
+      }catch (error){
+         await swal("add post Failed", "", "warning");
+      }
 
    }
 
    const getPost = async (_id: string):Promise<Post> => {
-      const response = await axios.get(`${localhostURL}/posts/${_id}`);
+      const response = await axios.get(`/api/posts/${_id}`);
       return response.data.post[0];
    }
 
    const getPostList = async () => {
-      const response = await axios.get(`${localhostURL}/posts/`);
+      const response = await axios.get(`/api/posts/`);
       return response.data.postList;
    }
 

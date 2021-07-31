@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const LoginHeaderWrapper = styled.div`
-  width: 850px;
+  width: 100%;
   margin: 0 auto;
   line-height: 1.8;
   font-family: 'Poppins', sans-serif;
@@ -21,7 +21,7 @@ const LoginHeaderWrapper = styled.div`
      margin: 0 auto;
   }
   @media(max-width: 875px){
-     width: 418px;
+     width: 100%;
   }
   @media(max-width: 576px){
     width: 100%;

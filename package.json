@@ -1,7 +1,6 @@
 {
   "name": "Pokedex",
   "author": "Zipeng Liang",
-  "homepage": "https://zipengliang21.github.io/Pokemon",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -45,6 +44,7 @@
     "react-simplemde-editor": "^5.0.1",
     "reactstrap": "^8.9.0",
     "styled-components": "^5.3.0",
+    "sweetalert": "^2.1.2",
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
   },
@@ -52,9 +52,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "deploy": "sh scripts/deploy.sh"
+    "eject": "react-scripts eject"
   },
+  "proxy": "http://localhost:5000/",
   "eslintConfig": {
     "extends": [
       "react-app",

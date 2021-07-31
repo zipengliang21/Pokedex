@@ -57,7 +57,7 @@ const GroupWrapper = styled.div`
 
 const AddButtonWrapper = styled.div`
 min-width:100%;
-max-width:100%
+max-width:100%;
 text-align:center;
 margin-top:2vh;
 margin-bottom:2vh;
@@ -73,7 +73,7 @@ class AdminManagePage extends React.Component{
                 <SearchBar />
                 <PokemonWrapper>
                     <AddButtonWrapper>
-                    <a href="#/admin/add" style={{backgroundColor:"#e2748b",borderRadius:"5rem", width:"5.5rem",fontSize:"1.2rem"}}>Add More Pokemons</a>
+                    <a href="/admin/add" style={{backgroundColor:"#e2748b",borderRadius:"5rem", width:"5.5rem",fontSize:"1.2rem"}}>Add More Pokemons</a>
                     </AddButtonWrapper>
                 <GroupWrapper>
                    {PokemonData.slice(0, 4).map((pokemon, index) => {

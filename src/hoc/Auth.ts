@@ -11,14 +11,10 @@ function AuthLayout (props: any) {
         const cookieExists: boolean =
             typeof cookieChecker.get('jwt') === 'string' &&
             (cookieChecker.get('jwt') as string).length > 0;
-        // console.log(cookieChecker.get('jwt'))
-        // console.log((cookieChecker.get('jwt') as string).length > 0)
-        // console.log(cookieChecker.get('jwt'))
         if (cookieExists) {
             const response = await props.getCurrentUser();
-            if (response.data) {
-                const responseBody = response.data;
-                props.setCurrentUser(responseBody.user);
+            if (response) {
+                props.setCurrentUser(response);
             } else {
                 cookieChecker.remove('jwt');
             }
