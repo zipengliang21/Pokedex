@@ -5,6 +5,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import "easymde/dist/easymde.min.css";
 import { useForm } from "react-hook-form";
 import Axios from 'axios';
+const server = 'https://pokedex-455-server.herokuapp.com';
 
 const FormWrapper = styled.div`
   display:flex;
@@ -37,7 +38,7 @@ const EditForm = (props: any) =>{
     const [cPassword, setCPassword] = useState('');
 
     const getProfile = async (_id: string) => {
-        const response = await Axios.get(`/api/profile/${_id}`);
+        const response = await Axios.get(`${server}/api/profile/${_id}`);
         return response.data.profile[0];
     }
 
@@ -93,7 +94,7 @@ const EditForm = (props: any) =>{
         }
         console.log("Edit form " + reqBody);
         if(validateForm(reqBody)){
-            await Axios.post('/api/profile/edit',reqBody);
+            await Axios.post('${server}/api/profile/edit',reqBody);
         }
         clearPwdField();
     };
