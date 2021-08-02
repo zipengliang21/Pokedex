@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
 import {HashRouter as Router} from "react-router-dom";
-import './index.scss';
+import './index.css';
 import App from './App';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
