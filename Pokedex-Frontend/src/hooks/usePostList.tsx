@@ -1,7 +1,6 @@
 import {useEffect, useState} from "react";
 import swal from "sweetalert";
 const axios = require('axios');
-const server = 'https://pokedex-455-server.herokuapp.com';
 
 interface Post {
    userId: string;
@@ -45,7 +44,7 @@ const usePostList = () => {
       }
 
       try {
-         const response = await axios.post(`${server}/api/posts/`, newPost);
+         const response = await axios.post(`/api/posts/`, newPost);
          if (response.status === 201) {
             setPostList(await getPostList());
             await swal("add post successfully", "", "success");
@@ -57,12 +56,12 @@ const usePostList = () => {
    }
 
    const getPost = async (_id: string):Promise<Post> => {
-      const response = await axios.get(`${server}/api/posts/${_id}`);
+      const response = await axios.get(`/api/posts/${_id}`);
       return response.data.post[0];
    }
 
    const getPostList = async () => {
-      const response = await axios.get(`${server}/api/posts/`);
+      const response = await axios.get(`/api/posts/`);
       return response.data.postList;
    }
 

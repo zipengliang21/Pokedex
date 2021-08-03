@@ -1,6 +1,5 @@
 import {useEffect, useState} from "react";
 const axios = require('axios');
-const server = 'https://pokedex-455-server.herokuapp.com';
 
 export interface IUser {
    _id?: string;
@@ -33,7 +32,7 @@ const useUser = () => {
    const getCurrentUser = async () => {
       let response: {data: {user: any}} = {data: {user: null}} ;
       try {
-          response = await axios.get(`${server}/api/getCurrentUser`, {withCredentials: true});
+          response = await axios.get(`/api/getCurrentUser`, {withCredentials: true});
       }catch (e) {
          console.log("catch user get no current user");
          setCurrentUser(null);
@@ -47,7 +46,7 @@ const useUser = () => {
    }
 
    const logout = async () => {
-      await axios.get(`${server}/api/logout`, { withCredentials: true });
+      await axios.get(`/api/logout`, { withCredentials: true });
       setCurrentUser(null);
    }
 

@@ -1,6 +1,5 @@
 import {useEffect, useState} from "react";
 const axios = require('axios');
-const server = 'https://pokedex-455-server.herokuapp.com';
 
 interface Comment {
    userId: string;
@@ -49,17 +48,17 @@ const useCommentList = () => {
    }
 
    const getComment = async (_id: string) => {
-      const response = await axios.get(`${server}/api/comments/${_id}`);
+      const response = await axios.get(`/api/comments/${_id}`);
       return response.data.comment;
    }
 
    const getCommentList = async (): Promise<Comment[]> => {
-      const response = await axios.get(`${server}/api/comments/`);
+      const response = await axios.get(`/api/comments/`);
       return response.data.commentList;
    }
 
    const getCommentForPost = async (postID: string):Promise<Comment[]> => {
-      const response = await axios.get(`${server}/api/comments/post/${postID}`);
+      const response = await axios.get(`/api/comments/post/${postID}`);
       setFilteredComment(response.data.comment);
       return response.data.comment;
    }

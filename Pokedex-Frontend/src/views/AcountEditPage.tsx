@@ -5,7 +5,6 @@ import {faEdit} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import EditForm from "../components/DetailedView/EditForm";
 import Axios from 'axios';
-const server = 'https://pokedex-455-server.herokuapp.com';
 
 const Background = styled.div`
    width: 850px;
@@ -136,7 +135,7 @@ function AccountEditPage(props: any) {
     const [avatarGet,setAvatarGet] = useState('');
 
     const getProfile = async (_id: string) => {
-        const response = await Axios.get(`${server}/api/profile/${_id}`);
+        const response = await Axios.get(`/api/profile/${_id}`);
         return response.data.profile[0];
     }
 
@@ -155,7 +154,7 @@ function AccountEditPage(props: any) {
     }
     const handleChangeAvatar = async() =>{
         const reqBody = {avatar:avatar,userId:props.currentUser._id};
-        const res = await Axios.post(`${server}/api/profile/avatar`,reqBody);
+        const res = await Axios.post(`/api/profile/avatar`,reqBody);
         console.log(res);
         const profile = await getProfile(props.currentUser._id);
         setAvatarGet(profile.avatar);

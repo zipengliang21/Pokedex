@@ -1,7 +1,6 @@
 import {useEffect, useState} from "react";
 import swal from 'sweetalert';
 const axios = require('axios');
-const server = 'https://pokedex-455-server.herokuapp.com';
 
 // Create a custom React Hook for Pokemon List
 interface Pokemon {
@@ -56,7 +55,7 @@ const usePokemonList = () => {
    }
    const deletePokemon =  async (id: string, name: string) => {
       let deleteInfo = {id: id, name: name};
-      try{ const response = await axios.delete(`${server}/api/pokemons/${id}`, {data:deleteInfo});
+      try{ const response = await axios.delete(`/api/pokemons/${id}`, {data:deleteInfo});
          if (response.status === 204) {
             setPokemonList(await getPokemonList());
             await swal("delete Pokemon successfully", "", "success");
@@ -69,12 +68,12 @@ const usePokemonList = () => {
 
    }
    const getPokemon = async (_id: string) => {
-      const response = await axios.get(`${server}/api/pokemons/${_id}`);
+      const response = await axios.get(`/api/pokemons/${_id}`);
       return response.data.pokemon[0];
    }
 
    const getPokemonList = async () => {
-      const response = await axios.get(`${server}/api/pokemons/`);
+      const response = await axios.get(`/api/pokemons/`);
       return response.data.pokemonList;
    }
 

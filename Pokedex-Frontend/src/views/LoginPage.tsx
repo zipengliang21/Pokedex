@@ -20,7 +20,6 @@ import axios from "axios";
 import Google from "components/Icon/LoginIcon/Google";
 import Github from "../components/Icon/LoginIcon/Github";
 import swal from 'sweetalert';
-const server = 'https://pokedex-455-server.herokuapp.com';
 
 const BackgroundWrapper = styled.div`
   width: 850px;
@@ -162,7 +161,7 @@ export default function SignIn(props: any) {
       if (flag === 1) {
          let response:any;
          try {
-             response = await axios.post(`${server}/api/login`, {
+             response = await axios.post(`/api/login`, {
                email: email,
                password: password
             }, {withCredentials: true});
@@ -181,7 +180,7 @@ export default function SignIn(props: any) {
          }
       } else {
          try {
-            const response = await axios.post(`${server}/api/register`, {
+            const response = await axios.post(`/api/register`, {
                email: email,
                userName: userName,
                password: password,
