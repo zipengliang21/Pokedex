@@ -15,3 +15,8 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "pokedex-website-2021" #Must be unique in Heroku
           heroku_email: "zipengliang21@gmail.com"
+        env:
+          HD_MONGODB_URL: ${{secrets.MONGODB_URL}}
+          HD_JWT_SECRET: ${{secrets.JWT_SECRET}}
+          HD_COOKIES_KEY: ${{secrets.COOKIES_KEY}}
+      - run: npm run heroku-postbuild
