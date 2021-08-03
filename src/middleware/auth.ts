@@ -60,16 +60,10 @@ export const sendToken = ({origin, user, statusCode, res,}:
             path: '/',
         };
     } else if (process.env.NODE_ENV === 'production') {
-        let domain = '';
-        if (origin === 'https://pokedex-website-2021.herokuapp.com') {
-            domain = origin;
-        }
         cookieOptions = {
             expires: new Date(Date.now() + ONE_DAY),
             httpOnly: false,
             secure: true,
-            sameSite: 'none',
-            domain: domain,
             path: '/',
         };
     }
