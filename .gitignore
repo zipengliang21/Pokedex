@@ -5,6 +5,7 @@ eslintcache
 
 # dependencies
 /node_modules
+node_modules
 /.pnp
 .pnp.js
 
@@ -13,6 +14,7 @@ eslintcache
 
 # production
 /build
+build
 
 # misc
 .DS_Store
@@ -24,3 +26,14 @@ eslintcache
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# backend
+config/
+.env
+*.icloud
+.nyc_output/
+src/**/*.js
+src/**/*.map
+test/**/*.js
+test/**/*.map
+config/dev.env
