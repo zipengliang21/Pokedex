@@ -1,7 +1,6 @@
 import colors from 'colors';
 import consola from 'consola';
 import { NextFunction, Request, Response } from 'express';
-import request from 'supertest';
 
 /*
 normalize port into number, string or false
@@ -87,18 +86,5 @@ export const stdout = {
             console.log(colors.cyan(JSON.stringify(req.cookies, undefined, 4)));
         }
         next();
-    },
-
-    printResponse: (res: request.Response): void => {
-        // eslint-disable-next-line no-console
-        console.log(colors.green(`Response status: ${res.status}`));
-        // eslint-disable-next-line no-console
-        console.log(colors.green('Response header:'));
-        // eslint-disable-next-line no-console
-        console.log(colors.green(JSON.stringify(res.header, undefined, 4)));
-        // eslint-disable-next-line no-console
-        console.log(colors.green('Response body: '));
-        // eslint-disable-next-line no-console
-        console.log(colors.green(JSON.stringify(res.body, undefined, 4)));
     },
 };
