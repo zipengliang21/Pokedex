@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 const axios = require('axios');
 
 interface Comment {
+    _id:string;
    userId: string;
    userName: string;
    postID: string;
@@ -32,7 +33,7 @@ const useCommentList = () => {
    const addComment = async (content:string, postID: string, userName: string, userID:string, avatar:string) => {
       let commentID = getCount() + 1;
       let date = new Date();
-      let newComment: Comment = {
+      let newComment = {
          userId: userID, //must get from other aspect
          userName: userName, //must get from other aspect
          postID: postID,
@@ -60,6 +61,7 @@ const useCommentList = () => {
    const getCommentForPost = async (postID: string):Promise<Comment[]> => {
       const response = await axios.get(`/api/comments/post/${postID}`);
       setFilteredComment(response.data.comment);
+      console.log(response.data.comment);
       return response.data.comment;
    }
    const getCount = () => {

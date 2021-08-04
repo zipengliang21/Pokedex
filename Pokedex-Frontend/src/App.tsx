@@ -29,7 +29,7 @@ const Background = styled.div`
 function App() {
    const {currentUser, setCurrentUser, getCurrentUser, logout} = useUser();
    const {pokemonList, getPokemon} = usePokemonList();
-   const {postList, addPost, getPost} = usePostList();
+   const {postList, addPost, getPost, deletePost} = usePostList();
    const {commentList, addComment} = useCommentList();
    // const [isAuth, setIsAuth] = useState(false);
    // useEffect(() => {
@@ -68,13 +68,15 @@ function App() {
                 <Route exact path="/Pokemon/:_id"
                        render={(props) => {
                           return <PokemonDetailsPage _id={props.match.params._id}
-                                                     getPokemon={getPokemon} currentUser={currentUser}/>;
+                                                     getPokemon={getPokemon}
+                                                     currentUser={currentUser}/>;
                        }}/>
                 <Route exact path="/post/:_id"
                        render={(props) => {
                           return <PostDetailsPage
                               _id={props.match.params._id}
                               addComment={addComment}
+                              deletePost = {deletePost}
                               currentUser = {currentUser}/>;
                        }}/>
              </Switch>

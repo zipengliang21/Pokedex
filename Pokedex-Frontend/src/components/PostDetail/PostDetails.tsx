@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 import moment from "moment";
-const axios = require('axios');
+import {useHistory} from "react-router";
 
 const InfoWrapper = styled.div`
   width: 750px;
@@ -15,6 +15,7 @@ const InfoWrapper = styled.div`
     font-size: 28px;
     color: #04266D;
   }
+
    @media(max-width: 875px){
      width: 418px;
    }
@@ -43,6 +44,18 @@ const ContentWrapper = styled.div`
     width: 750px;
     display: flex;
     justify-items: center;
+    #deleteButton{
+       background-color: #3F51B5;
+       border-color: #3F51B5;
+       cursor: pointer;
+       height: 32px;
+       width: 100px;
+       padding: 0 15px;
+       font-size: 14px;
+       border-radius: 4px;
+       color: #FFFFFF;
+       margin-top: 10px;
+    }
     @media(max-width: 875px){
      width: 418px;
     }
@@ -71,8 +84,25 @@ const Content = styled.div`
 `;
 
 const PostDetails = (props: any) => {
-   const logo = "http://3.bp.blogspot.com/-fZ-FTGBT_OI/V87me3nL3PI/AAAAAAAAAkQ/" +
-       "ornK37y9NRgbYhQB1sjANbXUX2HxrISbgCK4B/s1600/068_Machamp.png";
+
+    const history = useHistory();
+
+    const [currentUserId,setCurrentUserId] = useState("");
+    const [currentUserIsAdmin, setCurrentUserIsAdmin] = useState(false);
+
+    useEffect(() => {
+        if (props.currentUser !== undefined && props.currentUser !== null){
+            setCurrentUserId(props.currentUser._id);
+            setCurrentUserIsAdmin(props.currentUser.isAdmin);
+        }
+    }, [props.currentUser]);
+
+
+    const deleteThisPost = async () => {
+        await props.deletePost(props.rootPost._id);
+        history.push("/forum");
+    }
+
    return (
        <InfoWrapper>
           <header>{props.rootPost.title}</header>
@@ -86,7 +116,13 @@ const PostDetails = (props: any) => {
                 <div className="userName">{props.rootPost.userName}</div>
              </UserWrapper>
              <Content>{props.rootPost.content}</Content>
+              {(currentUserId === props.rootPost.userId || currentUserIsAdmin === true)&&
+              <button id="deleteButton"
+                      onClick={() => deleteThisPost()}>Delete
+              </button>
+              }
           </ContentWrapper>
+
        </InfoWrapper>
    );
 };

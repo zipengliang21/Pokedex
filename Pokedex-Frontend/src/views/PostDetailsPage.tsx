@@ -64,29 +64,18 @@ const LikeButton = styled.div`
     }
 `;
 
-interface Comment {
-   userId: string;
-   userName: string;
-   postID: string;
-   commentID: number;
-   content: string;
-   date: Date;
-}
-
 
 function PostDetailsPage(props: any) {
    const {filteredComment, setFilteredComment, getCommentForPost} = useCommentList();
-   const {getPost} = usePostList();
-   const [post, setPost] = useState({postID: ""});
-   // const [isAuth, setIsAuth] = useState(false);
+   const {getPost, setPostList} = usePostList();
+   const [post, setPost] = useState({postID: "", _id:""});
+
 
    const init = async () => {
       const pickPost = await getPost(props._id);
       setPost(pickPost);
-      await getCommentForPost(pickPost.postID);
-      // if (props.currentUser !== undefined && props.currentUser !== null) {
-      //    setIsAuth(true);
-      // }
+      await getCommentForPost(pickPost._id);
+
    };
 
    useEffect(() => {
@@ -98,16 +87,19 @@ function PostDetailsPage(props: any) {
           <ForumWrapper>
              <ForumSubHeader/>
              <ForumViewWrapper>
-                <PostDetails rootPost={post}/>
+                <PostDetails rootPost={post}
+                             // setPostList = {setPostList}
+                             deletePost = {props.deletePost}
+                             currentUser={props.currentUser}
+                />
                 {filteredComment.map((comment: any, index: number) => {
                    return (
                        <PostComment comment={comment} id={index} currentUser={props.currentUser}/>
                    );
                 })}
-                {/*<LikeButton><Heart color="#FFFFFF"/>Liked</LikeButton>*/}
                 {props.currentUser && <PostNewComment add={props.addComment}
                                            _id={props._id}
-                                           postID={post.postID}
+                                           postID={post._id}
                                            filteredComment={filteredComment}
                                            setFilteredComment={setFilteredComment}
                                            currentUser={props.currentUser}
