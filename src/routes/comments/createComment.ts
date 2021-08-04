@@ -27,7 +27,7 @@ export default async (req: Request, res: Response): Promise<void> => {
 
     let postExists: boolean;
     try {
-        postExists = await Posts.exists({ postID: postID });
+        postExists = await Posts.exists({ _id: postID });
     } catch (err) {
         throw new ServerError({
             statusCode: 400,

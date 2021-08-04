@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 import SimpleMDE from "react-simplemde-editor";
-import {NavLink} from "react-router-dom";
 
 const InfoWrapper = styled.div`
   width: 750px;

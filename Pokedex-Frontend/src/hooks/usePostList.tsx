@@ -3,6 +3,7 @@ import swal from "sweetalert";
 const axios = require('axios');
 
 interface Post {
+    _id:string;
    userId: string;
    userName: string;
    postID: string;
@@ -32,7 +33,7 @@ const usePostList = () => {
       let postList = await getPostList();
       let postId: string = (postList.length + 1).toString();
       let date = new Date();
-      let newPost: Post = {
+      let newPost = {
          userId: userId, //get from other aspect
          userName: userName,  //get from other aspect
          postID: postId,
@@ -55,6 +56,21 @@ const usePostList = () => {
 
    }
 
+    const deletePost =  async (_id:string) => {
+        let deleteInfo = {_id: _id};
+        try{ const response = await axios.delete(`/api/posts/${_id}`, {data:deleteInfo});
+            if (response.status === 204) {
+                setPostList(await getPostList());
+                await swal("delete post successfully", "", "success");
+            }
+            return response.status;
+        }catch (error){
+            await swal("delete post Failed", "", "warning");
+            return error.response.status;
+        }
+
+    }
+
    const getPost = async (_id: string):Promise<Post> => {
       const response = await axios.get(`/api/posts/${_id}`);
       return response.data.post[0];
@@ -69,6 +85,6 @@ const usePostList = () => {
       return count;
    }
 
-   return {postList, setPostList, count, addPost, getPost, getPostList}
+   return {postList, setPostList, count, addPost, deletePost, getPost, getPostList}
 }
 export {usePostList};

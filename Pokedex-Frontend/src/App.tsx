@@ -31,15 +31,10 @@ const Background = styled.div`
 function App() {
     const {currentUser, setCurrentUser, getCurrentUser, logout} = useUser();
     const {pokemonList, getPokemon} = usePokemonList();
-    const {postList, addPost, getPost} = usePostList();
+    const {postList, addPost, deletePost, getPost} = usePostList();
     const {commentList, addComment} = useCommentList();
     const {language, setLanguage} = useLanguage();
-    // const [isAuth, setIsAuth] = useState(false);
-    // useEffect(() => {
-    //    if (currentUser !== undefined && currentUser !== null) {
-    //       setIsAuth(true);
-    //    }
-    // }, [currentUser]);
+   
     console.log(language);
     return (
 
@@ -80,6 +75,7 @@ function App() {
                                        return <PostDetailsPage
                                            _id={props.match.params._id}
                                            addComment={addComment}
+                                           deletePost = {deletePost}
                                            currentUser={currentUser}/>;
                                    }}/>
                         </Switch>

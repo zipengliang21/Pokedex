@@ -158,6 +158,7 @@ function AccountEditPage(props: any) {
         console.log(res);
         const profile = await getProfile(props.currentUser._id);
         setAvatarGet(profile.avatar);
+        props.currentUser.avatar = profile.avatar;
     }
 
     return (
