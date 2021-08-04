@@ -6,14 +6,14 @@ import App from './App';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faHome, faAddressCard, faSearch, faComment, faAngleUp, faFilter, faUser,
-         faPlus, faSimCard, faEdit, faPlusCircle, faHeart} from '@fortawesome/free-solid-svg-icons'
+         faPlus, faSimCard, faEdit, faPlusCircle, faHeart, faGlobe} from '@fortawesome/free-solid-svg-icons'
 
 library.add(faHome, faAddressCard, faSearch, faComment, faAngleUp, faFilter,
-    faUser, faPlus, faSimCard, faEdit, faPlusCircle, faHeart)
+    faUser, faPlus, faSimCard, faEdit, faPlusCircle, faHeart, faGlobe)
 
 ReactDOM.render(
     <Router>
-       <App />
+       <App/>
     </Router>,
   document.getElementById('root')
 );

@@ -1,16 +1,18 @@
 import React from "react";
 import styled from "styled-components";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {NavLink} from "react-router-dom";
-
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {LanguageEnum} from "../../hooks/useLanguage";
+import {FormattedMessage} from "react-intl";
+import {I18nProvider} from "../../i18n";
 
 const HeaderWrapper = styled.div`
    width: 850px;
    margin: 0 auto;
-   letter-spacing: 0;   
+   letter-spacing: 0;
    display: flex;
    align-items: center;
-   justify-content: flex-end;
+   justify-content: space-between;
    font-size: 16px;
    font-weight: 600;
    line-height: 1.8;
@@ -18,6 +20,10 @@ const HeaderWrapper = styled.div`
    color: rgba(71, 32, 121, 0.9);
    height: 40px;
    background: linear-gradient(90.07deg, rgba(177, 209, 202, 0.83) 0.07%, rgba(207, 233, 229, 0.79) 99.95%);
+   .translation{
+      margin-left: 50px;
+      font-size: 19px;
+   }
    #login{
        margin-right: 50px;
    }
@@ -37,6 +43,9 @@ const HeaderWrapper = styled.div`
 `;
 
 const Wrapper = styled.div`
+  .language{
+    margin-left: 35px;
+  }
   .user{
       margin-right: 5px;
   }
@@ -47,7 +56,7 @@ const Wrapper = styled.div`
      min-width: 80px;
      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
      z-index: 1;
-     .logout{
+     .switch, .logout{
         cursor: pointer;
      }
      .admin{
@@ -71,31 +80,40 @@ const Wrapper = styled.div`
 `;
 
 function Header(props: any) {
-   let admin = props.currentUser && props.currentUser.isAdmin?
-       <NavLink className="admin" exact to="/admin/add">Admin</NavLink> :
-       null;
-   let value = props.currentUser?
-       <Wrapper id="login">
-          <NavLink exact to="/profile">
-             <FontAwesomeIcon icon="user" className="user"/>
-             <span className="span">{props.currentUser.userName}</span>
-          </NavLink>
-          <div className="dropdown-content">
-             {admin}
-             <a className="logout" onClick={() => props.logout()}>Logout</a>
-          </div>
-       </Wrapper> :
-       <NavLink exact to="/login">
-          <Wrapper id="login">
-             <FontAwesomeIcon icon="user" className="user"/>
-             <span className="span">login</span>
-          </Wrapper>
-       </NavLink>;
-   return (
-       <HeaderWrapper>
-          {value}
-       </HeaderWrapper>
-   );
+    let admin = props.currentUser && props.currentUser.isAdmin ?
+        <NavLink className="admin" exact to="/admin/add">Admin</NavLink> :
+        null;
+    let value = props.currentUser ?
+        <Wrapper id="login">
+            <NavLink exact to="/profile">
+                <FontAwesomeIcon icon="user" className="user"/>
+                <span className="span">{props.currentUser.userName}</span>
+            </NavLink>
+            <div className="dropdown-content">
+                {admin}
+                <a className="logout" onClick={() => props.logout()}>Logout</a>
+            </div>
+        </Wrapper> :
+        <NavLink exact to="/login">
+            <Wrapper id="login">
+                <FontAwesomeIcon icon="user" className="user"/>
+                <span className="span"><FormattedMessage id='Login'/></span>
+            </Wrapper>
+        </NavLink>;
+    return (
+        <I18nProvider locale={props.language}>
+            <HeaderWrapper>
+                <Wrapper className="translation">
+                    <FontAwesomeIcon icon="globe" className="language"/>
+                    <div className="dropdown-content">
+                        <a className="switch" onClick={() => props.setLanguage(LanguageEnum.Chinese)}>简体中文</a>
+                        <a className="switch" onClick={() => props.setLanguage(LanguageEnum.English)}>English</a>
+                    </div>
+                </Wrapper>
+                {value}
+            </HeaderWrapper>
+        </I18nProvider>
+    );
 }
 
 
