@@ -1,6 +1,5 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import {makeStyles, Theme, createStyles} from "@material-ui/core/styles";
-import FormLabel from "@material-ui/core/FormLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -106,7 +105,7 @@ function CheckBoxType(props: any) {
       WeightLight, WeightMedium, WeightHeavy,
    } = types;
 
-   // const [{}] = filteredPokes;
+
 
    const handleSubmit = () => {
       props.handleTypes(types.normal, types.fire, types.water, types.grass, types.flying,
@@ -297,11 +296,6 @@ function CheckBoxType(props: any) {
             </Button>
 
        </Base>
-       // <PokemonWrapper>
-       //     {filteredPokes.map((pokemon, index) => {
-       //         return  <Fade left key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon.name}/></Fade>;
-       //     })}
-       // </PokemonWrapper>
    );
 
 }

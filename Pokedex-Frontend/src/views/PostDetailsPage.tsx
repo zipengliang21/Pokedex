@@ -6,7 +6,6 @@ import PostDetails from "components/PostDetail/PostDetails";
 import PostComment from "components/PostDetail/PostComment";
 import PostNewComment from "components/PostDetail/PostNewComment";
 import {useCommentList} from "../hooks/useCommentList";
-import Heart from "../components/Icon/ForumIcon/Heart";
 import {usePostList} from "../hooks/usePostList";
 
 const Wrapper = styled.div`
@@ -51,23 +50,9 @@ const ForumViewWrapper = styled.div`
   }
 `;
 
-const LikeButton = styled.div`
-    background-color: #DC004E;
-    border-color: #DC004E;
-    cursor: pointer;
-    padding: 5px 18px;
-    font-size: 14px;
-    border-radius: 4px;
-    color: #FFFFFF;
-    svg{
-      margin-right: 5px;
-    }
-`;
-
-
 function PostDetailsPage(props: any) {
    const {filteredComment, setFilteredComment, getCommentForPost} = useCommentList();
-   const {getPost, setPostList} = usePostList();
+   const {getPost} = usePostList();
    const [post, setPost] = useState({postID: "", _id:""});
 
 
@@ -108,6 +93,6 @@ function PostDetailsPage(props: any) {
           </ForumWrapper>
        </Wrapper>
    );
-};
+}
 
 export default PostDetailsPage;

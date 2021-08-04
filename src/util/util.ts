@@ -9,12 +9,10 @@ export const normalizePort = (val: number | string): number | string | false => 
     const port = parseInt(val as string, 10);
 
     if (isNaN(port)) {
-        // named pipe
         return val as string;
     }
 
     if (port >= 0) {
-        // port number
         return port as number;
     }
 

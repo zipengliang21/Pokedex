@@ -7,7 +7,7 @@ import {ServerError} from "../../util/util";
 export default async (req: Request, res: Response): Promise<void> => {
     let newPokemon = req.body;
     let result = await Pokemon.find({});
-    let img = "http://img.pokemondb.net/artwork/" + newPokemon.name.toLowerCase() +".jpg";
+    let img = "https://img.pokemondb.net/artwork/" + newPokemon.name.toLowerCase() +".jpg";
     let id = result.length + 1 +'';
 try {
     if (newPokemon.name === ''|| newPokemon.name === undefined){

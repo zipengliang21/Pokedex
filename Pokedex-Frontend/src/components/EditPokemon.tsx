@@ -1,6 +1,5 @@
-import React, {useState} from "react";
+import React from "react";
 import styled from "styled-components";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {FormattedMessage} from "react-intl";
 
 const LoginHeaderWrapper = styled.div`

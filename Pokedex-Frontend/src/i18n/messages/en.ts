@@ -13,7 +13,7 @@ export default {
         "SearchBarTitle": "Pokemon Name",
         "SearchBarPlaceholder": "Search Pokemon Names",
         "SearchBarSideNote": "Use the Advanced Search to explore Pokemon by different filters",
-        "SearchBarNote": "Search for a Pokemon by name or using its National Pokedex number.",
+        "SearchBarNote": " Search for a Pokemon by its name here. The result will be displayed below.",
         "PrevPage": "Prev",
         "NextPage": "Next",
         "BacktoHomePage": "BacktoHomePage",
@@ -77,6 +77,6 @@ export default {
         "Pokemon_ID": "Pokemon ID",
         "ConfirmDelete": "Please make sure the information is correct",
         "Login_Through_Admin": "Please Login through Admin Account",
-        "Edit_Pokemon": "Edit Pokemon",
+        "Edit_Pokemon": "Add and Delete Pokemon",
     }
 };

@@ -1,14 +1,12 @@
 import styled from "styled-components";
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import ForumHeader from "../components/Forum/ForumHeader";
 import {NavLink} from "react-router-dom";
 import ForumSubHeader from "../components/Forum/ForumSubHeader";
 import moment from "moment";
-import Heart from "components/Icon/ForumIcon/Heart";
 import Fade from "react-reveal/Fade";
 import ReactPaginate from "react-paginate";
 import {useIntl} from "react-intl";
-const axios = require('axios');
 
 
 const ForumWrapper = styled.div`
@@ -63,14 +61,6 @@ const StatWrapper = styled.div`
     font-size: 13px;
     margin-top: 2px;
   }
-`;
-
-const Icon = styled.div`
-    margin-right: 10px;
-    svg{
-      margin-right: 5px;
-      width: 13px;
-    }
 `;
 
 const UserWrapper = styled.div`
@@ -143,8 +133,7 @@ const Pagination = styled.div`
 
 
 function ForumHomePage(props: any) {
-   const logo = "http://3.bp.blogspot.com/-fZ-FTGBT_OI/V87me3nL3PI/AAAAAAAAAkQ/" +
-       "ornK37y9NRgbYhQB1sjANbXUX2HxrISbgCK4B/s1600/068_Machamp.png";
+
    const [offset, setOffset] = useState(0);
    const handlePageClick = (e: any) => {
       const selectedPage = e.selected;
@@ -180,7 +169,6 @@ function ForumHomePage(props: any) {
                 );
              })}
              <Fade bottom>
-                {/*<Button className="loadMore">Load More Pokemon</Button>*/}
                 <Pagination>
                    <ReactPaginate containerClassName="pagination"
                                   marginPagesDisplayed={2}

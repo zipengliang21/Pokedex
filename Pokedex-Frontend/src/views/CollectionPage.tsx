@@ -80,9 +80,6 @@ margin-right: 0;
 margin-left: 10px;
 `;
 
-const addPokemonCard = (card:PokemonCard)=>{
-
-};
 
 class CollectionPage extends React.Component{
     render(){
@@ -104,7 +101,7 @@ class CollectionPage extends React.Component{
                     <StyledCollumContainer>
                     <CardColumns style={{
                         position: "relative",
-                        display: "block", 
+                        display: "block",
                         width: "100%",
                         columnCount:3,
                         columnGap: "1.2rem",

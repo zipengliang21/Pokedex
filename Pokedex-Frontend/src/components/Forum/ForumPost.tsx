@@ -8,7 +8,6 @@ const PostWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin: 100px auto 0 auto;
-  // align-items: center;
   border-style: solid;
   border-color: lightblue;
   img{

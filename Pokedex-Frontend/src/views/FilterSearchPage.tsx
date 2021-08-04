@@ -26,14 +26,14 @@ const FilterSearchContentWrapper = styled.section`
     margin: 0 auto;
     background: inherit;
     text-align: center;
-    
+
     @media(max-width: 875px){
        width: 100%;
     }
     @media(max-width: 576px){
        width: 100%;
     }
-    
+
 `;
 
 const FilterWrapper = styled.div`
@@ -46,9 +46,9 @@ const FilterWrapper = styled.div`
     @media(max-width: 576px){
        width: 100%;
        justify-content: center;
-  
+
     }
-   
+
 `;
 const PokemonWrapper = styled.div`
     display: flex;
@@ -64,7 +64,7 @@ const PokemonWrapper = styled.div`
     @media(max-width: 576px){
        width: 100%;
        padding: 15px 30px;
-  
+
     }
 `;
 

@@ -1,6 +1,5 @@
 import cookieChecker from 'js-cookie';
-import React, {useEffect} from "react";
-import {useUser} from "../hooks/useUser";
+import {useEffect} from "react";
 
 function AuthLayout (props: any) {
     useEffect(() => {

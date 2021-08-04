@@ -1,9 +1,8 @@
-import React, {useState, useRef, useEffect} from "react";
+import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import {faEdit} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import "easymde/dist/easymde.min.css";
-import { useForm } from "react-hook-form";
 import Axios from 'axios';
 import {FormattedMessage} from "react-intl";
 
@@ -55,21 +54,7 @@ const EditForm = (props: any) =>{
 
 
     const validateForm = (reqBody:any) =>{
-        let regexp = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
-        // if(reqBody.length===0){
-        //    const initProfile = await getProfile("0002");
-        //    setEmail(initProfile.email);
-        //    setName(initProfile.userName);
-        //    setDescription(initProfile.userDescription);
-        //    setLocation(initProfile.location);
-        // }
-        //     if(!regexp.test(reqBody.userEmail)){
-        //     }
-        //     if(reqBody.userName.length===0){
-        //     }
-        //     if(reqBody.password.length===0){
-        //     }
-        if(reqBody.password!==cPassword){
+            if(reqBody.password!==cPassword){
             clearPwdField();
             return false;
         }else{
@@ -92,7 +77,6 @@ const EditForm = (props: any) =>{
             location:location,
             password:password,
         }
-        console.log("Edit form " + reqBody);
         if(validateForm(reqBody)){
             await Axios.post('/api/profile/edit',reqBody);
         }

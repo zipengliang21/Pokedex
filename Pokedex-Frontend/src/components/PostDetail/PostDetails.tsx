@@ -117,7 +117,7 @@ const PostDetails = (props: any) => {
                 <div className="userName">{props.rootPost.userName}</div>
              </UserWrapper>
              <Content>{props.rootPost.content}</Content>
-              {(currentUserId === props.rootPost.userId || currentUserIsAdmin === true)&&
+              {(currentUserId === props.rootPost.userId || currentUserIsAdmin)&&
               <button id="deleteButton"
                       onClick={() => deleteThisPost()}><FormattedMessage id='DeletePost'/>
               </button>

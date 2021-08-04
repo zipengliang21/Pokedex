@@ -11,7 +11,6 @@ export default async (req: Request, res: Response): Promise<void> => {
             password
         } = req.body;
       try {
-          // Empty email address
           if (!email) {
               throw new ServerError({
                   message: "Please provide your email address.",
@@ -19,7 +18,6 @@ export default async (req: Request, res: Response): Promise<void> => {
               });
           }
 
-          // Invalid email address format
           if (!validator.isEmail(email)) {
               throw new ServerError({
                   message: "Please enter valid email address format.",
@@ -27,7 +25,6 @@ export default async (req: Request, res: Response): Promise<void> => {
               });
           }
 
-          // Empty password
           if (!password) {
               throw new ServerError({
                   message: "Please provide your password.",
@@ -37,7 +34,6 @@ export default async (req: Request, res: Response): Promise<void> => {
 
           const user: UserDocument = await User.findOne({email});
 
-          // non-existing user
           if (!user) {
               throw new ServerError({
                   message: "Unable to login, no user with this email.",
@@ -45,7 +41,6 @@ export default async (req: Request, res: Response): Promise<void> => {
               });
           }
 
-          // check password encryption and match
           const isMatch = await bcrypt.compare(password, user.password)
 
           if (!isMatch) {

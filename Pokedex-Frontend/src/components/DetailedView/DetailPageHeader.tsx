@@ -1,7 +1,5 @@
 import React, {useState, useEffect} from "react";
 import styled from "styled-components";
-import Fade from "react-reveal/Fade";
-import Pokemon from "../DetailedView/Pokemon";
 import {NavLink} from "react-router-dom";
 import {FormattedMessage} from "react-intl";
 

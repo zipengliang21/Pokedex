@@ -1,4 +1,4 @@
-import React, { useState,useRef} from 'react';
+import React from 'react';
 import PokemonData from "../pokedexData.json";
 import styled from "styled-components";
 import NavBar from "../components/Common/NavBar";
@@ -67,7 +67,7 @@ class AdminManagePage extends React.Component{
     render(){
         return(
             <Background>
-            <LogoutHeader /> 
+            <LogoutHeader />
             <NavBar/>
             <Wrapper>
                 <SearchBar />

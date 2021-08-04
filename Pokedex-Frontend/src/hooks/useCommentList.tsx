@@ -13,7 +13,6 @@ interface Comment {
 }
 
 
-// Create a custom React Hook for Comment List
 const useCommentList = () => {
    const [commentList, setCommentList] = useState<Comment[]>([]);
    const [count, setCount] = useState<number>(0);
@@ -34,8 +33,8 @@ const useCommentList = () => {
       let commentID = getCount() + 1;
       let date = new Date();
       let newComment = {
-         userId: userID, //must get from other aspect
-         userName: userName, //must get from other aspect
+         userId: userID,
+         userName: userName,
          postID: postID,
          commentID: commentID,
          content: content,

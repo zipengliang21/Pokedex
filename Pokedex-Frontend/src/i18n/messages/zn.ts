@@ -12,7 +12,7 @@ export default {
         "SearchBarTitle": "宝可梦名字",
         "SearchBarPlaceholder": "输入宝可梦名字",
         "SearchBarSideNote": "可以在高级搜索里通过不同筛选条件搜索哟",
-        "SearchBarNote": "在左边输入的时候，请通过宝可梦的名字或者它的宝可梦号码搜索噢",
+        "SearchBarNote": "在左边输入的时候，请通过宝可梦的名字搜索噢, 结果会在下面显示~",
         "PrevPage": "上一页",
         "NextPage": "下一页",
         "BacktoHomePage": "返回主页",
@@ -63,7 +63,7 @@ export default {
         "Normal_Ability": "普通技能",
         "Hidden_Ability": "隐藏技能",
         "Height": "高端",
-        "Weight": "宽度",
+        "Weight": "重量",
         "Stat": "数据",
         "Hp": "生命",
         "Attack": "攻击",
@@ -76,6 +76,6 @@ export default {
         "Pokemon_ID": "宝可梦ID",
         "ConfirmDelete": "请输入名字并确认输入无误",
         "Login_Through_Admin": "请先登录管理员账号来查看此页面",
-        "Edit_Pokemon": "修改宝可梦",
+        "Edit_Pokemon": "增删宝可梦",
     }
 }

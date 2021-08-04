@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, {useEffect, useState} from "react";
+import React from "react";
 import ForumHeader from "../components/Forum/ForumHeader";
 import ForumSubHeader from "../components/Forum/ForumSubHeader";
 import InputForm from "../components/Forum/InputForm";
@@ -20,7 +20,7 @@ const ForumWrapper = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
-  
+
   @media(max-width: 875px){
     width: 418px;
   }

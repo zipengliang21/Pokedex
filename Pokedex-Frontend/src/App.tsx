@@ -1,4 +1,4 @@
-import React, {Fragment, useEffect, useState} from "react";
+import React from "react";
 import {Switch, Route} from "react-router-dom";
 import FilterSearchPage from "./views/FilterSearchPage";
 import WelcomePage from "./views/WelcomePage";
@@ -31,8 +31,8 @@ const Background = styled.div`
 function App() {
     const {currentUser, setCurrentUser, getCurrentUser, logout} = useUser();
     const {pokemonList, getPokemon} = usePokemonList();
-    const {postList, addPost, deletePost, getPost} = usePostList();
-    const {commentList, addComment} = useCommentList();
+    const {postList, addPost, deletePost} = usePostList();
+    const {addComment} = useCommentList();
     const {language, setLanguage} = useLanguage();
 
     return (

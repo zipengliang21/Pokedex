@@ -1,8 +1,6 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import styled from "styled-components";
 import FavButton from "components/Common/FavButton"
-import Fade from "react-reveal/Fade";
-import Pokemon from "../DetailedView/Pokemon";
 import {usePokemonList} from "../../hooks/usePokemonList";
 import {FormattedMessage} from "react-intl";
 

@@ -156,7 +156,6 @@ function AccountEditPage(props: any) {
     const handleChangeAvatar = async() =>{
         const reqBody = {avatar:avatar,userId:props.currentUser._id};
         const res = await Axios.post(`/api/profile/avatar`,reqBody);
-        console.log(res);
         const profile = await getProfile(props.currentUser._id);
         setAvatarGet(profile.avatar);
         props.currentUser.avatar = profile.avatar;

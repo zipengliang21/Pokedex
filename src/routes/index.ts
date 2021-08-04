@@ -4,7 +4,6 @@ import post from './posts/index';
 import comment from './comments/index'
 import profile from './profile/index';
 import user from './user/index';
-import admin from './admin/index'
 import {auth} from "../middleware/auth";
 
 
@@ -32,8 +31,6 @@ const setUpRoutes = (app: Express): void => {
     app.post('/api/register', user.register);
     app.get('/api/getCurrentUser', auth, user.getCurrentUser);
     app.get('/api/logout', user.logout);
-
-    app.post('/api/adminLogin',admin.login);
 };
 
 export default setUpRoutes;

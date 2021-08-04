@@ -76,8 +76,6 @@ const CommentWrapper = styled.div`
 `;
 
 const PostNewComment = (props: any) => {
-   const logo = "http://3.bp.blogspot.com/-fZ-FTGBT_OI/V87me3nL3PI/AAAAAAAAAkQ/" +
-       "ornK37y9NRgbYhQB1sjANbXUX2HxrISbgCK4B/s1600/068_Machamp.png";
    const [commentContent, setCommentContent] = useState("");
    const [userName,setUserName] = useState("");
    const [avatar, setAvatar] = useState("");

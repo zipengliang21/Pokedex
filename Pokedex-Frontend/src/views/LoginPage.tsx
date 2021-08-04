@@ -13,7 +13,6 @@ import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import styled from "styled-components";
-import {NavLink} from "react-router-dom";
 import LoginHeader from "components/LoginHeader";
 import {useHistory} from "react-router";
 import axios from "axios";
@@ -87,7 +86,7 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "rgba(53, 57, 30, 0.4)",
    },
    form: {
-      width: "100%", // Fix IE 11 issue.
+      width: "100%",
       marginTop: theme.spacing(1),
    },
    submit: {
@@ -341,12 +340,9 @@ export default function SignIn(props: any) {
                 </div>
 
                 <div className={classes.iconContainer}>
-                   {/*<NavLink exact activeClassName="selected" to="/admin">*/}
-                   {/*   Admin*/}
-                   {/*</NavLink>*/}
                    <div className={classes.icon}>
                       <a
-                          // href="https://github.com/zipengliang21"
+                          href="https://github.com/zipengliang21"
                           target="_blank"
                           rel="noreferrer"
                       >

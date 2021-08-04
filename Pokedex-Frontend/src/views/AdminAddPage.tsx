@@ -113,7 +113,7 @@ const Warning = styled.div`
 `;
 
 const AdminAddPage = (props: any) => {
-  const { setPokemonList, addPokemon, deletePokemon, getPokemonList } =
+  const {addPokemon, deletePokemon } =
     usePokemonList();
   const { register, handleSubmit } = useForm();
   const classes = useStyles();

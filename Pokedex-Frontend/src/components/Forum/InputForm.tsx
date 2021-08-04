@@ -75,7 +75,6 @@ const InputWrapper = styled.div`
       width: 100%;
       text-align: center;
       color: black;
-      // #F0F2F5
     }
 `;
 

@@ -2,7 +2,6 @@ import {useEffect, useState} from "react";
 import swal from 'sweetalert';
 const axios = require('axios');
 
-// Create a custom React Hook for Pokemon List
 interface Pokemon {
    name: string;
    id: string;

@@ -14,7 +14,6 @@ interface Post {
    date:Date;
 }
 
-// Create a custom React Hook for Post List
 const usePostList = () => {
    const [postList, setPostList] = useState<Post[]>([]);
    const [count, setCount] = useState<number>(0);

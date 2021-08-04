@@ -16,7 +16,7 @@ export interface IUser {
    updatedOn?: Date;
 }
 
-// Create a custom React Hook for User
+
 const useUser = () => {
    const [currentUser, setCurrentUser] = useState<IUser | null>(null);
 
@@ -34,15 +34,16 @@ const useUser = () => {
       try {
           response = await axios.get(`/api/getCurrentUser`, {withCredentials: true});
       }catch (e) {
-         console.log("catch user get no current user");
          setCurrentUser(null);
       }
       if (response !== null) {
          setCurrentUser(response.data.user);
+         return response.data.user;
       } else {
          setCurrentUser(null);
+         return null;
       }
-      return response.data.user;
+
    }
 
    const logout = async () => {

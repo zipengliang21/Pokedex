@@ -7,11 +7,11 @@ import {VerifiedUserRequest} from "./verifiedUserRequest";
 export const auth = async (req: Request, res: Response, next: NextFunction) => {
     try {
         let token: string;
-        // For Unit Test or Postman Test
+
         if(req.header('Authorization')) {
             token = req.header('Authorization').replace('Bearer ', '');
         }
-        // For actual request from frontend
+
         else if(req.cookies.jwt) {
             console.log("Auth:----" + token)
             token = req.cookies.jwt;
