@@ -5,6 +5,7 @@ import {faEdit} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import EditForm from "../components/DetailedView/EditForm";
 import Axios from 'axios';
+import {FormattedMessage} from "react-intl";
 
 const Background = styled.div`
    width: 850px;
@@ -164,7 +165,7 @@ function AccountEditPage(props: any) {
     return (
         <Background>
             <Banner role="banner">
-                <a className="welcomeMsg" target="_blank" rel="noreferrer">Profile</a>
+                <a className="welcomeMsg" target="_blank" rel="noreferrer"><FormattedMessage id='Profile'/></a>
             </Banner>
             {props.currentUser &&
             <ContentWrapper>
@@ -197,7 +198,7 @@ function AccountEditPage(props: any) {
                             borderRadius: "5px"
                         }}
                                 onClick={() => handleClose()}>
-                            <FontAwesomeIcon icon={faEdit} className="edit"/> Change Avatar
+                            <FontAwesomeIcon icon={faEdit} className="edit"/> <FormattedMessage id='Change_Avatar'/>
                         </button>
                     </AvatarWrapperB>
                     {popup &&
@@ -226,7 +227,7 @@ function AccountEditPage(props: any) {
                                 borderTopLeftRadius: "calc(.3rem - 1px)",
                                 borderTopRightRadius: "calc(.3rem - 1px)",
                             }}>
-                                <Modal.Title>Insert image url</Modal.Title>
+                                <Modal.Title><FormattedMessage id='Insert_Image_url'/></Modal.Title>
                             </Modal.Header>
                             <Modal.Body style={{
                                 position: "relative",
@@ -250,9 +251,9 @@ function AccountEditPage(props: any) {
                                 borderBottomRightRadius: "calc(.3rem - 1px)",
                                 borderBottomLeftRadius: "calc(.3rem - 1px)"
                             }}>
-                                <button className="close-bottom" onClick={() => handleClose()}>Close</button>
+                                <button className="close-bottom" onClick={() => handleClose()}><FormattedMessage id='Close'/></button>
                                 <button className="save-btn" onClick={() => handleChangeAvatar()}>
-                                    Save Changes
+                                    <FormattedMessage id='Save'/>
                                 </button>
                             </Modal.Footer>
                         </ModalContent>

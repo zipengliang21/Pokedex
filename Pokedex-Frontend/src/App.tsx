@@ -34,54 +34,53 @@ function App() {
     const {postList, addPost, deletePost, getPost} = usePostList();
     const {commentList, addComment} = useCommentList();
     const {language, setLanguage} = useLanguage();
-   
-    console.log(language);
+
     return (
-
-                <Auth setCurrentUser={setCurrentUser} getCurrentUser={getCurrentUser}>
-                    <Background>
-                        <Header currentUser={currentUser} setCurrentUser={setCurrentUser} logout={logout}
-                                language={language} setLanguage={setLanguage}/>
-                        <NavBar/>
-                        <Switch>
-                            <Route exact path="/login">
-                                <LoginPage currentUser={currentUser} setCurrentUser={setCurrentUser}/>
-                            </Route>
-                            <Route exact path="/">
-                                <WelcomePage pokemonList={pokemonList} currentUser={currentUser}/>
-                            </Route>
-                            <Route exact path="/profile">
-                                <AccountEditPage currentUser={currentUser}/>
-                            </Route>
-                            <Route exact path="/admin/add">
-                                <AdminAddPage currentUser={currentUser}/>
-                            </Route>
-                            <Route exact path="/advancedSearch">
-                                <FilterSearchPage pokemonList={pokemonList} currentUser={currentUser}/>
-                            </Route>
-                            <Route exact path="/forum">
-                                <ForumHomePage postList={postList} currentUser={currentUser}/>
-                            </Route>
-                            <Route exact path="/forum/newPost">
-                                <ForumNewPostPage addPost={addPost} currentUser={currentUser}/>
-                            </Route>
-                            <Route exact path="/Pokemon/:_id"
-                                   render={(props) => {
-                                       return <PokemonDetailsPage _id={props.match.params._id}
-                                                                  getPokemon={getPokemon} currentUser={currentUser}/>;
-                                   }}/>
-                            <Route exact path="/post/:_id"
-                                   render={(props) => {
-                                       return <PostDetailsPage
-                                           _id={props.match.params._id}
-                                           addComment={addComment}
-                                           deletePost = {deletePost}
-                                           currentUser={currentUser}/>;
-                                   }}/>
-                        </Switch>
-                    </Background>
-                </Auth>
-
+        <I18nProvider locale={language}>
+            <Auth setCurrentUser={setCurrentUser} getCurrentUser={getCurrentUser}>
+                <Background>
+                    <Header currentUser={currentUser} setCurrentUser={setCurrentUser} logout={logout}
+                            language={language} setLanguage={setLanguage}/>
+                    <NavBar/>
+                    <Switch>
+                        <Route exact path="/login">
+                            <LoginPage currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+                        </Route>
+                        <Route exact path="/">
+                            <WelcomePage pokemonList={pokemonList} currentUser={currentUser}/>
+                        </Route>
+                        <Route exact path="/profile">
+                            <AccountEditPage currentUser={currentUser}/>
+                        </Route>
+                        <Route exact path="/admin/add">
+                            <AdminAddPage currentUser={currentUser}/>
+                        </Route>
+                        <Route exact path="/advancedSearch">
+                            <FilterSearchPage pokemonList={pokemonList} currentUser={currentUser}/>
+                        </Route>
+                        <Route exact path="/forum">
+                            <ForumHomePage postList={postList} currentUser={currentUser}/>
+                        </Route>
+                        <Route exact path="/forum/newPost">
+                            <ForumNewPostPage addPost={addPost} currentUser={currentUser}/>
+                        </Route>
+                        <Route exact path="/Pokemon/:_id"
+                               render={(props) => {
+                                   return <PokemonDetailsPage _id={props.match.params._id}
+                                                              getPokemon={getPokemon} currentUser={currentUser}/>;
+                               }}/>
+                        <Route exact path="/post/:_id"
+                               render={(props) => {
+                                   return <PostDetailsPage
+                                       _id={props.match.params._id}
+                                       addComment={addComment}
+                                       deletePost={deletePost}
+                                       currentUser={currentUser}/>;
+                               }}/>
+                    </Switch>
+                </Background>
+            </Auth>
+        </I18nProvider>
     );
 }
 

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Fade from "react-reveal/Fade";
 import Pokemon from "../DetailedView/Pokemon";
 import {NavLink} from "react-router-dom";
+import {FormattedMessage} from "react-intl";
 
 const SearchBarWrapper = styled.div`
   display: flex;
@@ -109,10 +110,10 @@ function DetailPageHeader(props: any) {
        <SearchBarResultWrapper>
           <SearchBarWrapper>
              <div className="left">
-                <NavLink to={"/"}><button className="goBack">Back to Home Page</button></NavLink>
-                <div className="note">Use the Advanced Search to explore Pokemon by different filters</div>
+                <NavLink to={"/"}><button className="goBack"><FormattedMessage id='BacktoHomePage'/></button></NavLink>
+                 <div className="note"><FormattedMessage id='SearchBarSideNote'/></div>
              </div>
-             <div className="right">Search for a Pokemon by name or using its National Pokedex number.</div>
+              <div className="right"><FormattedMessage id='SearchBarNote'/></div>
 
           </SearchBarWrapper>
        </SearchBarResultWrapper>

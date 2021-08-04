@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import styled from "styled-components";
 import SimpleMDE from "react-simplemde-editor";
 import "easymde/dist/easymde.min.css";
+import {FormattedMessage} from "react-intl";
 
 const InputFormWrapper = styled.div`
     display: flex;
@@ -20,7 +21,7 @@ const InputFormWrapper = styled.div`
        margin-top: 10px;
        text-align: left;
     }
-    
+
     #submitButton{
        background-color: #3F51B5;
        border-color: #3F51B5;
@@ -32,7 +33,7 @@ const InputFormWrapper = styled.div`
        color: #FFFFFF;
        margin-right: 10px;
    }
-   
+
     #deleteButton{
        background-color: #DC004E;
        border-color: #DC004E;
@@ -46,7 +47,7 @@ const InputFormWrapper = styled.div`
     @media(max-width: 576px) {
       width: 100%;
     };
-                  
+
 `;
 
 const FormWrapper = styled.form`
@@ -87,13 +88,13 @@ const InputForm = (props: any) => {
    };
    return (
        <InputFormWrapper>
-          <header>New Post</header>
+          <header><FormattedMessage id='NewPost'/></header>
           <div>
              <FormWrapper id="formInput">
                 <FormTop>
                    <LabelWrapper>
-                      <label htmlFor="Name">Title:</label>
-                      <label htmlFor="description">Description:</label>
+                      <label htmlFor="Name"><FormattedMessage id='NewPostTitle'/>:</label>
+                      <label htmlFor="description"><FormattedMessage id='NewPostDescription'/>:</label>
                    </LabelWrapper>
                    <InputWrapper>
                       <input type="text" id="nameInput" name="nameInput"
@@ -111,7 +112,7 @@ const InputForm = (props: any) => {
              </FormWrapper>
              <div className="buttons">
                 <button id="submitButton" onClick={() => props.add(title,description,content,props.currentUser.userName,
-                    props.currentUser._id, props.currentUser.avatar)}>Submit</button>
+                    props.currentUser._id, props.currentUser.avatar)}><FormattedMessage id='Submit'/></button>
              </div>
           </div>
        </InputFormWrapper>

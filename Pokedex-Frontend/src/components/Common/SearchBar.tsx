@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import Fade from "react-reveal/Fade";
 import Pokemon from "../DetailedView/Pokemon";
+import {FormattedMessage, useIntl} from "react-intl";
 
 const SearchBarWrapper = styled.div`
   display: flex;
@@ -130,59 +131,62 @@ const SearchBarResultWrapper = styled.div`
 
 function SearchBar(props: any) {
     const [search, setSearch] = useState("");
-    const [pokemons, setPokemons] = useState([{id: "",_id:"",
+    const [pokemons, setPokemons] = useState([{
+        id: "", _id: "",
         name: "",
         img: "",
         type: [
-            ''
-        ]}]);
-    const [filteredPokemons, setfilteredPokemons] = useState([{name:"", _id:""}]);
-
+            ""
+        ]
+    }]);
+    const [filteredPokemons, setfilteredPokemons] = useState([{name: "", _id: ""}]);
+    const intl = useIntl();
 
     useEffect(() => {
         setPokemons(props.pokemonList);
         const result = pokemons.filter((poke) =>
             poke.name.toLowerCase().includes(search.toLowerCase())
-
         );
-        if(search.length === 0){
+        if (search.length === 0) {
             setfilteredPokemons([]);
-        }
-        else {
+        } else {
             setfilteredPokemons(result);
         }
     }, [search, pokemons]);
+
     return (
         <SearchBarResultWrapper>
             <SearchBarWrapper>
                 <div className="left">
-                    <div className="title">Pokemon Name</div>
+                    <div className="title"><FormattedMessage id='SearchBarTitle'/></div>
                     <form>
                         <input
                             type="text"
                             id="search"
-                            placeholder="Search Pokemon names"
+                            placeholder={intl.formatMessage({id: "SearchBarPlaceholder"})}
                             name="s"
                             onChange={(e) => setSearch(e.target.value)}
                         />
                     </form>
-                    <div className="note">Use the Advanced Search to explore Pokemon by different filters</div>
+                    <div className="note"><FormattedMessage id='SearchBarSideNote'/></div>
                 </div>
-                <div className="right">Search for a Pokemon by name or using its National Pokedex number.</div>
+                <div className="right"><FormattedMessage id='SearchBarNote'/></div>
 
             </SearchBarWrapper>
             <ResultWrapper>
                 <PokemonWrapper>
                     {filteredPokemons.map((pokemon, index) => {
-                        if (pokemon.name === ""){return <> </>}
-                        else {
-                            return  <Fade left key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon._id}/></Fade>;
-                        }})}
+                        if (pokemon.name === "") {
+                            return <> </>;
+                        } else {
+                            return <Fade left key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon._id}/></Fade>;
+                        }
+                    })}
                 </PokemonWrapper>
             </ResultWrapper>
         </SearchBarResultWrapper>
 
-    )
+    );
 
 }
 

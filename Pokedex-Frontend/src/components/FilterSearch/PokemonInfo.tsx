@@ -4,6 +4,7 @@ import FavButton from "components/Common/FavButton"
 import Fade from "react-reveal/Fade";
 import Pokemon from "../DetailedView/Pokemon";
 import {usePokemonList} from "../../hooks/usePokemonList";
+import {FormattedMessage} from "react-intl";
 
 const InfoWrapper = styled.div`
   width: 750px;
@@ -120,7 +121,7 @@ const HeaderWrapper = styled.div`
    @media(max-width: 576px){
      text-align: center;
      margin: 0;
-   } 
+   }
 `;
 
 const HeaderSubWrapper = styled.div`
@@ -128,7 +129,7 @@ const HeaderSubWrapper = styled.div`
   @media(max-width: 576px){
      text-align: center;
      flex-direction: column;
-  } 
+  }
 `;
 
 const StarWrapper =styled.div`
@@ -136,7 +137,7 @@ const StarWrapper =styled.div`
   color: yellow;
   @media(max-width: 576px){
     margin: 0;
-  } 
+  }
 `;
 
 const PokemonInfo = (props: any) => {
@@ -172,53 +173,52 @@ const PokemonInfo = (props: any) => {
                   />
                   <div>{pokemon.name}</div>
                   {pokemon.type.map((pokeType:any) => {
-                      return <label>{pokeType}</label>;
+                      return <label><FormattedMessage id={`${pokeType}`}/></label>;
                   })}
 
                </ImageWrapper>
                <StatWrapper>
                   <div className="InfoRow1">
-                     Normal Abilities: {pokemon.misc.abilities.normal} <br/>
-                     Hidden Abilities: {pokemon.misc.abilities.hidden} <br/>
+                      <FormattedMessage id="Normal_Ability"/>: {pokemon.misc.abilities.normal} <br/>
+                      <FormattedMessage id="Hidden_Ability"/>: {pokemon.misc.abilities.hidden} <br/>
                      <div className="bodySize">
-                        <span>Height: {pokemon.misc.height} </span>
-                        <span>Weight: {pokemon.misc.weight} <br/></span>
+                        <span><FormattedMessage id="Height"/>: {pokemon.misc.height} </span>
+                        <span><FormattedMessage id="Weight"/>: {pokemon.misc.weight} <br/></span>
                      </div>
                   </div>
                   <div className="InfoRow2">
-                     {/*Base/Min/Max:*/}
-                     Stats:
+                      <FormattedMessage id="Stat"/>:
                      <ul className="InfoRow2Data">
                         <div >
                            <li>
-                            <span>HP:
+                            <span><FormattedMessage id="Hp"/>:
                                {pokemon.stats.hp}
                             </span>
                            </li>
                            <li>
-                            <span>Sp Attack:
+                            <span><FormattedMessage id="Sp_Attack"/>:
                                {pokemon.stats.spattack}
                             </span>
                            </li>
                            <li>
-                            <span>Defense:
+                            <span><FormattedMessage id="Sp_Def"/>:
                                {pokemon.stats.defense}
                             </span>
                            </li>
                         </div>
                         <div className="BaseStat">
                            <li>
-                            <span>Attack:
+                            <span><FormattedMessage id="Attack"/>:
                                {pokemon.stats.attack}
                             </span>
                            </li>
                            <li>
-                            <span>Sp Defense:
+                            <span><FormattedMessage id="Sp_Defense"/>:
                                {pokemon.stats.spdefense}
                             </span>
                            </li>
                            <li>
-                            <span>Speed:
+                            <span><FormattedMessage id="Speed"/>:
                                {pokemon.stats.speed}
                             </span>
                            </li>

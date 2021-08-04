@@ -5,6 +5,7 @@ import Pokemon from "../components/DetailedView/Pokemon";
 import Fade from "react-reveal/Fade";
 import ReactPaginate from "react-paginate";
 import Spinner from "components/Spinner";
+import {useIntl} from "react-intl";
 
 const Wrapper = styled.div`
       width: 850px;
@@ -33,7 +34,7 @@ const Wrapper = styled.div`
         outline: none;
         cursor: pointer;
         font-weight: 600;
-      } 
+      }
       .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{
         background-color: #3F51B5 ;
         border:1px solid #3F51B5;
@@ -78,15 +79,16 @@ const GroupWrapper = styled.div`
     @media(max-width: 576px){
       width: 100%;
       margin: 0 auto;
-    }     
+    }
     @media(max-width: 320px){
       justify-content: center;
       margin: 0 auto;
-    }     
+    }
 `;
 
 const WelcomePage = ({pokemonList}: any) => {
    const [offset, setOffset] = useState(0);
+   const intl = useIntl();
    const handlePageClick = (e: any) => {
       const selectedPage = e.selected;
       setOffset(selectedPage);
@@ -123,8 +125,8 @@ const WelcomePage = ({pokemonList}: any) => {
                               pageCount={Math.ceil(pokemonList.length/16)}
                               pageRangeDisplayed={2}
                               activeClassName={"active"}
-                              previousLabel="Prev"
-                              nextLabel="Next"
+                              previousLabel={intl.formatMessage({id: "PrevPage"})}
+                              nextLabel={intl.formatMessage({id: "NextPage"})}
                               previousClassName="previous"
                               nextClassName="next"
                               onPageChange={handlePageClick}/>

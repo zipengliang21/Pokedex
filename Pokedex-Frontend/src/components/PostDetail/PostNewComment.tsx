@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 import SimpleMDE from "react-simplemde-editor";
+import {FormattedMessage} from "react-intl";
 
 const InfoWrapper = styled.div`
   width: 750px;
@@ -98,8 +99,6 @@ const PostNewComment = (props: any) => {
           props.currentUser.userName, props.currentUser._id, props.currentUser.avatar)])
    }
 
-
-
    return (
        <InfoWrapper>
                  <ContentWrapper>
@@ -110,7 +109,7 @@ const PostNewComment = (props: any) => {
                     <CommentWrapper>
                        <SimpleMDE value={commentContent} onChange={handleContentChange}/>
                        <button id="submitButton"
-                               onClick={() => addNewComment()}>Submit
+                               onClick={() => addNewComment()}><FormattedMessage id='Submit'/>
                        </button>
                     </CommentWrapper>
                  </ContentWrapper>

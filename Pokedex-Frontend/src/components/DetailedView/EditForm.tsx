@@ -5,6 +5,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import "easymde/dist/easymde.min.css";
 import { useForm } from "react-hook-form";
 import Axios from 'axios';
+import {FormattedMessage} from "react-intl";
 
 const FormWrapper = styled.div`
   display:flex;
@@ -102,39 +103,39 @@ const EditForm = (props: any) =>{
         <FormWrapper>
             <form>
                 <FormEntry>
-                    <label style={{textAlign: "left"}}>Email:</label>
+                    <label style={{textAlign: "left"}}><FormattedMessage id='Email'/>:</label>
                     <input type="email" placeholder={props.currentUser.email} style={{width:"50vw", maxWidth:"400px",minHeight:"30px",margin:"10px 0",marginTop:"0px"}}
                            onChange={ (event => {setEmail(event.target.value)})} value={email}/>
                 </FormEntry>
                 <FormEntry>
-                    <label style={{textAlign: "left"}}>Name:</label>
+                    <label style={{textAlign: "left"}}><FormattedMessage id='Name'/>:</label>
                     <input type="text" placeholder={props.currentUser.userName} style={{width:"50vw", maxWidth:"400px",minHeight:"30px",margin:"10px 0",marginTop:"0px" }}
                            onChange={ (event => {setName(event.target.value)}) } value={name}/>
                 </FormEntry>
                 <FormEntry>
-                    <label style={{textAlign: "left"}}>Location:</label>
+                    <label style={{textAlign: "left"}}><FormattedMessage id='Location'/>:</label>
                     <input type="text" placeholder={props.currentUser.location} style={{width:"50vw", maxWidth:"400px",minHeight:"30px",margin:"10px 0",marginTop:"0px" }}
                            onChange={ (event => {setLocation(event.target.value)})} value={location}/>
                 </FormEntry>
                 <FormEntry>
-                    <label style={{textAlign: "left"}}>Description:</label>
+                    <label style={{textAlign: "left"}}><FormattedMessage id='Description'/>:</label>
                     <textarea style={{width:"50vw", maxWidth:"400px",minHeight:"100px",margin:"10px 0",marginTop:"0px", overflow:"hidden"}}
                               placeholder={props.currentUser.description}
                               onChange={ (event => {setDescription(event.target.value)})} value={description}/>
                 </FormEntry>
                 <FormEntry>
-                    <label style={{textAlign: "left"}}>Password:</label>
+                    <label style={{textAlign: "left"}}><FormattedMessage id='Password'/>:</label>
                     <input type="password" placeholder="" style={{width:"50vw", maxWidth:"400px",minHeight:"30px",margin:"10px 0",marginTop:"0px" }}
                            onChange={ (event => {setPassword(event.target.value)})} value={password}/>
                 </FormEntry>
                 <FormEntry>
-                    <label style={{textAlign: "left"}}>Confirm Password:</label>
+                    <label style={{textAlign: "left"}}><FormattedMessage id='Confirm_Password'/>:</label>
                     <input type="password" placeholder="" style={{width:"50vw", maxWidth:"400px",minHeight:"30px",margin:"10px 0",marginTop:"0px" }}
                            onChange={ (event => {setCPassword(event.target.value)})} value={cPassword}/>
                 </FormEntry>
                 <button type="submit" style={{margin:"10px 0",width:"106px",height:"34px",font:"inherit",backgroundColor:"#3F51B5",color:"white",borderRadius:"5px",border:0}}
                         onClick = {()=>handleSubmit()}>
-                    <FontAwesomeIcon icon={faEdit} className="edit"/> Update</button>
+                    <FontAwesomeIcon icon={faEdit} className="edit"/> <FormattedMessage id='Update'/></button>
             </form>
         </FormWrapper>
 

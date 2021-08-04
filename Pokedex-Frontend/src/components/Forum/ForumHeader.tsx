@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import styled from "styled-components";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {FormattedMessage} from "react-intl";
 
 const ForumHeaderWrapper = styled.div`
   width: 850px;
@@ -67,9 +68,9 @@ function ForumHeader() {
        <ForumHeaderWrapper>
           <div className="left">
              <img src={`${logo}`} alt="logo" className="logo"/>
-             <div className="title">Forum</div>
+             <div className="title"><FormattedMessage id='Forum'/></div>
           </div>
-          <div className="right">You are welcome to make new posts or constructive comments!</div>
+          <div className="right"><FormattedMessage id='ForumWelcome'/></div>
        </ForumHeaderWrapper>
    );
 }

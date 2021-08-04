@@ -2,6 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {NavLink} from "react-router-dom";
+import {FormattedMessage} from "react-intl";
 
 
 const NavBarWrapper = styled.div`
@@ -55,23 +56,21 @@ function NavBar (){
           <NavLink exact activeClassName="selected" to="/" className="login">
              <div>
                 <FontAwesomeIcon icon="home"/>
-                <div className="span">Home</div>
+                <div className="span"><FormattedMessage id='Home'/></div>
              </div>
           </NavLink>
           <NavLink exact activeClassName="selected" to="/advancedSearch" className="login">
              <FontAwesomeIcon icon="search"/>
-             <div className="span">Advanced Search</div>
+             <div className="span"><FormattedMessage id='Advanced Search'/></div>
           </NavLink>
           <NavLink exact activeClassName="selected" to="/forum" className="login">
              <FontAwesomeIcon icon="comment"/>
-             <div className="span">Forum</div>
+             <div className="span"><FormattedMessage id='Forum'/></div>
           </NavLink>
-          {/*<NavLink exact activeClassName="selected" to="/about" className="login">*/}
           <a href="https://github.com/zipengliang21/Pokedex" target="_blank">
              <FontAwesomeIcon icon="edit"/>
-             <div className="span">About</div>
+             <div className="span"><FormattedMessage id='About'/></div>
           </a>
-          {/*</NavLink>*/}
        </NavBarWrapper>
    )
 

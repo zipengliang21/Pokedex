@@ -7,6 +7,7 @@ import moment from "moment";
 import Heart from "components/Icon/ForumIcon/Heart";
 import Fade from "react-reveal/Fade";
 import ReactPaginate from "react-paginate";
+import {useIntl} from "react-intl";
 const axios = require('axios');
 
 
@@ -127,7 +128,7 @@ const Pagination = styled.div`
         outline: none;
         cursor: pointer;
         font-weight: 600;
-      } 
+      }
       .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{
         background-color: #3F51B5 ;
         border:1px solid #3F51B5;
@@ -149,7 +150,7 @@ function ForumHomePage(props: any) {
       const selectedPage = e.selected;
       setOffset(selectedPage);
    };
-
+   const intl = useIntl();
 
 
    return (
@@ -186,8 +187,8 @@ function ForumHomePage(props: any) {
                                   pageCount={Math.ceil(props.postList.length / 10)}
                                   pageRangeDisplayed={2}
                                   activeClassName={"active"}
-                                  previousLabel="Prev"
-                                  nextLabel="Next"
+                                  previousLabel={intl.formatMessage({id: "PrevPage"})}
+                                  nextLabel={intl.formatMessage({id: "NextPage"})}
                                   previousClassName="previous"
                                   nextClassName="next"
                                   onPageChange={handlePageClick}

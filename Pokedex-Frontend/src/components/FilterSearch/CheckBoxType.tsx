@@ -13,6 +13,7 @@ import Hei1 from "./height1.png";
 import Hei2 from "./height2.png";
 import Hei3 from "./height3.png";
 import styled from "styled-components";
+import {FormattedMessage} from "react-intl";
 
 
 
@@ -120,120 +121,120 @@ function CheckBoxType(props: any) {
        <Base>
           <div className={classes.root}>
              <FormControl component="fieldset" className={classes.formControl}>
-                <h2>Must Select a Type!</h2>
+                <h2><FormattedMessage id='MustSelectaType'/></h2>
                 <FormGroup>
                    <FormControlLabel
                        control={<Checkbox color="primary"  checked={normal} onChange={handleChange} name="normal"/>}
                        label={
-                           <span className="spanSelect" style={{background:"#808080"}}> Normal </span>
+                           <span className="spanSelect" style={{background:"#808080"}}> <FormattedMessage id='Normal'/> </span>
                        }
                    />
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={fire} onChange={handleChange} name="fire"/>}
                        label={
-                           <span className="spanSelect" style={{background:"orange"}}> Fire </span>
+                           <span className="spanSelect" style={{background:"orange"}}> <FormattedMessage id='Fire'/> </span>
                        }
                    />
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={water} onChange={handleChange} name="water"/>}
                        label={
-                           <span className="spanSelect" style={{background:"#33ccff"}}> Water </span>
+                           <span className="spanSelect" style={{background:"#33ccff"}}> <FormattedMessage id='Water'/> </span>
                        }
                    />
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={grass} onChange={handleChange} name="grass"/>}
                        label={
-                           <span className="spanSelect" style={{background:"#00cc44"}}> Grass </span>
+                           <span className="spanSelect" style={{background:"#00cc44"}}> <FormattedMessage id='Grass'/> </span>
                        }
                    />
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={flying} onChange={handleChange} name="flying"/>}
                        label={
-                           <span className="spanSelect" style={{background: "linear-gradient(#33ccff, #808080)"}}> Flying </span>
+                           <span className="spanSelect" style={{background: "linear-gradient(#33ccff, #808080)"}}> <FormattedMessage id='Flying'/> </span>
 
                        }
                    />
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={fighting} onChange={handleChange} name="fighting"/>}
                        label={
-                           <span className="spanSelect" style={{background: " #cc5200"}}> Fighting </span>
+                           <span className="spanSelect" style={{background: " #cc5200"}}> <FormattedMessage id='Fighting'/> </span>
                        }
                    />
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={poison} onChange={handleChange} name="poison"/>}
                        label={
-                           <span className="spanSelect" style={{background: "#800080"}}> Poison </span>
+                           <span className="spanSelect" style={{background: "#800080"}}> <FormattedMessage id='Poison'/> </span>
                        }
                    />
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={electric} onChange={handleChange} name="electric"/>}
                        label={
-                           <span className="spanSelect" style={{background: "#ffd11a", color:"black"}}> Electric </span>
+                           <span className="spanSelect" style={{background: "#ffd11a", color:"black"}}> <FormattedMessage id='Electric'/> </span>
                        }
                    />
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={ground} onChange={handleChange} name="ground"/>}
                        label={
-                           <span className="spanSelect" style={{background: "linear-gradient(#ffd11a, #808080)"}}> Ground </span>
+                           <span className="spanSelect" style={{background: "linear-gradient(#ffd11a, #808080)"}}> <FormattedMessage id='Ground'/> </span>
                        }
                    />
                 </FormGroup>
              </FormControl>
              <FormControl component="fieldset" className={classes.formControl}>
-                <h2>Must Select a Type!</h2>
+                <h2><FormattedMessage id='MustSelectaType'/></h2>
                 <FormGroup>
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={rock} onChange={handleChange} name="rock"/>}
                        label={
-                           <span className="spanSelect" style={{background: "#77773c"}}> Rock </span>
+                           <span className="spanSelect" style={{background: "#77773c"}}> <FormattedMessage id='Rock'/> </span>
                        }
                    />
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={psychic} onChange={handleChange} name="psychic"/>}
                        label={
-                           <span className="spanSelect" style={{background: "#cc0066"}}> Phychic </span>
+                           <span className="spanSelect" style={{background: "#cc0066"}}> <FormattedMessage id='Phychic'/> </span>
                        }
                    />
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={ice} onChange={handleChange} name="ice"/>}
                        label={
-                           <span className="spanSelect" style={{background: "#00ffff", color:"black"}}> Ice </span>
+                           <span className="spanSelect" style={{background: "#00ffff", color:"black"}}> <FormattedMessage id='Ice'/> </span>
                        }
                    />
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={bug} onChange={handleChange} name="bug"/>}
                        label={
-                           <span className="spanSelect" style={{background: "#408000"}}> Bug </span>
+                           <span className="spanSelect" style={{background: "#408000"}}> <FormattedMessage id='Bug'/> </span>
                        }
                    />
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={ghost} onChange={handleChange} name="ghost"/>}
                        label={
-                           <span className="spanSelect" style={{background: "#b366ff"}}> Ghost </span>
+                           <span className="spanSelect" style={{background: "#b366ff"}}> <FormattedMessage id='Ghost'/> </span>
                        }
                    />
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={steel} onChange={handleChange} name="steel"/>}
                        label={
-                           <span className="spanSelect" style={{background: "#808080"}}> Steel </span>
+                           <span className="spanSelect" style={{background: "#808080"}}> <FormattedMessage id='Steel'/> </span>
                        }
                    />
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={dragon} onChange={handleChange} name="dragon"/>}
                        label={
-                           <span className="spanSelect" style={{background: "linear-gradient(#e66465, #9198e5)"}}> Dragon </span>
+                           <span className="spanSelect" style={{background: "linear-gradient(#e66465, #9198e5)"}}> <FormattedMessage id='Dragon'/> </span>
                        }
                    />
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={dark} onChange={handleChange} name="dark"/>}
                        label={
-                           <span className="spanSelect" style={{background: "#3d3d5c"}}> Dark </span>
+                           <span className="spanSelect" style={{background: "#3d3d5c"}}> <FormattedMessage id='Dark'/> </span>
                        }
                    />
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={fairy} onChange={handleChange} name="fairy"/>}
                        label={
-                           <span className="spanSelect" style={{background: "#ff80ff"}}> Fairy </span>
+                           <span className="spanSelect" style={{background: "#ff80ff"}}> <FormattedMessage id='Fairy'/> </span>
                        }
                    />
                 </FormGroup>
@@ -241,7 +242,7 @@ function CheckBoxType(props: any) {
 
 
              <FormControl component="fieldset" className={classes.formControl}>
-                <h2>Select Height!</h2>
+                <h2><FormattedMessage id='SelectHeight'/></h2>
                 <FormGroup>
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={HeightLittle} onChange={handleChange} name="HeightLittle"/>}
@@ -265,7 +266,7 @@ function CheckBoxType(props: any) {
              </FormControl>
 
              <FormControl component="fieldset" className={classes.formControl}>
-                <h2>Select Weight!</h2>
+                <h2><FormattedMessage id='SelectWeight'/></h2>
                 <FormGroup>
                    <FormControlLabel
                        control={<Checkbox color="primary" checked={WeightLight} onChange={handleChange} name="WeightLight"/>}
@@ -292,7 +293,7 @@ function CheckBoxType(props: any) {
 
           </div>
             <Button variant="contained" color="primary" onClick={handleSubmit}>
-                Submit
+                <FormattedMessage id='Submit'/>
             </Button>
 
        </Base>

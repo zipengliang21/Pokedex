@@ -35,7 +35,11 @@ const HeaderWrapper = styled.div`
    }
    @media(max-width: 576px){
       width: 100%;
-      justify-content: center;
+      height: auto;
+      flex-direction: column;
+      .translation{
+      margin-left: -30px;
+      }
       #login{
        margin: 0 0 0 5px;
       }
@@ -81,7 +85,7 @@ const Wrapper = styled.div`
 
 function Header(props: any) {
     let admin = props.currentUser && props.currentUser.isAdmin ?
-        <NavLink className="admin" exact to="/admin/add">Admin</NavLink> :
+        <NavLink className="admin" exact to="/admin/add"><FormattedMessage id='Admin'/></NavLink> :
         null;
     let value = props.currentUser ?
         <Wrapper id="login">
@@ -91,7 +95,7 @@ function Header(props: any) {
             </NavLink>
             <div className="dropdown-content">
                 {admin}
-                <a className="logout" onClick={() => props.logout()}>Logout</a>
+                <a className="logout" onClick={() => props.logout()}><FormattedMessage id='Logout'/></a>
             </div>
         </Wrapper> :
         <NavLink exact to="/login">
@@ -101,18 +105,16 @@ function Header(props: any) {
             </Wrapper>
         </NavLink>;
     return (
-        <I18nProvider locale={props.language}>
-            <HeaderWrapper>
-                <Wrapper className="translation">
-                    <FontAwesomeIcon icon="globe" className="language"/>
-                    <div className="dropdown-content">
-                        <a className="switch" onClick={() => props.setLanguage(LanguageEnum.Chinese)}>简体中文</a>
-                        <a className="switch" onClick={() => props.setLanguage(LanguageEnum.English)}>English</a>
-                    </div>
-                </Wrapper>
-                {value}
-            </HeaderWrapper>
-        </I18nProvider>
+        <HeaderWrapper>
+            <Wrapper className="translation">
+                <FontAwesomeIcon icon="globe" className="language"/>
+                <div className="dropdown-content">
+                    <a className="switch" onClick={() => props.setLanguage(LanguageEnum.Chinese)}>简体中文</a>
+                    <a className="switch" onClick={() => props.setLanguage(LanguageEnum.English)}>English</a>
+                </div>
+            </Wrapper>
+            {value}
+        </HeaderWrapper>
     );
 }
 

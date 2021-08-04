@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import styled from "styled-components";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {NavLink} from "react-router-dom";
+import {FormattedMessage} from "react-intl";
 
 const ForumSubHeaderWrapper = styled.div`
     width: 850px;
@@ -25,7 +26,7 @@ const ForumSubHeaderWrapper = styled.div`
     .plus{
       margin-right: 5px;
       color: green;
-    }    
+    }
     @media(max-width: 320px){
       justify-content: center;
       .headerLeft{
@@ -46,11 +47,11 @@ const ForumSubHeaderWrapper = styled.div`
 function ForumSubHeader() {
    return (
        <ForumSubHeaderWrapper>
-          <span className="headerLeft">Threads</span>
+          <span className="headerLeft"><FormattedMessage id='Threads'/></span>
           <NavLink to={"/forum/newPost"}>
                   <span className="headerRight">
                      <FontAwesomeIcon icon="plus-circle" className="plus"/>
-                     New
+                     <FormattedMessage id='NewPost'/>
                   </span>
           </NavLink>
        </ForumSubHeaderWrapper>

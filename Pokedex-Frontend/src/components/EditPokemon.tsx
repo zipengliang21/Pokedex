@@ -1,13 +1,14 @@
 import React, {useState} from "react";
 import styled from "styled-components";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {FormattedMessage} from "react-intl";
 
 const LoginHeaderWrapper = styled.div`
   width: 100%;
   margin: 0 auto;
   line-height: 1.8;
   font-family: 'Poppins', sans-serif;
-  letter-spacing: 0;  
+  letter-spacing: 0;
   display: flex;
   background: #616161;
   mix-blend-mode: normal;
@@ -32,7 +33,7 @@ function LoginHeader() {
    return (
        <LoginHeaderWrapper>
           <div className="title">
-             {"Edit Pokemon"}
+              <FormattedMessage id='Edit_Pokemon'/>
           </div>
        </LoginHeaderWrapper>
    );

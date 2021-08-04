@@ -8,6 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { usePokemonList } from "../hooks/usePokemonList";
+import {FormattedMessage} from "react-intl";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -221,7 +222,7 @@ const AdminAddPage = (props: any) => {
               className={classes.button}
               onClick={handleChangeFlag}
             >
-              Add
+                <FormattedMessage id='Add'/>
             </Button>
             <Button
               id="Delete"
@@ -231,13 +232,13 @@ const AdminAddPage = (props: any) => {
               className={classes.button}
               onClick={handleChangeFlag}
             >
-              Delete
+                <FormattedMessage id='Delete'/>
             </Button>
           </div>
         </div>
         <form className={classes.form} noValidate hidden={flag !== 1}>
           <FormEntry>
-            <label>Pokemon Name:</label>
+            <label><FormattedMessage id='Pokemon_Name'/>:</label>
             <input
               type="text"
               value={name}
@@ -246,7 +247,7 @@ const AdminAddPage = (props: any) => {
             />
           </FormEntry>
           <FormEntry>
-            <label>Pokemon Type:</label>
+            <label><FormattedMessage id='Pokemon_Type'/>:</label>
             <input
               type="twxt"
               value={type}
@@ -255,7 +256,7 @@ const AdminAddPage = (props: any) => {
             />
           </FormEntry>
           <FormEntry>
-            <label>Normal Ability:</label>
+            <label><FormattedMessage id='Normal_Ability'/>:</label>
             <input
               type="text"
               value={ability}
@@ -264,7 +265,7 @@ const AdminAddPage = (props: any) => {
             />
           </FormEntry>
           <FormEntry>
-            <label>Hidden Ability:</label>
+            <label><FormattedMessage id='Hidden_Ability'/>:</label>
             <input
               type="text"
               value={hiddenAbility}
@@ -273,7 +274,7 @@ const AdminAddPage = (props: any) => {
             />
           </FormEntry>
           <FormEntry>
-            <label>Height:</label>
+            <label><FormattedMessage id='Height'/>:</label>
             <input
               type="text"
               value={height}
@@ -282,7 +283,7 @@ const AdminAddPage = (props: any) => {
             />
           </FormEntry>
           <FormEntry>
-            <label>Weight:</label>
+            <label><FormattedMessage id='Weight'/>:</label>
             <input
               type="text"
               value={weight}
@@ -292,17 +293,17 @@ const AdminAddPage = (props: any) => {
           </FormEntry>
           <FormEntry>
             <br></br>
-            <label>Stat: </label>
+            <label><FormattedMessage id='Stat'/>: </label>
             <br></br>
             <div>
-              <label>Hp: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+              <label><FormattedMessage id='Hp'/>: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
               <input
                 type="text"
                 value={baseHp}
                 onChange={handleChangeBaseHp}
                 style={{ width: "100%", margin: "10px auto" }}
               />
-              <label>Attack: &nbsp;&nbsp;</label>
+              <label><FormattedMessage id='Attack'/>: &nbsp;&nbsp;</label>
               <input
                 type="text"
                 value={baseAttack}
@@ -311,14 +312,14 @@ const AdminAddPage = (props: any) => {
               />
             </div>
             <div>
-              <label>Sp Atk: &nbsp;&nbsp;</label>
+              <label><FormattedMessage id='Sp_Atk'/>: &nbsp;&nbsp;</label>
               <input
                 type="text"
                 value={baseSpAttack}
                 onChange={handleChangeBaseSpAttack}
                 style={{ width: "100%", margin: "10px auto" }}
               />
-              <label>Sp Def:&nbsp;&nbsp;&nbsp;</label>
+              <label><FormattedMessage id='Sp_Def'/>:&nbsp;&nbsp;&nbsp;</label>
               <input
                 type="text"
                 value={baseSpDefence}
@@ -327,14 +328,14 @@ const AdminAddPage = (props: any) => {
               />
             </div>
             <div>
-              <label> Defense: </label>
+              <label> <FormattedMessage id='Defense'/>: </label>
               <input
                 type="text"
                 value={baseDefence}
                 onChange={handleChangeBaseDefence}
                 style={{ width: "100%", margin: "10px auto" }}
               />
-              <label>Speed: &nbsp;&nbsp;&nbsp;</label>
+              <label><FormattedMessage id='Speed'/>: &nbsp;&nbsp;&nbsp;</label>
               <input
                 type="text"
                 value={baseSpeed}
@@ -366,12 +367,12 @@ const AdminAddPage = (props: any) => {
             size="small"
             style={{ width: "100px", margin: "10px auto" }}
           >
-            Add
+              <FormattedMessage id='Add'/>
           </Button>
         </form>
         <form className={classes.form} noValidate hidden={flag !== 2}>
           <FormEntry>
-            <label>Pokemon ID:</label>
+            <label><FormattedMessage id='Pokemon_ID'/>:</label>
             <input
               type="text"
               value={id}
@@ -381,8 +382,8 @@ const AdminAddPage = (props: any) => {
             />
           </FormEntry>
           <FormEntry>
-            <label>Pokemon name:</label>
-            <label>(Just confirm whether it is the correct one):</label>
+            <label><FormattedMessage id='Pokemon_Name'/>:</label>
+            <label>(<FormattedMessage id='ConfirmDelete'/>):</label>
             <input
               type="text"
               value={name}
@@ -398,13 +399,13 @@ const AdminAddPage = (props: any) => {
             size="small"
             style={{ width: "100px", margin: "10px auto" }}
           >
-            Delete
+              <FormattedMessage id='Delete'/>
           </Button>
         </form>
       </Container>
     ) : (
       <Warning>
-        <span>Please Login through Admin Account</span>
+        <span><FormattedMessage id='Login_Through_Admin'/></span>
       </Warning>
     );
 

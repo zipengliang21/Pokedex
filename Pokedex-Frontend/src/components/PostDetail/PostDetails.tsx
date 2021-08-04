@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 import moment from "moment";
 import {useHistory} from "react-router";
+import {FormattedMessage} from "react-intl";
 
 const InfoWrapper = styled.div`
   width: 750px;
@@ -118,7 +119,7 @@ const PostDetails = (props: any) => {
              <Content>{props.rootPost.content}</Content>
               {(currentUserId === props.rootPost.userId || currentUserIsAdmin === true)&&
               <button id="deleteButton"
-                      onClick={() => deleteThisPost()}>Delete
+                      onClick={() => deleteThisPost()}><FormattedMessage id='DeletePost'/>
               </button>
               }
           </ContentWrapper>
