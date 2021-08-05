@@ -13,7 +13,7 @@ const LoginHeaderWrapper = styled.div`
   mix-blend-mode: normal;
   padding: 20px 0;
   text-align: center;
-  height: 80px;
+  min-height: 80px;
   .title{
      font-size: 26px;
      color: #04266D;

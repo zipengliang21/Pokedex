@@ -59,9 +59,9 @@ function NavBar (){
                 <div className="span"><FormattedMessage id='Home'/></div>
              </div>
           </NavLink>
-          <NavLink exact activeClassName="selected" to="/advancedSearch" className="login">
+          <NavLink exact activeClassName="selected" to="/filterSearch" className="login">
              <FontAwesomeIcon icon="search"/>
-             <div className="span"><FormattedMessage id='Advanced Search'/></div>
+             <div className="span"><FormattedMessage id='Filter Search'/></div>
           </NavLink>
           <NavLink exact activeClassName="selected" to="/forum" className="login">
              <FontAwesomeIcon icon="comment"/>

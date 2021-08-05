@@ -71,7 +71,8 @@ const Background = styled.div`
 `;
 
 const Wrapper = styled.div`
-  text-align: left;
+  text-align: center;
+  margin: 0 auto;
   @media (max-width: 875px) {
     width: 418px;
   }
@@ -249,7 +250,7 @@ const AdminAddPage = (props: any) => {
           <FormEntry>
             <label><FormattedMessage id='Pokemon_Type'/>:</label>
             <input
-              type="twxt"
+              type="text"
               value={type}
               onChange={handleChangeType}
               style={{ width: "100%", margin: "10px auto" }}
@@ -411,7 +412,7 @@ const AdminAddPage = (props: any) => {
 
   return (
     <Background>
-      <Collapse in={open}></Collapse>
+      <Collapse in={open}/>
       <EditPokemon />
       <Wrapper>
         {admin}

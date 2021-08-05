@@ -41,7 +41,7 @@ const FilterWrapper = styled.div`
     flex-direction: row;
     @media(max-width: 875px){
       width: 418px;
-      justify-content: center;
+      justify-content: space-between;
     }
     @media(max-width: 576px){
        width: 100%;

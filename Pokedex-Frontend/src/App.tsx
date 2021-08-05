@@ -55,7 +55,7 @@ function App() {
                         <Route exact path="/admin/add">
                             <AdminAddPage currentUser={currentUser}/>
                         </Route>
-                        <Route exact path="/advancedSearch">
+                        <Route exact path="/filterSearch">
                             <FilterSearchPage pokemonList={pokemonList} currentUser={currentUser}/>
                         </Route>
                         <Route exact path="/forum">

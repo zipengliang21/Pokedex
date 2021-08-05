@@ -66,6 +66,9 @@ const Wrapper = styled.div`
      .admin{
         border-bottom: 1px solid rgba(71, 32, 121, 0.9);
      }
+     #chinese{
+        border-bottom: 1px solid rgba(71, 32, 121, 0.9);
+     }
   }
   .dropdown-content a {
      color: rgba(71, 32, 121, 0.9);
@@ -109,7 +112,7 @@ function Header(props: any) {
             <Wrapper className="translation">
                 <FontAwesomeIcon icon="globe" className="language"/>
                 <div className="dropdown-content">
-                    <a className="switch" onClick={() => props.setLanguage(LanguageEnum.Chinese)}>简体中文</a>
+                    <a className="switch" id="chinese" onClick={() => props.setLanguage(LanguageEnum.Chinese)}>简体中文</a>
                     <a className="switch" onClick={() => props.setLanguage(LanguageEnum.English)}>English</a>
                 </div>
             </Wrapper>
