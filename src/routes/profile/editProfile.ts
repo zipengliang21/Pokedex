@@ -1,6 +1,8 @@
 import { Request, Response } from 'express';
 import bcrypt from "bcrypt";
 import {Profile} from "../../models/profile";
+import {Posts, PostDocument} from "../../models/post";
+import {Comments, CommentDocument} from "../../models/comment";
 
 export default async (req: Request, res: Response): Promise<void> => {
     const email:string = req.body.email;
@@ -25,7 +27,9 @@ export default async (req: Request, res: Response): Promise<void> => {
         'description':description,
         'password':password,
         'location':location};
+
     const user = await Profile.findOne({_id:_id});
+
     await Profile.findOneAndUpdate(condition, query, {new: true}, function(err, doc) {
         if (err) return res.send(500);
         return res.send("promise done");

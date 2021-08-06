@@ -73,7 +73,6 @@ function PostDetailsPage(props: any) {
              <ForumSubHeader/>
              <ForumViewWrapper>
                 <PostDetails rootPost={post}
-                             // setPostList = {setPostList}
                              deletePost = {props.deletePost}
                              currentUser={props.currentUser}
                 />

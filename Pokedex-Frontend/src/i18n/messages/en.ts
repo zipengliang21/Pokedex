@@ -1,5 +1,4 @@
 import {LOCALES} from "../locales";
-import React from "react";
 
 export default {
     [LOCALES.ENGLISH]: {

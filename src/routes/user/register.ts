@@ -12,7 +12,6 @@ export default async (req: Request, res: Response): Promise<void> => {
         confirmPassword
     } = req.body;
     let userExist: IUser;
-
     try {
         if (!email) {
             throw new ServerError({

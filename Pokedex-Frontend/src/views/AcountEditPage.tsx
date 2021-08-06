@@ -6,6 +6,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import EditForm from "../components/DetailedView/EditForm";
 import Axios from 'axios';
 import {FormattedMessage} from "react-intl";
+import cookieChecker from "js-cookie";
 
 const Background = styled.div`
    width: 850px;
@@ -158,7 +159,14 @@ function AccountEditPage(props: any) {
         const res = await Axios.post(`/api/profile/avatar`,reqBody);
         const profile = await getProfile(props.currentUser._id);
         setAvatarGet(profile.avatar);
-        props.currentUser.avatar = profile.avatar;
+        const response = await props.getCurrentUser();
+        if (response) {
+            props.setCurrentUser(response);
+            await props.updateUserPost(props.currentUser._id, props.currentUser.userName, profile.avatar);
+            await props.updateUserComment(props.currentUser._id, props.currentUser.userName, profile.avatar);
+        } else {
+            cookieChecker.remove('jwt');
+        }
     }
 
     return (
@@ -259,7 +267,12 @@ function AccountEditPage(props: any) {
                     </Modal>
                     }
                     <EditForm currentUser={props.currentUser}
-                              _id={props.currentUser._id}/>
+                              _id={props.currentUser._id}
+                              getCurrentUser = {props.getCurrentUser}
+                              setCurrentUser={props.setCurrentUser}
+                              updateUserPost = {props.updateUserPost}
+                              updateUserComment = {props.updateUserComment}
+                    />
                 </CurrInfoWrapper>
             </ContentWrapper>
             }

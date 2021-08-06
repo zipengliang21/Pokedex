@@ -47,6 +47,25 @@ const useCommentList = () => {
       return newComment;
    }
 
+    const updateUserComment =  async (_id:string, userName:string, avatar:string) => {
+        let updateInfo = {
+            userName: userName,
+            avatar: avatar
+        };
+        try{
+            const response = await axios.put(`/api/comments/update/${_id}`, updateInfo);
+            if (response.status === 200) {
+                setCommentList(await getCommentList());
+                console.log("update comment success");
+            }
+            return response.status;
+        }catch (error){
+            console.log(error.response.data);
+            return error.response.status;
+        }
+
+    }
+
    const getComment = async (_id: string) => {
       const response = await axios.get(`/api/comments/${_id}`);
       return response.data.comment;
@@ -60,13 +79,12 @@ const useCommentList = () => {
    const getCommentForPost = async (postID: string):Promise<Comment[]> => {
       const response = await axios.get(`/api/comments/post/${postID}`);
       setFilteredComment(response.data.comment);
-      console.log(response.data.comment);
       return response.data.comment;
    }
    const getCount = () => {
       return count;
    }
 
-   return {commentList, setCommentList, filteredComment, setFilteredComment, getCommentForPost, addComment, getComment, getCommentList}
+   return {commentList, setCommentList, filteredComment, setFilteredComment, updateUserComment, getCommentForPost, addComment, getComment, getCommentList}
 }
 export {useCommentList};

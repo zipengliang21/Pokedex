@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import ForumHeader from "../components/Forum/ForumHeader";
 import {NavLink} from "react-router-dom";
 import ForumSubHeader from "../components/Forum/ForumSubHeader";
@@ -140,7 +140,6 @@ function ForumHomePage(props: any) {
       setOffset(selectedPage);
    };
    const intl = useIntl();
-
 
    return (
        <div>

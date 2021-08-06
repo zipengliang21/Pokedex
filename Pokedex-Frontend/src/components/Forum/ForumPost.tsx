@@ -57,7 +57,6 @@ const HeadBarWrapper = styled.div`
   flex-direction: row;
   font-size: 14px;
   justify-content: space-between;
-  // margin: 100px auto 0 auto;
   align-items: center;
   background-image: linear-gradient(lightblue, white);
   span{

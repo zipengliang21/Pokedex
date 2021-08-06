@@ -5,11 +5,13 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import "easymde/dist/easymde.min.css";
 import Axios from "axios";
 import {FormattedMessage} from "react-intl";
+import cookieChecker from "js-cookie";
 
 const FormWrapper = styled.div`
   display:flex;
   flex-direction:column;
   text-align:center;
+  item-align:center;
   form{
     display: inline-block;
     flex-direction:column;
@@ -17,6 +19,7 @@ const FormWrapper = styled.div`
     margin-top: 30px;
     color: black;
   }
+
   @media(max-width: 576px){
     min-width: 2vw;
   }
@@ -51,7 +54,7 @@ const EditForm = (props: any) => {
         }
 
         initialSet();
-    }, []);
+    }, [props.currentUser]);
 
 
     const validateForm = (reqBody: any) => {
@@ -79,7 +82,22 @@ const EditForm = (props: any) => {
             password: password,
         };
         if (validateForm(reqBody)) {
-            await Axios.post("/api/profile/edit", reqBody);
+            try {
+                await Axios.post("/api/profile/edit", reqBody);
+            }catch(err){
+
+            }
+        }
+
+        const response = await props.getCurrentUser();
+        if (response) {
+            props.setCurrentUser(response);
+            if (response.userName !== props.currentUser.userName) {
+                await props.updateUserPost(props.currentUser._id, response.userName, response.avatar);
+                await props.updateUserComment(props.currentUser._id, response.userName, response.avatar);
+            }
+        } else {
+            cookieChecker.remove('jwt');
         }
         clearPwdField();
     };
@@ -167,8 +185,10 @@ const EditForm = (props: any) => {
                                setCPassword(event.target.value);
                            })} value={cPassword}/>
                 </FormEntry>
+            </form>
                 <button type="submit" style={{
-                    margin: "10px 0",
+                    display:"block",
+                    margin: "10px auto",
                     width: "106px",
                     height: "34px",
                     font: "inherit",
@@ -176,10 +196,9 @@ const EditForm = (props: any) => {
                     color: "white",
                     borderRadius: "5px",
                     border: 0
-                }}
-                        onClick={() => handleSubmit()}>
+                }} onClick={() => handleSubmit()}>
                     <FontAwesomeIcon icon={faEdit} className="edit"/> <FormattedMessage id='Update'/></button>
-            </form>
+
         </FormWrapper>
 
     );

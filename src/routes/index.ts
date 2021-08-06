@@ -12,6 +12,7 @@ const setUpRoutes = (app: Express): void => {
     app.get('/api/posts/', post.getPostList);
     app.post('/api/posts/', post.createPost);
     app.delete('/api/posts/:_id', post.deletePost);
+    app.put('/api/posts/update/:_id', post.updateUserPost);
 
     app.get('/api/pokemons/:_id', pokemon.getPokemon);
     app.get('/api/pokemons/', pokemon.getPokemonList);
@@ -22,6 +23,7 @@ const setUpRoutes = (app: Express): void => {
     app.get('/api/comments/', comment.getCommentList);
     app.get('/api/comments/post/:postID', comment.getCommentForPost);
     app.post('/api/comments/', comment.createComment);
+    app.put('/api/comments/update/:_id', comment.updateUserComment);
 
     app.get('/api/profile/:_id', profile.getProfile);
     app.post('/api/profile/edit',profile.editProfile);

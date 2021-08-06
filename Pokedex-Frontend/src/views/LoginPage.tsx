@@ -173,8 +173,6 @@ export default function SignIn(props: any) {
                         .then(() => {
                             history.push("/profile");
                         });
-                    console.log("Login Successfully!");
-                    console.log("first if " + response.status);
                 }
             } catch (error) {
                 await swal(`${error.response.data}`, "", "warning");

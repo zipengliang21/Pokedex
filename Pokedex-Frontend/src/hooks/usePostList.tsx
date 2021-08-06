@@ -33,8 +33,8 @@ const usePostList = () => {
       let postId: string = (postList.length + 1).toString();
       let date = new Date();
       let newPost = {
-         userId: userId, //get from other aspect
-         userName: userName,  //get from other aspect
+         userId: userId,
+         userName: userName,
          postID: postId,
          title: title,
          description: description,
@@ -70,6 +70,24 @@ const usePostList = () => {
 
     }
 
+    const updateUserPost =  async (_id:string, userName:string, avatar:string) => {
+        let updateInfo = {
+            userName: userName,
+            avatar: avatar
+        };
+        try{
+            const response = await axios.put(`/api/posts/update/${_id}`, updateInfo);
+            if (response.status === 200) {
+                setPostList(await getPostList());
+                console.log("update post success");
+            }
+            return response.status;
+        }catch (error){
+            return error.response.status;
+        }
+
+    }
+
    const getPost = async (_id: string):Promise<Post> => {
       const response = await axios.get(`/api/posts/${_id}`);
       return response.data.post[0];
@@ -84,6 +102,6 @@ const usePostList = () => {
       return count;
    }
 
-   return {postList, setPostList, count, addPost, deletePost, getPost, getPostList}
+   return {postList, setPostList, count, addPost, deletePost, getPost, getPostList, updateUserPost}
 }
 export {usePostList};

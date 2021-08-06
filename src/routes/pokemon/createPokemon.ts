@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import {Pokemon} from "../../models/pokemon";
 import {ServerError} from "../../util/util";
+import {User} from "../../models/user";
 
 
 
@@ -13,6 +14,16 @@ try {
     if (newPokemon.name === ''|| newPokemon.name === undefined){
         throw new ServerError({
             message: "no name",
+            statusCode: 400,
+        });
+    }
+    let pokemonExists: boolean;
+    pokemonExists = await Pokemon.exists({
+        name: newPokemon.name
+    });
+    if (pokemonExists) {
+        throw new ServerError({
+            message: "Pokemon Already exist.",
             statusCode: 400,
         });
     }

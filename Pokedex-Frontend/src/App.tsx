@@ -31,8 +31,8 @@ const Background = styled.div`
 function App() {
     const {currentUser, setCurrentUser, getCurrentUser, logout} = useUser();
     const {pokemonList, getPokemon} = usePokemonList();
-    const {postList, addPost, deletePost} = usePostList();
-    const {addComment} = useCommentList();
+    const {postList, addPost, deletePost, updateUserPost, getPostList} = usePostList();
+    const {addComment, updateUserComment} = useCommentList();
     const {language, setLanguage} = useLanguage();
 
     return (
@@ -50,7 +50,12 @@ function App() {
                             <WelcomePage pokemonList={pokemonList} currentUser={currentUser}/>
                         </Route>
                         <Route exact path="/profile">
-                            <AccountEditPage currentUser={currentUser}/>
+                            <AccountEditPage currentUser={currentUser}
+                                             getCurrentUser={getCurrentUser}
+                                             setCurrentUser={setCurrentUser}
+                                             updateUserPost ={updateUserPost}
+                                             updateUserComment = {updateUserComment}
+                            />
                         </Route>
                         <Route exact path="/admin/add">
                             <AdminAddPage currentUser={currentUser}/>
@@ -59,7 +64,7 @@ function App() {
                             <FilterSearchPage pokemonList={pokemonList} currentUser={currentUser}/>
                         </Route>
                         <Route exact path="/forum">
-                            <ForumHomePage postList={postList} currentUser={currentUser}/>
+                            <ForumHomePage postList={postList} currentUser={currentUser} getPostList = {getPostList}/>
                         </Route>
                         <Route exact path="/forum/newPost">
                             <ForumNewPostPage addPost={addPost} currentUser={currentUser}/>

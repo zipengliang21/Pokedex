@@ -13,7 +13,6 @@ export const auth = async (req: Request, res: Response, next: NextFunction) => {
         }
 
         else if(req.cookies.jwt) {
-            console.log("Auth:----" + token)
             token = req.cookies.jwt;
         }
         console.log("Auth:----" + token)
