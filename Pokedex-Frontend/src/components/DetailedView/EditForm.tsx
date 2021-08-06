@@ -11,7 +11,6 @@ const FormWrapper = styled.div`
   display:flex;
   flex-direction:column;
   text-align:center;
-  item-align:center;
   form{
     display: inline-block;
     flex-direction:column;
@@ -54,7 +53,7 @@ const EditForm = (props: any) => {
         }
 
         initialSet();
-    }, [props.currentUser]);
+    }, []);
 
 
     const validateForm = (reqBody: any) => {
@@ -82,11 +81,7 @@ const EditForm = (props: any) => {
             password: password,
         };
         if (validateForm(reqBody)) {
-            try {
-                await Axios.post("/api/profile/edit", reqBody);
-            }catch(err){
-
-            }
+            await Axios.post("/api/profile/edit", reqBody);
         }
 
         const response = await props.getCurrentUser();

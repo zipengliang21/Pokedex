@@ -1,8 +1,6 @@
 import { Request, Response } from 'express';
 import bcrypt from "bcrypt";
 import {Profile} from "../../models/profile";
-import {Posts, PostDocument} from "../../models/post";
-import {Comments, CommentDocument} from "../../models/comment";
 
 export default async (req: Request, res: Response): Promise<void> => {
     const email:string = req.body.email;

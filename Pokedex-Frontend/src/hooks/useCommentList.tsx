@@ -60,7 +60,6 @@ const useCommentList = () => {
             }
             return response.status;
         }catch (error){
-            console.log(error.response.data);
             return error.response.status;
         }
 

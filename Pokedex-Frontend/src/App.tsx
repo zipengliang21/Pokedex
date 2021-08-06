@@ -64,7 +64,7 @@ function App() {
                             <FilterSearchPage pokemonList={pokemonList} currentUser={currentUser}/>
                         </Route>
                         <Route exact path="/forum">
-                            <ForumHomePage postList={postList} currentUser={currentUser} getPostList = {getPostList}/>
+                            <ForumHomePage postList={postList} currentUser={currentUser}/>
                         </Route>
                         <Route exact path="/forum/newPost">
                             <ForumNewPostPage addPost={addPost} currentUser={currentUser}/>
