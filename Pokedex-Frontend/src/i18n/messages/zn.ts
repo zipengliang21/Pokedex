@@ -1,6 +1,6 @@
 import { LOCALES } from "../locales";
 
-export default {
+const Chinese = {
     [LOCALES.CHINESE]: {
         "Login": "登录",
         "Home": "主页",
@@ -79,3 +79,5 @@ export default {
         "Edit_Pokemon": "增删宝可梦",
     }
 }
+
+export default Chinese;

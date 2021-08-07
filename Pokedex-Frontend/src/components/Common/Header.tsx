@@ -4,7 +4,6 @@ import {NavLink} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {LanguageEnum} from "../../hooks/useLanguage";
 import {FormattedMessage} from "react-intl";
-import {I18nProvider} from "../../i18n";
 
 const HeaderWrapper = styled.div`
    width: 850px;
@@ -98,7 +97,7 @@ function Header(props: any) {
             </NavLink>
             <div className="dropdown-content">
                 {admin}
-                <a className="logout" onClick={() => props.logout()}><FormattedMessage id='Logout'/></a>
+                <a className="logout" href="." onClick={() => props.logout()}><FormattedMessage id='Logout'/></a>
             </div>
         </Wrapper> :
         <NavLink exact to="/login">
@@ -112,8 +111,8 @@ function Header(props: any) {
             <Wrapper className="translation">
                 <FontAwesomeIcon icon="globe" className="language"/>
                 <div className="dropdown-content">
-                    <a className="switch" id="chinese" onClick={() => props.setLanguage(LanguageEnum.Chinese)}>简体中文</a>
-                    <a className="switch" onClick={() => props.setLanguage(LanguageEnum.English)}>English</a>
+                    <a className="switch" href="." id="chinese" onClick={() => props.setLanguage(LanguageEnum.Chinese)}>简体中文</a>
+                    <a className="switch" href="." onClick={() => props.setLanguage(LanguageEnum.English)}>English</a>
                 </div>
             </Wrapper>
             {value}

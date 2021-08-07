@@ -1,7 +1,9 @@
 import en from './en';
 import zh from './zn';
 
-export default {
+const language = {
     ...en,
     ...zh,
 }
+
+export default language;

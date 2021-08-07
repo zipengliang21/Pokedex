@@ -79,11 +79,11 @@ function FilterSearchPage(props: any) {
              <SearchBar className="search" pokemonList={pokemonData}/>
              <PokemonWrapper>
                 {filteredPokes.map((pokemon, index) => {
-                   if (pokemon.name === "") {
-                      return <> </>;
-                   } else {
-                      return <Fade left key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon._id}/></Fade>;
-                   }
+                    if (pokemon.name === "") {
+                        return <span key = {index + pokemon.name}> </span>;
+                    } else {
+                        return <Fade left key={pokemon.name + "filter" +index}><Pokemon key={pokemon._id + "filter"} pokemon={pokemon} id={pokemon._id}/></Fade>;
+                    }
                 })}
              </PokemonWrapper>
              <FilterWrapper>

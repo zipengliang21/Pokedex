@@ -156,7 +156,7 @@ function AccountEditPage(props: any) {
     }
     const handleChangeAvatar = async() =>{
         const reqBody = {avatar:avatar,userId:props.currentUser._id};
-        const res = await Axios.post(`/api/profile/avatar`,reqBody);
+        await Axios.post(`/api/profile/avatar`,reqBody);
         const profile = await getProfile(props.currentUser._id);
         setAvatarGet(profile.avatar);
         const response = await props.getCurrentUser();
@@ -172,7 +172,7 @@ function AccountEditPage(props: any) {
     return (
         <Background>
             <Banner role="banner">
-                <a className="welcomeMsg" target="_blank" rel="noreferrer"><FormattedMessage id='Profile'/></a>
+                <div className="welcomeMsg"><FormattedMessage id='Profile'/></div>
             </Banner>
             {props.currentUser &&
             <ContentWrapper>
@@ -189,7 +189,7 @@ function AccountEditPage(props: any) {
                                 onClick={() => handleClose()}>
                             <img
                                 src={avatarGet}
-                                alt="user picture"
+                                alt="user"
                                 style={{borderRadius: "50%", marginTop: "1rem", height: "100px", width: "100px"}}>
                             </img>
                         </button>

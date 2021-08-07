@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import ForumHeader from "../components/Forum/ForumHeader";
 import {NavLink} from "react-router-dom";
 import ForumSubHeader from "../components/Forum/ForumSubHeader";
@@ -7,6 +7,7 @@ import moment from "moment";
 import Fade from "react-reveal/Fade";
 import ReactPaginate from "react-paginate";
 import {useIntl} from "react-intl";
+import Spinner from "../components/Common/Spinner";
 
 
 const ForumWrapper = styled.div`
@@ -133,58 +134,63 @@ const Pagination = styled.div`
 
 
 function ForumHomePage(props: any) {
-
-   const [offset, setOffset] = useState(0);
-   const handlePageClick = (e: any) => {
-      const selectedPage = e.selected;
-      setOffset(selectedPage);
-   };
-   const intl = useIntl();
-
-   return (
-       <div>
-          <ForumHeader/>
-          <ForumWrapper>
-             <ForumSubHeader/>
-             {props.postList.slice(offset * 10, offset * 10 + 10).map((post: any, index: number) => {
+    const [offset, setOffset] = useState(0);
+    const handlePageClick = (e: any) => {
+        const selectedPage = e.selected;
+        setOffset(selectedPage);
+    };
+    const intl = useIntl();
+    let data = <Spinner/>;
+    if(props.postList.length !== 0) {
+        data = <div>
+            {props.postList.slice(offset * 10, offset * 10 + 10).map((post: any, index: number) => {
                 return (
                     <ForumContentWrapper theme={index % 2 === 0 ? "full" : "half"}>
-                       <ContentWrapper>
-                          <NavLink to={`/post/${post._id}`}>
-                             <ForumA className="title">
-                                {post.title}
-                             </ForumA>
-                          </NavLink>
-                          <div className="description">{post.description}</div>
-                          <StatWrapper>
-                             <div className="date">{moment(post.date).format("YYYY-MM-DD HH:mm:ss")}</div>
-                          </StatWrapper>
-                       </ContentWrapper>
-                       <UserWrapper>
-                          <img src={post.avatar} alt="logo" className="logo" width={100} height = {75}/>
-                          {post.userName}
-                       </UserWrapper>
+                        <ContentWrapper>
+                            <NavLink to={`/post/${post._id}`}>
+                                <ForumA className="title">
+                                    {post.title}
+                                </ForumA>
+                            </NavLink>
+                            <div className="description">{post.description}</div>
+                            <StatWrapper>
+                                <div className="date">{moment(post.date).format("YYYY-MM-DD HH:mm:ss")}</div>
+                            </StatWrapper>
+                        </ContentWrapper>
+                        <UserWrapper>
+                            <img src={post.avatar} alt="logo" className="logo" width={100} height={75}/>
+                            {post.userName}
+                        </UserWrapper>
                     </ForumContentWrapper>
                 );
-             })}
-             <Fade bottom>
+            })}
+            <Fade bottom>
                 <Pagination>
-                   <ReactPaginate containerClassName="pagination"
-                                  marginPagesDisplayed={2}
-                                  pageCount={Math.ceil(props.postList.length / 10)}
-                                  pageRangeDisplayed={2}
-                                  activeClassName={"active"}
-                                  previousLabel={intl.formatMessage({id: "PrevPage"})}
-                                  nextLabel={intl.formatMessage({id: "NextPage"})}
-                                  previousClassName="previous"
-                                  nextClassName="next"
-                                  onPageChange={handlePageClick}
-                   />
+                    <ReactPaginate containerClassName="pagination"
+                                   marginPagesDisplayed={2}
+                                   pageCount={Math.ceil(props.postList.length / 10)}
+                                   pageRangeDisplayed={2}
+                                   activeClassName={"active"}
+                                   previousLabel={intl.formatMessage({id: "PrevPage"})}
+                                   nextLabel={intl.formatMessage({id: "NextPage"})}
+                                   previousClassName="previous"
+                                   nextClassName="next"
+                                   onPageChange={handlePageClick}
+                    />
                 </Pagination>
-             </Fade>
-          </ForumWrapper>
-       </div>
-)
+            </Fade>
+        </div>
+    }
+
+    return (
+        <div>
+            <ForumHeader/>
+            <ForumWrapper>
+                <ForumSubHeader/>
+                {data}
+            </ForumWrapper>
+        </div>
+    );
 
 
 }

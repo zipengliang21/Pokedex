@@ -13,11 +13,9 @@ import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import styled from "styled-components";
-import LoginHeader from "components/LoginHeader";
+import LoginHeader from "components/DetailedView/LoginHeader";
 import {useHistory} from "react-router";
 import axios from "axios";
-import Google from "components/Icon/LoginIcon/Google";
-import Github from "../components/Icon/LoginIcon/Github";
 import swal from "sweetalert";
 import validator from "validator";
 import {Alert} from "@material-ui/lab";
@@ -235,7 +233,6 @@ export default function SignIn(props: any) {
                                 margin="normal"
                                 required
                                 fullWidth
-                                id="email"
                                 label="Email Address"
                                 name="email"
                                 autoComplete="email"
@@ -252,7 +249,6 @@ export default function SignIn(props: any) {
                                 name="password"
                                 label="Password"
                                 type="password"
-                                id="password"
                                 autoComplete="current-password"
                             />
                             <FormControlLabel
@@ -284,7 +280,6 @@ export default function SignIn(props: any) {
                                 margin="normal"
                                 required
                                 fullWidth
-                                id="email"
                                 label="Enter Your Valid Email Address"
                                 name="email"
                                 autoComplete="email"
@@ -314,7 +309,6 @@ export default function SignIn(props: any) {
                                 name="password"
                                 label="Set your Password"
                                 type="password"
-                                id="password"
                                 autoComplete="current-password"
                             />
                             <TextField
@@ -340,27 +334,6 @@ export default function SignIn(props: any) {
                                 Register
                             </Button>
                         </form>
-                    </div>
-
-                    <div className={classes.iconContainer}>
-                        <div className={classes.icon}>
-                            <a
-                                href="https://github.com/zipengliang21"
-                                target="_blank"
-                                rel="noreferrer"
-                            >
-                                <Google/>
-                            </a>
-                        </div>
-                        <div className={classes.icon}>
-                            <a
-                                href="https://github.com/zipengliang21"
-                                target="_blank"
-                                rel="noreferrer"
-                            >
-                                <Github/>
-                            </a>
-                        </div>
                     </div>
                     <Box className={classes.copyright} mt={8}>
                         <Copyright/>

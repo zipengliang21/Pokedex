@@ -31,7 +31,7 @@ const Background = styled.div`
 function App() {
     const {currentUser, setCurrentUser, getCurrentUser, logout} = useUser();
     const {pokemonList, getPokemon} = usePokemonList();
-    const {postList, addPost, deletePost, updateUserPost, getPostList} = usePostList();
+    const {postList, addPost, deletePost, updateUserPost} = usePostList();
     const {addComment, updateUserComment} = useCommentList();
     const {language, setLanguage} = useLanguage();
 

@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import moment from "moment";
-const axios = require('axios');
 
 const InfoWrapper = styled.div`
   width: 750px;

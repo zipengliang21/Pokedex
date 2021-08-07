@@ -1,8 +1,8 @@
 import React, {useEffect} from "react";
 import styled from "styled-components";
-import FavButton from "components/Common/FavButton"
 import {usePokemonList} from "../../hooks/usePokemonList";
 import {FormattedMessage} from "react-intl";
+import Spinner from "components/Common/Spinner";
 
 const InfoWrapper = styled.div`
   width: 750px;
@@ -99,17 +99,6 @@ const StatWrapper = styled.div`
        }
     }
 `;
-// cannot make the button style effect
-const CollectionButtonStyle = styled.button`
-  font-size: 30px;
-  font-weight: bold;
-  padding: 16px;
-  border: none;
-  background: -webkit-linear-gradient(
-    rgba(245, 211, 124, 1),
-    rgba(135, 211, 124, 0.1)
-  );
-`;
 
 const HeaderWrapper = styled.div`
    display: flex;
@@ -130,14 +119,6 @@ const HeaderSubWrapper = styled.div`
   }
 `;
 
-const StarWrapper =styled.div`
-  margin: 63px 0 0 10px;
-  color: yellow;
-  @media(max-width: 576px){
-    margin: 0;
-  }
-`;
-
 const PokemonInfo = (props: any) => {
    const {pokemon, setPokemon} = usePokemonList();
 
@@ -148,7 +129,7 @@ const PokemonInfo = (props: any) => {
 
    useEffect(() => {
       init();
-   }, [])
+   })
 
    return pokemon? (
        <InfoWrapper>
@@ -156,9 +137,6 @@ const PokemonInfo = (props: any) => {
             <HeaderWrapper>
                <HeaderSubWrapper>
                   <header>{pokemon.name}</header>
-                  <StarWrapper>
-                     <FavButton className="Fav" pId={parseInt(pokemon.id)} pName ={pokemon.name}/>
-                  </StarWrapper>
                </HeaderSubWrapper>
                <div className="pokeID">{`#` + pokemon.id}</div>
             </HeaderWrapper>
@@ -170,8 +148,8 @@ const PokemonInfo = (props: any) => {
                        height={150}
                   />
                   <div>{pokemon.name}</div>
-                  {pokemon.type.map((pokeType:any) => {
-                      return <label><FormattedMessage id={`${pokeType}`}/></label>;
+                  {pokemon.type.map((pokeType:any, index:number) => {
+                      return <label key={index.toString()}><FormattedMessage id={`${pokeType}`}/></label>;
                   })}
 
                </ImageWrapper>
@@ -227,7 +205,7 @@ const PokemonInfo = (props: any) => {
             </DataWrapper>
          </ContentWrapper>
        </InfoWrapper>
-   ): null;
+   ): <Spinner/>;
 };
 
 export default PokemonInfo;

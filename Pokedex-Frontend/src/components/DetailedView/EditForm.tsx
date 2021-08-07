@@ -53,7 +53,7 @@ const EditForm = (props: any) => {
         }
 
         initialSet();
-    }, []);
+    }, [props._id]);
 
 
     const validateForm = (reqBody: any) => {

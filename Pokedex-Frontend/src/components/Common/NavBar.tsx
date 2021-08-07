@@ -67,7 +67,7 @@ function NavBar (){
              <FontAwesomeIcon icon="comment"/>
              <div className="span"><FormattedMessage id='Forum'/></div>
           </NavLink>
-          <a href="https://github.com/zipengliang21/Pokedex" target="_blank">
+          <a href="https://github.com/zipengliang21/Pokedex">
              <FontAwesomeIcon icon="edit"/>
              <div className="span"><FormattedMessage id='About'/></div>
           </a>

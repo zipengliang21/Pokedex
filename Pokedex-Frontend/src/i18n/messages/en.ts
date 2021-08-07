@@ -1,6 +1,6 @@
 import {LOCALES} from "../locales";
 
-export default {
+const English = {
     [LOCALES.ENGLISH]: {
         "Login": "Login",
         "Home": "Home",
@@ -79,3 +79,4 @@ export default {
         "Edit_Pokemon": "Add and Delete Pokemon",
     }
 };
+export default English;

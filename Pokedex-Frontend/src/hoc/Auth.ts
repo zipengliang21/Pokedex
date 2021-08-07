@@ -2,10 +2,6 @@ import cookieChecker from 'js-cookie';
 import {useEffect} from "react";
 
 function AuthLayout (props: any) {
-    useEffect(() => {
-         fetchCurrentUser();
-    }, []);
-
     const fetchCurrentUser = async (): Promise<void> => {
         const cookieExists: boolean =
             typeof cookieChecker.get('jwt') === 'string' &&
@@ -19,6 +15,10 @@ function AuthLayout (props: any) {
             }
         }
     };
+
+    useEffect(() => {
+         fetchCurrentUser();
+    });
 
     return(
          props.children

@@ -98,10 +98,6 @@ const usePostList = () => {
       return response.data.postList;
    }
 
-   const getCount = () => {
-      return count;
-   }
-
    return {postList, setPostList, count, addPost, deletePost, getPost, getPostList, updateUserPost}
 }
 export {usePostList};

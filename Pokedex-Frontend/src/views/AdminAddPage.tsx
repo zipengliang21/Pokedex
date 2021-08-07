@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useForm } from "react-hook-form";
-import EditPokemon from "../components/EditPokemon";
+import EditPokemon from "../components/DetailedView/EditPokemon";
 import Button from "@material-ui/core/Button";
 import Collapse from "@material-ui/core/Collapse";
 import { makeStyles } from "@material-ui/core/styles";
@@ -116,7 +115,6 @@ const Warning = styled.div`
 const AdminAddPage = (props: any) => {
   const {addPokemon, deletePokemon } =
     usePokemonList();
-  const { register, handleSubmit } = useForm();
   const classes = useStyles();
   const [flag, setFlag] = React.useState(1);
   const [id, setId] = React.useState("");
@@ -133,7 +131,7 @@ const AdminAddPage = (props: any) => {
   const [baseSpDefence, setBaseSpDefence] = React.useState("");
   const [baseSpeed, setBaseSpeed] = React.useState("");
 
-  const [open, setOpen] = React.useState(false);
+  const [open] = React.useState(false);
 
   const handleChangeFlag = (event: any) => {
     const temp = event.currentTarget.id;

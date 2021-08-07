@@ -4,7 +4,7 @@ import SearchBar from "../components/Common/SearchBar";
 import Pokemon from "../components/DetailedView/Pokemon";
 import Fade from "react-reveal/Fade";
 import ReactPaginate from "react-paginate";
-import Spinner from "components/Spinner";
+import Spinner from "components/Common/Spinner";
 import {useIntl} from "react-intl";
 
 const Wrapper = styled.div`

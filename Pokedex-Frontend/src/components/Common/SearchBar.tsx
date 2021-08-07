@@ -152,7 +152,7 @@ function SearchBar(props: any) {
         } else {
             setfilteredPokemons(result);
         }
-    }, [search, pokemons]);
+    }, [search, pokemons, props.pokemonList]);
 
     return (
         <SearchBarResultWrapper>
@@ -177,9 +177,9 @@ function SearchBar(props: any) {
                 <PokemonWrapper>
                     {filteredPokemons.map((pokemon, index) => {
                         if (pokemon.name === "") {
-                            return <> </>;
+                            return <span key = {index}>No Result</span>;
                         } else {
-                            return <Fade left key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon._id}/></Fade>;
+                            return <Fade left key={pokemon.name + index}><Pokemon key={pokemon._id} pokemon={pokemon} id={pokemon._id}/></Fade>;
                         }
                     })}
                 </PokemonWrapper>
