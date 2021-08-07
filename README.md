@@ -95,6 +95,10 @@ Only users and admin can make posts, and delete their own posts.But visitors can
 - You Ding
 
 > You Ding is the frontend developer in the team. She mainly works on the UI of login and add/delete page. She is also responsible for completing the project documentation for the team.
+
+- Hongxi Guo
+
+> Hongxi is the frontend and backend developer in the team. She took charge on the design and the implementation of the profile database and the respective server. She also completed the functionality that allows users to edit their profile. She actively participated in group meetings and contributed her ideas of the frontend design and the group work flow.
   
   
  ### prototypes on figma:
