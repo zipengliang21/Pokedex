@@ -41,19 +41,21 @@ Pokemon Website is a one-stop web application for Pokemon lovers and trainers. U
 
 ### Unit 1 - HTML, CSS, JS && Unit 2 - React
 
-We use React and Typescript to complete the frontend.
+We use React and Typescript to complete the frontend. So we can make seperate component like the search bar through React. Also, TSX is used with a large amount of HTML code in our project.
+We also apply Hook in Pokemon Website, which enriches the website and gives better user experience.
+Axios is used in our project. HTTP requests can be sent through axios.
 
 
 ### Unit 3 - Node & Express
 
-Node.js and TypeScript are used to complete the back end. 
+Node.js and TypeScript are used to complete the back end. Express.js is applied as our RESTful framework. Some endpoints are used in back end for CRUD operations, which the front end can access through HTTP requests.
 
 ### Unit 4 - MongoDB
 
-The data of our project is stored in database MongoDB. It is document-based and more flexible. 
+The data of our project is stored in database MongoDB. It is document-based and more flexible. Schemas are made for our users, categories and comments. These schemas have several properties as well as restrictions.
 
 ### Unit 5 - Release Engineering
-
+CI/CD pipelines are set up with Google action.The code could step into production when CI/CD passes. Also, we depoly our project into Heroku, which can be connected to our GitHub Repos. We could get the user's perspective with the help of Heroku.
 
 ## Steps in the future
 - Third-Party Login
@@ -92,7 +94,7 @@ Only users and admin can make posts, and delete their own posts.But visitors can
 > 
 - You Ding
 
-> You Ding is the frontend developer in the team. She completes the UI of login and add/delete page. She also completes the project documentation for the team.
+> You Ding is the frontend developer in the team. She mainly works on the UI of login and add/delete page. She is also responsible for completing the project documentation for the team.
   
   
  ### prototypes on figma:
