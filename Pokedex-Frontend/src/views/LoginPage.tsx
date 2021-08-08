@@ -13,12 +13,13 @@ import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import styled from "styled-components";
-import LoginHeader from "components/DetailedView/LoginHeader";
+import LoginHeader from "components/Login/LoginHeader";
 import {useHistory} from "react-router";
 import axios from "axios";
 import swal from "sweetalert";
 import validator from "validator";
 import {Alert} from "@material-ui/lab";
+import {useIntl} from "react-intl";
 
 const BackgroundWrapper = styled.div`
   width: 850px;
@@ -126,6 +127,7 @@ export default function SignIn(props: any) {
     const [confirmPassword, setConfirmPassword] = React.useState("");
 
     const history = useHistory();
+    const intl = useIntl();
 
     const handleChangeFlag = (event: any) => {
         const temp = event.currentTarget.id;
@@ -167,7 +169,7 @@ export default function SignIn(props: any) {
                 if (response.data) {
                     const user = response.data.user;
                     props.setCurrentUser(user);
-                    swal("Login Successfully!", "", "success")
+                    swal(`${intl.formatMessage({id: "Login_Successfully"})}`, "", "success")
                         .then(() => {
                             history.push("/profile");
                         });
@@ -186,7 +188,7 @@ export default function SignIn(props: any) {
                 if (response.data) {
                     const user = response.data.user;
                     props.setCurrentUser(user);
-                    swal("Register Successfully!", "", "success")
+                    swal(`${intl.formatMessage({id: "Register_Successfully"})}`, "", "success")
                         .then(() => {
                             history.push("/profile");
                         });

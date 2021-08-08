@@ -46,9 +46,9 @@ const usePokemonList = () => {
          const response = await axios.post(`/api/pokemons/`, data);
          if (response.data) {
             setPokemonList(await getPokemonList());
-            swal("add Pokemon successfully", "", "success");
+                swal("Add Pokemon Successfully", "", "success");
          }else {
-            swal("add Pokemon Failed", "", "warning");
+            swal("Add Pokemon Failed", "", "warning");
          }
 
    }
@@ -57,11 +57,11 @@ const usePokemonList = () => {
       try{ const response = await axios.delete(`/api/pokemons/${id}`, {data:deleteInfo});
          if (response.status === 204) {
             setPokemonList(await getPokemonList());
-            await swal("delete Pokemon successfully", "", "success");
+            await swal("Delete Pokemon Successfully", "", "success");
          }
          return response.status;
       }catch (error){
-         await swal("delete Pokemon Failed", "", "warning");
+         await swal("Delete Pokemon Failed", "", "warning");
          return error.response.status;
       }
 

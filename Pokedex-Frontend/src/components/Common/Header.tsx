@@ -97,7 +97,7 @@ function Header(props: any) {
             </NavLink>
             <div className="dropdown-content">
                 {admin}
-                <a className="logout" href="." onClick={() => props.logout()}><FormattedMessage id='Logout'/></a>
+                <a className="logout" href={window.location.href} onClick={() => props.logout()}><FormattedMessage id='Logout'/></a>
             </div>
         </Wrapper> :
         <NavLink exact to="/login">
@@ -111,8 +111,8 @@ function Header(props: any) {
             <Wrapper className="translation">
                 <FontAwesomeIcon icon="globe" className="language"/>
                 <div className="dropdown-content">
-                    <a className="switch" href="." id="chinese" onClick={() => props.setLanguage(LanguageEnum.Chinese)}>简体中文</a>
-                    <a className="switch" href="." onClick={() => props.setLanguage(LanguageEnum.English)}>English</a>
+                    <a className="switch" href={window.location.href} id="chinese" onClick={() => props.setLanguage(LanguageEnum.Chinese)}>简体中文</a>
+                    <a className="switch" href={window.location.href} onClick={() => props.setLanguage(LanguageEnum.English)}>English</a>
                 </div>
             </Wrapper>
             {value}

@@ -29,7 +29,7 @@ const profileSchema = new instance.Schema({
         required: [true, 'User must have an email address.'],
         validate: [validator.isEmail, 'Please provide a valid email'],
     },
-    description: { type: String},
+    description: { type: String, default: 'no description' },
     avatar: {
         type: String,
         default: "http://3.bp.blogspot.com/-fZ-FTGBT_OI/V87me3nL3PI/AAAAAAAAAkQ/" +
@@ -49,10 +49,8 @@ profileSchema.pre<ProfileDocument>('save', async function (next) {
     const profile = this
 
     if (profile.isModified('password')) {
-        console.log(profile.password)
         profile.password = await bcrypt.hash(profile.password, 8)
     }
-    console.log(profile)
     next()
 })
 

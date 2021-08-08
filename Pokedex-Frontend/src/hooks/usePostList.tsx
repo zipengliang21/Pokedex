@@ -47,10 +47,10 @@ const usePostList = () => {
          const response = await axios.post(`/api/posts/`, newPost);
          if (response.status === 201) {
             setPostList(await getPostList());
-            await swal("add post successfully", "", "success");
+            await swal("Add Post Successfully", "", "success");
          }
       }catch (error){
-         await swal("add post Failed", "", "warning");
+         await swal("Add Post Failed", "", "warning");
       }
 
    }
@@ -60,11 +60,11 @@ const usePostList = () => {
         try{ const response = await axios.delete(`/api/posts/${_id}`, {data:deleteInfo});
             if (response.status === 204) {
                 setPostList(await getPostList());
-                await swal("delete post successfully", "", "success");
+                await swal("Delete Post Successfully", "", "success");
             }
             return response.status;
         }catch (error){
-            await swal("delete post Failed", "", "warning");
+            await swal("Delete Post Failed", "", "warning");
             return error.response.status;
         }
 
@@ -79,7 +79,6 @@ const usePostList = () => {
             const response = await axios.put(`/api/posts/update/${_id}`, updateInfo);
             if (response.status === 200) {
                 setPostList(await getPostList());
-                console.log("update post success");
             }
             return response.status;
         }catch (error){

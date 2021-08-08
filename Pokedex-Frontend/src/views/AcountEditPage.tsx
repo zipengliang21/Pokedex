@@ -3,10 +3,11 @@ import Modal from 'react-bootstrap/Modal';
 import styled from "styled-components";
 import {faEdit} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import EditForm from "../components/DetailedView/EditForm";
+import EditForm from "../components/AccountEdit/EditForm";
 import Axios from 'axios';
-import {FormattedMessage} from "react-intl";
+import {FormattedMessage, useIntl} from "react-intl";
 import cookieChecker from "js-cookie";
+import swal from "sweetalert";
 
 const Background = styled.div`
    width: 850px;
@@ -135,6 +136,7 @@ function AccountEditPage(props: any) {
     const [popup, setPopup] = useState(false);
     const [avatar,setAvatar] = useState('');
     const [avatarGet,setAvatarGet] = useState('');
+    const intl = useIntl();
 
     const getProfile = async (_id: string) => {
         const response = await Axios.get(`/api/profile/${_id}`);
@@ -159,6 +161,7 @@ function AccountEditPage(props: any) {
         await Axios.post(`/api/profile/avatar`,reqBody);
         const profile = await getProfile(props.currentUser._id);
         setAvatarGet(profile.avatar);
+        swal(`${intl.formatMessage({id: "Login_Successfully"})}`, "", "success")
         const response = await props.getCurrentUser();
         if (response) {
             props.setCurrentUser(response);
@@ -202,7 +205,8 @@ function AccountEditPage(props: any) {
                             borderColor: "#D9D9D9",
                             font: "inherit",
                             background: "white",
-                            borderRadius: "5px"
+                            borderRadius: "5px",
+                            cursor: "pointer",
                         }}
                                 onClick={() => handleClose()}>
                             <FontAwesomeIcon icon={faEdit} className="edit"/> <FormattedMessage id='Change_Avatar'/>

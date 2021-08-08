@@ -65,7 +65,7 @@ function PostDetailsPage(props: any) {
 
    useEffect(() => {
       init();
-   });
+   }, []);
    return (
        <Wrapper>
           <ForumHeader/>

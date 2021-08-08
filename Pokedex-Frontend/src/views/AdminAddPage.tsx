@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import EditPokemon from "../components/DetailedView/EditPokemon";
+import EditPokemon from "../components/AdminAdd/EditPokemon";
 import Button from "@material-ui/core/Button";
 import Collapse from "@material-ui/core/Collapse";
 import { makeStyles } from "@material-ui/core/styles";

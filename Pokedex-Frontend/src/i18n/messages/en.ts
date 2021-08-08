@@ -77,6 +77,17 @@ const English = {
         "ConfirmDelete": "Please make sure the information is correct",
         "Login_Through_Admin": "Please Login through Admin Account",
         "Edit_Pokemon": "Add and Delete Pokemon",
+        "Login_Successfully": "Login Successfully!",
+        "Register_Successfully": "Register Successfully!",
+        "Update_Successfully": "Update Successfully!",
+        "Add_Pokemon_Successfully": "Add Pokemon Successfully!",
+        "Add_Pokemon_Failed": "Add Pokemon Failed!",
+        "Delete_Pokemon_Successfully": "Delete Pokemon Successfully!",
+        "Delete_Pokemon_Failed": "Delete Pokemon Failed!",
+        "Add_Post_Successfully": "Add Post Successfully!",
+        "Add_Post_Failed": "Add Post Failed!",
+        "Delete_Post_Successfully": "Delete Post Successfully!",
+        "Delete_Post_Failed": "Delete Post Failed!",
     }
 };
 export default English;

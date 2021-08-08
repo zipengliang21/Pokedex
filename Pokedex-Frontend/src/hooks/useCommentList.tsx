@@ -56,7 +56,6 @@ const useCommentList = () => {
             const response = await axios.put(`/api/comments/update/${_id}`, updateInfo);
             if (response.status === 200) {
                 setCommentList(await getCommentList());
-                console.log("update comment success");
             }
             return response.status;
         }catch (error){

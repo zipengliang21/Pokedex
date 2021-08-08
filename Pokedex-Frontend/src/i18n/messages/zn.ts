@@ -77,6 +77,17 @@ const Chinese = {
         "ConfirmDelete": "请输入名字并确认输入无误",
         "Login_Through_Admin": "请先登录管理员账号来查看此页面",
         "Edit_Pokemon": "增删宝可梦",
+        "Login_Successfully": "登录成功!",
+        "Register_Successfully": "注册成功!",
+        "Update_Successfully": "更新成功!",
+        "Add_Pokemon_Successfully": "添加宝可梦成功!",
+        "Add_Pokemon_Failed": "添加宝可梦失败!",
+        "Delete_Pokemon_Successfully": "删除宝可梦成功!",
+        "Delete_Pokemon_Failed": "删除宝可梦失败!",
+        "Add_Post_Successfully": "发布帖子成功!",
+        "Add_Post_Failed": "发布帖子失败!",
+        "Delete_Post_Successfully": "删除帖子成功!",
+        "Delete_Post_Failed": "删除帖子成功!",
     }
 }
 

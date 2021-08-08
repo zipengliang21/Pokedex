@@ -4,8 +4,9 @@ import {faEdit} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import "easymde/dist/easymde.min.css";
 import Axios from "axios";
-import {FormattedMessage} from "react-intl";
+import {FormattedMessage, useIntl} from "react-intl";
 import cookieChecker from "js-cookie";
+import swal from "sweetalert";
 
 const FormWrapper = styled.div`
   display:flex;
@@ -37,6 +38,8 @@ const EditForm = (props: any) => {
     const [location, setLocation] = useState("");
     const [password, setPassword] = useState("");
     const [cPassword, setCPassword] = useState("");
+
+    const intl = useIntl();
 
     const getProfile = async (_id: string) => {
         const response = await Axios.get(`/api/profile/${_id}`);
@@ -81,6 +84,7 @@ const EditForm = (props: any) => {
             password: password,
         };
         if (validateForm(reqBody)) {
+            swal(`${intl.formatMessage({id: "Update_Successfully"})}`, "", "success")
             await Axios.post("/api/profile/edit", reqBody);
         }
 
@@ -102,7 +106,7 @@ const EditForm = (props: any) => {
             <form>
                 <FormEntry>
                     <label style={{textAlign: "left"}}><FormattedMessage id='Email'/>:</label>
-                    <input type="email" placeholder={props.currentUser.email} style={{
+                    <input type="email" disabled placeholder={props.currentUser.email} style={{
                         width: "50vw",
                         maxWidth: "400px",
                         minHeight: "30px",
@@ -190,7 +194,8 @@ const EditForm = (props: any) => {
                     backgroundColor: "#3F51B5",
                     color: "white",
                     borderRadius: "5px",
-                    border: 0
+                    border: 0,
+                    cursor: "pointer",
                 }} onClick={() => handleSubmit()}>
                     <FontAwesomeIcon icon={faEdit} className="edit"/> <FormattedMessage id='Update'/></button>
 

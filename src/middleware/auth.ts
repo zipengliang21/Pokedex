@@ -15,7 +15,6 @@ export const auth = async (req: Request, res: Response, next: NextFunction) => {
         else if(req.cookies.jwt) {
             token = req.cookies.jwt;
         }
-        console.log("Auth:----" + token)
 
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         // @ts-ignore
