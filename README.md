@@ -3,7 +3,7 @@
 https://pokedex-website-2021.herokuapp.com
 
 source code links:
-- [Front-end repo](https://github.com/zipengliang21/Pokedex.git) 
+- [Front-end repo](https://github.com/zipengliang21/Pokedex.git)
 - [Back-end repo](https://github.com/zipengliang21/Pokedex-server.git)
 
 # Menu
@@ -18,19 +18,19 @@ source code links:
 ## Introduction
 Pokemon Website is a one-stop web application for Pokemon lovers and trainers. Users can find the natures and characteristics of Pokemon that they want on the application. The application also allows users to make posts and comments in Forum for social and networking purposes.
 
- 
+
 ## Task requirements
 ### Minimal requirements
   - [x] Users can Search for different pokemons
   - [x] Users can Filter pokemon according to their types
   - [x] Users can sign up or login to their accounts
-      
+
  ### Standard requirements
   - [x] Admin can login an Admin account
   - [x] Add pokemons to database by Admin
   - [x] Delete pokemons from database by Admin
   - [x] Users can update their profile
- 
+
  ### Stretch requirements
   - [x] Provide Engish and Chinese language versions
   - [x] Users can make posts and comments in forum
@@ -87,11 +87,8 @@ Only users and admin can make posts, and delete their own posts.But visitors can
 
 - Jenna(Jingwen) Che
 
-> She is the meeting organizer and the full-stack develpoer in the team. She wrote Filter Search page UI and Hook for Posts, comments, search and filter. She also wrote CRUD operations for forum (posts, comments) and add/delete pokemon part with typescript. She also made meeting notes and drew the prototypes with Zipeng.
+> She is the meeting organizer and the full-stack develpoer in the team. She wrote Filter Search page UI and Hook for Posts, comments, search and filter. She also wrote CRUD operations for forum (posts, comments) and add/delete pokemon part with typescript. She also made meeting notes and drew the prototypes with Zipeng. She also helped other teammates to debug.
 
-- 
-
-> 
 - You Ding
 
 > You Ding is the frontend developer in the team. She mainly works on the UI of login and add/delete page. She is also responsible for completing the project documentation for the team.
@@ -99,8 +96,8 @@ Only users and admin can make posts, and delete their own posts.But visitors can
 - Hongxi Guo
 
 > Hongxi is the frontend and backend developer in the team. She took charge on the design and the implementation of the profile database and the respective server. She also completed the functionality that allows users to edit their profile. She actively participated in group meetings and contributed her ideas of the frontend design and the group work flow.
-  
-  
+
+
  ### prototypes on figma:
  https://www.figma.com/file/yG3uhtgRI8cvmZCrmN5QK0/Pokedex?node-id=19%3A2
 
