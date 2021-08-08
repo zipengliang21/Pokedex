@@ -18,7 +18,7 @@ function AuthLayout (props: any) {
 
     useEffect(() => {
          fetchCurrentUser();
-    });
+    },[]);
 
     return(
          props.children
