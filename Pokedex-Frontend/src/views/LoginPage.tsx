@@ -19,7 +19,7 @@ import axios from "axios";
 import swal from "sweetalert";
 import validator from "validator";
 import {Alert} from "@material-ui/lab";
-import {useIntl} from "react-intl";
+import {FormattedMessage, useIntl} from "react-intl";
 
 const BackgroundWrapper = styled.div`
   width: 850px;
@@ -64,9 +64,9 @@ const Wrapper = styled.div`
 function Copyright() {
     return (
         <Typography variant="body2" color="textSecondary" align="center">
-            {"Copyright © "}
+            <FormattedMessage id='Copyright'/>{" © "}
             <Link color="inherit" href="#">
-                Pokedex
+                <FormattedMessage id='Pokedex'/>
             </Link>{" "}
             {new Date().getFullYear()}
             {"."}
@@ -216,13 +216,13 @@ export default function SignIn(props: any) {
                         <div className={classes.switchContainer}>
                             <div>
                                 <Button id="login" className={classes.button} onClick={handleChangeFlag}>
-                                    Sign In
+                                    <FormattedMessage id='Sign_In'/>
                                 </Button>
                                 <Indicator hidden={flag !== 1}/>
                             </div>
                             <div>
                                 <Button id="register" className={classes.button} onClick={handleChangeFlag}>
-                                    Register
+                                    <FormattedMessage id='Register'/>
                                 </Button>
                                 <Indicator hidden={flag !== 2}/>
                             </div>
@@ -235,7 +235,7 @@ export default function SignIn(props: any) {
                                 margin="normal"
                                 required
                                 fullWidth
-                                label="Email Address"
+                                label={intl.formatMessage({id: "Email_Address"})}
                                 name="email"
                                 autoComplete="email"
                                 autoFocus
@@ -249,13 +249,13 @@ export default function SignIn(props: any) {
                                 required
                                 fullWidth
                                 name="password"
-                                label="Password"
+                                label={intl.formatMessage({id: "Password"})}
                                 type="password"
                                 autoComplete="current-password"
                             />
                             <FormControlLabel
                                 control={<Checkbox value="remember" color="primary"/>}
-                                label="Remember me"
+                                label={intl.formatMessage({id: "Remember_me"})}
                             />
                             <Button
                                 fullWidth
@@ -264,12 +264,12 @@ export default function SignIn(props: any) {
                                 onClick={handleClickSubmit}
                                 className={classes.submit}
                             >
-                                Sign In
+                                <FormattedMessage id='Sign_In'/>
                             </Button>
                             <Grid container>
                                 <Grid item xs>
                                     <Link href="#" variant="body2">
-                                        Forgot password?
+                                        <FormattedMessage id='Forgot_password'/>
                                     </Link>
                                 </Grid>
                             </Grid>
@@ -282,7 +282,7 @@ export default function SignIn(props: any) {
                                 margin="normal"
                                 required
                                 fullWidth
-                                label="Enter Your Valid Email Address"
+                                label={intl.formatMessage({id: "Enter_Your_Valid_Email_Address"})}
                                 name="email"
                                 autoComplete="email"
                                 autoFocus
@@ -296,7 +296,7 @@ export default function SignIn(props: any) {
                                 required
                                 fullWidth
                                 id="name"
-                                label="Enter Your User Name"
+                                label={intl.formatMessage({id: "Enter_Your_User_Name"})}
                                 name="name"
                                 autoComplete="name"
                                 autoFocus
@@ -309,7 +309,7 @@ export default function SignIn(props: any) {
                                 required
                                 fullWidth
                                 name="password"
-                                label="Set your Password"
+                                label={intl.formatMessage({id: "Set_your_Password"})}
                                 type="password"
                                 autoComplete="current-password"
                             />
@@ -321,7 +321,7 @@ export default function SignIn(props: any) {
                                 required
                                 fullWidth
                                 name="confirmPassword"
-                                label="Confirm Your Password"
+                                label={intl.formatMessage({id: "Confirm_Your_Password"})}
                                 type="password"
                                 id="confirmPassword"
                                 autoComplete="current-confirmPassword"
@@ -333,7 +333,7 @@ export default function SignIn(props: any) {
                                 onClick={handleClickSubmit}
                                 className={classes.submit}
                             >
-                                Register
+                                <FormattedMessage id='Register'/>
                             </Button>
                         </form>
                     </div>

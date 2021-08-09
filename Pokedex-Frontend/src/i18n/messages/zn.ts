@@ -3,6 +3,7 @@ import { LOCALES } from "../locales";
 const Chinese = {
     [LOCALES.CHINESE]: {
         "Login": "登录",
+        "Register": "注册",
         "Home": "主页",
         "Filter Search": "高级搜索",
         "Forum": "论坛",
@@ -88,6 +89,16 @@ const Chinese = {
         "Add_Post_Failed": "发布帖子失败!",
         "Delete_Post_Successfully": "删除帖子成功!",
         "Delete_Post_Failed": "删除帖子成功!",
+        "Pokedex": "宝可梦图鉴",
+        "Copyright": "版权",
+        "Email_Address": "邮箱地址",
+        "Remember_me": "记住我",
+        "Sign_In": "登录",
+        "Forgot_password": "忘记密码?",
+        "Enter_Your_Valid_Email_Address": "请输入您的邮箱地址",
+        "Enter_Your_User_Name": "请您输入您的用户名",
+        "Set_your_Password": "请您输入您的密码",
+        "Confirm_Your_Password": "请您再次输入密码核对",
     }
 }
 

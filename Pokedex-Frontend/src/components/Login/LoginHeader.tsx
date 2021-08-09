@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import {FormattedMessage} from "react-intl";
 
 const LoginHeaderWrapper = styled.div`
   width: 850px;
@@ -28,7 +29,7 @@ const LoginHeaderWrapper = styled.div`
 `;
 
 function LoginHeader({flag}: any) {
-   let value = flag === 1? "Login" : "Register";
+   let value = flag === 1? <FormattedMessage id='Login'/> : <FormattedMessage id='Register'/>;
    return (
        <LoginHeaderWrapper>
              <div className="title">

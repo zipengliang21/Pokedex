@@ -97,7 +97,7 @@ function Header(props: any) {
             </NavLink>
             <div className="dropdown-content">
                 {admin}
-                <a className="logout" href={window.location.href} onClick={() => props.logout()}><FormattedMessage id='Logout'/></a>
+                <NavLink className="logout" exact to="/login" onClick={() => props.logout()}><FormattedMessage id='Logout'/></NavLink>
             </div>
         </Wrapper> :
         <NavLink exact to="/login">

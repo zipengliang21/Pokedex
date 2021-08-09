@@ -3,6 +3,7 @@ import {LOCALES} from "../locales";
 const English = {
     [LOCALES.ENGLISH]: {
         "Login": "Login",
+        "Register": "Register",
         "Home": "Home",
         "Filter Search": "Filter Search",
         "Forum": "Forum",
@@ -88,6 +89,16 @@ const English = {
         "Add_Post_Failed": "Add Post Failed!",
         "Delete_Post_Successfully": "Delete Post Successfully!",
         "Delete_Post_Failed": "Delete Post Failed!",
+        "Pokedex": "Pokedex",
+        "Copyright": "Copyright",
+        "Email_Address": "Email_Address",
+        "Remember_me": "Remember_me",
+        "Sign_In": "Sign In",
+        "Forgot_password": "Forgot password?",
+        "Enter_Your_Valid_Email_Address": "Enter Your Valid Email Address",
+        "Enter_Your_User_Name": "Enter Your User Name",
+        "Set_your_Password": "Set your Password",
+        "Confirm_Your_Password": "Confirm Your Password",
     }
 };
 export default English;
