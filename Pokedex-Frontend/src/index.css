@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-
 * {
     margin: 0;
     padding: 0;
@@ -20,7 +19,7 @@
 body {
     line-height: 1.8;
     font-family: 'Poppins', sans-serif;
-    word-break: break-word;
+    /*word-break: break-word;*/
 }
 
 ul, ol {
@@ -32,9 +31,6 @@ a {
     color: inherit
 }
 
-body, button, input, select, textarea {
-    font: 12px/1.5 tahoma, arial, \5b8b\4f53;
-}
 
 h1, h2, h3, h4, h5, h6 {
     font-size: 100%;

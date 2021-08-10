@@ -46,19 +46,59 @@ const DataWrapper = styled.div`
    }
 `;
 
+enum TypeEnum {
+    Normal = "Normal",
+    Fire = "Fire",
+    Water = "Water",
+    Grass = "Grass",
+    Flying = "Flying",
+    Fighting = "Fighting",
+    Poison = "Poison",
+    Electric = "Electric",
+    Ground = "Ground",
+    Rock = "Rock",
+    Ice = "Ice",
+    Bug = "Bug",
+    Phychic = "Phychic",
+    Ghost = "Ghost",
+    Steel = "Steel",
+    Dragon = "Dragon",
+    Dark = "Dark"
+}
+
+const TypeLabel = styled.label`
+    background: ${props => props.color === TypeEnum.Normal ? "#808080" :
+    props.color === TypeEnum.Fire ? "orange" :
+        props.color === TypeEnum.Water ? "#33ccff" :
+            props.color === TypeEnum.Grass ? "#00cc44" :
+                props.color === TypeEnum.Flying ? "linear-gradient(#33ccff, #808080)" :
+                    props.color === TypeEnum.Fighting ? "#cc5200" :
+                        props.color === TypeEnum.Poison ? "#800080" :
+                            props.color === TypeEnum.Electric ? "#ffd11a" :
+                                props.color === TypeEnum.Ground ? "linear-gradient(#ffd11a, #808080)" :
+                                    props.color === TypeEnum.Rock ? "#77773c" :
+                                        props.color === TypeEnum.Phychic ? "#cc0066" :
+                                            props.color === TypeEnum.Ghost ? "#b366ff" :
+                                                props.color === TypeEnum.Steel ? "#808080" :
+                                                    props.color === TypeEnum.Dragon ? "linear-gradient(#e66465, #9198e5)" :
+                                                        props.color === TypeEnum.Ice ? "#00ffff" :
+                                                            props.color === TypeEnum.Bug ? "#408000" :
+                                                                props.color === TypeEnum.Dark ? "#3d3d5c" : "#ff80ff"};
+      color: white;
+      border-radius: 5px;
+      margin: 5px;
+      padding: 4px 12px;
+      @media(max-width: 576px){
+        margin: 0;
+      }
+`;
+
 const ImageWrapper = styled.div`
     text-align: center;
     div{
       font-size: 18px;
       color: #04266D;
       font-weight: bold;
-    }
-    label{
-      background-color: #9BCC50;
-      color: white;
-      border-radius: 5px;
-      margin: 5px;
-      padding: 4px 12px;
     }
     @media(max-width: 576px){
       margin: 0;
@@ -129,7 +169,7 @@ const PokemonInfo = (props: any) => {
 
     useEffect(() => {
         init();
-    });
+    }, []);
 
     return pokemon ? (
         <InfoWrapper>
@@ -149,7 +189,8 @@ const PokemonInfo = (props: any) => {
                         />
                         <div>{pokemon.name}</div>
                         {pokemon.type.map((pokeType: any, index: number) => {
-                            return <label key={index.toString()}><FormattedMessage id={`${pokeType}`}/></label>;
+                            return <TypeLabel color={pokeType} key={index.toString()}><FormattedMessage
+                                id={`${pokeType}`}/></TypeLabel>;
                         })}
 
                     </ImageWrapper>
