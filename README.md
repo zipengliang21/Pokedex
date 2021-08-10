@@ -52,10 +52,10 @@ Node.js and TypeScript are used to complete the back end. Express.js is applied 
 
 ### Unit 4 - MongoDB
 
-The data of our project is stored in database MongoDB. It is document-based and more flexible. Schemas are made for our users, categories and comments. These schemas have several properties as well as restrictions.
+The data of our project is stored in database MongoDB. It is document-based and more flexible. Schemas are made for our users, posts, pokemons and comments. These schemas have several properties as well as restrictions.
 
 ### Unit 5 - Release Engineering
-CI/CD pipelines are set up with Google action.The code could step into production when CI/CD passes. Also, we depoly our project into Heroku, which can be connected to our GitHub Repos. We could get the user's perspective with the help of Heroku.
+CI/CD pipelines are set up with github action.The code could step into production when CI/CD passes. Also, we depoly our project into Heroku, which can be connected to our GitHub Repos. We could get the user's perspective with the help of Heroku.
 
 ## Steps in the future
 - Third-Party Login
