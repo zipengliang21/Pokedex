@@ -12,7 +12,7 @@ const English = {
         "Logout": "Logout",
         "SearchBarTitle": "Pokemon Name",
         "SearchBarPlaceholder": "Search Pokemon Names",
-        "SearchBarSideNote": "Use the Advanced Search to explore Pokemon by different filters",
+        "SearchBarSideNote": "Use the Filter Search to explore Pokemon by different filters",
         "SearchBarNote": " Search for a Pokemon by its name here. The result will be displayed below.",
         "PrevPage": "Prev",
         "NextPage": "Next",

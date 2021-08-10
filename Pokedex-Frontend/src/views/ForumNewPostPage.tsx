@@ -3,6 +3,7 @@ import React from "react";
 import ForumHeader from "../components/Forum/ForumHeader";
 import ForumSubHeader from "../components/Forum/ForumSubHeader";
 import InputForm from "../components/Forum/InputForm";
+import {usePostList} from "../hooks/usePostList";
 
 const Wrapper = styled.div`
   width: 850px;
@@ -43,20 +44,20 @@ const ForumNewPostWrapper = styled.div`
 `;
 
 function ForumNewPostPage(props: any) {
-
-   return (
-       <Wrapper>
-          <ForumHeader/>
-          <ForumWrapper>
-             <ForumSubHeader/>
-             {props.currentUser &&
-             <ForumNewPostWrapper>
-                <InputForm add={props.addPost} currentUser={props.currentUser}/>
-             </ForumNewPostWrapper>
-             }
-          </ForumWrapper>
-       </Wrapper>
-   );
+    const {addPost} = usePostList();
+    return (
+        <Wrapper>
+            <ForumHeader/>
+            <ForumWrapper>
+                <ForumSubHeader/>
+                {props.currentUser &&
+                <ForumNewPostWrapper>
+                    <InputForm add={addPost} currentUser={props.currentUser}/>
+                </ForumNewPostWrapper>
+                }
+            </ForumWrapper>
+        </Wrapper>
+    );
 }
 
 export default ForumNewPostPage;

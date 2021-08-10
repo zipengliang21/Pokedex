@@ -61,7 +61,7 @@ const ForumHeaderWrapper = styled.div`
 `;
 
 function ForumHeader() {
-   const logo = "http://3.bp.blogspot.com/-fZ-FTGBT_OI/V87me3nL3PI/AAAAAAAAAkQ/" +
+   const logo = "https://3.bp.blogspot.com/-fZ-FTGBT_OI/V87me3nL3PI/AAAAAAAAAkQ/" +
        "ornK37y9NRgbYhQB1sjANbXUX2HxrISbgCK4B/s1600/068_Machamp.png";
    return (
        <ForumHeaderWrapper>

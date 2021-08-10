@@ -52,7 +52,7 @@ const ForumViewWrapper = styled.div`
 
 function PostDetailsPage(props: any) {
    const {filteredComment, setFilteredComment, getCommentForPost} = useCommentList();
-   const {getPost} = usePostList();
+   const {getPost, deletePost} = usePostList();
    const [post, setPost] = useState({postID: "", _id:""});
 
 
@@ -73,7 +73,7 @@ function PostDetailsPage(props: any) {
              <ForumSubHeader/>
              <ForumViewWrapper>
                 <PostDetails rootPost={post}
-                             deletePost = {props.deletePost}
+                             deletePost = {deletePost}
                              currentUser={props.currentUser}
                 />
                 {filteredComment.map((comment: any, index: number) => {

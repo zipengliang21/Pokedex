@@ -32,7 +32,7 @@ const profileSchema = new instance.Schema({
     description: { type: String, default: 'no description' },
     avatar: {
         type: String,
-        default: "http://3.bp.blogspot.com/-fZ-FTGBT_OI/V87me3nL3PI/AAAAAAAAAkQ/" +
+        default: "https://3.bp.blogspot.com/-fZ-FTGBT_OI/V87me3nL3PI/AAAAAAAAAkQ/" +
             "ornK37y9NRgbYhQB1sjANbXUX2HxrISbgCK4B/s1600/068_Machamp.png",
     },
     location: { type: String, default: 'Canada' },

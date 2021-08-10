@@ -8,6 +8,7 @@ import Axios from 'axios';
 import {FormattedMessage, useIntl} from "react-intl";
 import cookieChecker from "js-cookie";
 import swal from "sweetalert";
+import {usePostList} from "../hooks/usePostList";
 
 const Background = styled.div`
    width: 850px;
@@ -136,6 +137,7 @@ function AccountEditPage(props: any) {
     const [popup, setPopup] = useState(false);
     const [avatar,setAvatar] = useState('');
     const [avatarGet,setAvatarGet] = useState('');
+    const {updateUserPost} = usePostList();
     const intl = useIntl();
 
     const getProfile = async (_id: string) => {
@@ -165,7 +167,7 @@ function AccountEditPage(props: any) {
         const response = await props.getCurrentUser();
         if (response) {
             props.setCurrentUser(response);
-            await props.updateUserPost(props.currentUser._id, props.currentUser.userName, profile.avatar);
+            await updateUserPost(props.currentUser._id, props.currentUser.userName, profile.avatar);
             await props.updateUserComment(props.currentUser._id, props.currentUser.userName, profile.avatar);
         } else {
             cookieChecker.remove('jwt');
@@ -274,7 +276,7 @@ function AccountEditPage(props: any) {
                               _id={props.currentUser._id}
                               getCurrentUser = {props.getCurrentUser}
                               setCurrentUser={props.setCurrentUser}
-                              updateUserPost = {props.updateUserPost}
+                              updateUserPost = {updateUserPost}
                               updateUserComment = {props.updateUserComment}
                     />
                 </CurrInfoWrapper>

@@ -10,7 +10,6 @@ import PostDetailsPage from "views/PostDetailsPage";
 import AccountEditPage from "views/AcountEditPage";
 import AdminAddPage from "views/AdminAddPage";
 import {usePokemonList} from "./hooks/usePokemonList";
-import {usePostList} from "./hooks/usePostList";
 import {useCommentList} from "./hooks/useCommentList";
 import Auth from "hoc/Auth";
 import {useUser} from "./hooks/useUser";
@@ -31,7 +30,6 @@ const Background = styled.div`
 function App() {
     const {currentUser, setCurrentUser, getCurrentUser, logout} = useUser();
     const {pokemonList, getPokemon} = usePokemonList();
-    const {postList, addPost, deletePost, updateUserPost} = usePostList();
     const {addComment, updateUserComment} = useCommentList();
     const {language, setLanguage} = useLanguage();
 
@@ -53,7 +51,6 @@ function App() {
                             <AccountEditPage currentUser={currentUser}
                                              getCurrentUser={getCurrentUser}
                                              setCurrentUser={setCurrentUser}
-                                             updateUserPost ={updateUserPost}
                                              updateUserComment = {updateUserComment}
                             />
                         </Route>
@@ -64,10 +61,10 @@ function App() {
                             <FilterSearchPage pokemonList={pokemonList} currentUser={currentUser}/>
                         </Route>
                         <Route exact path="/forum">
-                            <ForumHomePage postList={postList} currentUser={currentUser}/>
+                            <ForumHomePage currentUser={currentUser}/>
                         </Route>
                         <Route exact path="/forum/newPost">
-                            <ForumNewPostPage addPost={addPost} currentUser={currentUser}/>
+                            <ForumNewPostPage currentUser={currentUser}/>
                         </Route>
                         <Route exact path="/Pokemon/:_id"
                                render={(props) => {
@@ -79,7 +76,6 @@ function App() {
                                    return <PostDetailsPage
                                        _id={props.match.params._id}
                                        addComment={addComment}
-                                       deletePost={deletePost}
                                        currentUser={currentUser}/>;
                                }}/>
                     </Switch>

@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 const axios = require('axios');
 
 export interface IUser {
@@ -19,15 +19,6 @@ export interface IUser {
 
 const useUser = () => {
    const [currentUser, setCurrentUser] = useState<IUser | null>(null);
-
-   useEffect( () => {
-      async function initialSet() {
-         const init = await getCurrentUser();
-         setCurrentUser(init);
-      }
-      initialSet();
-   }, [])
-
 
    const getCurrentUser = async () => {
       let response: {data: {user: any}} = {data: {user: null}} ;

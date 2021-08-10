@@ -8,6 +8,7 @@ import Fade from "react-reveal/Fade";
 import ReactPaginate from "react-paginate";
 import {useIntl} from "react-intl";
 import Spinner from "../components/Common/Spinner";
+import {usePostList} from "../hooks/usePostList";
 
 
 const ForumWrapper = styled.div`
@@ -135,15 +136,16 @@ const Pagination = styled.div`
 
 function ForumHomePage(props: any) {
     const [offset, setOffset] = useState(0);
+    const {postList} = usePostList();
     const handlePageClick = (e: any) => {
         const selectedPage = e.selected;
         setOffset(selectedPage);
     };
     const intl = useIntl();
     let data = <Spinner/>;
-    if(props.postList.length !== 0) {
+    if(postList.length !== 0) {
         data = <div>
-            {props.postList.slice(offset * 10, offset * 10 + 10).map((post: any, index: number) => {
+            {postList.slice(offset * 10, offset * 10 + 10).map((post: any, index: number) => {
                 return (
                     <ForumContentWrapper theme={index % 2 === 0 ? "full" : "half"}>
                         <ContentWrapper>
@@ -168,7 +170,7 @@ function ForumHomePage(props: any) {
                 <Pagination>
                     <ReactPaginate containerClassName="pagination"
                                    marginPagesDisplayed={2}
-                                   pageCount={Math.ceil(props.postList.length / 10)}
+                                   pageCount={Math.ceil(postList.length / 10)}
                                    pageRangeDisplayed={2}
                                    activeClassName={"active"}
                                    previousLabel={intl.formatMessage({id: "PrevPage"})}
