@@ -3,6 +3,7 @@ import styled from "styled-components";
 import SimpleMDE from "react-simplemde-editor";
 import "easymde/dist/easymde.min.css";
 import {FormattedMessage} from "react-intl";
+import {useHistory} from "react-router";
 
 const InputFormWrapper = styled.div`
     display: flex;
@@ -82,8 +83,14 @@ const InputForm = (props: any) => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [content, setContent] = useState("");
+    const history = useHistory();
     const handleContentChange = (value: string) => {
         setContent(value);
+    };
+    const addPost = async () => {
+        await props.add(title, description, content, props.currentUser.userName,
+            props.currentUser._id, props.currentUser.avatar);
+        history.push("/forum");
     };
     return (
         <InputFormWrapper>
@@ -115,8 +122,7 @@ const InputForm = (props: any) => {
                 </FormWrapper>
                 <div className="buttons">
                     <button id="submitButton"
-                            onClick={() => props.add(title, description, content, props.currentUser.userName,
-                                props.currentUser._id, props.currentUser.avatar)}><FormattedMessage id='Submit'/>
+                            onClick={() => addPost()}><FormattedMessage id='Submit'/>
                     </button>
                 </div>
             </div>

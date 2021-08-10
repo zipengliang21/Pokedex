@@ -70,6 +70,7 @@ const UserWrapper = styled.div`
     flex-direction: column;
     margin: auto 100px auto 0;
     align-items: center;
+    max-width: 50px;
     .logo{
       width: 75px;
     }
