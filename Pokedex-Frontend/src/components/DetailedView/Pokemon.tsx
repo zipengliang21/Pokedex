@@ -16,20 +16,20 @@ const PokemonWrapper = styled.div`
 `;
 
 const Pokemon = ({pokemon, id}: any) => {
-   return (
-       <PokemonWrapper>
-          <NavLink to={`/pokemon/${id}`}>
-             <div className="cover">
-                <img src={pokemon.img}
-                     width={150}
-                     height={150}
-                     alt={""}/>
-             </div>
-             <div className="number">{`#` + pokemon.id}</div>
-             <div className="name">{pokemon.name}</div>
-          </NavLink>
-       </PokemonWrapper>
-   );
+    return (
+        <PokemonWrapper>
+            <NavLink to={`/pokemon/${id}`}>
+                <div className="cover">
+                    <img src={pokemon.img}
+                         width={150}
+                         height={150}
+                         alt={""}/>
+                </div>
+                <div className="number">{`#` + pokemon.id}</div>
+                <div className="name">{pokemon.name}</div>
+            </NavLink>
+        </PokemonWrapper>
+    );
 
 };
 export default Pokemon;

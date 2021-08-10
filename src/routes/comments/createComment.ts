@@ -1,8 +1,8 @@
-import { Request, Response } from 'express';
-import {Comments, CommentDocument,IComment} from "../../models/comment";
-import {Posts} from '../../models/post';
-import { ServerError } from '../../util/util';
-import { MESSAGES } from '../../util/constants';
+import {Request, Response} from "express";
+import {Comments, CommentDocument, IComment} from "../../models/comment";
+import {Posts} from "../../models/post";
+import {ServerError} from "../../util/util";
+import {MESSAGES} from "../../util/constants";
 
 export default async (req: Request, res: Response): Promise<void> => {
     const {
@@ -13,21 +13,23 @@ export default async (req: Request, res: Response): Promise<void> => {
         content,
         avatar,
         date
-    }: {userId: string;
+    }: {
+        userId: string;
         userName: string;
         postID: string;
         commentID: string;
         content: string;
         avatar: string;
-    date:Date} = req.body;
+        date: Date
+    } = req.body;
 
-    if (content === null || content === undefined || typeof content !== 'string') {
-        throw new ServerError({ statusCode: 400, message: MESSAGES.EMPTY_COMMENT });
+    if (content === null || content === undefined || typeof content !== "string") {
+        throw new ServerError({statusCode: 400, message: MESSAGES.EMPTY_COMMENT});
     }
 
     let postExists: boolean;
     try {
-        postExists = await Posts.exists({ _id: postID });
+        postExists = await Posts.exists({_id: postID});
     } catch (err) {
         throw new ServerError({
             statusCode: 400,
@@ -51,5 +53,5 @@ export default async (req: Request, res: Response): Promise<void> => {
         date,
     };
     const newComment: CommentDocument = await new Comments(commentInfo).save();
-    res.status(201).json({ comment: newComment });
+    res.status(201).json({comment: newComment});
 };

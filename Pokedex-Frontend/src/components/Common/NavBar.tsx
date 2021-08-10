@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import styled from "styled-components";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {NavLink} from "react-router-dom";
@@ -50,33 +50,31 @@ const NavBarWrapper = styled.div`
    }
 `;
 
-function NavBar (){
-   return (
-       <NavBarWrapper>
-          <NavLink exact activeClassName="selected" to="/" className="login">
-             <div>
-                <FontAwesomeIcon icon="home"/>
-                <div className="span"><FormattedMessage id='Home'/></div>
-             </div>
-          </NavLink>
-          <NavLink exact activeClassName="selected" to="/filterSearch" className="login">
-             <FontAwesomeIcon icon="search"/>
-             <div className="span"><FormattedMessage id='Filter Search'/></div>
-          </NavLink>
-          <NavLink exact activeClassName="selected" to="/forum" className="login">
-             <FontAwesomeIcon icon="comment"/>
-             <div className="span"><FormattedMessage id='Forum'/></div>
-          </NavLink>
-          <a href="https://github.com/zipengliang21/Pokedex">
-             <FontAwesomeIcon icon="edit"/>
-             <div className="span"><FormattedMessage id='About'/></div>
-          </a>
-       </NavBarWrapper>
-   )
+function NavBar() {
+    return (
+        <NavBarWrapper>
+            <NavLink exact activeClassName="selected" to="/" className="login">
+                <div>
+                    <FontAwesomeIcon icon="home"/>
+                    <div className="span"><FormattedMessage id='Home'/></div>
+                </div>
+            </NavLink>
+            <NavLink exact activeClassName="selected" to="/filterSearch" className="login">
+                <FontAwesomeIcon icon="search"/>
+                <div className="span"><FormattedMessage id='Filter Search'/></div>
+            </NavLink>
+            <NavLink exact activeClassName="selected" to="/forum" className="login">
+                <FontAwesomeIcon icon="comment"/>
+                <div className="span"><FormattedMessage id='Forum'/></div>
+            </NavLink>
+            <a href="https://github.com/zipengliang21/Pokedex">
+                <FontAwesomeIcon icon="edit"/>
+                <div className="span"><FormattedMessage id='About'/></div>
+            </a>
+        </NavBarWrapper>
+    );
 
 }
-
-
 
 
 export default NavBar;

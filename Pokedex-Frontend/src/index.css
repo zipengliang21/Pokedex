@@ -1,91 +1,94 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 * {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 *::before {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  line-height: 1.8;
-  font-family: 'Poppins', sans-serif;
-  //word-break: break-word;
+    line-height: 1.8;
+    font-family: 'Poppins', sans-serif;
+    word-break: break-word;
 }
 
 ul, ol {
-  list-style: none;
+    list-style: none;
 }
 
 a {
-  text-decoration: none;
-  color: inherit
+    text-decoration: none;
+    color: inherit
 }
 
 body, button, input, select, textarea {
-  font:12px/1.5tahoma, arial, \5b8b\4f53;
+    font: 12px/1.5 tahoma, arial, \5b8b\4f53;
 }
 
-h1, h2, h3, h4, h5, h6{
-  font-size:100%;
-  color:rgb(51, 51, 51);
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    color: rgb(51, 51, 51);
 }
 
 address, cite, dfn, em, var {
-  font-style:normal;
+    font-style: normal;
 }
 
 code, kbd, pre, samp {
-  font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
-small{
-  font-size:12px;
+small {
+    font-size: 12px;
 }
 
 sup {
-  vertical-align:text-top;
+    vertical-align: text-top;
 }
 
-sub{
-  vertical-align:text-bottom;
+sub {
+    vertical-align: text-bottom;
 }
 
 legend {
-  color:#000;
+    color: #000;
 }
 
 fieldset, img {
-  border:0;
+    border: 0;
 }
 
 button, input, select, textarea {
-  font-size:100%;
+    font-size: 100%;
 }
 
 table {
-  border-collapse:collapse; border-spacing:0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
-html,body,#root{
-  width: 100%;
-  height: 100%;
+html, body, #root {
+    width: 100%;
+    height: 100%;
 }
+
 .swal-button {
-  padding: 7px 19px;
-  border-radius: 2px;
-  background-color: #4962B3;
-  font-size: 12px;
-  border: 1px solid #3e549a;
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
+    padding: 7px 19px;
+    border-radius: 2px;
+    background-color: #4962B3;
+    font-size: 12px;
+    border: 1px solid #3e549a;
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
 }
 

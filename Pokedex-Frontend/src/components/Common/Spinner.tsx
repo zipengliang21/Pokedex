@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import styled from "styled-components";
 
 const Spinner = styled.div`
@@ -73,7 +73,7 @@ const Spinner = styled.div`
 
 const spinner = ({theme}: any) => (
     <Spinner theme={theme}>
-       <div className="Loader">Loading...</div>
+        <div className="Loader">Loading...</div>
     </Spinner>
 );
 

@@ -143,7 +143,7 @@ function ForumHomePage(props: any) {
     };
     const intl = useIntl();
     let data = <Spinner/>;
-    if(postList.length !== 0) {
+    if (postList.length !== 0) {
         data = <div>
             {postList.slice(offset * 10, offset * 10 + 10).map((post: any, index: number) => {
                 return (
@@ -181,7 +181,7 @@ function ForumHomePage(props: any) {
                     />
                 </Pagination>
             </Fade>
-        </div>
+        </div>;
     }
 
     return (

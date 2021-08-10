@@ -61,17 +61,17 @@ const ForumHeaderWrapper = styled.div`
 `;
 
 function ForumHeader() {
-   const logo = "https://3.bp.blogspot.com/-fZ-FTGBT_OI/V87me3nL3PI/AAAAAAAAAkQ/" +
-       "ornK37y9NRgbYhQB1sjANbXUX2HxrISbgCK4B/s1600/068_Machamp.png";
-   return (
-       <ForumHeaderWrapper>
-          <div className="left">
-             <img src={`${logo}`} alt="logo" className="logo"/>
-             <div className="title"><FormattedMessage id='Forum'/></div>
-          </div>
-          <div className="right"><FormattedMessage id='ForumWelcome'/></div>
-       </ForumHeaderWrapper>
-   );
+    const logo = "https://3.bp.blogspot.com/-fZ-FTGBT_OI/V87me3nL3PI/AAAAAAAAAkQ/" +
+        "ornK37y9NRgbYhQB1sjANbXUX2HxrISbgCK4B/s1600/068_Machamp.png";
+    return (
+        <ForumHeaderWrapper>
+            <div className="left">
+                <img src={`${logo}`} alt="logo" className="logo"/>
+                <div className="title"><FormattedMessage id='Forum'/></div>
+            </div>
+            <div className="right"><FormattedMessage id='ForumWelcome'/></div>
+        </ForumHeaderWrapper>
+    );
 }
 
 

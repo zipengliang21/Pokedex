@@ -1,4 +1,4 @@
-import getPokemon from './getPokemon';
+import getPokemon from "./getPokemon";
 import getPokemonList from "./getPokemonList";
 import createPokemon from "./createPokemon";
 import deletePokemon from "./deletePokemon";

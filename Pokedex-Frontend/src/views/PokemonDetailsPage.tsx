@@ -17,13 +17,13 @@ const Wrapper = styled.div`
 `;
 
 function PokemonDetailsPage(props: any) {
-   return (
-       <Wrapper>
-          <DetailPageHeader/>
-          <PokemonInfo id={props._id}
-                       getPokemon={props.getPokemon}/>
-       </Wrapper>
-   );
+    return (
+        <Wrapper>
+            <DetailPageHeader/>
+            <PokemonInfo id={props._id}
+                         getPokemon={props.getPokemon}/>
+        </Wrapper>
+    );
 }
 
 export default PokemonDetailsPage;

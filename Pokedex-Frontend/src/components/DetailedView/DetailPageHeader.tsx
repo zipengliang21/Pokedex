@@ -104,19 +104,21 @@ const SearchBarResultWrapper = styled.div`
 
 
 function DetailPageHeader(props: any) {
-   return (
-       <SearchBarResultWrapper>
-          <SearchBarWrapper>
-             <div className="left">
-                <NavLink to={"/"}><button className="goBack"><FormattedMessage id='BacktoHomePage'/></button></NavLink>
-                 <div className="note"><FormattedMessage id='SearchBarSideNote'/></div>
-             </div>
-              <div className="right"><FormattedMessage id='SearchBarNote'/></div>
+    return (
+        <SearchBarResultWrapper>
+            <SearchBarWrapper>
+                <div className="left">
+                    <NavLink to={"/"}>
+                        <button className="goBack"><FormattedMessage id='BacktoHomePage'/></button>
+                    </NavLink>
+                    <div className="note"><FormattedMessage id='SearchBarSideNote'/></div>
+                </div>
+                <div className="right"><FormattedMessage id='SearchBarNote'/></div>
 
-          </SearchBarWrapper>
-       </SearchBarResultWrapper>
+            </SearchBarWrapper>
+        </SearchBarResultWrapper>
 
-   )
+    );
 
 }
 

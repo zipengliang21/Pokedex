@@ -1,10 +1,10 @@
-import React,{useEffect, useState} from "react";
-import Modal from 'react-bootstrap/Modal';
+import React, {useEffect, useState} from "react";
+import Modal from "react-bootstrap/Modal";
 import styled from "styled-components";
 import {faEdit} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import EditForm from "../components/AccountEdit/EditForm";
-import Axios from 'axios';
+import Axios from "axios";
 import {FormattedMessage, useIntl} from "react-intl";
 import cookieChecker from "js-cookie";
 import swal from "sweetalert";
@@ -135,44 +135,45 @@ button.close-bottom{
 
 function AccountEditPage(props: any) {
     const [popup, setPopup] = useState(false);
-    const [avatar,setAvatar] = useState('');
-    const [avatarGet,setAvatarGet] = useState('');
+    const [avatar, setAvatar] = useState("");
+    const [avatarGet, setAvatarGet] = useState("");
     const {updateUserPost} = usePostList();
     const intl = useIntl();
 
     const getProfile = async (_id: string) => {
         const response = await Axios.get(`/api/profile/${_id}`);
         return response.data.profile[0];
-    }
+    };
 
-    useEffect( () => {
+    useEffect(() => {
         async function initialSet() {
-            if (props.currentUser !== undefined && props.currentUser !== null){
+            if (props.currentUser !== undefined && props.currentUser !== null) {
                 setAvatarGet(props.currentUser.avatar);
             }
         }
+
         initialSet();
     }, [props.currentUser]);
 
-    const handleClose = () =>{
+    const handleClose = () => {
         setPopup(!popup);
         setAvatar("");
-    }
-    const handleChangeAvatar = async() =>{
-        const reqBody = {avatar:avatar,userId:props.currentUser._id};
-        await Axios.post(`/api/profile/avatar`,reqBody);
+    };
+    const handleChangeAvatar = async () => {
+        const reqBody = {avatar: avatar, userId: props.currentUser._id};
+        await Axios.post(`/api/profile/avatar`, reqBody);
         const profile = await getProfile(props.currentUser._id);
         setAvatarGet(profile.avatar);
-        swal(`${intl.formatMessage({id: "Login_Successfully"})}`, "", "success")
+        swal(`${intl.formatMessage({id: "Login_Successfully"})}`, "", "success");
         const response = await props.getCurrentUser();
         if (response) {
             props.setCurrentUser(response);
             await updateUserPost(props.currentUser._id, props.currentUser.userName, profile.avatar);
             await props.updateUserComment(props.currentUser._id, props.currentUser.userName, profile.avatar);
         } else {
-            cookieChecker.remove('jwt');
+            cookieChecker.remove("jwt");
         }
-    }
+    };
 
     return (
         <Background>
@@ -250,7 +251,7 @@ function AccountEditPage(props: any) {
                                 <input type="text" placeholder="http://example.com"
                                        style={{width: "45vw", maxWidth: "400px", minHeight: "30px", margin: "10px 0"}}
                                        onChange={(event => {
-                                           setAvatar(event.target.value)
+                                           setAvatar(event.target.value);
                                        })} value={avatar}/>
                             </Modal.Body>
                             <Modal.Footer style={{
@@ -264,7 +265,8 @@ function AccountEditPage(props: any) {
                                 borderBottomRightRadius: "calc(.3rem - 1px)",
                                 borderBottomLeftRadius: "calc(.3rem - 1px)"
                             }}>
-                                <button className="close-bottom" onClick={() => handleClose()}><FormattedMessage id='Close'/></button>
+                                <button className="close-bottom" onClick={() => handleClose()}><FormattedMessage
+                                    id='Close'/></button>
                                 <button className="save-btn" onClick={() => handleChangeAvatar()}>
                                     <FormattedMessage id='Save'/>
                                 </button>
@@ -274,10 +276,10 @@ function AccountEditPage(props: any) {
                     }
                     <EditForm currentUser={props.currentUser}
                               _id={props.currentUser._id}
-                              getCurrentUser = {props.getCurrentUser}
+                              getCurrentUser={props.getCurrentUser}
                               setCurrentUser={props.setCurrentUser}
-                              updateUserPost = {updateUserPost}
-                              updateUserComment = {props.updateUserComment}
+                              updateUserPost={updateUserPost}
+                              updateUserComment={props.updateUserComment}
                     />
                 </CurrInfoWrapper>
             </ContentWrapper>

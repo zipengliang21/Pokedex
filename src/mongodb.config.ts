@@ -1,13 +1,13 @@
-import mongoose, { Mongoose } from 'mongoose';
-import autoIncrement from 'mongoose-auto-increment';
+import mongoose, {Mongoose} from "mongoose";
+import autoIncrement from "mongoose-auto-increment";
 
-import { stdout } from "./util/util";
-import * as CONFIG from './util/constants';
+import {stdout} from "./util/util";
+import * as CONFIG from "./util/constants";
 
 /*
 remove deprecation warnings
 */
-mongoose.set('useFindAndModify', false);
+mongoose.set("useFindAndModify", false);
 
 
 /*
@@ -25,14 +25,14 @@ const connect = (): Mongoose => {
     });
 
     // connection failed
-    mongoose.connection.on('error', err => {
-        stdout.error('db connection failed!');
+    mongoose.connection.on("error", err => {
+        stdout.error("db connection failed!");
         stdout.log(err.toString());
     });
 
     // connection successful
-    mongoose.connection.once('open', () => {
-        stdout.ready('db connection successful!');
+    mongoose.connection.once("open", () => {
+        stdout.ready("db connection successful!");
     });
     // initialize auto-incrementing id
     // autoIncrement.initialize(mongoose.connection);

@@ -76,43 +76,43 @@ const CommentWrapper = styled.div`
 `;
 
 const PostNewComment = (props: any) => {
-   const [commentContent, setCommentContent] = useState("");
-   const [userName,setUserName] = useState("");
-   const [avatar, setAvatar] = useState("");
+    const [commentContent, setCommentContent] = useState("");
+    const [userName, setUserName] = useState("");
+    const [avatar, setAvatar] = useState("");
 
-   useEffect(() => {
-      if (props.currentUser !== undefined && props.currentUser !== null){
-         setUserName(props.currentUser.userName);
-         setAvatar(props.currentUser.avatar);
-      }
-   }, [props.currentUser]);
+    useEffect(() => {
+        if (props.currentUser !== undefined && props.currentUser !== null) {
+            setUserName(props.currentUser.userName);
+            setAvatar(props.currentUser.avatar);
+        }
+    }, [props.currentUser]);
 
 
-   const handleContentChange = (value: string) => {
-      setCommentContent(value);
-   };
+    const handleContentChange = (value: string) => {
+        setCommentContent(value);
+    };
 
-   const addNewComment = async () => {
-      props.setFilteredComment([...props.filteredComment, await props.add(commentContent, props.postID,
-          props.currentUser.userName, props.currentUser._id, props.currentUser.avatar)])
-   }
+    const addNewComment = async () => {
+        props.setFilteredComment([...props.filteredComment, await props.add(commentContent, props.postID,
+            props.currentUser.userName, props.currentUser._id, props.currentUser.avatar)]);
+    };
 
-   return (
-       <InfoWrapper>
-                 <ContentWrapper>
-                    <UserWrapper>
-                       <img src={avatar}  height={100} alt="logo" className="logo" width={100}/>
-                       <div className="userName">{userName}</div>
-                    </UserWrapper>
-                    <CommentWrapper>
-                       <SimpleMDE value={commentContent} onChange={handleContentChange}/>
-                       <button id="submitButton"
-                               onClick={() => addNewComment()}><FormattedMessage id='Submit'/>
-                       </button>
-                    </CommentWrapper>
-                 </ContentWrapper>
-       </InfoWrapper>
-   );
+    return (
+        <InfoWrapper>
+            <ContentWrapper>
+                <UserWrapper>
+                    <img src={avatar} height={100} alt="logo" className="logo" width={100}/>
+                    <div className="userName">{userName}</div>
+                </UserWrapper>
+                <CommentWrapper>
+                    <SimpleMDE value={commentContent} onChange={handleContentChange}/>
+                    <button id="submitButton"
+                            onClick={() => addNewComment()}><FormattedMessage id='Submit'/>
+                    </button>
+                </CommentWrapper>
+            </ContentWrapper>
+        </InfoWrapper>
+    );
 };
 
 export default PostNewComment;

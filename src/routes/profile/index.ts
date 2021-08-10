@@ -1,9 +1,9 @@
-import getProfile from './getProfile';
+import getProfile from "./getProfile";
 import editProfile from "./editProfile";
-import editAvatar from './editAvatar';
+import editAvatar from "./editAvatar";
 
 export default {
-    getProfile:getProfile,
-    editProfile:editProfile,
-    editAvatar:editAvatar,
+    getProfile: getProfile,
+    editProfile: editProfile,
+    editAvatar: editAvatar,
 };

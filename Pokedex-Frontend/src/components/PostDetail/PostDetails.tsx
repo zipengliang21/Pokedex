@@ -88,11 +88,11 @@ const PostDetails = (props: any) => {
 
     const history = useHistory();
 
-    const [currentUserId,setCurrentUserId] = useState("");
+    const [currentUserId, setCurrentUserId] = useState("");
     const [currentUserIsAdmin, setCurrentUserIsAdmin] = useState(false);
 
     useEffect(() => {
-        if (props.currentUser !== undefined && props.currentUser !== null){
+        if (props.currentUser !== undefined && props.currentUser !== null) {
             setCurrentUserId(props.currentUser._id);
             setCurrentUserIsAdmin(props.currentUser.isAdmin);
         }
@@ -102,30 +102,30 @@ const PostDetails = (props: any) => {
     const deleteThisPost = async () => {
         await props.deletePost(props.rootPost._id);
         history.push("/forum");
-    }
+    };
 
-   return (
-       <InfoWrapper>
-          <header>{props.rootPost.title}</header>
-          <DateWrapper>
-             <span>{moment(props.rootPost.date).format('YYYY-MM-DD HH:mm:ss')}</span>
-             <span>#1</span>
-          </DateWrapper>
-          <ContentWrapper>
-             <UserWrapper>
-                <img src={props.rootPost.avatar} alt="logo" className="logo" width={100} height = {100}/>
-                <div className="userName">{props.rootPost.userName}</div>
-             </UserWrapper>
-             <Content>{props.rootPost.content}</Content>
-              {(currentUserId === props.rootPost.userId || currentUserIsAdmin)&&
-              <button id="deleteButton"
-                      onClick={() => deleteThisPost()}><FormattedMessage id='DeletePost'/>
-              </button>
-              }
-          </ContentWrapper>
+    return (
+        <InfoWrapper>
+            <header>{props.rootPost.title}</header>
+            <DateWrapper>
+                <span>{moment(props.rootPost.date).format("YYYY-MM-DD HH:mm:ss")}</span>
+                <span>#1</span>
+            </DateWrapper>
+            <ContentWrapper>
+                <UserWrapper>
+                    <img src={props.rootPost.avatar} alt="logo" className="logo" width={100} height={100}/>
+                    <div className="userName">{props.rootPost.userName}</div>
+                </UserWrapper>
+                <Content>{props.rootPost.content}</Content>
+                {(currentUserId === props.rootPost.userId || currentUserIsAdmin) &&
+                <button id="deleteButton"
+                        onClick={() => deleteThisPost()}><FormattedMessage id='DeletePost'/>
+                </button>
+                }
+            </ContentWrapper>
 
-       </InfoWrapper>
-   );
+        </InfoWrapper>
+    );
 };
 
 export default PostDetails;

@@ -51,7 +51,7 @@ function App() {
                             <AccountEditPage currentUser={currentUser}
                                              getCurrentUser={getCurrentUser}
                                              setCurrentUser={setCurrentUser}
-                                             updateUserComment = {updateUserComment}
+                                             updateUserComment={updateUserComment}
                             />
                         </Route>
                         <Route exact path="/admin/add">

@@ -1,4 +1,4 @@
-import { LOCALES } from "../locales";
+import {LOCALES} from "../locales";
 
 const Chinese = {
     [LOCALES.CHINESE]: {
@@ -100,6 +100,6 @@ const Chinese = {
         "Set_your_Password": "请您输入您的密码",
         "Confirm_Your_Password": "请您再次输入密码核对",
     }
-}
+};
 
 export default Chinese;

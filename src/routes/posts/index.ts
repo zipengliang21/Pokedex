@@ -1,4 +1,4 @@
-import getPost from './getPost';
+import getPost from "./getPost";
 import getPostList from "./getPostList";
 import createPost from "./createPost";
 import deletePost from "./deletePost";
@@ -9,5 +9,5 @@ export default {
     getPostList: getPostList,
     createPost: createPost,
     deletePost: deletePost,
-    updateUserPost:updateUserPost,
+    updateUserPost: updateUserPost,
 };

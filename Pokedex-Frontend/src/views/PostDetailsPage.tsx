@@ -51,47 +51,47 @@ const ForumViewWrapper = styled.div`
 `;
 
 function PostDetailsPage(props: any) {
-   const {filteredComment, setFilteredComment, getCommentForPost} = useCommentList();
-   const {getPost, deletePost} = usePostList();
-   const [post, setPost] = useState({postID: "", _id:""});
+    const {filteredComment, setFilteredComment, getCommentForPost} = useCommentList();
+    const {getPost, deletePost} = usePostList();
+    const [post, setPost] = useState({postID: "", _id: ""});
 
 
-   const init = async () => {
-      const pickPost = await getPost(props._id);
-      setPost(pickPost);
-      await getCommentForPost(pickPost._id);
+    const init = async () => {
+        const pickPost = await getPost(props._id);
+        setPost(pickPost);
+        await getCommentForPost(pickPost._id);
 
-   };
+    };
 
-   useEffect(() => {
-      init();
-   }, []);
-   return (
-       <Wrapper>
-          <ForumHeader/>
-          <ForumWrapper>
-             <ForumSubHeader/>
-             <ForumViewWrapper>
-                <PostDetails rootPost={post}
-                             deletePost = {deletePost}
-                             currentUser={props.currentUser}
-                />
-                {filteredComment.map((comment: any, index: number) => {
-                   return (
-                       <PostComment comment={comment} id={index} currentUser={props.currentUser}/>
-                   );
-                })}
-                {props.currentUser && <PostNewComment add={props.addComment}
-                                           _id={props._id}
-                                           postID={post._id}
-                                           filteredComment={filteredComment}
-                                           setFilteredComment={setFilteredComment}
-                                           currentUser={props.currentUser}
-                                           />}
-             </ForumViewWrapper>
-          </ForumWrapper>
-       </Wrapper>
-   );
+    useEffect(() => {
+        init();
+    }, []);
+    return (
+        <Wrapper>
+            <ForumHeader/>
+            <ForumWrapper>
+                <ForumSubHeader/>
+                <ForumViewWrapper>
+                    <PostDetails rootPost={post}
+                                 deletePost={deletePost}
+                                 currentUser={props.currentUser}
+                    />
+                    {filteredComment.map((comment: any, index: number) => {
+                        return (
+                            <PostComment comment={comment} id={index} currentUser={props.currentUser}/>
+                        );
+                    })}
+                    {props.currentUser && <PostNewComment add={props.addComment}
+                                                          _id={props._id}
+                                                          postID={post._id}
+                                                          filteredComment={filteredComment}
+                                                          setFilteredComment={setFilteredComment}
+                                                          currentUser={props.currentUser}
+                    />}
+                </ForumViewWrapper>
+            </ForumWrapper>
+        </Wrapper>
+    );
 }
 
 export default PostDetailsPage;

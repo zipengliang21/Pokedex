@@ -45,17 +45,17 @@ const ForumSubHeaderWrapper = styled.div`
 `;
 
 function ForumSubHeader() {
-   return (
-       <ForumSubHeaderWrapper>
-          <span className="headerLeft"><FormattedMessage id='Threads'/></span>
-          <NavLink to={"/forum/newPost"}>
+    return (
+        <ForumSubHeaderWrapper>
+            <span className="headerLeft"><FormattedMessage id='Threads'/></span>
+            <NavLink to={"/forum/newPost"}>
                   <span className="headerRight">
                      <FontAwesomeIcon icon="plus-circle" className="plus"/>
                      <FormattedMessage id='NewPost'/>
                   </span>
-          </NavLink>
-       </ForumSubHeaderWrapper>
-   );
+            </NavLink>
+        </ForumSubHeaderWrapper>
+    );
 }
 
 

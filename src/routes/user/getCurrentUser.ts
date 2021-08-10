@@ -1,5 +1,5 @@
-import { Response } from 'express';
-import { VerifiedUserRequest } from '../../middleware/verifiedUserRequest';
+import {Response} from "express";
+import {VerifiedUserRequest} from "../../middleware/verifiedUserRequest";
 
 export default async (req: VerifiedUserRequest, res: Response): Promise<void> => {
     /*
@@ -8,5 +8,5 @@ export default async (req: VerifiedUserRequest, res: Response): Promise<void> =>
     the verifiedUser, we can just return that user to the frontend. (No need to do another find)
     * */
 
-    res.status(200).json({ user: req.verifiedUser });
+    res.status(200).json({user: req.verifiedUser});
 };

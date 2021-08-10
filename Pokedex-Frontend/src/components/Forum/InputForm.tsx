@@ -79,43 +79,49 @@ const InputWrapper = styled.div`
 `;
 
 const InputForm = (props: any) => {
-   const [title, setTitle] = useState('');
-   const [description, setDescription] = useState('');
-   const [content, setContent] = useState('');
-   const handleContentChange = (value: string) => {
-      setContent(value);
-   };
-   return (
-       <InputFormWrapper>
-          <header><FormattedMessage id='NewPost'/></header>
-          <div>
-             <FormWrapper id="formInput">
-                <FormTop>
-                   <LabelWrapper>
-                      <label htmlFor="Name"><FormattedMessage id='NewPostTitle'/>:</label>
-                      <label htmlFor="description"><FormattedMessage id='NewPostDescription'/>:</label>
-                   </LabelWrapper>
-                   <InputWrapper>
-                      <input type="text" id="nameInput" name="nameInput"
-                             placeholder="Title"
-                             onChange={ (event => {setTitle(event.target.value)}) }
-                      />
-                             <br/>
-                      <input type="text" id="descriptionInput" name="descriptionInput"
-                             placeholder="Description"
-                             onChange={ (event => {setDescription(event.target.value)}) }
-                      /><br/>
-                   </InputWrapper>
-                </FormTop>
-                <SimpleMDE value={content} onChange={handleContentChange}/>
-             </FormWrapper>
-             <div className="buttons">
-                <button id="submitButton" onClick={() => props.add(title,description,content,props.currentUser.userName,
-                    props.currentUser._id, props.currentUser.avatar)}><FormattedMessage id='Submit'/></button>
-             </div>
-          </div>
-       </InputFormWrapper>
-   );
+    const [title, setTitle] = useState("");
+    const [description, setDescription] = useState("");
+    const [content, setContent] = useState("");
+    const handleContentChange = (value: string) => {
+        setContent(value);
+    };
+    return (
+        <InputFormWrapper>
+            <header><FormattedMessage id='NewPost'/></header>
+            <div>
+                <FormWrapper id="formInput">
+                    <FormTop>
+                        <LabelWrapper>
+                            <label htmlFor="Name"><FormattedMessage id='NewPostTitle'/>:</label>
+                            <label htmlFor="description"><FormattedMessage id='NewPostDescription'/>:</label>
+                        </LabelWrapper>
+                        <InputWrapper>
+                            <input type="text" id="nameInput" name="nameInput"
+                                   placeholder="Title"
+                                   onChange={(event => {
+                                       setTitle(event.target.value);
+                                   })}
+                            />
+                            <br/>
+                            <input type="text" id="descriptionInput" name="descriptionInput"
+                                   placeholder="Description"
+                                   onChange={(event => {
+                                       setDescription(event.target.value);
+                                   })}
+                            /><br/>
+                        </InputWrapper>
+                    </FormTop>
+                    <SimpleMDE value={content} onChange={handleContentChange}/>
+                </FormWrapper>
+                <div className="buttons">
+                    <button id="submitButton"
+                            onClick={() => props.add(title, description, content, props.currentUser.userName,
+                                props.currentUser._id, props.currentUser.avatar)}><FormattedMessage id='Submit'/>
+                    </button>
+                </div>
+            </div>
+        </InputFormWrapper>
+    );
 };
 
 export default InputForm;

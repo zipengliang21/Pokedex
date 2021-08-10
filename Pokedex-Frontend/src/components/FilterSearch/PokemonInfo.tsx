@@ -120,92 +120,92 @@ const HeaderSubWrapper = styled.div`
 `;
 
 const PokemonInfo = (props: any) => {
-   const {pokemon, setPokemon} = usePokemonList();
+    const {pokemon, setPokemon} = usePokemonList();
 
-   const init = async () => {
-      const data = await props.getPokemon(props.id);
-      setPokemon(data);
-   }
+    const init = async () => {
+        const data = await props.getPokemon(props.id);
+        setPokemon(data);
+    };
 
-   useEffect(() => {
-      init();
-   })
+    useEffect(() => {
+        init();
+    });
 
-   return pokemon? (
-       <InfoWrapper>
-         <ContentWrapper>
-            <HeaderWrapper>
-               <HeaderSubWrapper>
-                  <header>{pokemon.name}</header>
-               </HeaderSubWrapper>
-               <div className="pokeID">{`#` + pokemon.id}</div>
-            </HeaderWrapper>
-            <DataWrapper>
-               <ImageWrapper>
-                  <img src={pokemon.img}
-                       alt={`pikachu`}
-                       width={150}
-                       height={150}
-                  />
-                  <div>{pokemon.name}</div>
-                  {pokemon.type.map((pokeType:any, index:number) => {
-                      return <label key={index.toString()}><FormattedMessage id={`${pokeType}`}/></label>;
-                  })}
+    return pokemon ? (
+        <InfoWrapper>
+            <ContentWrapper>
+                <HeaderWrapper>
+                    <HeaderSubWrapper>
+                        <header>{pokemon.name}</header>
+                    </HeaderSubWrapper>
+                    <div className="pokeID">{`#` + pokemon.id}</div>
+                </HeaderWrapper>
+                <DataWrapper>
+                    <ImageWrapper>
+                        <img src={pokemon.img}
+                             alt={`pikachu`}
+                             width={150}
+                             height={150}
+                        />
+                        <div>{pokemon.name}</div>
+                        {pokemon.type.map((pokeType: any, index: number) => {
+                            return <label key={index.toString()}><FormattedMessage id={`${pokeType}`}/></label>;
+                        })}
 
-               </ImageWrapper>
-               <StatWrapper>
-                  <div className="InfoRow1">
-                      <FormattedMessage id="Normal_Ability"/>: {pokemon.misc.abilities.normal} <br/>
-                      <FormattedMessage id="Hidden_Ability"/>: {pokemon.misc.abilities.hidden} <br/>
-                     <div className="bodySize">
-                        <span><FormattedMessage id="Height"/>: {pokemon.misc.height} </span>
-                        <span><FormattedMessage id="Weight"/>: {pokemon.misc.weight} <br/></span>
-                     </div>
-                  </div>
-                  <div className="InfoRow2">
-                      <FormattedMessage id="Stat"/>:
-                     <ul className="InfoRow2Data">
-                        <div >
-                           <li>
+                    </ImageWrapper>
+                    <StatWrapper>
+                        <div className="InfoRow1">
+                            <FormattedMessage id="Normal_Ability"/>: {pokemon.misc.abilities.normal} <br/>
+                            <FormattedMessage id="Hidden_Ability"/>: {pokemon.misc.abilities.hidden} <br/>
+                            <div className="bodySize">
+                                <span><FormattedMessage id="Height"/>: {pokemon.misc.height} </span>
+                                <span><FormattedMessage id="Weight"/>: {pokemon.misc.weight} <br/></span>
+                            </div>
+                        </div>
+                        <div className="InfoRow2">
+                            <FormattedMessage id="Stat"/>:
+                            <ul className="InfoRow2Data">
+                                <div>
+                                    <li>
                             <span><FormattedMessage id="Hp"/>:
-                               {pokemon.stats.hp}
+                                {pokemon.stats.hp}
                             </span>
-                           </li>
-                           <li>
+                                    </li>
+                                    <li>
                             <span><FormattedMessage id="Sp_Attack"/>:
-                               {pokemon.stats.spattack}
+                                {pokemon.stats.spattack}
                             </span>
-                           </li>
-                           <li>
+                                    </li>
+                                    <li>
                             <span><FormattedMessage id="Sp_Def"/>:
-                               {pokemon.stats.defense}
+                                {pokemon.stats.defense}
                             </span>
-                           </li>
-                        </div>
-                        <div className="BaseStat">
-                           <li>
+                                    </li>
+                                </div>
+                                <div className="BaseStat">
+                                    <li>
                             <span><FormattedMessage id="Attack"/>:
-                               {pokemon.stats.attack}
+                                {pokemon.stats.attack}
                             </span>
-                           </li>
-                           <li>
+                                    </li>
+                                    <li>
                             <span><FormattedMessage id="Sp_Defense"/>:
-                               {pokemon.stats.spdefense}
+                                {pokemon.stats.spdefense}
                             </span>
-                           </li>
-                           <li>
+                                    </li>
+                                    <li>
                             <span><FormattedMessage id="Speed"/>:
-                               {pokemon.stats.speed}
+                                {pokemon.stats.speed}
                             </span>
-                           </li>
+                                    </li>
+                                </div>
+                            </ul>
                         </div>
-                     </ul>
-                  </div>
-               </StatWrapper>
-            </DataWrapper>
-         </ContentWrapper>
-       </InfoWrapper>
-   ): <Spinner/>;
+                    </StatWrapper>
+                </DataWrapper>
+            </ContentWrapper>
+        </InfoWrapper>
+    ) : <Spinner/>;
 };
 
 export default PokemonInfo;

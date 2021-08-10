@@ -1,4 +1,4 @@
-import login from './login';
+import login from "./login";
 import register from "./register";
 import getCurrentUser from "./getCurrentUser";
 import logout from "./logout";

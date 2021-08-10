@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import {Request, Response} from "express";
 import {ServerError} from "../../util/util";
 import {IUser, User, UserDocument} from "../../models/user";
 import {sendToken} from "../../middleware/auth";
@@ -48,7 +48,7 @@ export default async (req: Request, res: Response): Promise<void> => {
             });
         }
 
-        userExist = await User.findOne({ email: email });
+        userExist = await User.findOne({email: email});
         if (userExist) {
             throw new ServerError({
                 message: "User Already Exist.",
@@ -91,19 +91,19 @@ export default async (req: Request, res: Response): Promise<void> => {
         };
 
         await new User(userInfo).save();
-        const newUser: UserDocument = await User.findOne({ email: email });
+        const newUser: UserDocument = await User.findOne({email: email});
         sendToken({
-            origin: req.get('Origin'),
+            origin: req.get("Origin"),
             user: newUser,
             statusCode: 201,
             res: res,
         });
-    }catch (err) {
+    } catch (err) {
         if (err instanceof ServerError) {
             res.status(err.statusCode).send(err.message);
         } else {
             res.status(500).send("Unexpected error.");
         }
-}
+    }
 
 }

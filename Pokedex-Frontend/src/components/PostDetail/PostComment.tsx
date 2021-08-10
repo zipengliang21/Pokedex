@@ -71,21 +71,21 @@ const Content = styled.div`
 
 const PostComment = (props: any) => {
 
-   return (
-       <InfoWrapper>
-          <DateWrapper>
-             <span>{moment(props.comment.date).format('YYYY-MM-DD HH:mm:ss')}</span>
-             <span>#{props.id+2}</span>
-          </DateWrapper>
-          <ContentWrapper>
-             <UserWrapper>
-                <img src={props.comment.avatar} alt="logo" className="logo" width={100} height = {100}/>
-                <div className="userName">{props.comment.userName}</div>
-             </UserWrapper>
-             <Content>{props.comment.content}</Content>
-          </ContentWrapper>
-       </InfoWrapper>
-   );
+    return (
+        <InfoWrapper>
+            <DateWrapper>
+                <span>{moment(props.comment.date).format("YYYY-MM-DD HH:mm:ss")}</span>
+                <span>#{props.id + 2}</span>
+            </DateWrapper>
+            <ContentWrapper>
+                <UserWrapper>
+                    <img src={props.comment.avatar} alt="logo" className="logo" width={100} height={100}/>
+                    <div className="userName">{props.comment.userName}</div>
+                </UserWrapper>
+                <Content>{props.comment.content}</Content>
+            </ContentWrapper>
+        </InfoWrapper>
+    );
 };
 
 export default PostComment;

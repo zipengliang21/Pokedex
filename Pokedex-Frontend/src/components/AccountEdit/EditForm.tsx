@@ -84,7 +84,7 @@ const EditForm = (props: any) => {
             password: password,
         };
         if (validateForm(reqBody)) {
-            swal(`${intl.formatMessage({id: "Update_Successfully"})}`, "", "success")
+            swal(`${intl.formatMessage({id: "Update_Successfully"})}`, "", "success");
             await Axios.post("/api/profile/edit", reqBody);
         }
 
@@ -96,7 +96,7 @@ const EditForm = (props: any) => {
                 await props.updateUserComment(props.currentUser._id, response.userName, response.avatar);
             }
         } else {
-            cookieChecker.remove('jwt');
+            cookieChecker.remove("jwt");
         }
         clearPwdField();
     };
@@ -185,19 +185,19 @@ const EditForm = (props: any) => {
                            })} value={cPassword}/>
                 </FormEntry>
             </form>
-                <button type="submit" style={{
-                    display:"block",
-                    margin: "10px auto",
-                    width: "106px",
-                    height: "34px",
-                    font: "inherit",
-                    backgroundColor: "#3F51B5",
-                    color: "white",
-                    borderRadius: "5px",
-                    border: 0,
-                    cursor: "pointer",
-                }} onClick={() => handleSubmit()}>
-                    <FontAwesomeIcon icon={faEdit} className="edit"/> <FormattedMessage id='Update'/></button>
+            <button type="submit" style={{
+                display: "block",
+                margin: "10px auto",
+                width: "106px",
+                height: "34px",
+                font: "inherit",
+                backgroundColor: "#3F51B5",
+                color: "white",
+                borderRadius: "5px",
+                border: 0,
+                cursor: "pointer",
+            }} onClick={() => handleSubmit()}>
+                <FontAwesomeIcon icon={faEdit} className="edit"/> <FormattedMessage id='Update'/></button>
 
         </FormWrapper>
 

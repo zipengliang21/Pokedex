@@ -29,13 +29,13 @@ const LoginHeaderWrapper = styled.div`
 `;
 
 function LoginHeader() {
-   return (
-       <LoginHeaderWrapper>
-          <div className="title">
-              <FormattedMessage id='Edit_Pokemon'/>
-          </div>
-       </LoginHeaderWrapper>
-   );
+    return (
+        <LoginHeaderWrapper>
+            <div className="title">
+                <FormattedMessage id='Edit_Pokemon'/>
+            </div>
+        </LoginHeaderWrapper>
+    );
 }
 
 

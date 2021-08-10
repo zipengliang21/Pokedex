@@ -1,8 +1,8 @@
-import mongoose from 'mongoose';
-import validator from 'validator';
-import bcrypt from 'bcrypt';
+import mongoose from "mongoose";
+import validator from "validator";
+import bcrypt from "bcrypt";
 
-import db from '../mongodb.config';
+import db from "../mongodb.config";
 
 const instance = db.instance;
 
@@ -23,39 +23,39 @@ export interface IUser {
 export type UserDocument = mongoose.Document & IUser;
 
 const userSchema = new instance.Schema({
-    userName: { type: String, required: [true, 'User must have a name. '] },
-    phone: { type: String, default: '' },
+    userName: {type: String, required: [true, "User must have a name. "]},
+    phone: {type: String, default: ""},
     email: {
         type: String,
         unique: true,
-        required: [true, 'User must have an email address.'],
-        validate: [validator.isEmail, 'Please provide a valid email'],
+        required: [true, "User must have an email address."],
+        validate: [validator.isEmail, "Please provide a valid email"],
     },
-    description: { type: String, default: 'no description' },
+    description: {type: String, default: "no description"},
     avatar: {
         type: String,
         default: "https://3.bp.blogspot.com/-fZ-FTGBT_OI/V87me3nL3PI/AAAAAAAAAkQ/" +
             "ornK37y9NRgbYhQB1sjANbXUX2HxrISbgCK4B/s1600/068_Machamp.png",
     },
-    location: { type: String, default: 'Canada' },
+    location: {type: String, default: "Canada"},
     password: {
         type: String,
-        required: [true, 'User must have a password'],
+        required: [true, "User must have a password"],
     },
-    isAdmin:{ type: Boolean, default: false },
-    createdOn: { type: Date, default: Date.now },
-    updatedOn: { type: Date, default: Date.now },
-}, { collection: "profile"});
+    isAdmin: {type: Boolean, default: false},
+    createdOn: {type: Date, default: Date.now},
+    updatedOn: {type: Date, default: Date.now},
+}, {collection: "profile"});
 
 
 // Hash the plain text password before saving
-userSchema.pre<UserDocument>('save', async function (next) {
-    const user = this
+userSchema.pre<UserDocument>("save", async function (next) {
+    const user = this;
 
-    if (user.isModified('password')) {
-        user.password = await bcrypt.hash(user.password, 8)
+    if (user.isModified("password")) {
+        user.password = await bcrypt.hash(user.password, 8);
     }
-    next()
-})
+    next();
+});
 
-export const User = instance.model<UserDocument>('User', userSchema);
+export const User = instance.model<UserDocument>("User", userSchema);

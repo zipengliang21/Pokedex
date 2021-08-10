@@ -87,60 +87,60 @@ const GroupWrapper = styled.div`
 `;
 
 const WelcomePage = ({pokemonList}: any) => {
-   const [offset, setOffset] = useState(0);
-   const intl = useIntl();
-   const handlePageClick = (e: any) => {
-      const selectedPage = e.selected;
-      setOffset(selectedPage);
-   };
-   let data = <Spinner/>;
-   if (pokemonList.length !== 0) {
-      data = <div>
-         <PokemonWrapper>
-            <GroupWrapper>
-               {pokemonList.slice(offset * 16, offset * 16 + 4).map((pokemon: any) => {
-                  return <Fade left key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon._id}/></Fade>;
-               })}
-            </GroupWrapper>
-            <GroupWrapper>
-               {pokemonList.slice(offset * 16 + 4, offset * 16 + 8).map((pokemon: any) => {
-                  return <Fade right key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon._id}/></Fade>;
-               })}
-            </GroupWrapper>
-            <GroupWrapper>
-               {pokemonList.slice(offset * 16 + 8, offset * 16 + 12).map((pokemon: any) => {
-                  return <Fade left key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon._id}/></Fade>;
-               })}
-            </GroupWrapper>
-            <GroupWrapper>
-               {pokemonList.slice(offset * 16 + 12, offset * 16 + 16).map((pokemon: any) => {
-                  return <Fade right key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon._id}/></Fade>;
-               })}
-            </GroupWrapper>
-         </PokemonWrapper>
-         <Fade bottom>
-            <PaginationWrapper>
-               <ReactPaginate containerClassName="pagination"
-                              marginPagesDisplayed={2}
-                              pageCount={Math.ceil(pokemonList.length/16)}
-                              pageRangeDisplayed={2}
-                              activeClassName={"active"}
-                              previousLabel={intl.formatMessage({id: "PrevPage"})}
-                              nextLabel={intl.formatMessage({id: "NextPage"})}
-                              previousClassName="previous"
-                              nextClassName="next"
-                              onPageChange={handlePageClick}/>
-            </PaginationWrapper>
-         </Fade>
-      </div>;
-   }
+    const [offset, setOffset] = useState(0);
+    const intl = useIntl();
+    const handlePageClick = (e: any) => {
+        const selectedPage = e.selected;
+        setOffset(selectedPage);
+    };
+    let data = <Spinner/>;
+    if (pokemonList.length !== 0) {
+        data = <div>
+            <PokemonWrapper>
+                <GroupWrapper>
+                    {pokemonList.slice(offset * 16, offset * 16 + 4).map((pokemon: any) => {
+                        return <Fade left key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon._id}/></Fade>;
+                    })}
+                </GroupWrapper>
+                <GroupWrapper>
+                    {pokemonList.slice(offset * 16 + 4, offset * 16 + 8).map((pokemon: any) => {
+                        return <Fade right key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon._id}/></Fade>;
+                    })}
+                </GroupWrapper>
+                <GroupWrapper>
+                    {pokemonList.slice(offset * 16 + 8, offset * 16 + 12).map((pokemon: any) => {
+                        return <Fade left key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon._id}/></Fade>;
+                    })}
+                </GroupWrapper>
+                <GroupWrapper>
+                    {pokemonList.slice(offset * 16 + 12, offset * 16 + 16).map((pokemon: any) => {
+                        return <Fade right key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon._id}/></Fade>;
+                    })}
+                </GroupWrapper>
+            </PokemonWrapper>
+            <Fade bottom>
+                <PaginationWrapper>
+                    <ReactPaginate containerClassName="pagination"
+                                   marginPagesDisplayed={2}
+                                   pageCount={Math.ceil(pokemonList.length / 16)}
+                                   pageRangeDisplayed={2}
+                                   activeClassName={"active"}
+                                   previousLabel={intl.formatMessage({id: "PrevPage"})}
+                                   nextLabel={intl.formatMessage({id: "NextPage"})}
+                                   previousClassName="previous"
+                                   nextClassName="next"
+                                   onPageChange={handlePageClick}/>
+                </PaginationWrapper>
+            </Fade>
+        </div>;
+    }
 
-   return (
-          <Wrapper>
-             <SearchBar pokemonList = {pokemonList}/>
-             {data}
-          </Wrapper>
-   );
+    return (
+        <Wrapper>
+            <SearchBar pokemonList={pokemonList}/>
+            {data}
+        </Wrapper>
+    );
 };
 
 export default WelcomePage;
