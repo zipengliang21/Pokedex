@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import EditPokemon from "../components/AdminAdd/EditPokemon";
 import Button from "@material-ui/core/Button";
@@ -8,6 +8,7 @@ import Container from "@material-ui/core/Container";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import {usePokemonList} from "../hooks/usePokemonList";
 import {FormattedMessage} from "react-intl";
+import Spinner from "../components/Common/Spinner";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -113,7 +114,7 @@ const Warning = styled.div`
 `;
 
 const AdminAddPage = (props: any) => {
-    const {addPokemon, deletePokemon} =
+    const {addPokemon, deletePokemon, getPokemonList} =
         usePokemonList();
     const classes = useStyles();
     const [flag, setFlag] = React.useState(1);
@@ -130,8 +131,36 @@ const AdminAddPage = (props: any) => {
     const [baseDefence, setBaseDefence] = React.useState("");
     const [baseSpDefence, setBaseSpDefence] = React.useState("");
     const [baseSpeed, setBaseSpeed] = React.useState("");
+    const [isLoading, setIsLoading] = useState(false);
 
     const [open] = React.useState(false);
+
+    const handleAddPokemon = async () => {
+        setIsLoading(true);
+        await addPokemon(
+            name,
+            type,
+            ability,
+            hiddenAbility,
+            height,
+            weight,
+            baseHp,
+            baseAttack,
+            baseAttack,
+            baseSpDefence,
+            baseDefence,
+            baseSpeed
+        )
+        props.setPokemonList(await getPokemonList());
+        setIsLoading(false);
+    };
+
+    const handleDeletePokemon = async () => {
+        setIsLoading(true);
+        await deletePokemon(id, name);
+        props.setPokemonList(await getPokemonList());
+        setIsLoading(false);
+    };
 
     const handleChangeFlag = (event: any) => {
         const temp = event.currentTarget.id;
@@ -345,22 +374,7 @@ const AdminAddPage = (props: any) => {
                     </FormEntry>
                     <p>&nbsp;</p>
                     <Button
-                        onClick={() =>
-                            addPokemon(
-                                name,
-                                type,
-                                ability,
-                                hiddenAbility,
-                                height,
-                                weight,
-                                baseHp,
-                                baseAttack,
-                                baseAttack,
-                                baseSpDefence,
-                                baseDefence,
-                                baseSpeed
-                            )
-                        }
+                        onClick={() => handleAddPokemon()}
                         variant="contained"
                         color="primary"
                         size="small"
@@ -392,7 +406,7 @@ const AdminAddPage = (props: any) => {
                         <p>&nbsp;</p>
                     </FormEntry>
                     <Button
-                        onClick={() => deletePokemon(id, name)}
+                        onClick={() => handleDeletePokemon()}
                         variant="contained"
                         color="secondary"
                         size="small"
@@ -408,7 +422,7 @@ const AdminAddPage = (props: any) => {
             </Warning>
         );
 
-    return (
+    return isLoading ? <Spinner/> : (
         <Background>
             <Collapse in={open}/>
             <EditPokemon/>

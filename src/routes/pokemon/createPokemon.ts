@@ -48,7 +48,7 @@ export default async (req: Request, res: Response): Promise<void> => {
         });
         await pokemon.save();
 
-        const added = await Pokemon.findOne({id: id});
+        const added = await Pokemon.findOne({name: newPokemon.name});
         res.status(200).json({added});
 
     } catch (err) {
