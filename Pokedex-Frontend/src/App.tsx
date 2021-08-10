@@ -31,14 +31,14 @@ function App() {
     const {currentUser, setCurrentUser, getCurrentUser, logout} = useUser();
     const {pokemonList, getPokemon} = usePokemonList();
     const {addComment, updateUserComment} = useCommentList();
-    const {language, setLanguage} = useLanguage();
+    const {language, changeLanguage} = useLanguage();
 
     return (
         <I18nProvider locale={language}>
             <Auth setCurrentUser={setCurrentUser} getCurrentUser={getCurrentUser}>
                 <Background>
                     <Header currentUser={currentUser} setCurrentUser={setCurrentUser} logout={logout}
-                            language={language} setLanguage={setLanguage}/>
+                            language={language} changeLanguage={changeLanguage}/>
                     <NavBar/>
                     <Switch>
                         <Route exact path="/login">

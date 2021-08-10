@@ -4,6 +4,7 @@ import SimpleMDE from "react-simplemde-editor";
 import "easymde/dist/easymde.min.css";
 import {FormattedMessage} from "react-intl";
 import {useHistory} from "react-router";
+import Spinner from "../Common/Spinner";
 
 const InputFormWrapper = styled.div`
     display: flex;
@@ -83,16 +84,19 @@ const InputForm = (props: any) => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [content, setContent] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
     const history = useHistory();
     const handleContentChange = (value: string) => {
         setContent(value);
     };
     const addPost = async () => {
+        setIsLoading(true);
         await props.add(title, description, content, props.currentUser.userName,
             props.currentUser._id, props.currentUser.avatar);
+        setIsLoading(false);
         history.push("/forum");
     };
-    return (
+    return isLoading ? <Spinner/> : (
         <InputFormWrapper>
             <header><FormattedMessage id='NewPost'/></header>
             <div>

@@ -113,9 +113,9 @@ function Header(props: any) {
                 <FontAwesomeIcon icon="globe" className="language"/>
                 <div className="dropdown-content">
                     <a className="switch" href={window.location.href} id="chinese"
-                       onClick={() => props.setLanguage(LanguageEnum.Chinese)}>简体中文</a>
+                       onClick={() => props.changeLanguage(LanguageEnum.Chinese)}>简体中文</a>
                     <a className="switch" href={window.location.href}
-                       onClick={() => props.setLanguage(LanguageEnum.English)}>English</a>
+                       onClick={() => props.changeLanguage(LanguageEnum.English)}>English</a>
                 </div>
             </Wrapper>
             {value}

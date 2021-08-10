@@ -3,6 +3,7 @@ import styled from "styled-components";
 import moment from "moment";
 import {useHistory} from "react-router";
 import {FormattedMessage} from "react-intl";
+import Spinner from "../Common/Spinner";
 
 const InfoWrapper = styled.div`
   width: 750px;
@@ -100,7 +101,9 @@ const PostDetails = (props: any) => {
 
 
     const deleteThisPost = async () => {
+        props.setIsLoading(true);
         await props.deletePost(props.rootPost._id);
+        props.setIsLoading(false);
         history.push("/forum");
     };
 

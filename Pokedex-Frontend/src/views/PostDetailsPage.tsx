@@ -7,6 +7,7 @@ import PostComment from "components/PostDetail/PostComment";
 import PostNewComment from "components/PostDetail/PostNewComment";
 import {useCommentList} from "../hooks/useCommentList";
 import {usePostList} from "../hooks/usePostList";
+import Spinner from "../components/Common/Spinner";
 
 const Wrapper = styled.div`
   width: 850px;
@@ -54,7 +55,7 @@ function PostDetailsPage(props: any) {
     const {filteredComment, setFilteredComment, getCommentForPost} = useCommentList();
     const {getPost, deletePost} = usePostList();
     const [post, setPost] = useState({postID: "", _id: ""});
-
+    const [isLoading, setIsLoading] = useState(false);
 
     const init = async () => {
         const pickPost = await getPost(props._id);
@@ -66,7 +67,7 @@ function PostDetailsPage(props: any) {
     useEffect(() => {
         init();
     }, []);
-    return (
+    return isLoading ? <Spinner/> : (
         <Wrapper>
             <ForumHeader/>
             <ForumWrapper>
@@ -75,6 +76,8 @@ function PostDetailsPage(props: any) {
                     <PostDetails rootPost={post}
                                  deletePost={deletePost}
                                  currentUser={props.currentUser}
+                                 isLoading={isLoading}
+                                 setIsLoading={setIsLoading}
                     />
                     {filteredComment.map((comment: any, index: number) => {
                         return (

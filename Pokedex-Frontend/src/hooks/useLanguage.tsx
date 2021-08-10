@@ -25,8 +25,12 @@ export const useLanguage = () => {
         if (initialLanguage) setLanguage(initialLanguage);
     }, []);
 
+    const changeLanguage = async (language: string) => {
+        window.localStorage.setItem("language", language);
+        setLanguage(language);
+    }
 
-    return {language, setLanguage};
+    return {language, changeLanguage};
 };
 
 export interface Language {
