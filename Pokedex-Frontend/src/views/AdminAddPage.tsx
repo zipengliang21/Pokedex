@@ -151,15 +151,15 @@ const AdminAddPage = (props: any) => {
             baseDefence,
             baseSpeed
         )
-        props.setPokemonList(await getPokemonList());
         setIsLoading(false);
+        props.setPokemonList(await getPokemonList());
     };
 
     const handleDeletePokemon = async () => {
         setIsLoading(true);
         await deletePokemon(id, name);
-        props.setPokemonList(await getPokemonList());
         setIsLoading(false);
+        props.setPokemonList(await getPokemonList());
     };
 
     const handleChangeFlag = (event: any) => {
