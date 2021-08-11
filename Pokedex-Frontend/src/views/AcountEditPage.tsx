@@ -140,11 +140,6 @@ function AccountEditPage(props: any) {
     const {updateUserPost} = usePostList();
     const intl = useIntl();
 
-    const getProfile = async (_id: string) => {
-        const response = await Axios.get(`/api/profile/${_id}`);
-        return response.data.profile[0];
-    };
-
     useEffect(() => {
         async function initialSet() {
             if (props.currentUser !== undefined && props.currentUser !== null) {
@@ -161,15 +156,18 @@ function AccountEditPage(props: any) {
     };
     const handleChangeAvatar = async () => {
         const reqBody = {avatar: avatar, userId: props.currentUser._id};
-        await Axios.post(`/api/profile/avatar`, reqBody);
-        const profile = await getProfile(props.currentUser._id);
-        setAvatarGet(profile.avatar);
-        swal(`${intl.formatMessage({id: "Login_Successfully"})}`, "", "success");
+        try {
+            await Axios.post(`/api/profile/avatar`, reqBody);
+            swal(`${intl.formatMessage({id: "Update_Successfully"})}`, "", "success");
+        }catch (err) {
+            swal(`${intl.formatMessage({id: "Update_Failed"})}`, "", "warning");
+        }
         const response = await props.getCurrentUser();
         if (response) {
+            setAvatarGet(response.avatar);
             props.setCurrentUser(response);
-            await updateUserPost(props.currentUser._id, props.currentUser.userName, profile.avatar);
-            await props.updateUserComment(props.currentUser._id, props.currentUser.userName, profile.avatar);
+            await updateUserPost(props.currentUser._id, props.currentUser.userName, response.avatar);
+            await props.updateUserComment(props.currentUser._id, props.currentUser.userName, response.avatar);
         } else {
             cookieChecker.remove("jwt");
         }

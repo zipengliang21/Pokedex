@@ -81,6 +81,7 @@ const English = {
         "Login_Successfully": "Login Successfully!",
         "Register_Successfully": "Register Successfully!",
         "Update_Successfully": "Update Successfully!",
+        "Update_Failed": "Update Failed!",
         "Add_Pokemon_Successfully": "Add Pokemon Successfully!",
         "Add_Pokemon_Failed": "Add Pokemon Failed!",
         "Delete_Pokemon_Successfully": "Delete Pokemon Successfully!",

@@ -81,6 +81,7 @@ const Chinese = {
         "Login_Successfully": "登录成功!",
         "Register_Successfully": "注册成功!",
         "Update_Successfully": "更新成功!",
+        "Update_Failed": "更新失败!",
         "Add_Pokemon_Successfully": "添加宝可梦成功!",
         "Add_Pokemon_Failed": "添加宝可梦失败!",
         "Delete_Pokemon_Successfully": "删除宝可梦成功!",

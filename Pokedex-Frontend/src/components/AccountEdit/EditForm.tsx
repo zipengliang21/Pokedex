@@ -84,8 +84,12 @@ const EditForm = (props: any) => {
             password: password,
         };
         if (validateForm(reqBody)) {
-            swal(`${intl.formatMessage({id: "Update_Successfully"})}`, "", "success");
-            await Axios.post("/api/profile/edit", reqBody);
+            try {
+                await Axios.post("/api/profile/edit", reqBody);
+                swal(`${intl.formatMessage({id: "Update_Successfully"})}`, "", "success");
+            }catch (err) {
+                swal(`${intl.formatMessage({id: "Update_Failed"})}`, "", "warning");
+            }
         }
 
         const response = await props.getCurrentUser();
