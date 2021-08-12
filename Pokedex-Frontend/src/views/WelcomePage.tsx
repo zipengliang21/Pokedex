@@ -108,7 +108,7 @@ const WelcomePage = (props: any) => {
         console.log(offset);
     };
     let data = <Spinner/>;
-    if (currentPageList.length !== 0 && props.pokemonList.length !== 0) {
+    if (currentPageList.length !== 0 && props.pokemonList.length !== 0 && !isLoading) {
         data = <div>
             <PokemonWrapper>
                 <GroupWrapper>
@@ -150,7 +150,7 @@ const WelcomePage = (props: any) => {
         </div>;
     }
 
-    return isLoading ? <Spinner/> : (
+    return (
         <Wrapper>
             <SearchBar pokemonList={props.pokemonList}/>
             {data}
