@@ -79,6 +79,26 @@ const usePokemonList = () => {
         return response.data.pokemonList;
     };
 
-    return {pokemonList, setPokemonList, pokemon, setPokemon, deletePokemon, addPokemon, getPokemon, getPokemonList};
+    const getCurrentPageList = async (page: number) => {
+        const response = await axios.get(`/api/pokemons/pages/${page}`);
+        return response.data.pokemonList;
+    };
+
+    const getCount = async () => {
+        return pokemonList.length;
+    };
+
+    return {
+        pokemonList,
+        setPokemonList,
+        pokemon,
+        setPokemon,
+        deletePokemon,
+        addPokemon,
+        getPokemon,
+        getPokemonList,
+        getCurrentPageList,
+        getCount
+    };
 };
 export {usePokemonList};

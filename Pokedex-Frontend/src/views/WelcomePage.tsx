@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 import SearchBar from "../components/Common/SearchBar";
 import Pokemon from "../components/DetailedView/Pokemon";
@@ -86,34 +86,48 @@ const GroupWrapper = styled.div`
     }
 `;
 
-const WelcomePage = ({pokemonList}: any) => {
+const WelcomePage = (props: any) => {
     const [offset, setOffset] = useState(0);
+    const [isLoading, setIsLoading] = useState(false);
+    const [currentPageList, setCurrentPageList] = useState<any>([]);
     const intl = useIntl();
-    const handlePageClick = (e: any) => {
+
+    const loading = async () => {
+        setIsLoading(true);
+        setCurrentPageList(await props.getCurrentPageList(offset));
+        setIsLoading(false);
+    };
+
+    useEffect(() => {
+        loading();
+    }, [offset]);
+
+    const handlePageClick = async (e: any) => {
         const selectedPage = e.selected;
         setOffset(selectedPage);
+        console.log(offset);
     };
     let data = <Spinner/>;
-    if (pokemonList.length !== 0) {
+    if (currentPageList.length !== 0 && props.pokemonList.length !== 0) {
         data = <div>
             <PokemonWrapper>
                 <GroupWrapper>
-                    {pokemonList.slice(offset * 16, offset * 16 + 4).map((pokemon: any) => {
+                    {currentPageList.slice(0, 4).map((pokemon: any) => {
                         return <Fade left key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon._id}/></Fade>;
                     })}
                 </GroupWrapper>
                 <GroupWrapper>
-                    {pokemonList.slice(offset * 16 + 4, offset * 16 + 8).map((pokemon: any) => {
+                    {currentPageList.slice(4, 8).map((pokemon: any) => {
                         return <Fade right key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon._id}/></Fade>;
                     })}
                 </GroupWrapper>
                 <GroupWrapper>
-                    {pokemonList.slice(offset * 16 + 8, offset * 16 + 12).map((pokemon: any) => {
+                    {currentPageList.slice(8, 12).map((pokemon: any) => {
                         return <Fade left key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon._id}/></Fade>;
                     })}
                 </GroupWrapper>
                 <GroupWrapper>
-                    {pokemonList.slice(offset * 16 + 12, offset * 16 + 16).map((pokemon: any) => {
+                    {currentPageList.slice(12, 16).map((pokemon: any) => {
                         return <Fade right key={pokemon.name}><Pokemon pokemon={pokemon} id={pokemon._id}/></Fade>;
                     })}
                 </GroupWrapper>
@@ -122,22 +136,23 @@ const WelcomePage = ({pokemonList}: any) => {
                 <PaginationWrapper>
                     <ReactPaginate containerClassName="pagination"
                                    marginPagesDisplayed={2}
-                                   pageCount={Math.ceil(pokemonList.length / 16)}
+                                   pageCount={Math.ceil(props.pokemonList.length / 16)}
                                    pageRangeDisplayed={2}
                                    activeClassName={"active"}
                                    previousLabel={intl.formatMessage({id: "PrevPage"})}
                                    nextLabel={intl.formatMessage({id: "NextPage"})}
                                    previousClassName="previous"
                                    nextClassName="next"
-                                   onPageChange={handlePageClick}/>
+                                   onPageChange={handlePageClick}
+                                   forcePage={offset}/>
                 </PaginationWrapper>
             </Fade>
         </div>;
     }
 
-    return (
+    return isLoading ? <Spinner/> : (
         <Wrapper>
-            <SearchBar pokemonList={pokemonList}/>
+            <SearchBar pokemonList={props.pokemonList}/>
             {data}
         </Wrapper>
     );

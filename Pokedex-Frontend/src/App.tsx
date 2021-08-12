@@ -29,7 +29,7 @@ const Background = styled.div`
 
 function App() {
     const {currentUser, setCurrentUser, getCurrentUser, logout} = useUser();
-    const {pokemonList,setPokemonList, getPokemon} = usePokemonList();
+    const {pokemonList, setPokemonList, getPokemon, getCount, getCurrentPageList} = usePokemonList();
     const {addComment, updateUserComment} = useCommentList();
     const {language, changeLanguage} = useLanguage();
 
@@ -45,7 +45,8 @@ function App() {
                             <LoginPage currentUser={currentUser} setCurrentUser={setCurrentUser}/>
                         </Route>
                         <Route exact path="/">
-                            <WelcomePage pokemonList={pokemonList} currentUser={currentUser}/>
+                            <WelcomePage pokemonList={pokemonList} getCurrentPageList={getCurrentPageList}
+                                         getCount={getCount} currentUser={currentUser}/>
                         </Route>
                         <Route exact path="/profile">
                             <AccountEditPage currentUser={currentUser}
@@ -57,7 +58,7 @@ function App() {
                         <Route exact path="/admin/add">
                             <AdminAddPage currentUser={currentUser}
                                           pokemonList={pokemonList}
-                                          setPokemonList = {setPokemonList} />
+                                          setPokemonList={setPokemonList}/>
                         </Route>
                         <Route exact path="/filterSearch">
                             <FilterSearchPage pokemonList={pokemonList} currentUser={currentUser}/>
