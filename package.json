@@ -49,7 +49,7 @@
   },
   "scripts": {
     "start": "npm run start-prod",
-    "start-prod": "nodemon ./src/index.ts",
+    "start-prod": "ts-node nodemon ./src/index.ts",
     "start-dev": "env-cmd -f ./config/dev.env nodemon ./src/index.ts",
     "build": "tsc",
     "heroku-postbuild": "cd Pokedex-Frontend && npm install && CI='' npm run build"
